@@ -274,26 +274,9 @@ void gui::Render(string editor) noexcept
 
 	ImGui::Text("                                                                            THE GLOBALS EDITOR                  ");
 	ImGui::Text("");
-	/*
-	static const char* fileToEdit = "globals-editor/main.cpp";
-	if (ImGui::Button("Show File"))
-	{
-		std::ifstream t(fileToEdit);
-		std::cout << t.good();
 
-		if (t.good())
-		{
-			std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
 
-			a = str;
-			std::cout << str;
-			std::cout << "fff";
-		}
-	}
-
-	const char* editor_ptr = a.c_str();
-	ImGui::Text((const char*)editor_ptr);
-	*/
+	ImGui::BeginChild("left2 pane", ImVec2(400, 0), true);
 
 	if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
 	{
@@ -395,6 +378,43 @@ void gui::Render(string editor) noexcept
 		}
 
 	}
+
+	ImGui::EndChild();
+
+	ImGui::SameLine();
+
+	ImGui::BeginChild("left pane", ImVec2(100, 0), true);
+	ImGui::Text("dfdf");
+	ImGui::Text("dffffdf");
+	ImGui::Text("dfaasddf");
+	ImGui::EndChild();
+
+	ImGui::SameLine();
+
+	ImGui::BeginChild("text pane", ImVec2(200, 0), true);
+
+
+	static const char* fileToEdit = "globals-editor/main.cpp";
+	if (ImGui::Button("Show File"))
+	{
+		std::ifstream t(fileToEdit);
+		std::cout << t.good();
+
+		if (t.good())
+		{
+			std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+
+			a = str;
+			std::cout << str;
+			std::cout << "fff";
+		}
+	}
+
+	const char* editor_ptr = a.c_str();
+	ImGui::Text((const char*)editor_ptr);
+
+
+	ImGui::EndChild();
 
 
 	ImGui::Text("");
