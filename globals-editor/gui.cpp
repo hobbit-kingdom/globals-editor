@@ -250,6 +250,10 @@ void gui::EndRender() noexcept
 		ResetDevice();
 }
 
+bool actions = true;
+bool triggers = false;
+bool links = false;
+
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 
@@ -266,11 +270,11 @@ void gui::Render(string editor) noexcept
 		ImGuiWindowFlags_NoMove
 	);
 
+	ImGui::ShowDemoWindow();
+
 	ImGui::Text("                                                                            THE GLOBALS EDITOR                  ");
 	ImGui::Text("");
-
-
-
+	/*
 	static const char* fileToEdit = "globals-editor/main.cpp";
 	if (ImGui::Button("Show File"))
 	{
@@ -289,16 +293,118 @@ void gui::Render(string editor) noexcept
 
 	const char* editor_ptr = a.c_str();
 	ImGui::Text((const char*)editor_ptr);
+	*/
+
+	if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
+	{
+		actions = true;
+		triggers = false;
+		links = false;
+	}
+
+	ImGui::SameLine();
+
+	if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Тригеры"))
+	{
+		actions = false;
+		triggers = true;
+		links = false;
+	}
+
+	ImGui::SameLine();
+
+	if (ImGui::Button(lang ? "Links" : (const char*)u8"Ссылки"))
+	{
+		actions = false;
+		triggers = false;
+		links = true;
+	}
+
+	ImGui::Text("");
+	ImGui::Text("");
+	ImGui::Text("");
+
+	if (actions)
+	{
+		const char* ActivityTypes[] = { "test activity" };
+		static int ActivityType = 0;
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+		ImGui::Combo(lang ? "Select Action type" : (const char*)u8"Выбрать вид Активности", &ActivityType, ActivityTypes, IM_ARRAYSIZE(ActivityTypes));
+
+		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
+		{
+
+		}
+		ImGui::Text("");
+
+		const char* ActionNames[] = { "action name" };
+		static int ActivityName = 0;
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+		ImGui::Combo(lang ? "Select Action" : (const char*)u8"Выбрать Активность", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
+		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
+		{
+
+		}
+
+	}
+
+	if (triggers)
+	{
+		const char* TriggerTypes[] = { "test Trigger" };
+		static int TriggerType = 0;
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+		ImGui::Combo(lang ? "Select Trigger type" : (const char*)u8"Выбрать вид триггера", &TriggerType, TriggerTypes, IM_ARRAYSIZE(TriggerTypes));
+
+		if (ImGui::Button(lang ? "Add Trigger" : (const char*)u8"Добавить триггер"))
+		{
+
+		}
+		ImGui::Text("");
+
+		const char* TriggerNames[] = { "Trigger name" };
+		static int TriggerName = 0;
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+		ImGui::Combo(lang ? "Select Trigger" : (const char*)u8"Выбрать Тригер", &TriggerName, TriggerNames, IM_ARRAYSIZE(TriggerNames));
+		if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить тригер"))
+		{
+
+		}
+
+	}
+
+	if (links)
+	{
+
+		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
+		{
+
+		}
+		ImGui::Text("");
+
+		const char* LinkNames[] = { "action name" };
+		static int LinkName = 0;
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+		ImGui::Combo(lang ? "Select Link" : (const char*)u8"Выбрать ссылку", &LinkName, LinkNames, IM_ARRAYSIZE(LinkNames));
+		if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"Изменить ссылку"))
+		{
+
+		}
+
+	}
+
+
+	ImGui::Text("");
+	ImGui::Text("");
+	ImGui::Text("");
+	ImGui::Text("");
+	ImGui::Text("");
+	ImGui::Text("");
 
 	if (ImGui::Button(!lang ? "Change Language" : (const char*)u8"Поменять язык")) lang = !lang;
-
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-
 
 	ImGui::Text(lang ? "Our links" : (const char*)u8"Наши ссылки");
 	ImGui::Separator();
