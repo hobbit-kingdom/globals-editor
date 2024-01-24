@@ -40,5 +40,5 @@ namespace gui
 
 	void BeginRender() noexcept;
 	void EndRender() noexcept;
-	void Render(std::string editor) noexcept;
+	void Render() noexcept;
 }

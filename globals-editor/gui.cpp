@@ -10,8 +10,11 @@
 #include <string>
 #include <chrono>
 #include <fstream>
+#include <vector>
+#include <map>
 
 #include "TextEditor.h"
+#include "ActivityTypeArray.h"
 
 using namespace std::chrono;
 using namespace std;
@@ -254,11 +257,62 @@ bool actions = true;
 bool triggers = false;
 bool links = false;
 
+bool actionsEdit = false;
+bool triggersEdit = false;
+bool linksEdit = false;
+
+bool open = false;
+
+
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 
-void gui::Render(string editor) noexcept
+
+
+
+std::vector<std::string> inputFields;
+
+void addInputField() {
+	inputFields.push_back("");
+}
+
+void matchInputFieldsSize(string type)
 {
+	inputFields.clear();
+	for (auto i : ActivityTypeArray[type])
+	{
+		inputFields.push_back("");
+	}
+}
+
+void removeInputField(int index) {
+	inputFields.erase(inputFields.begin() + index);
+}
+
+void drawInputFields(string type) {
+	for (int i = 0; i < inputFields.size(); i++) {
+		char buf[255]{};
+		strcpy_s(buf, inputFields[i].c_str());
+		ImGui::PushID(i);
+
+		ImGui::Text(ActivityTypeArray[type][i].c_str());
+
+
+		if (ImGui::InputText("", buf, sizeof(buf))) {
+			inputFields[i] = buf;
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Remove")) {
+			removeInputField(i);
+			i--;
+		}
+		ImGui::PopID();
+	}
+}
+
+void gui::Render() noexcept
+{
+
 	ImGui::SetNextWindowPos({ 0, 0 });
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
@@ -267,22 +321,37 @@ void gui::Render(string editor) noexcept
 		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoSavedSettings |
 		ImGuiWindowFlags_NoCollapse |
-		ImGuiWindowFlags_NoMove
+		ImGuiWindowFlags_NoMove |
+		ImGuiWindowFlags_MenuBar
 	);
 
-	ImGui::ShowDemoWindow();
+	if (ImGui::BeginMenuBar())
+	{
+		if (ImGui::BeginMenu("File"))
+		{
+			if (ImGui::MenuItem("Open")) open = true;
+			ImGui::EndMenu();
+		}
+		ImGui::EndMenuBar();
+	}
+
+	//ImGui::ShowDemoWindow();
 
 	ImGui::Text("                                                                            THE GLOBALS EDITOR                  ");
 	ImGui::Text("");
 
 
-	ImGui::BeginChild("left2 pane", ImVec2(400, 0), true);
+	ImGui::BeginChild("left2 pane", ImVec2(200, 0), true);
 
 	if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
 	{
 		actions = true;
 		triggers = false;
 		links = false;
+
+		actionsEdit = false;
+		triggersEdit = false;
+		linksEdit = false;
 	}
 
 	ImGui::SameLine();
@@ -292,6 +361,10 @@ void gui::Render(string editor) noexcept
 		actions = false;
 		triggers = true;
 		links = false;
+
+		actionsEdit = false;
+		triggersEdit = false;
+		linksEdit = false;
 	}
 
 	ImGui::SameLine();
@@ -301,6 +374,10 @@ void gui::Render(string editor) noexcept
 		actions = false;
 		triggers = false;
 		links = true;
+
+		actionsEdit = false;
+		triggersEdit = false;
+		linksEdit = false;
 	}
 
 	ImGui::Text("");
@@ -309,13 +386,13 @@ void gui::Render(string editor) noexcept
 
 	if (actions)
 	{
-		const char* ActivityTypes[] = { "test activity" };
-		static int ActivityType = 0;
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		ImGui::Combo(lang ? "Select Action type" : (const char*)u8"Выбрать вид Активности", &ActivityType, ActivityTypes, IM_ARRAYSIZE(ActivityTypes));
 
 		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
 		{
+			matchInputFieldsSize("1");
+			actionsEdit = true;
+			triggersEdit = false;
+			linksEdit = false;
 
 		}
 		ImGui::Text("");
@@ -327,7 +404,9 @@ void gui::Render(string editor) noexcept
 		ImGui::Combo(lang ? "Select Action" : (const char*)u8"Выбрать Активность", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
 		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
 		{
-
+			actionsEdit = true;
+			triggersEdit = false;
+			linksEdit = false;
 		}
 
 	}
@@ -357,7 +436,7 @@ void gui::Render(string editor) noexcept
 		}
 
 	}
-	//
+
 	if (links)
 	{
 
@@ -383,10 +462,45 @@ void gui::Render(string editor) noexcept
 
 	ImGui::SameLine();
 
-	ImGui::BeginChild("left pane", ImVec2(100, 0), true);
-	ImGui::Text("dfdf");
-	ImGui::Text("dffffdf");
-	ImGui::Text("dfaasddf");
+	ImGui::BeginChild("left pane", ImVec2(300, 0), true);
+	if (actionsEdit)
+	{
+		ImGui::Text("Action");
+
+		const char* actionsTypes[] = { "1", "2", "4" };
+		static int actionsTypeIndex = 0;
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+		if (ImGui::Combo(lang ? "Select Action Type1" : (const char*)u8"Выбрать Тип Активность", &actionsTypeIndex, actionsTypes, IM_ARRAYSIZE(actionsTypes)))
+		{
+			matchInputFieldsSize(actionsTypes[actionsTypeIndex]);
+		}
+
+
+		ImGui::Text(actionsTypes[actionsTypeIndex]);
+
+		drawInputFields(actionsTypes[actionsTypeIndex]);
+
+
+		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
+		{
+
+		}
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
+		{
+
+		}
+		if (ImGui::IsItemHovered())
+		{
+			ImGui::BeginTooltip();
+			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+			ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Заменяет активность на пустую");
+			ImGui::PopTextWrapPos();
+			ImGui::EndTooltip();
+		}
+
+	}
 	ImGui::EndChild();
 
 	ImGui::SameLine();
