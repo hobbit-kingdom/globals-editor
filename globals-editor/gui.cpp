@@ -1,5 +1,4 @@
 #include "gui.h"
-
 #include "../imgui/imgui.h"
 #include "../imgui/imgui_impl_dx9.h"
 #include "../imgui/imgui_impl_win32.h"
@@ -88,6 +87,14 @@ long __stdcall WindowProcess(
 	}
 
 	return DefWindowProc(window, message, wideParameter, longParameter);
+}
+void FileSelectionCallback(const char* result) {
+	// Получить выбранный файл
+	std::string selectedFile = result;
+
+	// Выполнить необходимые действия с выбранным файлом
+	// Например, вывести путь до файла на консоль
+	std::cout << "Выбранный файл: " << selectedFile << std::endl;
 }
 
 void gui::CreateHWindow(const char* windowName) noexcept
@@ -486,7 +493,7 @@ void gui::Render() noexcept
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 		ImGui::Combo("  ", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
 
-		const char* actionsTypes[] = { "1", "2", "4" };
+		const char* actionsTypes[] = { "1", "2", "4", "7"};
 		static int actionsTypeIndex = 0;
 
 		ImGui::Text("");
