@@ -357,7 +357,7 @@ void gui::Render(string editor) noexcept
 		}
 
 	}
-
+	//
 	if (links)
 	{
 
