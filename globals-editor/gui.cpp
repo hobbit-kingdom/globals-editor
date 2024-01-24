@@ -13,6 +13,7 @@
 
 #include "TextEditor.h"
 #include "ActivityTypeArray.h"
+#include "imguiFileBrowser.h"
 
 using namespace std::chrono;
 using namespace std;
@@ -267,7 +268,7 @@ bool actionsEdit = false;
 bool triggersEdit = false;
 bool linksEdit = false;
 
-bool open = false;
+
 
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
@@ -312,6 +313,10 @@ void drawInputFields(string type) {
 		ImGui::PopID();
 	}
 }
+
+imgui_addons::ImGuiFileBrowser file_dialog; // As a class member or globally
+string fileToEdit = "globals-editor/main.cpp";
+
 void gui::Render() noexcept
 {
 
@@ -326,17 +331,32 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoMove |
 		ImGuiWindowFlags_MenuBar
 	);
-
+	bool open = false, save = false;
 	if (ImGui::BeginMenuBar())
 	{
-		if (ImGui::BeginMenu("File"))
+		if (ImGui::BeginMenu("Menu"))
 		{
-			if (ImGui::MenuItem("Open")){ 
+			if (ImGui::MenuItem("Open", NULL))
 				open = true;
+			if (ImGui::MenuItem("Save", NULL))
+				save = true;
 
-			}
+			ImGui::EndMenu();
 		}
 		ImGui::EndMenuBar();
+	}
+
+	if (open)
+		ImGui::OpenPopup("Open File");
+	if (save)
+		ImGui::OpenPopup("Save File");
+
+	if (file_dialog.showFileDialog("Open File", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
+	{
+		std::cout << file_dialog.selected_fn << std::endl;      // The name of the selected file or directory in case of Select Directory dialog mode
+		std::cout << file_dialog.selected_path << std::endl;    // The absolute path to the selected file
+
+		fileToEdit = file_dialog.selected_path;
 	}
 
 	ImGui::ShowDemoWindow();
@@ -473,7 +493,7 @@ void gui::Render() noexcept
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 		ImGui::Combo("  ", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
 
-		const char* actionsTypes[] = { "1", "2", "4" };
+		const char* actionsTypes[] = { "1", "2", "4", "7"};
 		static int actionsTypeIndex = 0;
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -514,9 +534,14 @@ void gui::Render() noexcept
 	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
 
 
-	static const char* fileToEdit = "globals-editor/main.cpp";
+	static int test_type = 0;
+	static ImGuiTextBuffer log;
+	static int lines = 0;
+
 	if (ImGui::Button("Show File"))
 	{
+		fileToEdit = fileToEdit.c_str();
+
 		std::ifstream t(fileToEdit);
 		std::cout << t.good();
 
@@ -525,14 +550,14 @@ void gui::Render() noexcept
 			std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
 
 			a = str;
-			std::cout << str;
+			//std::cout << str;
 			std::cout << "fff";
+			log.clear();
+			log.appendf(a.c_str());
 		}
 	}
 
-	const char* editor_ptr = a.c_str();
-	ImGui::Text((const char*)editor_ptr);
-
+	ImGui::TextUnformatted(log.begin(), log.end());
 
 	ImGui::EndChild();
 
