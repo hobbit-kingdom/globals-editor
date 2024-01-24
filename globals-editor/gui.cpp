@@ -480,7 +480,7 @@ void gui::Render() noexcept
 		ImGui::Text("Action");
 		ImGui::SameLine();
 
-		const char* ActionNames[] = { "action name" };
+		const char* ActionNames[] = { "1", "2", "3" };
 		static int ActivityName = 0;
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -489,14 +489,15 @@ void gui::Render() noexcept
 		const char* actionsTypes[] = { "1", "2", "4" };
 		static int actionsTypeIndex = 0;
 
+		ImGui::Text("");
+
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 		if (ImGui::Combo(lang ? "Select Action Type1" : (const char*)u8"Выбрать Тип Активность", &actionsTypeIndex, actionsTypes, IM_ARRAYSIZE(actionsTypes)))
 		{
 			matchInputFieldsSize(actionsTypes[actionsTypeIndex]);
 		}
 
-
-		ImGui::Text(actionsTypes[actionsTypeIndex]);
+		ImGui::Text("");
 
 		drawInputFields(actionsTypes[actionsTypeIndex]);
 
@@ -581,6 +582,4 @@ void gui::Render() noexcept
 
 
 	ImGui::End();
-
-
 }
