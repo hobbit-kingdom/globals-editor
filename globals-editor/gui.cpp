@@ -1,6 +1,5 @@
 #include "gui.h"
 
-
 #include "../imgui/imgui.h"
 #include "../imgui/imgui_impl_dx9.h"
 #include "../imgui/imgui_impl_win32.h"
@@ -263,13 +262,8 @@ bool linksEdit = false;
 
 bool open = false;
 
-
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
-
-
-
-
 std::vector<std::string> inputFields;
 
 void addInputField() {
@@ -301,11 +295,13 @@ void drawInputFields(string type) {
 		if (ImGui::InputText("", buf, sizeof(buf))) {
 			inputFields[i] = buf;
 		}
+		/*
 		ImGui::SameLine();
 		if (ImGui::Button("Remove")) {
 			removeInputField(i);
 			i--;
 		}
+		*/
 		ImGui::PopID();
 	}
 }
@@ -335,7 +331,7 @@ void gui::Render() noexcept
 		ImGui::EndMenuBar();
 	}
 
-	//ImGui::ShowDemoWindow();
+	ImGui::ShowDemoWindow();
 
 	ImGui::Text("                                                                            THE GLOBALS EDITOR                  ");
 	ImGui::Text("");
@@ -354,7 +350,7 @@ void gui::Render() noexcept
 		linksEdit = false;
 	}
 
-	ImGui::SameLine();
+
 
 	if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Тригеры"))
 	{
@@ -367,7 +363,7 @@ void gui::Render() noexcept
 		linksEdit = false;
 	}
 
-	ImGui::SameLine();
+
 
 	if (ImGui::Button(lang ? "Links" : (const char*)u8"Ссылки"))
 	{
@@ -397,11 +393,6 @@ void gui::Render() noexcept
 		}
 		ImGui::Text("");
 
-		const char* ActionNames[] = { "action name" };
-		static int ActivityName = 0;
-
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		ImGui::Combo(lang ? "Select Action" : (const char*)u8"Выбрать Активность", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
 		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
 		{
 			actionsEdit = true;
@@ -462,10 +453,17 @@ void gui::Render() noexcept
 
 	ImGui::SameLine();
 
-	ImGui::BeginChild("left pane", ImVec2(300, 0), true);
+	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
 	if (actionsEdit)
 	{
 		ImGui::Text("Action");
+		ImGui::SameLine();
+
+		const char* ActionNames[] = { "action name" };
+		static int ActivityName = 0;
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+		ImGui::Combo("  ", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
 
 		const char* actionsTypes[] = { "1", "2", "4" };
 		static int actionsTypeIndex = 0;
@@ -505,7 +503,7 @@ void gui::Render() noexcept
 
 	ImGui::SameLine();
 
-	ImGui::BeginChild("text pane", ImVec2(200, 0), true);
+	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
 
 
 	static const char* fileToEdit = "globals-editor/main.cpp";

@@ -48,6 +48,12 @@
     <ClInclude Include="globals-editor\ActivityTypeArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="globals-editor\ImGuiFileBrowser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="globals-editor\Dirent\dirent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -81,6 +87,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="globals-editor\ActivityTypeArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="globals-editor\ImGuiFileBrowser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
