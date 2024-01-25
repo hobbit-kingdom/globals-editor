@@ -1,0 +1,1789 @@
+[ Globals : 1 ]
+ { GUID:s              BilboStartYaw:f BilboStartPos:fff                  FogColor:dddd   FogStart:f  FogEnd:f     FogEnabled:d LevelName:s     'Number of Quests:d' OpeningCinema:g   Ambient0:dddd Ambient1:dddd Ambient2:dddd Ambient3:dddd Ambient4:dddd Ambient5:dddd Ambient6:dddd Ambient7:dddd }
+   "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
+[ AIManager : 1 ]
+ { TriggerCount:d ActionCount:d LinkCount:d }
+   162            294           131         
+[ Trigger0 : 1 ]
+ { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
+   18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
+[ Trigger1 : 1 ]
+ { TriggerType1:d TriggerName1:s            Volume1:g         Character1:g      TriggersOnce1:d AllNPCs1:d StaysTrue1:d TriggeredOnTrue1:d }
+   3              "VOLUME: Turtle Trig Vol" CA3DD291_3101F400 ABCABCAB_CABCABC0 0               0          0            1                  
+[ Trigger2 : 1 ]
+ { TriggerType2:d TriggerName2:s               Trigger2:g        TriggerToggle2:d StaysTrue2:d TriggeredOnTrue2:d }
+   18             "Teleport: Take Me 2 BagEnd" CA3DDF12_B1857C01 1                0            1                  
+[ Trigger3 : 1 ]
+ { TriggerType3:d TriggerName3:s }
+   0              ""             
+[ Trigger4 : 1 ]
+ { TriggerType4:d TriggerName4:s    Volume4:g         Character4:g      TriggersOnce4:d AllNPCs4:d StaysTrue4:d TriggeredOnTrue4:d }
+   3              "Sneak Overlay 1" CA3DD38F_52B9B000 ABCABCAB_CABCABC0 1               0          0            1                  
+[ Trigger5 : 1 ]
+ { TriggerType5:d TriggerName5:s       Cinema5:g         TriggerOnce5:d StaysTrue5:d TriggeredOnTrue5:d }
+   19             "Sadoc Finish Found" CA3DDF4F_5C96F800 0              0            1                  
+[ Trigger6 : 1 ]
+ { TriggerType6:d TriggerName6:s     Volume6:g         Character6:g      TriggersOnce6:d AllNPCs6:d StaysTrue6:d TriggeredOnTrue6:d }
+   3              "Sadoc Enters Vol" CA3DD2CF_5C284400 CA3DD58F_5BD6DC00 1               0          0            1                  
+[ Trigger7 : 1 ]
+ { TriggerType7:d TriggerName7:s      Trigger7:g        TriggerToggle7:d StaysTrue7:d TriggeredOnTrue7:d }
+   18             "Raise Well Bucket" CA3DD2CF_AB759C00 1                0            1                  
+[ Trigger8 : 1 ]
+ { TriggerType8:d TriggerName8:s          QuestName8:s      StaysTrue8:d TriggeredOnTrue8:d }
+   24             "Quest: Wheat Complete" "K_ID_WHEAT_CH01" 1            1                  
+[ Trigger9 : 1 ]
+ { TriggerType9:d TriggerName9:s              QuestName9:s         StaysTrue9:d TriggeredOnTrue9:d }
+   24             "Quest: Tea Cakes Complete" "P_ID_TEACAKES_CH01" 1            1                  
+[ Trigger10 : 1 ]
+ { TriggerType10:d TriggerName10:s         QuestName10:s     StaysTrue10:d TriggeredOnTrue10:d }
+   24              "Quest: Sugar Complete" "I_ID_SUGAR_CH01" 1             1                   
+[ Trigger11 : 1 ]
+ { TriggerType11:d TriggerName11:s         QuestName11:s     StaysTrue11:d TriggeredOnTrue11:d }
+   24              "Quest: Spice Complete" "J_ID_SPICE_CH01" 1             1                   
+[ Trigger12 : 1 ]
+ { TriggerType12:d TriggerName12:s             QuestName12:s          StaysTrue12:d TriggeredOnTrue12:d }
+   24              "Quest: Scarecrow Complete" "R_ID_SCARECROWS_CH01" 1             1                   
+[ Trigger13 : 1 ]
+ { TriggerType13:d TriggerName13:s         QuestName13:s     StaysTrue13:d TriggeredOnTrue13:d }
+   24              "Quest: Flour Complete" "O_ID_FLOUR_CH01" 1             1                   
+[ Trigger14 : 1 ]
+ { TriggerType14:d TriggerName14:s        QuestName14:s    StaysTrue14:d TriggeredOnTrue14:d }
+   24              "Quest: Eggs Complete" "M_ID_EGGS_CH01" 1             1                   
+[ Trigger15 : 1 ]
+ { TriggerType15:d TriggerName15:s           QuestName15:s       StaysTrue15:d TriggeredOnTrue15:d }
+   24              "Quest: Berries Complete" "L_ID_BERRIES_CH01" 1             1                   
+[ Trigger16 : 1 ]
+ { TriggerType16:d TriggerName16:s         Volume16:g        Character16:g     TriggersOnce16:d AllNPCs16:d StaysTrue16:d TriggeredOnTrue16:d }
+   3               "Overlay: Silver Penny" CA3DD38F_5280E000 ABCABCAB_CABCABC0 1                0           0             1                   
+[ Trigger17 : 1 ]
+ { TriggerType17:d TriggerName17:s            Volume17:g        Character17:g     TriggersOnce17:d AllNPCs17:d StaysTrue17:d TriggeredOnTrue17:d }
+   3               "Overlay: Push Block Trig" CA3DD38F_5296E000 ABCABCAB_CABCABC0 1                0           0             1                   
+[ Trigger18 : 1 ]
+ { TriggerType18:d TriggerName18:s           Volume18:g        Character18:g     TriggersOnce18:d AllNPCs18:d StaysTrue18:d TriggeredOnTrue18:d }
+   3               "Overlay: Hoistable Trig" CA3DD38F_528F4400 ABCABCAB_CABCABC0 1                0           0             1                   
+[ Trigger19 : 1 ]
+ { TriggerType19:d TriggerName19:s              Volume19:g        Character19:g     TriggersOnce19:d AllNPCs19:d StaysTrue19:d TriggeredOnTrue19:d }
+   3               "Noisy Surface Overlay Trig" CA3DD38F_52C31C00 ABCABCAB_CABCABC0 1                0           0             1                   
+[ Trigger20 : 1 ]
+ { TriggerType20:d TriggerName20:s    Item20:s       Amount20:d StaysTrue20:d TriggeredOnTrue20:d }
+   9               "Music_VigorFound" "Vigor Health" 1          0             1                   
+[ Trigger21 : 1 ]
+ { TriggerType21:d TriggerName21:s             QuestName21:s          StaysTrue21:d TriggeredOnTrue21:d }
+   24              "Music_NeedleQuestComplete" "ID_NEEDLE_QUEST_CH01" 0             1                   
+[ Trigger22 : 1 ]
+ { TriggerType22:d TriggerName22:s  StaysTrue22:d TriggeredOnTrue22:d }
+   22              "KiddiesRunTrig" 0             1                   
+[ Trigger23 : 1 ]
+ { TriggerType23:d TriggerName23:s           Item23:s Amount23:d StaysTrue23:d TriggeredOnTrue23:d }
+   9               "Inventory:Bilbo Has Egg" "Egg"    3          1             1                   
+[ Trigger24 : 1 ]
+ { TriggerType24:d TriggerName24:s            Item24:s    Amount24:d StaysTrue24:d TriggeredOnTrue24:d }
+   9               "Inventory: Has Tea Cakes" "Tea_Cakes" 1          1             1                   
+[ Trigger25 : 1 ]
+ { TriggerType25:d TriggerName25:s                Item25:s Amount25:d StaysTrue25:d TriggeredOnTrue25:d }
+   9               "Inventory: Bilbo Has3 Apples" "Apple"  3          1             1                   
+[ Trigger26 : 1 ]
+ { TriggerType26:d TriggerName26:s              Item26:s     Amount26:d StaysTrue26:d TriggeredOnTrue26:d }
+   9               "Inventory: Bilbo Has Wheat" "Wheat_Sack" 1          1             1                   
+[ Trigger27 : 1 ]
+ { TriggerType27:d TriggerName27:s                      Item27:s        Amount27:d StaysTrue27:d TriggeredOnTrue27:d }
+   9               "Inventory: Bilbo Has Walking Stick" "Walking_Stick" 1          1             1                   
+[ Trigger28 : 1 ]
+ { TriggerType28:d TriggerName28:s              Item28:s Amount28:d StaysTrue28:d TriggeredOnTrue28:d }
+   9               "Inventory: Bilbo Has Sugar" "Sugar"  1          1             1                   
+[ Trigger29 : 1 ]
+ { TriggerType29:d TriggerName29:s              Item29:s Amount29:d StaysTrue29:d TriggeredOnTrue29:d }
+   9               "Inventory: Bilbo Has Spice" "Spice"  1          1             1                   
+[ Trigger30 : 1 ]
+ { TriggerType30:d TriggerName30:s                 Item30:s Amount30:d StaysTrue30:d TriggeredOnTrue30:d }
+   9               "Inventory: Bilbo Has Sausages" "Flour"  1          1             1                   
+[ Trigger31 : 1 ]
+ { TriggerType31:d TriggerName31:s               Item31:s        Amount31:d StaysTrue31:d TriggeredOnTrue31:d }
+   9               "Inventory: Bilbo Has Needle" "Sewing Needle" 1          0             1                   
+[ Trigger32 : 1 ]
+ { TriggerType32:d TriggerName32:s               Item32:s Amount32:d StaysTrue32:d TriggeredOnTrue32:d }
+   9               "Inventory: Bilbo Has Hammer" "Hammer" 1          1             1                   
+[ Trigger33 : 1 ]
+ { TriggerType33:d TriggerName33:s                Item33:s Amount33:d StaysTrue33:d TriggeredOnTrue33:d }
+   9               "Inventory: Bilbo Has 3 Nails" "Nails"  3          1             1                   
+[ Trigger34 : 1 ]
+ { TriggerType34:d TriggerName34:s                  Item34:s Amount34:d StaysTrue34:d TriggeredOnTrue34:d }
+   9               "Inventory: Bilbo Has 3 Berries" "Berry"  3          1             1                   
+[ Trigger35 : 1 ]
+ { TriggerType35:d TriggerName35:s              Item35:s Amount35:d StaysTrue35:d TriggeredOnTrue35:d }
+   9               "INVENTORY: Throwing Stones" "Stones" 1          0             1                   
+[ Trigger36 : 1 ]
+ { TriggerType36:d TriggerName36:s      Item36:g          StaysTrue36:d TriggeredOnTrue36:d }
+   31              "INVENTORY: Berry 3" CA3DD38F_52766000 0             1                   
+[ Trigger37 : 1 ]
+ { TriggerType37:d TriggerName37:s      Item37:g          StaysTrue37:d TriggeredOnTrue37:d }
+   31              "INVENTORY: Berry 2" CA3DDA8F_52740400 0             1                   
+[ Trigger38 : 1 ]
+ { TriggerType38:d TriggerName38:s      Item38:g          StaysTrue38:d TriggeredOnTrue38:d }
+   31              "INVENTORY: Berry 1" CA3DD44E_78C0E801 0             1                   
+[ Trigger39 : 1 ]
+ { TriggerType39:d TriggerName39:s      Item39:g          StaysTrue39:d TriggeredOnTrue39:d }
+   31              "INVENTORY: Apple 3" CA3DDF8F_60646C01 0             1                   
+[ Trigger40 : 1 ]
+ { TriggerType40:d TriggerName40:s      Item40:g          StaysTrue40:d TriggeredOnTrue40:d }
+   31              "INVENTORY: Apple 2" CA3DDF8F_6063C401 0             1                   
+[ Trigger41 : 1 ]
+ { TriggerType41:d TriggerName41:s      Item41:g          StaysTrue41:d TriggeredOnTrue41:d }
+   31              "INVENTORY: Apple 1" CA3DD44E_78BEC801 0             1                   
+[ Trigger42 : 1 ]
+ { TriggerType42:d TriggerName42:s            Item42:s Amount42:d StaysTrue42:d TriggeredOnTrue42:d }
+   9               "INVENTORY: 1 Nail Bundle" "Nails"  1          0             1                   
+[ Trigger43 : 1 ]
+ { TriggerType43:d TriggerName43:s     Item43:s Amount43:d StaysTrue43:d TriggeredOnTrue43:d }
+   9               "INVENTORY: 1 Egg " "Egg"    1          0             1                   
+[ Trigger44 : 1 ]
+ { TriggerType44:d TriggerName44:s NPCCount44:d Trigger44NPC0:g   ExitState44:d EnterState44:d StaysTrue44:d TriggeredOnTrue44:d }
+   7               "Holman Alert"  1            CA3DDD8E_6F198C01 0             2              0             1                   
+[ Trigger45 : 1 ]
+ { TriggerType45:d TriggerName45:s        Volume45:g        Character45:g     TriggersOnce45:d AllNPCs45:d StaysTrue45:d TriggeredOnTrue45:d }
+   3               "Hobbiton Overlay Vol" CA3DD50F_6199C400 ABCABCAB_CABCABC0 1                0           0             1                   
+[ Trigger46 : 1 ]
+ { TriggerType46:d TriggerName46:s      Cinema46:g        TriggerOnce46:d StaysTrue46:d TriggeredOnTrue46:d }
+   19              "Hilda Finish Found" CA3DD6CF_5CA2C800 0               0             1                   
+[ Trigger47 : 1 ]
+ { TriggerType47:d TriggerName47:s    Volume47:g        Character47:g     TriggersOnce47:d AllNPCs47:d StaysTrue47:d TriggeredOnTrue47:d }
+   3               "Hilda Enters Vol" 63CA7F8F_62A12C01 CA3DD58F_5BD28001 1                0           0             1                   
+[ Trigger48 : 1 ]
+ { TriggerType48:d TriggerName48:s        Cinema48:g        TriggerOnce48:d StaysTrue48:d TriggeredOnTrue48:d }
+   19              "Hamfast Finish Found" CA3DDF4F_5C892000 0               0             1                   
+[ Trigger49 : 1 ]
+ { TriggerType49:d TriggerName49:s      Volume49:g        Character49:g     TriggersOnce49:d AllNPCs49:d StaysTrue49:d TriggeredOnTrue49:d }
+   3               "Hamfast Enters Vol" CA3DD2CF_5C23DC00 CA3DD58F_5BD13800 1                0           0             1                   
+[ Trigger50 : 1 ]
+ { TriggerType50:d TriggerName50:s       Cinema50:g        TriggerOnce50:d StaysTrue50:d TriggeredOnTrue50:d }
+   19              "Green Drag Cin Ends" 0D8ADB12_3EA5E400 0               0             1                   
+[ Trigger51 : 1 ]
+ { TriggerType51:d TriggerName51:s   Cinema51:g        TriggerOnce51:d StaysTrue51:d TriggeredOnTrue51:d }
+   19              "Gammer 3 Finish" CA3DD9CF_60C14400 0               0             1                   
+[ Trigger52 : 1 ]
+ { TriggerType52:d TriggerName52:s  Switch52:g        StaysTrue52:d TriggeredOnTrue52:d }
+   23              "EOL Switch Hit" 0D8AD9D1_5033A000 0             1                   
+[ Trigger53 : 1 ]
+ { TriggerType53:d TriggerName53:s     Trigger53:g       TriggerToggle53:d StaysTrue53:d TriggeredOnTrue53:d }
+   18              "Door 2 Htown trig" CA3DDC4F_E3C7A400 1                 0             1                   
+[ Trigger54 : 1 ]
+ { TriggerType54:d TriggerName54:s   Volume54:g        Character54:g     TriggersOnce54:d AllNPCs54:d StaysTrue54:d TriggeredOnTrue54:d }
+   3               "Dog Maggot Trig" CA3DD9CF_4D1A4800 ABCABCAB_CABCABC0 1                0           0             1                   
+[ Trigger55 : 1 ]
+ { TriggerType55:d TriggerName55:s NPC55:g           ActionName55:s StaysTrue55:d TriggeredOnTrue55:d }
+   8               "Dog 5 Howl"    63CA720F_67036001 "howl"         0             1                   
+[ Trigger56 : 1 ]
+ { TriggerType56:d TriggerName56:s NPC56:g           ActionName56:s StaysTrue56:d TriggeredOnTrue56:d }
+   8               "Dog 4 Howl"    63CA720F_67034001 "howl"         0             1                   
+[ Trigger57 : 1 ]
+ { TriggerType57:d TriggerName57:s NPC57:g           ActionName57:s StaysTrue57:d TriggeredOnTrue57:d }
+   8               "Dog 3 Howl"    63CA720F_67032001 "howl"         0             1                   
+[ Trigger58 : 1 ]
+ { TriggerType58:d TriggerName58:s NPC58:g           ActionName58:s StaysTrue58:d TriggeredOnTrue58:d }
+   8               "Dog 2 howl"    63CA720F_6702F801 "howl"         0             1                   
+[ Trigger59 : 1 ]
+ { TriggerType59:d TriggerName59:s NPC59:g           ActionName59:s StaysTrue59:d TriggeredOnTrue59:d }
+   8               "Dog 1 Howl"    CA3DDCCF_56312C01 "howl"         0             1                   
+[ Trigger60 : 1 ]
+ { TriggerType60:d TriggerName60:s         Volume60:g        Character60:g     TriggersOnce60:d AllNPCs60:d StaysTrue60:d TriggeredOnTrue60:d }
+   3               "Dialog: Start Trigger" CA3DD60F_31533400 ABCABCAB_CABCABC0 1                0           1             1                   
+[ Trigger61 : 1 ]
+ { TriggerType61:d TriggerName61:s               Cinema61:g        TriggerOnce61:d StaysTrue61:d TriggeredOnTrue61:d }
+   19              "Dialog: Sandyman 5 Complete" CA3DD50F_2D986000 0               1             1                   
+[ Trigger62 : 1 ]
+ { TriggerType62:d TriggerName62:s             Cinema62:g        TriggerOnce62:d StaysTrue62:d TriggeredOnTrue62:d }
+   19              "Dialog: Sandyman 3 Finish" CA3DD50F_2D92E800 0               1             1                   
+[ Trigger63 : 1 ]
+ { TriggerType63:d TriggerName63:s           Cinema63:g        TriggerOnce63:d StaysTrue63:d TriggeredOnTrue63:d }
+   19              "Dialog: Otho 1 Complete" CA3DD50F_2DB54800 0               1             1                   
+[ Trigger64 : 1 ]
+ { TriggerType64:d TriggerName64:s          Cinema64:g        TriggerOnce64:d StaysTrue64:d TriggeredOnTrue64:d }
+   19              "Dialog: Lorella 1 Done" CA3DDA0F_30C70800 0               1             1                   
+[ Trigger65 : 1 ]
+ { TriggerType65:d TriggerName65:s          Cinema65:g        TriggerOnce65:d StaysTrue65:d TriggeredOnTrue65:d }
+   19              "Dialog: Holbert 3 Done" CA3DD60F_2CA0C400 0               1             1                   
+[ Trigger66 : 1 ]
+ { TriggerType66:d TriggerName66:s          Cinema66:g        TriggerOnce66:d StaysTrue66:d TriggeredOnTrue66:d }
+   19              "Dialog: Holbert 1 Done" CA3DDA4F_2BDCF800 0               1             1                   
+[ Trigger67 : 1 ]
+ { TriggerType67:d TriggerName67:s            Cinema67:g        TriggerOnce67:d StaysTrue67:d TriggeredOnTrue67:d }
+   19              "Dialog: Hanna 4 Finished" CA3DDF8E_98F14000 0               0             1                   
+[ Trigger68 : 1 ]
+ { TriggerType68:d TriggerName68:s            Cinema68:g        TriggerOnce68:d StaysTrue68:d TriggeredOnTrue68:d }
+   19              "Dialog: Hanna 3 Finished" CA3DDF8E_98F13800 0               0             1                   
+[ Trigger69 : 1 ]
+ { TriggerType69:d TriggerName69:s            Cinema69:g        TriggerOnce69:d StaysTrue69:d TriggeredOnTrue69:d }
+   19              "Dialog: Hanna 1 Finished" CA3DDF0E_931B5400 0               1             1                   
+[ Trigger70 : 1 ]
+ { TriggerType70:d TriggerName70:s             Cinema70:g        TriggerOnce70:d StaysTrue70:d TriggeredOnTrue70:d }
+   19              "Dialog: Gammer 4 Finished" CA3DDD0F_612D0400 0               0             1                   
+[ Trigger71 : 1 ]
+ { TriggerType71:d TriggerName71:s             Cinema71:g        TriggerOnce71:d StaysTrue71:d TriggeredOnTrue71:d }
+   19              "Dialog: Gammer 1 Finished" CA3DDE8E_9965C400 0               1             1                   
+[ Trigger72 : 1 ]
+ { TriggerType72:d TriggerName72:s             Cinema72:g        TriggerOnce72:d StaysTrue72:d TriggeredOnTrue72:d }
+   19              "Dialog: Bombur 3 Finished" CA3DD890_04C42000 0               0             1                   
+[ Trigger73 : 1 ]
+ { TriggerType73:d TriggerName73:s              Cinema73:g        TriggerOnce73:d StaysTrue73:d TriggeredOnTrue73:d }
+   19              "Dialog:  Gammer 2 Finished" CA3DD3CF_41DB0800 0               0             1                   
+[ Trigger74 : 1 ]
+ { TriggerType74:d TriggerName74:s              Cinema74:g        TriggerOnce74:d StaysTrue74:d TriggeredOnTrue74:d }
+   19              "Dialog:  Bombur 1 Finished" CA3DD890_04554800 0               0             1                   
+[ Trigger75 : 1 ]
+ { TriggerType75:d TriggerName75:s                      Trigger75:g       TriggerToggle75:d StaysTrue75:d TriggeredOnTrue75:d }
+   18              "Dialog:  Bilbo Needs Walking Stick" CA3DDC4F_E3C7A400 1                 0             1                   
+[ Trigger76 : 1 ]
+ { TriggerType76:d TriggerName76:s                    Volume76:g        Character76:g     TriggersOnce76:d AllNPCs76:d StaysTrue76:d TriggeredOnTrue76:d }
+   3               "Dialog:  Bilbo Front Door Dialog" CA3DDACF_36330800 ABCABCAB_CABCABC0 1                0           0             1                   
+[ Trigger77 : 1 ]
+ { TriggerType77:d TriggerName77:s       Trigger77:g       TriggerToggle77:d StaysTrue77:d TriggeredOnTrue77:d }
+   18              "DIALOG: Parents Pic" CA3DDD11_C43A9400 1                 0             1                   
+[ Trigger78 : 1 ]
+ { TriggerType78:d TriggerName78:s            Volume78:g        Character78:g     TriggersOnce78:d AllNPCs78:d StaysTrue78:d TriggeredOnTrue78:d }
+   3               "DIALOG: Green Dragon Inn" CA3DD211_520B7800 ABCABCAB_CABCABC0 0                0           0             1                   
+[ Trigger79 : 1 ]
+ { TriggerType79:d TriggerName79:s             Trigger79:g       TriggerToggle79:d StaysTrue79:d TriggeredOnTrue79:d }
+   18              "DIALOG: Family Pic Switch" CA3DDD11_C437D400 1                 0             1                   
+[ Trigger80 : 1 ]
+ { TriggerType80:d TriggerName80:s          NPCSensing80:g    CharacterSensed80:g Senses80:d StaysTrue80:d TriggeredOnTrue80:d }
+   26              "Chicken7 Alert 2 Bilbo" CA3DD48F_520ED401 ABCABCAB_CABCABC0   12         0             1                   
+[ Trigger81 : 1 ]
+ { TriggerType81:d TriggerName81:s          NPCSensing81:g    CharacterSensed81:g Senses81:d StaysTrue81:d TriggeredOnTrue81:d }
+   26              "Chicken6 Alert 2 Bilbo" CA3DD48F_520EC001 ABCABCAB_CABCABC0   12         0             1                   
+[ Trigger82 : 1 ]
+ { TriggerType82:d TriggerName82:s          NPCSensing82:g    CharacterSensed82:g Senses82:d StaysTrue82:d TriggeredOnTrue82:d }
+   26              "Chicken5 Alert 2 Bilbo" CA3DD48F_520E7001 ABCABCAB_CABCABC0   12         0             1                   
+[ Trigger83 : 1 ]
+ { TriggerType83:d TriggerName83:s          NPCSensing83:g    CharacterSensed83:g Senses83:d StaysTrue83:d TriggeredOnTrue83:d }
+   26              "Chicken4 Alert 2 Bilbo" CA3DD48F_520D8801 ABCABCAB_CABCABC0   12         0             1                   
+[ Trigger84 : 1 ]
+ { TriggerType84:d TriggerName84:s          NPCSensing84:g    CharacterSensed84:g Senses84:d StaysTrue84:d TriggeredOnTrue84:d }
+   26              "Chicken3 Alert 2 Bilbo" CA3DD48F_520D1801 ABCABCAB_CABCABC0   12         0             1                   
+[ Trigger85 : 1 ]
+ { TriggerType85:d TriggerName85:s          NPCSensing85:g    CharacterSensed85:g Senses85:d StaysTrue85:d TriggeredOnTrue85:d }
+   26              "Chicken2 Alert 2 Bilbo" CA3DD48F_520CF001 ABCABCAB_CABCABC0   12         0             1                   
+[ Trigger86 : 1 ]
+ { TriggerType86:d TriggerName86:s          NPCSensing86:g    CharacterSensed86:g Senses86:d StaysTrue86:d TriggeredOnTrue86:d }
+   26              "Chicken1 Alert 2 Bilbo" CA3DD48F_52031800 ABCABCAB_CABCABC0   12         0             1                   
+[ Trigger87 : 1 ]
+ { TriggerType87:d TriggerName87:s           Cinema87:g        TriggerOnce87:d StaysTrue87:d TriggeredOnTrue87:d }
+   19              "CINEMA: Sandyman 1 Done" CA3DD50F_2D866C00 0               1             1                   
+[ Trigger88 : 1 ]
+ { TriggerType88:d TriggerName88:s                Cinema88:g        TriggerOnce88:d StaysTrue88:d TriggeredOnTrue88:d }
+   19              "CINEMA: Sandyman 04 Finished" CA3DD952_338A4800 0               0             1                   
+[ Trigger89 : 1 ]
+ { TriggerType89:d TriggerName89:s       Cinema89:g        TriggerOnce89:d StaysTrue89:d TriggeredOnTrue89:d }
+   19              "CINEMA: Level Start" CA3DDF12_32749400 0               0             1                   
+[ Trigger90 : 1 ]
+ { TriggerType90:d TriggerName90:s            Cinema90:g        StaysTrue90:d TriggeredOnTrue90:d }
+   21              "CINEMA: Intro Cin Begins" CA3DDF12_32749400 0             1                   
+[ Trigger91 : 1 ]
+ { TriggerType91:d TriggerName91:s              Cinema91:g        TriggerOnce91:d StaysTrue91:d TriggeredOnTrue91:d }
+   19              "CINEMA: Holman Cine Finish" C0CFA5CF_70759C00 0               0             1                   
+[ Trigger92 : 1 ]
+ { TriggerType92:d TriggerName92:s                  Cinema92:g        TriggerOnce92:d StaysTrue92:d TriggeredOnTrue92:d }
+   19              "CINEMA: Holman Cine 004 Finish" CA3DD091_E81B4401 0               0             1                   
+[ Trigger93 : 1 ]
+ { TriggerType93:d TriggerName93:s                  Cinema93:g        TriggerOnce93:d StaysTrue93:d TriggeredOnTrue93:d }
+   19              "CINEMA: Holman Cine 003 Finish" CA3DD091_E81B3401 0               0             1                   
+[ Trigger94 : 1 ]
+ { TriggerType94:d TriggerName94:s                  Cinema94:g        TriggerOnce94:d StaysTrue94:d TriggeredOnTrue94:d }
+   19              "CINEMA: Holman Cine 002 Finish" CA3DD091_E81B2401 0               0             1                   
+[ Trigger95 : 1 ]
+ { TriggerType95:d TriggerName95:s                  Cinema95:g        TriggerOnce95:d StaysTrue95:d TriggeredOnTrue95:d }
+   19              "CINEMA: Holman Cine 001 Finish" CA3DD091_E81B1001 0               0             1                   
+[ Trigger96 : 1 ]
+ { TriggerType96:d TriggerName96:s                  Cinema96:g        TriggerOnce96:d StaysTrue96:d TriggeredOnTrue96:d }
+   19              "CINEMA: Holman Cine 000 Finish" CA3DD091_E81AF401 0               0             1                   
+[ Trigger97 : 1 ]
+ { TriggerType97:d TriggerName97:s          Cinema97:g        TriggerOnce97:d StaysTrue97:d TriggeredOnTrue97:d }
+   19              "CINEMA: Hide Seek Ends" 15A467D1_1B7A8800 0               0             1                   
+[ Trigger98 : 1 ]
+ { TriggerType98:d TriggerName98:s             Cinema98:g        TriggerOnce98:d StaysTrue98:d TriggeredOnTrue98:d }
+   19              "CINEMA: Chicken Cine Ends" CA3DD6D1_E9113000 0               0             1                   
+[ Trigger99 : 1 ]
+ { TriggerType99:d TriggerName99:s               Volume99:g        Character99:g     TriggersOnce99:d AllNPCs99:d StaysTrue99:d TriggeredOnTrue99:d }
+   3               "CINEMA: Bombur Dialog force" CA3DD551_FA176400 ABCABCAB_CABCABC0 0                0           0             1                   
+[ Trigger100 : 1 ]
+ { TriggerType100:d TriggerName100:s         Volume100:g       Character100:g    TriggersOnce100:d AllNPCs100:d StaysTrue100:d TriggeredOnTrue100:d }
+   3                "Bilbo Lily Pad Success" CA3DD50F_C4C5B000 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger101 : 1 ]
+ { TriggerType101:d TriggerName101:s         Volume101:g       Character101:g    TriggersOnce101:d AllNPCs101:d StaysTrue101:d TriggeredOnTrue101:d }
+   3                "Bilbo Lily Pad Restart" CA3DD50F_C4BE6C00 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger102 : 1 ]
+ { TriggerType102:d TriggerName102:s         Volume102:g       Character102:g    TriggersOnce102:d AllNPCs102:d StaysTrue102:d TriggeredOnTrue102:d }
+   3                "Bilbo Lily Pad Failure" CA3DD50F_C4B3F400 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger103 : 1 ]
+ { TriggerType103:d TriggerName103:s      Item103:s   Amount103:d StaysTrue103:d TriggeredOnTrue103:d }
+   9                "Bilbo Has Tea Cakes" "Tea_Cakes" 1           0              1                    
+[ Trigger104 : 1 ]
+ { TriggerType104:d TriggerName104:s         Volume104:g       Character104:g    TriggersOnce104:d AllNPCs104:d StaysTrue104:d TriggeredOnTrue104:d }
+   3                "Bilbo Enters Well Zone" CA3DD60F_31329800 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger105 : 1 ]
+ { TriggerType105:d TriggerName105:s           Volume105:g       Character105:g    TriggersOnce105:d AllNPCs105:d StaysTrue105:d TriggeredOnTrue105:d }
+   3                "Bilbo Enters Holman Tele" CA3DD3CF_51255800 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger106 : 1 ]
+ { TriggerType106:d TriggerName106:s                 Volume106:g       Character106:g    TriggersOnce106:d AllNPCs106:d StaysTrue106:d TriggeredOnTrue106:d }
+   3                "Bilbo Enters Hide and seek Vol" CA3DD8CF_C5E6EC00 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger107 : 1 ]
+ { TriggerType107:d TriggerName107:s            Volume107:g       Character107:g    TriggersOnce107:d AllNPCs107:d StaysTrue107:d TriggeredOnTrue107:d }
+   3                "Bilbo Enters Chicken Tele" CA3DD7CF_5137B000 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger108 : 1 ]
+ { TriggerType108:d TriggerName108:s          Volume108:g       Character108:g    TriggersOnce108:d AllNPCs108:d StaysTrue108:d TriggeredOnTrue108:d }
+   3                "Bilbo Enters Bridge Vol" CA3DD64F_E5E4B000 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger109 : 1 ]
+ { TriggerType109:d TriggerName109:s    Cinema109:g       TriggerOnce109:d StaysTrue109:d TriggeredOnTrue109:d }
+   19               "Bell Finish Found" CA3DDD8F_5C783000 0                0              1                    
+[ Trigger110 : 1 ]
+ { TriggerType110:d TriggerName110:s  Volume110:g       Character110:g    TriggersOnce110:d AllNPCs110:d StaysTrue110:d TriggeredOnTrue110:d }
+   3                "Bell Enters Vol" CA3DD2CF_5C254800 CA3DD48F_5BA30400 1                 0            0              1                    
+[ Trigger111 : 1 ]
+ { TriggerType111:d TriggerName111:s      Volume111:g       Character111:g    TriggersOnce111:d AllNPCs111:d StaysTrue111:d TriggeredOnTrue111:d }
+   3                "Bag End Overlay Vol" CA3DD50F_61965400 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger112 : 1 ]
+ { TriggerType112:d TriggerName112:s        NPC112:g          ActionName112:s StaysTrue112:d TriggeredOnTrue112:d }
+   8                "Action: Scarecrow Hit" CA3DDF4F_3627C000 "StrongFlinch"  1              1                    
+[ Trigger113 : 1 ]
+ { TriggerType113:d TriggerName113:s              Volume113:g       Object113:g       StaysTrue113:d TriggeredOnTrue113:d }
+   25               "Action: Butter Churn In Vol" CA3DD20F_41F8D400 CA3DD20F_41F77800 1              1                    
+[ Trigger114 : 1 ]
+ { TriggerType114:d TriggerName114:s                     Volume114:g       Character114:g    TriggersOnce114:d AllNPCs114:d StaysTrue114:d TriggeredOnTrue114:d }
+   3                "Action: Bilbo Enter Apple Conv Vol" CA3DDF0F_2BBA8000 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger115 : 1 ]
+ { TriggerType115:d TriggerName115:s           NPCSensing115:g   CharacterSensed115:g Senses115:d StaysTrue115:d TriggeredOnTrue115:d }
+   26               "Act: Holman Is Attacking" CA3DDD8E_6F198C01 ABCABCAB_CABCABC0    2           0              1                    
+[ Trigger116 : 1 ]
+ { TriggerType116:d TriggerName116:s                Volume116:g       Character116:g    TriggersOnce116:d AllNPCs116:d StaysTrue116:d TriggeredOnTrue116:d }
+   3                "Act: Bilbo Exits Chicken Coop" CA3DD7CF_5135CC01 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger117 : 1 ]
+ { TriggerType117:d TriggerName117:s                    Volume117:g       Character117:g    TriggersOnce117:d AllNPCs117:d StaysTrue117:d TriggeredOnTrue117:d }
+   3                "Act: Bilbo Enters Good Holman Vol" CA3DD60F_31E0E401 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger118 : 1 ]
+ { TriggerType118:d TriggerName118:s                    Volume118:g       Character118:g    TriggersOnce118:d AllNPCs118:d StaysTrue118:d TriggeredOnTrue118:d }
+   3                "Act: Bilbo Enters Evil Holman Vol" CA3DD60F_31DE1400 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger119 : 1 ]
+ { TriggerType119:d TriggerName119:s                 Volume119:g       Character119:g    TriggersOnce119:d AllNPCs119:d StaysTrue119:d TriggeredOnTrue119:d }
+   3                "Act: Bilbo Enters Chicken Coop" CA3DD7CF_5134B800 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger120 : 1 ]
+ { TriggerType120:d TriggerName120:s        Switch120:g       StaysTrue120:d TriggeredOnTrue120:d }
+   23               "ACTION: Well Trig Hit" CA3DD611_519E9000 0              1                    
+[ Trigger121 : 1 ]
+ { TriggerType121:d TriggerName121:s           RigidInstance121:g Animation121:d StaysTrue121:d TriggeredOnTrue121:d }
+   30               "ACTION: Well Anim Finish" 991186CF_A099C800  0              0              1                    
+[ Trigger122 : 1 ]
+ { TriggerType122:d TriggerName122:s      Volume122:g       Character122:g    TriggersOnce122:d AllNPCs122:d StaysTrue122:d TriggeredOnTrue122:d }
+   3                "ACTION: UV Stop Vol" CA3DDD12_37DEF800 ABCABCAB_CABCABC0 0                 0            1              1                    
+[ Trigger123 : 1 ]
+ { TriggerType123:d TriggerName123:s            NPC123:g          ActionName123:s StaysTrue123:d TriggeredOnTrue123:d }
+   8                "ACTION: Scarecrow 001 hit" CA3DD191_C98F040A "StrongFlinch"  1              1                    
+[ Trigger124 : 1 ]
+ { TriggerType124:d TriggerName124:s            NPC124:g          ActionName124:s StaysTrue124:d TriggeredOnTrue124:d }
+   8                "ACTION: Scarecrow 000 hit" CA3DD191_C98EA40A "StrongFlinch"  1              1                    
+[ Trigger125 : 1 ]
+ { TriggerType125:d TriggerName125:s   Trigger125:g      TriggerToggle125:d StaysTrue125:d TriggeredOnTrue125:d }
+   18               "ACTION: H Door 6" CA3DD4D1_E31A3C01 1                  0              1                    
+[ Trigger126 : 1 ]
+ { TriggerType126:d TriggerName126:s   Trigger126:g      TriggerToggle126:d StaysTrue126:d TriggeredOnTrue126:d }
+   18               "ACTION: H Door 5" CA3DD4D1_E319A401 1                  0              1                    
+[ Trigger127 : 1 ]
+ { TriggerType127:d TriggerName127:s   Trigger127:g      TriggerToggle127:d StaysTrue127:d TriggeredOnTrue127:d }
+   18               "ACTION: H Door 4" CA3DD4D1_E3195801 1                  0              1                    
+[ Trigger128 : 1 ]
+ { TriggerType128:d TriggerName128:s   Trigger128:g      TriggerToggle128:d StaysTrue128:d TriggeredOnTrue128:d }
+   18               "ACTION: H Door 3" CA3DD4D1_E318E801 1                  0              1                    
+[ Trigger129 : 1 ]
+ { TriggerType129:d TriggerName129:s   Trigger129:g      TriggerToggle129:d StaysTrue129:d TriggeredOnTrue129:d }
+   18               "ACTION: H Door 2" CA3DD4D1_E3189C01 1                  0              1                    
+[ Trigger130 : 1 ]
+ { TriggerType130:d TriggerName130:s Trigger130:g      TriggerToggle130:d StaysTrue130:d TriggeredOnTrue130:d }
+   18               "ACTION: H Door" CA3DD4D1_E316C800 1                  0              1                    
+[ Trigger131 : 1 ]
+ { TriggerType131:d TriggerName131:s             Trigger131:g      TriggerToggle131:d StaysTrue131:d TriggeredOnTrue131:d }
+   18               "ACTION: Gandolf B Trig Hit" CA3DDB92_5D198001 1                  0              1                    
+[ Trigger132 : 1 ]
+ { TriggerType132:d TriggerName132:s         Volume132:g       Character132:g    TriggersOnce132:d AllNPCs132:d StaysTrue132:d TriggeredOnTrue132:d }
+   3                "ACTION: Frank in Vol 5" 63CA774F_7038F801 63CA720F_67034001 0                 0            0              1                    
+[ Trigger133 : 1 ]
+ { TriggerType133:d TriggerName133:s         Volume133:g       Character133:g    TriggersOnce133:d AllNPCs133:d StaysTrue133:d TriggeredOnTrue133:d }
+   3                "ACTION: Frank in Vol 4" 63CA774F_7038E001 63CA720F_67034001 0                 0            0              1                    
+[ Trigger134 : 1 ]
+ { TriggerType134:d TriggerName134:s         Volume134:g       Character134:g    TriggersOnce134:d AllNPCs134:d StaysTrue134:d TriggeredOnTrue134:d }
+   3                "ACTION: Frank in Vol 3" 63CA774F_7037C800 63CA720F_67034001 0                 0            0              1                    
+[ Trigger135 : 1 ]
+ { TriggerType135:d TriggerName135:s         Volume135:g       Character135:g    TriggersOnce135:d AllNPCs135:d StaysTrue135:d TriggeredOnTrue135:d }
+   3                "ACTION: Frank in Vol 2" 63CA774F_7038B001 63CA720F_67034001 0                 0            0              1                    
+[ Trigger136 : 1 ]
+ { TriggerType136:d TriggerName136:s         Volume136:g       Character136:g    TriggersOnce136:d AllNPCs136:d StaysTrue136:d TriggeredOnTrue136:d }
+   3                "ACTION: Frank in Vol 1" 63CA774F_70390C01 63CA720F_67034001 0                 0            0              1                    
+[ Trigger137 : 1 ]
+ { TriggerType137:d TriggerName137:s             Item137:g         StaysTrue137:d TriggeredOnTrue137:d }
+   31               "ACTION: First CP Explained" CA3DD5D0_094F6401 0              1                    
+[ Trigger138 : 1 ]
+ { TriggerType138:d TriggerName138:s           Volume138:g       Character138:g    TriggersOnce138:d AllNPCs138:d StaysTrue138:d TriggeredOnTrue138:d }
+   3                "ACTION: Bilbo Save Vol 4" CA3DD3D2_6846D801 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger139 : 1 ]
+ { TriggerType139:d TriggerName139:s           Volume139:g       Character139:g    TriggersOnce139:d AllNPCs139:d StaysTrue139:d TriggeredOnTrue139:d }
+   3                "ACTION: Bilbo Save Vol 3" CA3DD3D2_68464C01 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger140 : 1 ]
+ { TriggerType140:d TriggerName140:s           Volume140:g       Character140:g    TriggersOnce140:d AllNPCs140:d StaysTrue140:d TriggeredOnTrue140:d }
+   3                "ACTION: Bilbo Save Vol 2" CA3DD3D2_68449001 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger141 : 1 ]
+ { TriggerType141:d TriggerName141:s           Volume141:g       Character141:g    TriggersOnce141:d AllNPCs141:d StaysTrue141:d TriggeredOnTrue141:d }
+   3                "ACTION: Bilbo Save Vol 1" CA3DD3D2_68430800 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger142 : 1 ]
+ { TriggerType142:d TriggerName142:s          Volume142:g       Character142:g    TriggersOnce142:d AllNPCs142:d StaysTrue142:d TriggeredOnTrue142:d }
+   3                "ACTION: Bilbo Sav Vol 6" CA3DD3D2_6847F801 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger143 : 1 ]
+ { TriggerType143:d TriggerName143:s          Volume143:g       Character143:g    TriggersOnce143:d AllNPCs143:d StaysTrue143:d TriggeredOnTrue143:d }
+   3                "ACTION: Bilbo Sav Vol 5" CA3DD3D2_68476401 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger144 : 1 ]
+ { TriggerType144:d TriggerName144:s          Volume144:g       Character144:g    TriggersOnce144:d AllNPCs144:d StaysTrue144:d TriggeredOnTrue144:d }
+   3                "ACTION: Bilbo Dog Vol 5" CA3DDB92_68675001 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger145 : 1 ]
+ { TriggerType145:d TriggerName145:s          Volume145:g       Character145:g    TriggersOnce145:d AllNPCs145:d StaysTrue145:d TriggeredOnTrue145:d }
+   3                "ACTION: Bilbo Dog Vol 4" CA3DDB92_68673C01 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger146 : 1 ]
+ { TriggerType146:d TriggerName146:s          Volume146:g       Character146:g    TriggersOnce146:d AllNPCs146:d StaysTrue146:d TriggeredOnTrue146:d }
+   3                "ACTION: Bilbo Dog Vol 3" CA3DDB92_68670C01 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger147 : 1 ]
+ { TriggerType147:d TriggerName147:s          Volume147:g       Character147:g    TriggersOnce147:d AllNPCs147:d StaysTrue147:d TriggeredOnTrue147:d }
+   3                "ACTION: Bilbo Dog Vol 2" CA3DDB92_6866F001 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger148 : 1 ]
+ { TriggerType148:d TriggerName148:s          Volume148:g       Character148:g    TriggersOnce148:d AllNPCs148:d StaysTrue148:d TriggeredOnTrue148:d }
+   3                "ACTION: Bilbo Dog Vol 1" CA3DDB92_6865D801 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger149 : 1 ]
+ { TriggerType149:d TriggerName149:s       Trigger149:g      TriggerToggle149:d StaysTrue149:d TriggeredOnTrue149:d }
+   18               "ACTION: Bag End Door" CA3DD4D1_E3254001 1                  0              1                    
+[ Trigger150 : 1 ]
+ { TriggerType150:d TriggerName150:s          QuestName150:s     StaysTrue150:d TriggeredOnTrue150:d }
+   24               "A Quest: Apple Complete" "N_ID_APPLES_CH01" 1              1                    
+[ Trigger151 : 1 ]
+ { TriggerType151:d TriggerName151:s                  Cinema151:g       StaysTrue151:d TriggeredOnTrue151:d }
+   21               "Cinema : Intro Starts for real!" CA3DDF12_32749400 0              1                    
+[ Trigger152 : 1 ]
+ { TriggerType152:d TriggerName152:s             Cinema152:g       TriggerOnce152:d StaysTrue152:d TriggeredOnTrue152:d }
+   19               "Cinema : Intro Cinema Ends" CA3DDF12_32749400 0                0              1                    
+[ Trigger153 : 1 ]
+ { TriggerType153:d TriggerName153:s           Cinema153:g       TriggerOnce153:d StaysTrue153:d TriggeredOnTrue153:d }
+   19               "CINEMA: Chicken Malorian" CA3DD61F_31370001 0                0              1                    
+[ Trigger154 : 1 ]
+ { TriggerType154:d TriggerName154:s                  Item154:g         StaysTrue154:d TriggeredOnTrue154:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C01 1              1                    
+[ Trigger155 : 1 ]
+ { TriggerType155:d TriggerName155:s                  Item155:g         StaysTrue155:d TriggeredOnTrue155:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C02 1              1                    
+[ Trigger156 : 1 ]
+ { TriggerType156:d TriggerName156:s                  Item156:g         StaysTrue156:d TriggeredOnTrue156:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C03 1              1                    
+[ Trigger157 : 1 ]
+ { TriggerType157:d TriggerName157:s                  Item157:g         StaysTrue157:d TriggeredOnTrue157:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C04 1              1                    
+[ Trigger158 : 1 ]
+ { TriggerType158:d TriggerName158:s                  Item158:g         StaysTrue158:d TriggeredOnTrue158:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C05 1              1                    
+[ Trigger159 : 1 ]
+ { TriggerType159:d TriggerName159:s       Volume159:g       Character159:g    TriggersOnce159:d AllNPCs159:d StaysTrue159:d TriggeredOnTrue159:d }
+   3                "CINEMA: Black Market" CA32DD51_FA476410 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger160 : 1 ]
+ { TriggerType160:d TriggerName160:s               Cinema160:g       TriggerOnce160:d StaysTrue160:d TriggeredOnTrue160:d }
+   19               "CINEMA: Chicken Malorian end" CA3DA61F_3137A004 0                0              1                    
+[ Trigger161 : 1 ]
+ { TriggerType161:d TriggerName161:s           Volume161:g       Character161:g    TriggersOnce161:d AllNPCs161:d StaysTrue161:d TriggeredOnTrue161:d }
+   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                    
+
+
+
+
+[ Action0 : 1 ]
+ { ActionType0:d ActionName0:s        Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0LoadLayerGuid:g }
+   10            "Unload Doggy Layer" 0.000000              0                           CA3DD7CF_713DDC00      
+[ Action1 : 1 ]
+ { ActionType1:d ActionName1:s        Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1LoadLayerGuid:g }
+   10            "Unload Doggy Block" 0.000000              0                           CA3DD5CF_65E3F800      
+[ Action2 : 1 ]
+ { ActionType2:d ActionName2:s                  Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2Link:s                                                                                    Action2LinkState:d }
+   12            "Toggle Link: H-Town Teleport" 0.000000              0                           "TRIGGERS: Door 2 Htown trig/  ACTIONS: Teleport: H-Town/ Load: H-Town/ Load: Resourse HTown / " 0                  
+[ Action3 : 1 ]
+ { ActionType3:d ActionName3:s                             Action3ExecuteDelay:f Action3ExecuteImmediately:d Action3Link:s                                                                       Action3LinkState:d }
+   12            "Toggle Link: Dialog Turn off Cant Leave" 0.000000              0                           "TRIGGERS: Dialog:  Bilbo Needs Walking Stick/  ACTIONS: DIALOG: Can't Leave Yet/ " 1                  
+[ Action4 : 1 ]
+ { ActionType4:d ActionName4:s      Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4Object:g   Action4Volume:g   Action4Facing:g   }
+   15            "Teleport: H-Town" 0.000000              0                           ABCABCAB_CABCABC0 CA3DDACF_36330800 CA3DDACF_36340801 
+[ Action5 : 1 ]
+ { ActionType5:d ActionName5:s             Action5ExecuteDelay:f Action5ExecuteImmediately:d Action5Object:g   Action5Volume:g   Action5Facing:g   }
+   15            "Teleport: Bilbo Bag End" 0.000000              0                           ABCABCAB_CABCABC0 CA3DDACF_36368401 CA3DDACF_36373C01 
+[ Action6 : 1 ]
+ { ActionType6:d ActionName6:s                  Action6ExecuteDelay:f Action6ExecuteImmediately:d Action6Object:g   Action6Volume:g   Action6Facing:g   }
+   15            "Tele: dialog vol for Gadling" 0.000000              0                           CA3DD60F_31329800 CA3DD60F_31257000 00000000_00000000 
+[ Action7 : 1 ]
+ { ActionType7:d ActionName7:s                        Action7ExecuteDelay:f Action7ExecuteImmediately:d Action7Object:g   Action7Volume:g   Action7Facing:g   }
+   15            "Tele: Move Gaddling away from well" 0.000000              0                           CA3DDD8E_6EB33800 C0CFA98F_62103800 CA3DD60F_31257000 
+[ Action8 : 1 ]
+ { ActionType8:d ActionName8:s                    Action8ExecuteDelay:f Action8ExecuteImmediately:d Action8Object:g   Action8Volume:g   Action8Facing:g   }
+   15            "Tele: Holman to start Position" 2.000000              0                           CA3DDD8E_6F198C01 CA3DD04E_7D835401 CA3DD04E_7D837401 
+[ Action9 : 1 ]
+ { ActionType9:d ActionName9:s             Action9ExecuteDelay:f Action9ExecuteImmediately:d Action9Object:g   Action9Volume:g   Action9Facing:g   }
+   15            "Tele: Holman Tele Bilbo" 2.000000              0                           ABCABCAB_CABCABC0 CA3DD3CF_51255800 CA3DD3CF_51261401 
+[ Action10 : 1 ]
+ { ActionType10:d ActionName10:s   Action10ExecuteDelay:f Action10ExecuteImmediately:d Action10Object:g  Action10Volume:g  Action10Facing:g  }
+   15             "Tele: Hamfast " 0.000000               1                            CA3DD58F_5BD13800 CA3DDD8F_5C6D2C00 CA3DDD8F_5C6F0801 
+[ Action11 : 1 ]
+ { ActionType11:d ActionName11:s               Action11ExecuteDelay:f Action11ExecuteImmediately:d Action11Object:g  Action11Volume:g  Action11Facing:g  }
+   15             "Tele: Chickens Chase Bilbo" 2.000000               0                            ABCABCAB_CABCABC0 CA3DD7CF_5137B000 CA3DD7CF_51385C01 
+[ Action12 : 1 ]
+ { ActionType12:d ActionName12:s Action12ExecuteDelay:f Action12ExecuteImmediately:d Action12Object:g  Action12Volume:g  Action12Facing:g  }
+   15             "Tele a Doggy" 0.000000               0                            CA3DDCCF_56312C01 CA3DDD8F_61F41C00 CA3DDD8F_61F4E401 
+[ Action13 : 1 ]
+ { ActionType13:d ActionName13:s          Action13ExecuteDelay:f Action13ExecuteImmediately:d Action13CharacterGuid:g Action13Team:d }
+   2              "Team: Set Holman GOOD" 0.000000               0                            CA3DDD8E_6F198C01       1              
+[ Action14 : 1 ]
+ { ActionType14:d ActionName14:s          Action14ExecuteDelay:f Action14ExecuteImmediately:d Action14CharacterGuid:g Action14Team:d }
+   2              "Team: Set Holman EVIL" 0.000000               0                            CA3DDD8E_6F198C01       2              
+[ Action15 : 1 ]
+ { ActionType15:d ActionName15:s                Action15ExecuteDelay:f Action15ExecuteImmediately:d Action15CharacterGuid:g Action15Team:d }
+   2              "Team: Holman Reset 2 Team 1" 0.000000               0                            CA3DDD8E_6F198C01       1              
+[ Action16 : 1 ]
+ { ActionType16:d ActionName16:s                Action16ExecuteDelay:f Action16ExecuteImmediately:d Action16Object:g  Action16Volume:g  Action16Facing:g  }
+   15             "TELE: Move Waters of vigour" 3.000000               0                            CA3DD2CF_AB86E000 CA3DD2CF_AB8BC000 00000000_00000000 
+[ Action17 : 1 ]
+ { ActionType17:d ActionName17:s                 Action17ExecuteDelay:f Action17ExecuteImmediately:d Action17cinemaCount:d Action17cinemaSelect:d Action17cinema0Guid:g }
+   20             "Start Sandyman Bridge Dialog" 0.000000               0                            1                     0                      CA3DD50F_2D866C00     
+[ Action18 : 1 ]
+ { ActionType18:d ActionName18:s         Action18ExecuteDelay:f Action18ExecuteImmediately:d Action18cinemaCount:d Action18cinemaSelect:d Action18cinema0Guid:g }
+   20             "Start Green Drag Cin" 0.000000               0                            1                     0                      0D8ADB12_3EA5E400     
+[ Action19 : 1 ]
+ { ActionType19:d ActionName19:s      Action19ExecuteDelay:f Action19ExecuteImmediately:d Action19cinemaCount:d Action19cinemaSelect:d Action19cinema0Guid:g }
+   20             "Sandy man Fade In" 0.000000               0                            1                     0                      CA3DD3CF_5CE0A400     
+[ Action20 : 1 ]
+ { ActionType20:d ActionName20:s Action20ExecuteDelay:f Action20ExecuteImmediately:d Action20Object:g  Action20Volume:g  Action20Facing:g  }
+   15             "Sadoc Tele"   0.000000               1                            CA3DD58F_5BD6DC00 CA3DDD8F_5C708000 CA3DDD8F_5C712C01 
+[ Action21 : 1 ]
+ { ActionType21:d ActionName21:s          Action21ExecuteDelay:f Action21ExecuteImmediately:d Action21NPCGuid:g Action21CinemaCount:d Action21SelectionMethod:d Action21Cinema0:g }
+   21             "Sadoc Set Trig Cinema" 0.000000               0                            CA3DD58F_5BD6DC00 1                     0                         CA3DDF4F_5C96F800 
+[ Action22 : 1 ]
+ { ActionType22:d ActionName22:s          Action22ExecuteDelay:f Action22ExecuteImmediately:d Action22NPCGuid:g Action22CinemaCount:d Action22SelectionMethod:d Action22Cinema0:g }
+   21             "Sadoc Set After Found" 0.000000               0                            CA3DD58F_5BD6DC00 1                     0                         CA3DDF4F_5C9BA000 
+[ Action23 : 1 ]
+ { ActionType23:d ActionName23:s    Action23ExecuteDelay:f Action23ExecuteImmediately:d Action23CharacterGuid:g Action23AIStateName:s Action23GoalListName:s Action23OverrideCinematicAnimation:d }
+   4              "Sadoc Goal List" 0.000000               0                            CA3DD58F_5BD6DC00       "Idle"                "Sadoc Hide"           0                                    
+[ Action24 : 1 ]
+ { ActionType24:d ActionName24:s            Action24ExecuteDelay:f Action24ExecuteImmediately:d Action24Link:s                                                                      Action24LinkState:d }
+   12             "Restart Lily Pad Puzzle" 0.000000               0                            "TRIGGERS: Bilbo Lily Pad Success/  ACTIONS: CP: Spawn 100/ Music_QuestItemFound/ " 0                   
+[ Action25 : 1 ]
+ { ActionType25:d ActionName25:s Action25ExecuteDelay:f Action25ExecuteImmediately:d Action25QuestID:s Action25Required:d }
+   22             "Quest: Wheat" 0.000000               0                            "K_ID_WHEAT_CH01" 0                  
+[ Action26 : 1 ]
+ { ActionType26:d ActionName26:s                   Action26ExecuteDelay:f Action26ExecuteImmediately:d Action26QuestID:s         }
+   29             "Quest: Walking Stick Completed" 0.000000               0                            "B_ID_WALKING_STICK_CH01" 
+[ Action27 : 1 ]
+ { ActionType27:d ActionName27:s         Action27ExecuteDelay:f Action27ExecuteImmediately:d Action27QuestID:s         Action27Required:d }
+   22             "Quest: Walking Stick" 0.000000               0                            "B_ID_WALKING_STICK_CH01" 1                  
+[ Action28 : 1 ]
+ { ActionType28:d ActionName28:s     Action28ExecuteDelay:f Action28ExecuteImmediately:d Action28QuestID:s    Action28Required:d }
+   22             "Quest: Tea Cakes" 0.000000               0                            "P_ID_TEACAKES_CH01" 0                  
+[ Action29 : 1 ]
+ { ActionType29:d ActionName29:s Action29ExecuteDelay:f Action29ExecuteImmediately:d Action29QuestID:s Action29Required:d }
+   22             "Quest: Sugar" 0.000000               0                            "I_ID_SUGAR_CH01" 0                  
+[ Action30 : 1 ]
+ { ActionType30:d ActionName30:s Action30ExecuteDelay:f Action30ExecuteImmediately:d Action30QuestID:s Action30Required:d }
+   22             "Quest: Spice" 0.000000               0                            "J_ID_SPICE_CH01" 0                  
+[ Action31 : 1 ]
+ { ActionType31:d ActionName31:s     Action31ExecuteDelay:f Action31ExecuteImmediately:d Action31QuestID:s      Action31Required:d }
+   22             "Quest: Scarecrow" 0.000000               0                            "R_ID_SCARECROWS_CH01" 0                  
+[ Action32 : 1 ]
+ { ActionType32:d ActionName32:s      Action32ExecuteDelay:f Action32ExecuteImmediately:d Action32QuestID:s      Action32Required:d }
+   22             "Quest: Provisions" 0.000000               0                            "H_ID_PROVISIONS_CH01" 0                  
+[ Action33 : 1 ]
+ { ActionType33:d ActionName33:s             Action33ExecuteDelay:f Action33ExecuteImmediately:d Action33QuestID:s        }
+   29             "Quest: Needle Quest Done" 0.000000               0                            "F_ID_NEEDLE_QUEST_CH01" 
+[ Action34 : 1 ]
+ { ActionType34:d ActionName34:s            Action34ExecuteDelay:f Action34ExecuteImmediately:d Action34QuestID:s  Action34Required:d }
+   22             "Quest: Lorella's Chests" 0.000000               0                            "Q_ID_CHESTS_CH01" 0                  
+[ Action35 : 1 ]
+ { ActionType35:d ActionName35:s        Action35ExecuteDelay:f Action35ExecuteImmediately:d Action35QuestID:s      Action35Required:d }
+   22             "Quest: Hide Go Seek" 0.000000               0                            "S_ID_HIDEGOSEEK_CH01" 0                  
+[ Action36 : 1 ]
+ { ActionType36:d ActionName36:s                   Action36ExecuteDelay:f Action36ExecuteImmediately:d Action36QuestID:s        Action36Required:d }
+   22             "Quest: Give Bilbo Needle Quest" 0.000000               0                            "F_ID_NEEDLE_QUEST_CH01" 0                  
+[ Action37 : 1 ]
+ { ActionType37:d ActionName37:s Action37ExecuteDelay:f Action37ExecuteImmediately:d Action37QuestID:s Action37Required:d }
+   22             "Quest: Flour" 0.000000               0                            "O_ID_FLOUR_CH01" 0                  
+[ Action38 : 1 ]
+ { ActionType38:d ActionName38:s      Action38ExecuteDelay:f Action38ExecuteImmediately:d Action38QuestID:s      Action38Required:d }
+   22             "Quest: Fix Bridge" 0.000000               0                            "C_ID_FIX_BRIDGE_CH01" 1                  
+[ Action39 : 1 ]
+ { ActionType39:d ActionName39:s      Action39ExecuteDelay:f Action39ExecuteImmediately:d Action39QuestID:s      Action39Required:d }
+   22             "Quest: Find Sadoc" 0.000000               0                            "W_ID_FIND_SADOC_CH01" 0                  
+[ Action40 : 1 ]
+ { ActionType40:d ActionName40:s      Action40ExecuteDelay:f Action40ExecuteImmediately:d Action40QuestID:s Action40Required:d }
+   22             "Quest: Find Nails" 0.000000               0                            "E_ID_NAILS_CH01" 1                  
+[ Action41 : 1 ]
+ { ActionType41:d ActionName41:s      Action41ExecuteDelay:f Action41ExecuteImmediately:d Action41QuestID:s      Action41Required:d }
+   22             "Quest: Find Hilda" 0.000000               0                            "U_ID_FIND_HILDA_CH01" 0                  
+[ Action42 : 1 ]
+ { ActionType42:d ActionName42:s       Action42ExecuteDelay:f Action42ExecuteImmediately:d Action42QuestID:s  Action42Required:d }
+   22             "Quest: Find Hammer" 0.000000               0                            "D_ID_HAMMER_CH01" 1                  
+[ Action43 : 1 ]
+ { ActionType43:d ActionName43:s        Action43ExecuteDelay:f Action43ExecuteImmediately:d Action43QuestID:s        Action43Required:d }
+   22             "Quest: Find Hamfast" 0.000000               0                            "T_ID_FIND_HAMFAST_CH01" 0                  
+[ Action44 : 1 ]
+ { ActionType44:d ActionName44:s     Action44ExecuteDelay:f Action44ExecuteImmediately:d Action44QuestID:s     Action44Required:d }
+   22             "Quest: Find Bell" 0.000000               0                            "V_ID_FIND_BELL_CH01" 0                  
+[ Action45 : 1 ]
+ { ActionType45:d ActionName45:s Action45ExecuteDelay:f Action45ExecuteImmediately:d Action45QuestID:s Action45Required:d }
+   22             "Quest: Eggs"  0.000000               0                            "M_ID_EGGS_CH01"  0                  
+[ Action46 : 1 ]
+ { ActionType46:d ActionName46:s          Action46ExecuteDelay:f Action46ExecuteImmediately:d Action46QuestID:s }
+   29             "Quest: Complete Wheat" 0.000000               1                            "K_ID_WHEAT_CH01" 
+[ Action47 : 1 ]
+ { ActionType47:d ActionName47:s              Action47ExecuteDelay:f Action47ExecuteImmediately:d Action47QuestID:s    }
+   29             "Quest: Complete Tea Cakes" 0.000000               1                            "P_ID_TEACAKES_CH01" 
+[ Action48 : 1 ]
+ { ActionType48:d ActionName48:s          Action48ExecuteDelay:f Action48ExecuteImmediately:d Action48QuestID:s }
+   29             "Quest: Complete Sugar" 0.000000               1                            "I_ID_SUGAR_CH01" 
+[ Action49 : 1 ]
+ { ActionType49:d ActionName49:s          Action49ExecuteDelay:f Action49ExecuteImmediately:d Action49QuestID:s }
+   29             "Quest: Complete Spice" 0.000000               1                            "J_ID_SPICE_CH01" 
+[ Action50 : 1 ]
+ { ActionType50:d ActionName50:s              Action50ExecuteDelay:f Action50ExecuteImmediately:d Action50QuestID:s      }
+   34             "Quest: Complete Scarecrow" 0.000000               0                            "R_ID_SCARECROWS_CH01" 
+[ Action51 : 1 ]
+ { ActionType51:d ActionName51:s          Action51ExecuteDelay:f Action51ExecuteImmediately:d Action51QuestID:s      }
+   29             "Quest: Complete Sadoc" 0.000000               0                            "W_ID_FIND_SADOC_CH01" 
+[ Action52 : 1 ]
+ { ActionType52:d ActionName52:s               Action52ExecuteDelay:f Action52ExecuteImmediately:d Action52QuestID:s      }
+   34             "Quest: Complete Provisions" 0.000000               1                            "H_ID_PROVISIONS_CH01" 
+[ Action53 : 1 ]
+ { ActionType53:d ActionName53:s          Action53ExecuteDelay:f Action53ExecuteImmediately:d Action53QuestID:s }
+   29             "Quest: Complete Nails" 0.000000               0                            "E_ID_NAILS_CH01" 
+[ Action54 : 1 ]
+ { ActionType54:d ActionName54:s                     Action54ExecuteDelay:f Action54ExecuteImmediately:d Action54QuestID:s  }
+   34             "Quest: Complete Lorella's Chests" 0.000000               0                            "Q_ID_CHESTS_CH01" 
+[ Action55 : 1 ]
+ { ActionType55:d ActionName55:s          Action55ExecuteDelay:f Action55ExecuteImmediately:d Action55QuestID:s      }
+   29             "Quest: Complete Hilda" 0.000000               0                            "U_ID_FIND_HILDA_CH01" 
+[ Action56 : 1 ]
+ { ActionType56:d ActionName56:s                 Action56ExecuteDelay:f Action56ExecuteImmediately:d Action56QuestID:s      }
+   34             "Quest: Complete Hide Go Seek" 0.000000               0                            "S_ID_HIDEGOSEEK_CH01" 
+[ Action57 : 1 ]
+ { ActionType57:d ActionName57:s           Action57ExecuteDelay:f Action57ExecuteImmediately:d Action57QuestID:s  }
+   29             "Quest: Complete Hammer" 0.000000               0                            "D_ID_HAMMER_CH01" 
+[ Action58 : 1 ]
+ { ActionType58:d ActionName58:s            Action58ExecuteDelay:f Action58ExecuteImmediately:d Action58QuestID:s        }
+   29             "Quest: Complete Hamfast" 0.000000               0                            "T_ID_FIND_HAMFAST_CH01" 
+[ Action59 : 1 ]
+ { ActionType59:d ActionName59:s          Action59ExecuteDelay:f Action59ExecuteImmediately:d Action59QuestID:s }
+   29             "Quest: Complete Flour" 0.000000               1                            "O_ID_FLOUR_CH01" 
+[ Action60 : 1 ]
+ { ActionType60:d ActionName60:s               Action60ExecuteDelay:f Action60ExecuteImmediately:d Action60QuestID:s      }
+   34             "Quest: Complete Fix Bridge" 0.000000               0                            "C_ID_FIX_BRIDGE_CH01" 
+[ Action61 : 1 ]
+ { ActionType61:d ActionName61:s         Action61ExecuteDelay:f Action61ExecuteImmediately:d Action61QuestID:s }
+   29             "Quest: Complete Eggs" 0.000000               1                            "M_ID_EGGS_CH01"  
+[ Action62 : 1 ]
+ { ActionType62:d ActionName62:s            Action62ExecuteDelay:f Action62ExecuteImmediately:d Action62QuestID:s   }
+   29             "Quest: Complete Berries" 0.000000               1                            "L_ID_BERRIES_CH01" 
+[ Action63 : 1 ]
+ { ActionType63:d ActionName63:s         Action63ExecuteDelay:f Action63ExecuteImmediately:d Action63QuestID:s     }
+   29             "Quest: Complete Bell" 0.000000               0                            "V_ID_FIND_BELL_CH01" 
+[ Action64 : 1 ]
+ { ActionType64:d ActionName64:s           Action64ExecuteDelay:f Action64ExecuteImmediately:d Action64QuestID:s  }
+   29             "Quest: Complete Apples" 0.000000               1                            "N_ID_APPLES_CH01" 
+[ Action65 : 1 ]
+ { ActionType65:d ActionName65:s              Action65ExecuteDelay:f Action65ExecuteImmediately:d Action65QuestID:s       Action65Required:d }
+   22             "Quest: Butter Churn quest" 0.000000               0                            "G_ID_BUTTERCHURN_CH01" 0                  
+[ Action66 : 1 ]
+ { ActionType66:d ActionName66:s             Action66ExecuteDelay:f Action66ExecuteImmediately:d Action66QuestID:s       }
+   29             "Quest: Butter Churn done" 0.000000               0                            "G_ID_BUTTERCHURN_CH01" 
+[ Action67 : 1 ]
+ { ActionType67:d ActionName67:s   Action67ExecuteDelay:f Action67ExecuteImmediately:d Action67QuestID:s   Action67Required:d }
+   22             "Quest: Berries" 0.000000               0                            "L_ID_BERRIES_CH01" 0                  
+[ Action68 : 1 ]
+ { ActionType68:d ActionName68:s  Action68ExecuteDelay:f Action68ExecuteImmediately:d Action68QuestID:s  Action68Required:d }
+   22             "Quest: Apples" 0.000000               0                            "N_ID_APPLES_CH01" 0                  
+[ Action69 : 1 ]
+ { ActionType69:d ActionName69:s             Action69ExecuteDelay:f Action69ExecuteImmediately:d Action69QuestID:s    Action69Required:d }
+   22             "QUEST:  Green Dragon Inn" 0.000000               0                            "A_ID_GOTO_INN_CH01" 1                  
+[ Action70 : 1 ]
+ { ActionType70:d ActionName70:s        Action70ExecuteDelay:f Action70ExecuteImmediately:d Action70StringID:s       Action70Scroll:d Action70DelayTime:f }
+   18             "Overlay: Wheat Sack" 0.000000               0                            "INFO_WHEATSACK_AQUIRED" 0                5.000000            
+[ Action71 : 1 ]
+ { ActionType71:d ActionName71:s           Action71ExecuteDelay:f Action71ExecuteImmediately:d Action71StringID:s          Action71Scroll:d Action71DelayTime:f }
+   18             "Overlay: Walking Stick" 0.000000               0                            "INFO_WALKINGSTICK_AQUIRED" 0                5.000000            
+[ Action72 : 1 ]
+ { ActionType72:d ActionName72:s             Action72ExecuteDelay:f Action72ExecuteImmediately:d Action72StringID:s     Action72Scroll:d Action72DelayTime:f }
+   18             "Overlay: Throwing Stones" 0.000000               0                            "INFO_THROWING_STONES" 1                5.000000            
+[ Action73 : 1 ]
+ { ActionType73:d ActionName73:s       Action73ExecuteDelay:f Action73ExecuteImmediately:d Action73StringID:s      Action73Scroll:d Action73DelayTime:f }
+   18             "Overlay: Tea Cakes" 0.000000               0                            "INFO_TEACAKES_AQUIRED" 0                5.000000            
+[ Action74 : 1 ]
+ { ActionType74:d ActionName74:s   Action74ExecuteDelay:f Action74ExecuteImmediately:d Action74StringID:s   Action74Scroll:d Action74DelayTime:f }
+   18             "Overlay: Sugar" 0.000000               0                            "INFO_SUGAR_AQUIRED" 0                5.000000            
+[ Action75 : 1 ]
+ { ActionType75:d ActionName75:s   Action75ExecuteDelay:f Action75ExecuteImmediately:d Action75StringID:s   Action75Scroll:d Action75DelayTime:f }
+   18             "Overlay: Spice" 0.000000               0                            "INFO_SPICE_AQUIRED" 0                5.000000            
+[ Action76 : 1 ]
+ { ActionType76:d ActionName76:s     Action76ExecuteDelay:f Action76ExecuteImmediately:d Action76StringID:s  Action76Scroll:d Action76DelayTime:f }
+   18             "Overlay: Sneak 1" 0.000000               0                            "INFO_SNEAK_HOLMAN" 0                5.000000            
+[ Action77 : 1 ]
+ { ActionType77:d ActionName77:s           Action77ExecuteDelay:f Action77ExecuteImmediately:d Action77StringID:s   Action77Scroll:d Action77DelayTime:f }
+   18             "Overlay: Rock Throwing" 0.000000               0                            "INFO_ROCK_THROWING" 1                5.000000            
+[ Action78 : 1 ]
+ { ActionType78:d ActionName78:s                Action78ExecuteDelay:f Action78ExecuteImmediately:d Action78StringID:s        Action78Scroll:d Action78DelayTime:f }
+   18             "Overlay: Quest Log Reminder" 0.000000               0                            "INFO_QUEST_LOG_REMINDER" 0                5.000000            
+[ Action79 : 1 ]
+ { ActionType79:d ActionName79:s       Action79ExecuteDelay:f Action79ExecuteImmediately:d Action79StringID:s Action79Scroll:d Action79DelayTime:f }
+   18             "Overlay: Quest Log" 1.000000               0                            "INFO_QUEST_LOG"   1                5.000000            
+[ Action80 : 1 ]
+ { ActionType80:d ActionName80:s        Action80ExecuteDelay:f Action80ExecuteImmediately:d Action80StringID:s Action80Scroll:d Action80DelayTime:f }
+   18             "Overlay: Push Block" 0.000000               0                            "INFO_PUSH_BLOCK"  0                5.000000            
+[ Action81 : 1 ]
+ { ActionType81:d ActionName81:s               Action81ExecuteDelay:f Action81ExecuteImmediately:d Action81StringID:s    Action81Scroll:d Action81DelayTime:f }
+   18             "Overlay: Play Silver Penny" 0.000000               0                            "INFO_SILVER_PENNIES" 0                5.000000            
+[ Action82 : 1 ]
+ { ActionType82:d ActionName82:s           Action82ExecuteDelay:f Action82ExecuteImmediately:d Action82StringID:s   Action82Scroll:d Action82DelayTime:f }
+   18             "Overlay: Noisy Surface" 0.000000               0                            "INFO_NOISY_SURFACE" 0                5.000000            
+[ Action83 : 1 ]
+ { ActionType83:d ActionName83:s   Action83ExecuteDelay:f Action83ExecuteImmediately:d Action83StringID:s   Action83Scroll:d Action83DelayTime:f }
+   18             "Overlay: Nails" 0.000000               0                            "INFO_NAILS_AQUIRED" 0                5.000000            
+[ Action84 : 1 ]
+ { ActionType84:d ActionName84:s       Action84ExecuteDelay:f Action84ExecuteImmediately:d Action84StringID:s Action84Scroll:d Action84DelayTime:f }
+   18             "Overlay: Hoistable" 0.000000               0                            "INFO_HOISTABLES"  0                5.000000            
+[ Action85 : 1 ]
+ { ActionType85:d ActionName85:s    Action85ExecuteDelay:f Action85ExecuteImmediately:d Action85StringID:s    Action85Scroll:d Action85DelayTime:f }
+   18             "Overlay: Hammer" 0.000000               0                            "INFO_HAMMER_AQUIRED" 0                5.000000            
+[ Action86 : 1 ]
+ { ActionType86:d ActionName86:s   Action86ExecuteDelay:f Action86ExecuteImmediately:d Action86StringID:s   Action86Scroll:d Action86DelayTime:f }
+   18             "Overlay: Flour" 0.000000               0                            "INFO_FLOUR_AQUIRED" 0                5.000000            
+[ Action87 : 1 ]
+ { ActionType87:d ActionName87:s Action87ExecuteDelay:f Action87ExecuteImmediately:d Action87StringID:s  Action87Scroll:d Action87DelayTime:f }
+   18             "Overlay: Egg" 0.000000               0                            "INFO_EGGS_AQUIRED" 0                5.000000            
+[ Action88 : 1 ]
+ { ActionType88:d ActionName88:s Action88ExecuteDelay:f Action88ExecuteImmediately:d Action88StringID:s Action88Scroll:d Action88DelayTime:f }
+   18             "Overlay: CP " 0.000000               0                            "INFO_CP"          0                5.000000            
+[ Action89 : 1 ]
+ { ActionType89:d ActionName89:s   Action89ExecuteDelay:f Action89ExecuteImmediately:d Action89StringID:s     Action89Scroll:d Action89DelayTime:f }
+   18             "Overlay: Berry" 0.000000               0                            "INFO_BERRIES_AQUIRED" 0                5.000000            
+[ Action90 : 1 ]
+ { ActionType90:d ActionName90:s   Action90ExecuteDelay:f Action90ExecuteImmediately:d Action90StringID:s   Action90Scroll:d Action90DelayTime:f }
+   18             "Overlay: Apple" 0.000000               0                            "INFO_APPLE_AQUIRED" 0                5.000000            
+[ Action91 : 1 ]
+ { ActionType91:d ActionName91:s          Action91ExecuteDelay:f Action91ExecuteImmediately:d Action91StringID:s Action91Scroll:d Action91DelayTime:f }
+   18             "OVERLAY: Save Ped Tut" 0.000000               0                            "INFO_SAVE_PED"    0                5.000000            
+[ Action92 : 1 ]
+ { ActionType92:d ActionName92:s             Action92ExecuteDelay:f Action92ExecuteImmediately:d Action92StringID:s    Action92Scroll:d Action92DelayTime:f }
+   18             "OVERLAY: Needle acquired" 0.000000               0                            "INFO_NEEDLE_AQUIRED" 0                5.000000            
+[ Action93 : 1 ]
+ { ActionType93:d ActionName93:s    Action93ExecuteDelay:f Action93ExecuteImmediately:d Action93StringID:s Action93Scroll:d Action93DelayTime:f }
+   18             "OVERLAY: CP Tut" 0.000000               0                            "INFO_CP_TUTORIAL" 1                5.000000            
+[ Action94 : 1 ]
+ { ActionType94:d ActionName94:s     Action94ExecuteDelay:f Action94ExecuteImmediately:d Action94InstanceCount:d Action94RigidInstance0:g Action94AnimIndex:d Action94Loops:d }
+   33             "NPC: Turtle Flee" 0.000000               0                            1                       CA3DD291_309FD400        0                   1               
+[ Action95 : 1 ]
+ { ActionType95:d ActionName95:s    Action95ExecuteDelay:f Action95ExecuteImmediately:d Action95DoRootToPosition:d Action95ResetRootPosition:d Action95NPC:g     }
+   41             "NPC: Root Sadoc" 0.000000               0                            1                          1                           CA3DD58F_5BD6DC00 
+[ Action96 : 1 ]
+ { ActionType96:d ActionName96:s    Action96ExecuteDelay:f Action96ExecuteImmediately:d Action96DoRootToPosition:d Action96ResetRootPosition:d Action96NPC:g     }
+   41             "NPC: Root Hilda" 0.000000               0                            1                          1                           CA3DD58F_5BD28001 
+[ Action97 : 1 ]
+ { ActionType97:d ActionName97:s      Action97ExecuteDelay:f Action97ExecuteImmediately:d Action97DoRootToPosition:d Action97ResetRootPosition:d Action97NPC:g     }
+   41             "NPC: Root Hamfast" 0.000000               0                            1                          1                           CA3DD58F_5BD13800 
+[ Action98 : 1 ]
+ { ActionType98:d ActionName98:s   Action98ExecuteDelay:f Action98ExecuteImmediately:d Action98DoRootToPosition:d Action98ResetRootPosition:d Action98NPC:g     }
+   41             "NPC: Root Bell" 0.000000               0                            1                          1                           CA3DD48F_5BA30400 
+[ Action99 : 1 ]
+ { ActionType99:d ActionName99:s                       Action99ExecuteDelay:f Action99ExecuteImmediately:d Action99State:s   Action99NPC:g     }
+   13             "NPC State: Set Holman Back to Idle" 0.000000               0                            "PatrolIdleState" CA3DDD8E_6F198C01 
+[ Action100 : 1 ]
+ { ActionType100:d ActionName100:s        Action100ExecuteDelay:f Action100ExecuteImmediately:d Action100MusicTrigger:g }
+   40              "Music_QuestItemFound" 0.000000                0                             9D153751_21DE5801       
+[ Action101 : 1 ]
+ { ActionType101:d ActionName101:s                 Action101ExecuteDelay:f Action101ExecuteImmediately:d Action101MusicTrigger:g }
+   40              "Music_QuestItemDelivered_Norm" 0.000000                0                             9D153AD1_21F03801       
+[ Action102 : 1 ]
+ { ActionType102:d ActionName102:s                   Action102ExecuteDelay:f Action102ExecuteImmediately:d Action102MusicTrigger:g }
+   40              "Music_QuestItemDelivered_Gammer" 0.000000                0                             9D153AD1_21F0F401       
+[ Action103 : 1 ]
+ { ActionType103:d ActionName103:s       Action103ExecuteDelay:f Action103ExecuteImmediately:d Action103MusicTrigger:g }
+   40              "Music_OpeningCinema" 0.000000                0                             9D153C92_0A67C401       
+[ Action104 : 1 ]
+ { ActionType104:d ActionName104:s    Action104ExecuteDelay:f Action104ExecuteImmediately:d Action104MusicTrigger:g }
+   40              "Music_ExitBagEnd" 0.000000                0                             9D153B90_98B04C00       
+[ Action105 : 1 ]
+ { ActionType105:d ActionName105:s      Action105ExecuteDelay:f Action105ExecuteImmediately:d Action105CharacterGuid:g Action105Team:d }
+   2               "Make Chicken7 Good" 2.000000                0                             CA3DD48F_520ED401        0               
+[ Action106 : 1 ]
+ { ActionType106:d ActionName106:s       Action106ExecuteDelay:f Action106ExecuteImmediately:d Action106State:s       Action106NPC:g    }
+   13              "Make Chicken7 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_520ED401 
+[ Action107 : 1 ]
+ { ActionType107:d ActionName107:s      Action107ExecuteDelay:f Action107ExecuteImmediately:d Action107CharacterGuid:g Action107Team:d }
+   2               "Make Chicken6 Good" 2.000000                0                             CA3DD48F_520EC001        0               
+[ Action108 : 1 ]
+ { ActionType108:d ActionName108:s       Action108ExecuteDelay:f Action108ExecuteImmediately:d Action108State:s       Action108NPC:g    }
+   13              "Make Chicken6 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_520EC001 
+[ Action109 : 1 ]
+ { ActionType109:d ActionName109:s      Action109ExecuteDelay:f Action109ExecuteImmediately:d Action109CharacterGuid:g Action109Team:d }
+   2               "Make Chicken5 Good" 2.000000                0                             CA3DD48F_520E7001        0               
+[ Action110 : 1 ]
+ { ActionType110:d ActionName110:s       Action110ExecuteDelay:f Action110ExecuteImmediately:d Action110State:s       Action110NPC:g    }
+   13              "Make Chicken5 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_520E7001 
+[ Action111 : 1 ]
+ { ActionType111:d ActionName111:s      Action111ExecuteDelay:f Action111ExecuteImmediately:d Action111CharacterGuid:g Action111Team:d }
+   2               "Make Chicken3 Good" 2.000000                0                             CA3DD48F_520D1801        0               
+[ Action112 : 1 ]
+ { ActionType112:d ActionName112:s       Action112ExecuteDelay:f Action112ExecuteImmediately:d Action112State:s       Action112NPC:g    }
+   13              "Make Chicken3 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_520D1801 
+[ Action113 : 1 ]
+ { ActionType113:d ActionName113:s      Action113ExecuteDelay:f Action113ExecuteImmediately:d Action113CharacterGuid:g Action113Team:d }
+   2               "Make Chicken2 Good" 2.000000                0                             CA3DD48F_520CF001        0               
+[ Action114 : 1 ]
+ { ActionType114:d ActionName114:s      Action114ExecuteDelay:f Action114ExecuteImmediately:d Action114CharacterGuid:g Action114Team:d }
+   2               "Make Chicken1 Good" 2.000000                0                             CA3DD48F_52031800        0               
+[ Action115 : 1 ]
+ { ActionType115:d ActionName115:s       Action115ExecuteDelay:f Action115ExecuteImmediately:d Action115State:s       Action115NPC:g    }
+   13              "Make Chicken1 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_52031800 
+[ Action116 : 1 ]
+ { ActionType116:d ActionName116:s        Action116ExecuteDelay:f Action116ExecuteImmediately:d Action116State:s       Action116NPC:g    }
+   13              "Make Chicken 2 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_520CF001 
+[ Action117 : 1 ]
+ { ActionType117:d ActionName117:s         Action117ExecuteDelay:f Action117ExecuteImmediately:d Action117Fadeout:d Action117Color:dddd Action117Duration:f }
+   30              "Maggot Doggy Fade Out" 0.000000                0                             1                  0 0 0 255           1.500000            
+[ Action118 : 1 ]
+ { ActionType118:d ActionName118:s        Action118ExecuteDelay:f Action118ExecuteImmediately:d Action118Fadeout:d Action118Color:dddd Action118Duration:f }
+   30              "Maggot Doggy Fade In" 4.000000                0                             0                  0 0 0 255           1.500000            
+[ Action119 : 1 ]
+ { ActionType119:d ActionName119:s        Action119ExecuteDelay:f Action119ExecuteImmediately:d Action119MusicTrigger:g }
+   40              "MUSIC_EndIntroCinema" 0.000000                0                             97B768D2_12C85401       
+[ Action120 : 1 ]
+ { ActionType120:d ActionName120:s          Action120ExecuteDelay:f Action120ExecuteImmediately:d Action120Object:g Action120Volume:g Action120Facing:g }
+   15              "MOVE: Bombur Conv Trig" 0.000000                0                             CA3DD310_54610C00 CA3DD890_548AD400 00000000_00000000 
+[ Action121 : 1 ]
+ { ActionType121:d ActionName121:s     Action121ExecuteDelay:f Action121ExecuteImmediately:d Action121LoadLayerGuid:g }
+   10              "Load: Shed Crumbs" 0.000000                0                             CA3DD5D0_09595800        
+[ Action122 : 1 ]
+ { ActionType122:d ActionName122:s             Action122ExecuteDelay:f Action122ExecuteImmediately:d Action122LoadLayerGuid:g }
+   10              "Load: Sandyman Fix Bridge" 0.000000                0                             CA3DD98F_37BA8400        
+[ Action123 : 1 ]
+ { ActionType123:d ActionName123:s         Action123ExecuteDelay:f Action123ExecuteImmediately:d Action123LoadLayerGuid:g }
+   10              "Load: Resourse HTown " 0.000000                0                             CA3DD7D0_14E38800        
+[ Action124 : 1 ]
+ { ActionType124:d ActionName124:s          Action124ExecuteDelay:f Action124ExecuteImmediately:d Action124LoadLayerGuid:g }
+   10              "Load: Resourse Bag End" 0.000000                0                             CA3DD7D0_14E3E000        
+[ Action125 : 1 ]
+ { ActionType125:d ActionName125:s Action125ExecuteDelay:f Action125ExecuteImmediately:d Action125LoadLayerGuid:g }
+   10              "Load: H-Town"  0.000000                0                             CA3DD04F_3728C000        
+[ Action126 : 1 ]
+ { ActionType126:d ActionName126:s       Action126ExecuteDelay:f Action126ExecuteImmediately:d Action126LoadLayerGuid:g }
+   10              "Load: Gaddling Gone" 0.000000                0                             CA3DD2CF_AB6C1000        
+[ Action127 : 1 ]
+ { ActionType127:d ActionName127:s Action127ExecuteDelay:f Action127ExecuteImmediately:d Action127LoadLayerGuid:g }
+   10              "Load: Bag End" 0.000000                0                             CA3DD04F_37295000        
+[ Action128 : 1 ]
+ { ActionType128:d ActionName128:s          Action128ExecuteDelay:f Action128ExecuteImmediately:d Action128LoadLayerGuid:g }
+   10              "Load End Of Level Trig" 0.000000                0                             CA3DD8CF_67C60800        
+[ Action129 : 1 ]
+ { ActionType129:d ActionName129:s                   Action129ExecuteDelay:f Action129ExecuteImmediately:d Action129Link:s                                                       Action129LinkState:d }
+   12              "Link: Disable Bombur Dialogue 2" 0.000000                1                             "TRIGGERS: WORLD TRIGGER: Bombur/  ACTIONS: Dialog: Start Bombur 2/ " 1                    
+[ Action130 : 1 ]
+ { ActionType130:d ActionName130:s                   Action130ExecuteDelay:f Action130ExecuteImmediately:d Action130Link:s                                                                                                                                                                                                       Action130LinkState:d }
+   12              "Link: Deactivate Chicken Catch " 0.000000                0                             "TRIGGERS: Chicken1 Alert 2 Bilbo/ Chicken2 Alert 2 Bilbo/ Chicken3 Alert 2 Bilbo/ Chicken4 Alert 2 Bilbo/ Chicken5 Alert 2 Bilbo/ Chicken6 Alert 2 Bilbo/ Chicken7 Alert 2 Bilbo/  ACTIONS: CINEMA: Chicken chase/ " 1                    
+[ Action131 : 1 ]
+ { ActionType131:d ActionName131:s                Action131ExecuteDelay:f Action131ExecuteImmediately:d Action131Link:s                                                                                                                                                                                                       Action131LinkState:d }
+   12              "Link: Activate Chicken Catch" 0.000000                0                             "TRIGGERS: Chicken1 Alert 2 Bilbo/ Chicken2 Alert 2 Bilbo/ Chicken3 Alert 2 Bilbo/ Chicken4 Alert 2 Bilbo/ Chicken5 Alert 2 Bilbo/ Chicken6 Alert 2 Bilbo/ Chicken7 Alert 2 Bilbo/  ACTIONS: CINEMA: Chicken chase/ " 0                    
+[ Action132 : 1 ]
+ { ActionType132:d ActionName132:s      Action132ExecuteDelay:f Action132ExecuteImmediately:d Action132LoadLayerGuid:g }
+   10              "LOAD: Well Trigger" 0.000000                0                             CA3DDF0F_E5CC8000        
+[ Action133 : 1 ]
+ { ActionType133:d ActionName133:s     Action133ExecuteDelay:f Action133ExecuteImmediately:d Action133LoadLayerGuid:g }
+   10              "LOAD: Pond Unload" 0.000000                0                             CA3DD912_1838C001        
+[ Action134 : 1 ]
+ { ActionType134:d ActionName134:s Action134ExecuteDelay:f Action134ExecuteImmediately:d Action134LoadLayerGuid:g }
+   10              "LOAD: Pond"    0.000000                0                             CA3DD912_18321000        
+[ Action135 : 1 ]
+ { ActionType135:d ActionName135:s           Action135ExecuteDelay:f Action135ExecuteImmediately:d Action135LoadLayerGuid:g }
+   10              "LOAD: Playground Unload" 0.000000                0                             CA3DD912_18525401        
+[ Action136 : 1 ]
+ { ActionType136:d ActionName136:s    Action136ExecuteDelay:f Action136ExecuteImmediately:d Action136LoadLayerGuid:g }
+   10              "LOAD: Playground" 0.000000                0                             CA3DD912_18483C00        
+[ Action137 : 1 ]
+ { ActionType137:d ActionName137:s                   Action137ExecuteDelay:f Action137ExecuteImmediately:d Action137Link:s                                                               Action137LinkState:d }
+   12              "LINK: Gandolf Stick Cin Disable" 0.000000                0                             "TRIGGERS: ACTION: Gandolf B Trig Hit/  ACTIONS: CINEMA: Gandolf Stick Cin/ " 1                    
+[ Action138 : 1 ]
+ { ActionType138:d ActionName138:s                Action138ExecuteDelay:f Action138ExecuteImmediately:d Action138Link:s                                                             Action138LinkState:d }
+   12              "LINK: Gandolf Inn Cin Enable" 0.000000                0                             "TRIGGERS: ACTION: Gandolf B Trig Hit/  ACTIONS: CINEMA: Gandolf Inn Cin/ " 0                    
+[ Action139 : 1 ]
+ { ActionType139:d ActionName139:s               Action139ExecuteDelay:f Action139ExecuteImmediately:d Action139Link:s                                                                                                                                Action139LinkState:d }
+   12              "LINK: Disable initial Sand " 0.000000                0                             "TRIGGERS: Bilbo Enters Bridge Vol/  ACTIONS: Start Sandyman Bridge Dialog/ LINK:  Disable Set Sand Cine04 -2/ LOAD: Playground/ LOAD: Pond/ " 1                    
+[ Action140 : 1 ]
+ { ActionType140:d ActionName140:s                Action140ExecuteDelay:f Action140ExecuteImmediately:d Action140Link:s                                                                                           Action140LinkState:d }
+   12              "LINK: Disable Set Sandyman 3" 0.000000                0                             "TRIGGERS: Inventory: Bilbo Has Hammer/ Inventory: Bilbo Has 3 Nails/  ACTIONS: Dialog: Set Sandyman 3/ " 1                    
+[ Action141 : 1 ]
+ { ActionType141:d ActionName141:s                 Action141ExecuteDelay:f Action141ExecuteImmediately:d Action141Link:s                                                        Action141LinkState:d }
+   12              "LINK: Disable Gaddling dialog" 0.000000                0                             "TRIGGERS: Bilbo Enters Well Zone/  ACTIONS: Gadling Yells at Bilbo/ " 1                    
+[ Action142 : 1 ]
+ { ActionType142:d ActionName142:s                     Action142ExecuteDelay:f Action142ExecuteImmediately:d Action142Link:s                                                                                                                            Action142LinkState:d }
+   12              "LINK:  Disable Set Sand Cine04 -2" 0.000000                0                             "TRIGGERS: Inventory: Bilbo Has Hammer/ Inventory: Bilbo Has 3 Nails/  ACTIONS: CINEMA: Set Sand Cine04 -2/ LINK: Disable initial Sand / " 1                    
+[ Action143 : 1 ]
+ { ActionType143:d ActionName143:s             Action143ExecuteDelay:f Action143ExecuteImmediately:d Action143Item:s Action143Add:d Action143Amount:d Action143SourceGuid:g }
+   9               "Inventory: Tea Cakes TAKE" 0.000000                0                             "TEA_CAKES"     0              1                 ABCABCAB_CABCABC0     
+[ Action144 : 1 ]
+ { ActionType144:d ActionName144:s              Action144ExecuteDelay:f Action144ExecuteImmediately:d Action144Item:s Action144Add:d Action144Amount:d Action144SourceGuid:g }
+   9               "Inventory: Take Wheat Sack" 0.000000                0                             "WHEAT_SACK"    0              1                 ABCABCAB_CABCABC0     
+[ Action145 : 1 ]
+ { ActionType145:d ActionName145:s             Action145ExecuteDelay:f Action145ExecuteImmediately:d Action145Item:s Action145Add:d Action145Amount:d Action145SourceGuid:g }
+   9               "Inventory: Take Tea Cakes" 0.000000                0                             "TEA_CAKES"     0              1                 ABCABCAB_CABCABC0     
+[ Action146 : 1 ]
+ { ActionType146:d ActionName146:s         Action146ExecuteDelay:f Action146ExecuteImmediately:d Action146Item:s Action146Add:d Action146Amount:d Action146SourceGuid:g }
+   9               "Inventory: Take Sugar" 0.000000                0                             "SUGAR"         0              1                 ABCABCAB_CABCABC0     
+[ Action147 : 1 ]
+ { ActionType147:d ActionName147:s         Action147ExecuteDelay:f Action147ExecuteImmediately:d Action147Item:s Action147Add:d Action147Amount:d Action147SourceGuid:g }
+   9               "Inventory: Take Spice" 0.000000                0                             "SPICE"         0              1                 ABCABCAB_CABCABC0     
+[ Action148 : 1 ]
+ { ActionType148:d ActionName148:s          Action148ExecuteDelay:f Action148ExecuteImmediately:d Action148Item:s Action148Add:d Action148Amount:d Action148SourceGuid:g }
+   9               "Inventory: Take Needle" 0.000000                0                             "SEWING NEEDLE" 0              1                 ABCABCAB_CABCABC0     
+[ Action149 : 1 ]
+ { ActionType149:d ActionName149:s         Action149ExecuteDelay:f Action149ExecuteImmediately:d Action149Item:s Action149Add:d Action149Amount:d Action149SourceGuid:g }
+   9               "Inventory: Take Nails" 0.000000                0                             "NAILS"         0              3                 ABCABCAB_CABCABC0     
+[ Action150 : 1 ]
+ { ActionType150:d ActionName150:s          Action150ExecuteDelay:f Action150ExecuteImmediately:d Action150Item:s Action150Add:d Action150Amount:d Action150SourceGuid:g }
+   9               "Inventory: Take Hammer" 0.000000                0                             "HAMMER"        0              1                 ABCABCAB_CABCABC0     
+[ Action151 : 1 ]
+ { ActionType151:d ActionName151:s         Action151ExecuteDelay:f Action151ExecuteImmediately:d Action151Item:s Action151Add:d Action151Amount:d Action151SourceGuid:g }
+   9               "Inventory: Take Flour" 0.000000                0                             "FLOUR"         0              1                 ABCABCAB_CABCABC0     
+[ Action152 : 1 ]
+ { ActionType152:d ActionName152:s       Action152ExecuteDelay:f Action152ExecuteImmediately:d Action152Item:s Action152Add:d Action152Amount:d Action152SourceGuid:g }
+   9               "Inventory: Take Egg" 0.000000                0                             "EGG"           0              3                 ABCABCAB_CABCABC0     
+[ Action153 : 1 ]
+ { ActionType153:d ActionName153:s         Action153ExecuteDelay:f Action153ExecuteImmediately:d Action153Item:s Action153Add:d Action153Amount:d Action153SourceGuid:g }
+   9               "Inventory: Take Berry" 0.000000                0                             "BERRY"         0              3                 ABCABCAB_CABCABC0     
+[ Action154 : 1 ]
+ { ActionType154:d ActionName154:s         Action154ExecuteDelay:f Action154ExecuteImmediately:d Action154Item:s Action154Add:d Action154Amount:d Action154SourceGuid:g }
+   9               "Inventory: Take Apple" 0.000000                0                             "APPLE"         0              3                 ABCABCAB_CABCABC0     
+[ Action155 : 1 ]
+ { ActionType155:d ActionName155:s              Action155ExecuteDelay:f Action155ExecuteImmediately:d Action155Item:s Action155Add:d Action155Amount:d Action155SourceGuid:g }
+   9               "Inventory: Give Wheat Sack" 0.000000                0                             "WHEAT_SACK"    1              1                 ABCABCAB_CABCABC0     
+[ Action156 : 1 ]
+ { ActionType156:d ActionName156:s             Action156ExecuteDelay:f Action156ExecuteImmediately:d Action156Item:s Action156Add:d Action156Amount:d Action156SourceGuid:g }
+   9               "Inventory: Give Tea Cakes" 0.000000                0                             "TEA_CAKES"     1              1                 ABCABCAB_CABCABC0     
+[ Action157 : 1 ]
+ { ActionType157:d ActionName157:s         Action157ExecuteDelay:f Action157ExecuteImmediately:d Action157Item:s Action157Add:d Action157Amount:d Action157SourceGuid:g }
+   9               "Inventory: Give Flour" 0.000000                0                             "FLOUR"         1              1                 ABCABCAB_CABCABC0     
+[ Action158 : 1 ]
+ { ActionType158:d ActionName158:s                Action158ExecuteDelay:f Action158ExecuteImmediately:d Action158Item:s Action158Add:d Action158Amount:d Action158SourceGuid:g }
+   9               "Inventory: Give Bilbo Hammer" 0.000000                0                             "HAMMER"        1              1                 ABCABCAB_CABCABC0     
+[ Action159 : 1 ]
+ { ActionType159:d ActionName159:s   Action159ExecuteDelay:f Action159ExecuteImmediately:d Action159Fadeout:d Action159Color:dddd Action159Duration:f }
+   30              "Holman Fade Out" 0.000000                0                             1                  0 0 0 255           1.500000            
+[ Action160 : 1 ]
+ { ActionType160:d ActionName160:s  Action160ExecuteDelay:f Action160ExecuteImmediately:d Action160Fadeout:d Action160Color:dddd Action160Duration:f }
+   30              "Holman Fade In" 4.000000                0                             0                  0 0 0 255           1.500000            
+[ Action161 : 1 ]
+ { ActionType161:d ActionName161:s      Action161ExecuteDelay:f Action161ExecuteImmediately:d Action161cinemaCount:d Action161cinemaSelect:d Action161cinema0Guid:g Action161cinema1Guid:g Action161cinema2Guid:g Action161cinema3Guid:g Action161cinema4Guid:g Action161cinema5Guid:g }
+   20              "Holman Bores Bilbo" 0.000000                0                             6                      0                       C0CFA5CF_70759C00      CA3DD091_E81AF401      CA3DD091_E81B1001      CA3DD091_E81B2401      CA3DD091_E81B3401      CA3DD091_E81B4401      
+[ Action162 : 1 ]
+ { ActionType162:d ActionName162:s       Action162ExecuteDelay:f Action162ExecuteImmediately:d Action162DialogSelectionMethod:d Action162DialogCount:d Action162DialogName0:s Action162DialogName1:s Action162DialogName2:s Action162DialogName3:s Action162DialogName4:s Action162DialogName5:s Action162Speaker:g Action162AtLocation:d Action162BilboDialog:d }
+   8               "Holman Alert Dialog" 0.000000                0                             0                                6                      "HOBART_01_07"         "HOBART_01_08"         "HOBART_01_09"         "HOBART_01_10"         "HOBART_01_11"         "HOBART_01_12"         CA3DDD8E_6F161002  0                     0                      
+[ Action163 : 1 ]
+ { ActionType163:d ActionName163:s         Action163ExecuteDelay:f Action163ExecuteImmediately:d Action163StringID:s Action163Scroll:d Action163DelayTime:f }
+   18              "Hobbiton Info Overlay" 0.000000                0                             "INFO_HOBBITON"     0                 5.000000             
+[ Action164 : 1 ]
+ { ActionType164:d ActionName164:s Action164ExecuteDelay:f Action164ExecuteImmediately:d Action164Object:g Action164Volume:g Action164Facing:g }
+   15              "Hilda Tele"    0.000000                1                             CA3DD58F_5BD28001 CA3DDD8F_5C72EC00 CA3DDD8F_5C738C01 
+[ Action165 : 1 ]
+ { ActionType165:d ActionName165:s         Action165ExecuteDelay:f Action165ExecuteImmediately:d Action165NPCGuid:g Action165CinemaCount:d Action165SelectionMethod:d Action165Cinema0:g }
+   21              "Hilda Set Trig Cinema" 0.000000                0                             CA3DD58F_5BD28001  1                      0                          CA3DD6CF_5CA2C800  
+[ Action166 : 1 ]
+ { ActionType166:d ActionName166:s         Action166ExecuteDelay:f Action166ExecuteImmediately:d Action166NPCGuid:g Action166CinemaCount:d Action166SelectionMethod:d Action166Cinema0:g }
+   21              "Hilda Set After Found" 0.000000                0                             CA3DD58F_5BD28001  1                      0                          CA3DD6CF_5CA3F000  
+[ Action167 : 1 ]
+ { ActionType167:d ActionName167:s   Action167ExecuteDelay:f Action167ExecuteImmediately:d Action167CharacterGuid:g Action167AIStateName:s Action167GoalListName:s Action167OverrideCinematicAnimation:d }
+   4               "Hilda Goal List" 0.000000                0                             CA3DD58F_5BD28001        "Idle"                 "Hilda Hide"            0                                     
+[ Action168 : 1 ]
+ { ActionType168:d ActionName168:s                           Action168ExecuteDelay:f Action168ExecuteImmediately:d Action168NPCGuid:g Action168CinemaCount:d Action168SelectionMethod:d Action168Cinema0:g }
+   21              "Hanna Still Needs Butter Churn Dialog 4" 0.000000                0                             CA3DDD8E_6EB85001  1                      0                          CA3DDF8E_98F14000  
+[ Action169 : 1 ]
+ { ActionType169:d ActionName169:s           Action169ExecuteDelay:f Action169ExecuteImmediately:d Action169NPCGuid:g Action169CinemaCount:d Action169SelectionMethod:d Action169Cinema0:g }
+   21              "Hamfast set After Found" 0.000000                0                             CA3DD58F_5BD13800  1                      0                          CA3DDF4F_5C902C00  
+[ Action170 : 1 ]
+ { ActionType170:d ActionName170:s           Action170ExecuteDelay:f Action170ExecuteImmediately:d Action170NPCGuid:g Action170CinemaCount:d Action170SelectionMethod:d Action170Cinema0:g }
+   21              "Hamfast Set Trig Cinema" 0.000000                0                             CA3DD58F_5BD13800  1                      0                          CA3DDF4F_5C892000  
+[ Action171 : 1 ]
+ { ActionType171:d ActionName171:s      Action171ExecuteDelay:f Action171ExecuteImmediately:d Action171CharacterGuid:g Action171AIStateName:s Action171GoalListName:s Action171OverrideCinematicAnimation:d }
+   4               "Hamfast Face Bilbo" 0.000000                0                             CA3DD58F_5BD13800        "Idle"                 "Face Bilbo"            0                                     
+[ Action172 : 1 ]
+ { ActionType172:d ActionName172:s        Action172ExecuteDelay:f Action172ExecuteImmediately:d Action172cinemaCount:d Action172cinemaSelect:d Action172cinema0Guid:g }
+   20              "Hamfast Cinema Start" 0.500000                0                             1                      0                       15A467D1_1B7A8800      
+[ Action173 : 1 ]
+ { ActionType173:d ActionName173:s              Action173ExecuteDelay:f Action173ExecuteImmediately:d Action173CharacterGuid:g Action173AIStateName:s Action173GoalListName:s Action173OverrideCinematicAnimation:d }
+   4               "Goal List: Sadoc Runs Trig" 0.000000                0                             CA3DD58F_5BD6DC00        "Idle"                 "Sadoc Run"             0                                     
+[ Action174 : 1 ]
+ { ActionType174:d ActionName174:s              Action174ExecuteDelay:f Action174ExecuteImmediately:d Action174CharacterGuid:g Action174AIStateName:s Action174GoalListName:s Action174OverrideCinematicAnimation:d }
+   4               "Goal List: Hilda Runs Trig" 0.000000                0                             CA3DD58F_5BD28001        "Idle"                 "Hilda Run"             0                                     
+[ Action175 : 1 ]
+ { ActionType175:d ActionName175:s           Action175ExecuteDelay:f Action175ExecuteImmediately:d Action175CharacterGuid:g Action175AIStateName:s Action175GoalListName:s Action175OverrideCinematicAnimation:d }
+   4               "Goal List: Hamfast Runs" 0.000000                0                             CA3DD58F_5BD13800        "Idle"                 "Hamfast Run"           0                                     
+[ Action176 : 1 ]
+ { ActionType176:d ActionName176:s           Action176ExecuteDelay:f Action176ExecuteImmediately:d Action176CharacterGuid:g Action176AIStateName:s Action176GoalListName:s Action176OverrideCinematicAnimation:d }
+   4               "Goal List: Hamfast Hide" 0.000000                0                             CA3DD58F_5BD13800        "Idle"                 "Hamfast Hide"          0                                     
+[ Action177 : 1 ]
+ { ActionType177:d ActionName177:s             Action177ExecuteDelay:f Action177ExecuteImmediately:d Action177CharacterGuid:g Action177AIStateName:s Action177GoalListName:s Action177OverrideCinematicAnimation:d }
+   4               "Goal List: Bell Runs Trig" 0.000000                0                             CA3DD48F_5BA30400        "Idle"                 "Bell Run"              0                                     
+[ Action178 : 1 ]
+ { ActionType178:d ActionName178:s          Action178ExecuteDelay:f Action178ExecuteImmediately:d Action178DialogName:s Action178Speaker:g Action178AtLocation:d Action178BilboDialog:d }
+   7               "Gadling Yells at Bilbo" 0.000000                0                             "Gadling_01_01"       CA3DDD8E_6EB33800  0                     0                      
+[ Action179 : 1 ]
+ { ActionType179:d ActionName179:s Action179ExecuteDelay:f Action179ExecuteImmediately:d }
+   19              "END LEVEL"     0.000000                0                             
+[ Action180 : 1 ]
+ { ActionType180:d ActionName180:s          Action180ExecuteDelay:f Action180ExecuteImmediately:d Action180Object:g Action180Volume:g Action180Facing:g }
+   15              "Doggy Block Tele Bilbo" 4.000000                0                             ABCABCAB_CABCABC0 CA3DDE0F_65C24800 CA3DDE0F_65C2D001 
+[ Action181 : 1 ]
+ { ActionType181:d ActionName181:s       Action181ExecuteDelay:f Action181ExecuteImmediately:d Action181Fadeout:d Action181Color:dddd Action181Duration:f }
+   30              "Doggy Block Fade In" 4.000000                0                             0                  0 0 0 255           1.500000            
+[ Action182 : 1 ]
+ { ActionType182:d ActionName182:s        Action182ExecuteDelay:f Action182ExecuteImmediately:d Action182Fadeout:d Action182Color:dddd Action182Duration:f }
+   30              "Doggy Block Fade Cam" 0.000000                0                             1                  0 0 0 255           1.500000            
+[ Action183 : 1 ]
+ { ActionType183:d ActionName183:s Action183ExecuteDelay:f Action183ExecuteImmediately:d Action183DialogName:s Action183Speaker:g Action183AtLocation:d Action183BilboDialog:d }
+   7               "Dog Bark"      0.000000                0                             "DogBark"             00000000_00000000  0                     0                      
+[ Action184 : 1 ]
+ { ActionType184:d ActionName184:s Action184ExecuteDelay:f Action184ExecuteImmediately:d Action184DialogName:s Action184Speaker:g Action184AtLocation:d Action184BilboDialog:d }
+   7               "Dog 5 Howl"    0.000000                0                             "DogHowl"             63CA720F_67036001  0                     0                      
+[ Action185 : 1 ]
+ { ActionType185:d ActionName185:s Action185ExecuteDelay:f Action185ExecuteImmediately:d Action185DialogName:s Action185Speaker:g Action185AtLocation:d Action185BilboDialog:d }
+   7               "Dog 4 Howl"    0.000000                0                             "DogHowl"             63CA720F_67034001  0                     0                      
+[ Action186 : 1 ]
+ { ActionType186:d ActionName186:s Action186ExecuteDelay:f Action186ExecuteImmediately:d Action186DialogName:s Action186Speaker:g Action186AtLocation:d Action186BilboDialog:d }
+   7               "Dog 3 Howl"    0.000000                0                             "DogHowl"             63CA720F_67032001  0                     0                      
+[ Action187 : 1 ]
+ { ActionType187:d ActionName187:s Action187ExecuteDelay:f Action187ExecuteImmediately:d Action187DialogName:s Action187Speaker:g Action187AtLocation:d Action187BilboDialog:d }
+   7               "Dog 2 Howl"    0.000000                0                             "DogHowl"             63CA720F_6702F801  0                     0                      
+[ Action188 : 1 ]
+ { ActionType188:d ActionName188:s Action188ExecuteDelay:f Action188ExecuteImmediately:d Action188DialogName:s Action188Speaker:g Action188AtLocation:d Action188BilboDialog:d }
+   7               "Dog 1 Howl"    0.000000                0                             "DogHowl"             CA3DDCCF_56312C01  0                     0                      
+[ Action189 : 1 ]
+ { ActionType189:d ActionName189:s            Action189ExecuteDelay:f Action189ExecuteImmediately:d Action189Link:s                                                                     Action189LinkState:d }
+   12              "Disable Lily Pad Success" 0.000000                0                             "TRIGGERS: Bilbo Lily Pad Success/  ACTIONS: CP: Spawn 100/ Music_QuestItemFound/ " 1                    
+[ Action190 : 1 ]
+ { ActionType190:d ActionName190:s }
+   0               ""              
+[ Action191 : 1 ]
+ { ActionType191:d ActionName191:s }
+   0               ""              
+[ Action192 : 1 ]
+ { ActionType192:d ActionName192:s          Action192ExecuteDelay:f Action192ExecuteImmediately:d Action192cinemaCount:d Action192cinemaSelect:d Action192cinema0Guid:g }
+   20              "Dialog: Start Bombur 3" 0.000000                0                             1                      0                       CA3DD890_04C42000      
+[ Action193 : 1 ]
+ { ActionType193:d ActionName193:s          Action193ExecuteDelay:f Action193ExecuteImmediately:d Action193cinemaCount:d Action193cinemaSelect:d Action193cinema0Guid:g }
+   20              "Dialog: Start Bombur 2" 0.000000                0                             1                      0                       CA3DD890_04C07400      
+[ Action194 : 1 ]
+ { ActionType194:d ActionName194:s          Action194ExecuteDelay:f Action194ExecuteImmediately:d Action194NPCGuid:g Action194CinemaCount:d Action194SelectionMethod:d Action194Cinema0:g }
+   21              "Dialog: Set Sandyman 4" 0.000000                0                             CA3DDD8E_6ED56801  1                      0                          CA3DD50F_2D967400  
+[ Action195 : 1 ]
+ { ActionType195:d ActionName195:s          Action195ExecuteDelay:f Action195ExecuteImmediately:d Action195NPCGuid:g Action195CinemaCount:d Action195SelectionMethod:d Action195Cinema0:g }
+   21              "Dialog: Set Sandyman 3" 5.000000                0                             CA3DDD8E_6ED56801  1                      0                          CA3DD50F_2D92E800  
+[ Action196 : 1 ]
+ { ActionType196:d ActionName196:s          Action196ExecuteDelay:f Action196ExecuteImmediately:d Action196NPCGuid:g Action196CinemaCount:d Action196SelectionMethod:d Action196Cinema0:g }
+   21              "Dialog: Set Sandyman 2" 0.000000                0                             CA3DDD8E_6ED56801  1                      0                          CA3DD50F_2D8F0800  
+[ Action197 : 1 ]
+ { ActionType197:d ActionName197:s      Action197ExecuteDelay:f Action197ExecuteImmediately:d Action197NPCGuid:g Action197CinemaCount:d Action197SelectionMethod:d Action197Cinema0:g }
+   21              "Dialog: Set Otho 2" 0.000000                0                             CA3DDD8E_6ED94C01  1                      0                          CA3DD291_CB081400  
+[ Action198 : 1 ]
+ { ActionType198:d ActionName198:s         Action198ExecuteDelay:f Action198ExecuteImmediately:d Action198NPCGuid:g Action198CinemaCount:d Action198SelectionMethod:d Action198Cinema0:g }
+   21              "Dialog: Set Lorella 3" 0.000000                0                             CA3DDD8E_6F151801  1                      0                          CA3DDA0F_30C81400  
+[ Action199 : 1 ]
+ { ActionType199:d ActionName199:s         Action199ExecuteDelay:f Action199ExecuteImmediately:d Action199NPCGuid:g Action199CinemaCount:d Action199SelectionMethod:d Action199Cinema0:g }
+   21              "Dialog: Set Lorella 2" 0.000000                0                             CA3DDD8E_6F151801  1                      0                          CA3DDA0F_30C7C400  
+[ Action200 : 1 ]
+ { ActionType200:d ActionName200:s         Action200ExecuteDelay:f Action200ExecuteImmediately:d Action200NPCGuid:g Action200CinemaCount:d Action200SelectionMethod:d Action200Cinema0:g }
+   21              "Dialog: Set Holbert 4" 0.000000                0                             CA3DDD8E_6F1AC001  1                      0                          CA3DD60F_2CA8B400  
+[ Action201 : 1 ]
+ { ActionType201:d ActionName201:s         Action201ExecuteDelay:f Action201ExecuteImmediately:d Action201NPCGuid:g Action201CinemaCount:d Action201SelectionMethod:d Action201Cinema0:g }
+   21              "Dialog: Set Holbert 3" 0.000000                0                             CA3DDD8E_6F1AC001  1                      0                          CA3DD60F_2CA0C400  
+[ Action202 : 1 ]
+ { ActionType202:d ActionName202:s         Action202ExecuteDelay:f Action202ExecuteImmediately:d Action202NPCGuid:g Action202CinemaCount:d Action202SelectionMethod:d Action202Cinema0:g }
+   21              "Dialog: Set Holbert 2" 0.000000                0                             CA3DDD8E_6F1AC001  1                      0                          CA3DD60F_2C872800  
+[ Action203 : 1 ]
+ { ActionType203:d ActionName203:s           Action203ExecuteDelay:f Action203ExecuteImmediately:d Action203NPCGuid:g Action203CinemaCount:d Action203SelectionMethod:d Action203Cinema0:g }
+   21              "Dialog: Set Hanna to 3 " 0.000000                0                             CA3DDD8E_6EB85001  1                      0                          CA3DDF8E_98F13800  
+[ Action204 : 1 ]
+ { ActionType204:d ActionName204:s       Action204ExecuteDelay:f Action204ExecuteImmediately:d Action204NPCGuid:g Action204CinemaCount:d Action204SelectionMethod:d Action204Cinema0:g }
+   21              "Dialog: Set Hanna 2" 0.000000                0                             CA3DDD8E_6EB85001  1                      0                          CA3DDF8E_98D25000  
+[ Action205 : 1 ]
+ { ActionType205:d ActionName205:s           Action205ExecuteDelay:f Action205ExecuteImmediately:d Action205NPCGuid:g Action205CinemaCount:d Action205SelectionMethod:d Action205Cinema0:g }
+   21              "Dialog: Set Gammer to 5" 0.000000                0                             CA3DDD8E_6EC92401  1                      0                          CA3DDD0F_612DE400  
+[ Action206 : 1 ]
+ { ActionType206:d ActionName206:s           Action206ExecuteDelay:f Action206ExecuteImmediately:d Action206NPCGuid:g Action206CinemaCount:d Action206SelectionMethod:d Action206Cinema0:g }
+   21              "Dialog: Set Gammer to 4" 0.000000                0                             CA3DDD8E_6EC92401  1                      0                          CA3DDD0F_612D0400  
+[ Action207 : 1 ]
+ { ActionType207:d ActionName207:s           Action207ExecuteDelay:f Action207ExecuteImmediately:d Action207NPCGuid:g Action207CinemaCount:d Action207SelectionMethod:d Action207Cinema0:g }
+   21              "Dialog: Set Gammer to 3" 0.000000                0                             CA3DDD8E_6EC92401  1                      0                          CA3DD9CF_60C14400  
+[ Action208 : 1 ]
+ { ActionType208:d ActionName208:s           Action208ExecuteDelay:f Action208ExecuteImmediately:d Action208NPCGuid:g Action208CinemaCount:d Action208SelectionMethod:d Action208Cinema0:g }
+   21              "Dialog: Set Gammer to 2" 0.000000                0                             CA3DDD8E_6EC92401  1                      0                          CA3DD3CF_41DB0800  
+[ Action209 : 1 ]
+ { ActionType209:d ActionName209:s           Action209ExecuteDelay:f Action209ExecuteImmediately:d Action209NPCGuid:g Action209CinemaCount:d Action209SelectionMethod:d Action209Cinema0:g }
+   21              "Dialog: Set Bombur NONE" 0.000000                0                             CA3DDD90_04216C00  1                      1                          00000000_00000000  
+[ Action210 : 1 ]
+ { ActionType210:d ActionName210:s                Action210ExecuteDelay:f Action210ExecuteImmediately:d Action210DialogName:s Action210Speaker:g Action210AtLocation:d Action210BilboDialog:d }
+   7               "Dialog: Bilbo hates Chickens" 0.000000                0                             "Bilbo_01_91"         ABCABCAB_CABCABC0  0                     0                      
+[ Action211 : 1 ]
+ { ActionType211:d ActionName211:s            Action211ExecuteDelay:f Action211ExecuteImmediately:d Action211cinemaCount:d Action211cinemaSelect:d Action211cinema0Guid:g }
+   20              "Dialog: Bilbo Dog Maggot" 0.000000                0                             1                      0                       CA3DD9CF_4D1BD800      
+[ Action212 : 1 ]
+ { ActionType212:d ActionName212:s              Action212ExecuteDelay:f Action212ExecuteImmediately:d Action212cinemaCount:d Action212cinemaSelect:d Action212cinema0Guid:g }
+   20              "Dialog: Bilbo Apple Cinema" 0.000000                0                             1                      0                       CA3DDF0F_2BBC7C00      
+[ Action213 : 1 ]
+ { ActionType213:d ActionName213:s                      Action213ExecuteDelay:f Action213ExecuteImmediately:d Action213NPCGuid:g Action213CinemaCount:d Action213SelectionMethod:d Action213Cinema0:g }
+   21              "Dialog:  Set Gammer 5 After Needle" 0.000000                0                             CA3DDD8E_6EC92401  1                      0                          CA3DDD0F_612DE400  
+[ Action214 : 1 ]
+ { ActionType214:d ActionName214:s                     Action214ExecuteDelay:f Action214ExecuteImmediately:d Action214NPCGuid:g Action214CinemaCount:d Action214SelectionMethod:d Action214Cinema0:g }
+   21              "Dialog:  Set Gammer 4 Gets Needle" 0.000000                0                             CA3DDD8E_6EC92401  1                      0                          CA3DDD0F_612D0400  
+[ Action215 : 1 ]
+ { ActionType215:d ActionName215:s                 Action215ExecuteDelay:f Action215ExecuteImmediately:d Action215DialogName:s Action215Speaker:g Action215AtLocation:d Action215BilboDialog:d }
+   7               "DIALOG: Sees Green Dragon Inn" 0.000000                0                             "Bilbo_01_17"         ABCABCAB_CABCABC0  0                     0                      
+[ Action216 : 1 ]
+ { ActionType216:d ActionName216:s       Action216ExecuteDelay:f Action216ExecuteImmediately:d Action216DialogName:s Action216Speaker:g Action216AtLocation:d Action216BilboDialog:d }
+   7               "DIALOG: Plenty Food" 0.000000                0                             "BILBO_01_19"         ABCABCAB_CABCABC0  0                     1                      
+[ Action217 : 1 ]
+ { ActionType217:d ActionName217:s        Action217ExecuteDelay:f Action217ExecuteImmediately:d Action217DialogName:s Action217Speaker:g Action217AtLocation:d Action217BilboDialog:d }
+   7               "DIALOG: Please Dwarf" 0.000000                0                             "Bilbo_01_18"         ABCABCAB_CABCABC0  0                     0                      
+[ Action218 : 1 ]
+ { ActionType218:d ActionName218:s             Action218ExecuteDelay:f Action218ExecuteImmediately:d Action218cinemaCount:d Action218cinemaSelect:d Action218cinema0Guid:g }
+   20              "DIALOG: Parents Pic voice" 0.000000                0                             1                      1                       CA3DDC12_5923F000      
+[ Action219 : 1 ]
+ { ActionType219:d ActionName219:s       Action219ExecuteDelay:f Action219ExecuteImmediately:d Action219cinemaCount:d Action219cinemaSelect:d Action219cinema0Guid:g }
+   20              "DIALOG: H Town Door" 0.000000                0                             1                      0                       CA3DD4D1_E31B5000      
+[ Action220 : 1 ]
+ { ActionType220:d ActionName220:s                     Action220ExecuteDelay:f Action220ExecuteImmediately:d Action220DialogName:s Action220Speaker:g Action220AtLocation:d Action220BilboDialog:d }
+   7               "DIALOG: First Provision Collected" 0.000000                0                             "BILBO_01_16"         ABCABCAB_CABCABC0  0                     1                      
+[ Action221 : 1 ]
+ { ActionType221:d ActionName221:s             Action221ExecuteDelay:f Action221ExecuteImmediately:d Action221cinemaCount:d Action221cinemaSelect:d Action221cinema0Guid:g Action221cinema1Guid:g Action221cinema2Guid:g Action221cinema3Guid:g Action221cinema4Guid:g }
+   20              "DIALOG: Family: portraits" 0.000000                0                             5                      0                       CA3DDC12_5928F000      CA3DDC12_59290400      CA3DDC12_59292000      CA3DDC12_59291000      CA3DDC12_59292C00      
+[ Action222 : 1 ]
+ { ActionType222:d ActionName222:s           Action222ExecuteDelay:f Action222ExecuteImmediately:d Action222cinemaCount:d Action222cinemaSelect:d Action222cinema0Guid:g }
+   20              "DIALOG: Can't Leave Yet" 0.000000                0                             1                      0                       CA3DD2CF_4198F800      
+[ Action223 : 1 ]
+ { ActionType223:d ActionName223:s           Action223ExecuteDelay:f Action223ExecuteImmediately:d Action223cinemaCount:d Action223cinemaSelect:d Action223cinema0Guid:g }
+   20              "Cinema: Front Door Conv" 0.000000                0                             1                      0                       C0CFA98F_62016000      
+[ Action224 : 1 ]
+ { ActionType224:d ActionName224:s Action224ExecuteDelay:f Action224ExecuteImmediately:d Action224State:s Action224NPC:g    }
+   13              "Chicken7 Idle" 2.000000                0                             "Idle"           CA3DD48F_520ED401 
+[ Action225 : 1 ]
+ { ActionType225:d ActionName225:s Action225ExecuteDelay:f Action225ExecuteImmediately:d Action225State:s Action225NPC:g    }
+   13              "Chicken6 Idle" 2.000000                0                             "Idle"           CA3DD48F_520EC001 
+[ Action226 : 1 ]
+ { ActionType226:d ActionName226:s Action226ExecuteDelay:f Action226ExecuteImmediately:d Action226State:s Action226NPC:g    }
+   13              "Chicken5 Idle" 2.000000                0                             "Idle"           CA3DD48F_520E7001 
+[ Action227 : 1 ]
+ { ActionType227:d ActionName227:s Action227ExecuteDelay:f Action227ExecuteImmediately:d Action227State:s Action227NPC:g    }
+   13              "Chicken4 Idle" 2.000000                0                             "Idle"           CA3DD48F_520D8801 
+[ Action228 : 1 ]
+ { ActionType228:d ActionName228:s Action228ExecuteDelay:f Action228ExecuteImmediately:d Action228State:s Action228NPC:g    }
+   13              "Chicken3 Idle" 2.000000                0                             "Idle"           CA3DD48F_520D1801 
+[ Action229 : 1 ]
+ { ActionType229:d ActionName229:s Action229ExecuteDelay:f Action229ExecuteImmediately:d Action229State:s Action229NPC:g    }
+   13              "Chicken2 Idle" 2.000000                0                             "Idle"           CA3DD48F_520CF001 
+[ Action230 : 1 ]
+ { ActionType230:d ActionName230:s Action230ExecuteDelay:f Action230ExecuteImmediately:d Action230State:s Action230NPC:g    }
+   13              "Chicken1 Idle" 2.000000                0                             "Idle"           CA3DD48F_52031800 
+[ Action231 : 1 ]
+ { ActionType231:d ActionName231:s    Action231ExecuteDelay:f Action231ExecuteImmediately:d Action231Fadeout:d Action231Color:dddd Action231Duration:f }
+   30              "Chicken Fade out" 0.000000                0                             1                  0 0 0 255           1.500000            
+[ Action232 : 1 ]
+ { ActionType232:d ActionName232:s   Action232ExecuteDelay:f Action232ExecuteImmediately:d Action232Fadeout:d Action232Color:dddd Action232Duration:f }
+   30              "Chicken Fade In" 4.000000                0                             0                  0 0 0 255           1.500000            
+[ Action233 : 1 ]
+ { ActionType233:d ActionName233:s Action233ExecuteDelay:f Action233ExecuteImmediately:d Action233DialogName:s Action233Speaker:g Action233AtLocation:d Action233BilboDialog:d }
+   7               "Chicken Cluck" 0.000000                0                             "ChickenSquak"        00000000_00000000  0                     0                      
+[ Action234 : 1 ]
+ { ActionType234:d ActionName234:s Action234ExecuteDelay:f Action234ExecuteImmediately:d Action234Item:s Action234Add:d Action234Amount:d Action234SourceGuid:g }
+   9               "CP: Spawn 50"  0.000000                0                             "COURAGE"       1              50                ABCABCAB_CABCABC0     
+[ Action235 : 1 ]
+ { ActionType235:d ActionName235:s Action235ExecuteDelay:f Action235ExecuteImmediately:d Action235Item:s Action235Add:d Action235Amount:d Action235SourceGuid:g }
+   9               "CP: Spawn 25"  0.000000                0                             "COURAGE"       1              25                ABCABCAB_CABCABC0     
+[ Action236 : 1 ]
+ { ActionType236:d ActionName236:s Action236ExecuteDelay:f Action236ExecuteImmediately:d Action236Item:s Action236Add:d Action236Amount:d Action236SourceGuid:g }
+   9               "CP: Spawn 100" 0.000000                0                             "COURAGE"       1              100               ABCABCAB_CABCABC0     
+[ Action237 : 1 ]
+ { ActionType237:d ActionName237:s         Action237ExecuteDelay:f Action237ExecuteImmediately:d Action237Item:s Action237Add:d Action237Amount:d Action237SourceGuid:g }
+   9               "CP: Sandyman Gives 75" 0.000000                0                             "COURAGE"       1              75                ABCABCAB_CABCABC0     
+[ Action238 : 1 ]
+ { ActionType238:d ActionName238:s     Action238ExecuteDelay:f Action238ExecuteImmediately:d Action238Object:g Action238Amount:d }
+   17              "CP: Frank Spawn 5" 0.000000                0                             63CA720F_67034001 5                 
+[ Action239 : 1 ]
+ { ActionType239:d ActionName239:s       Action239ExecuteDelay:f Action239ExecuteImmediately:d Action239Item:s Action239Add:d Action239Amount:d Action239SourceGuid:g }
+   9               "CP: Bombur Gives 50" 0.000000                0                             "COURAGE"       1              50                ABCABCAB_CABCABC0     
+[ Action240 : 1 ]
+ { ActionType240:d ActionName240:s       Action240ExecuteDelay:f Action240ExecuteImmediately:d Action240Item:s Action240Add:d Action240Amount:d Action240SourceGuid:g }
+   9               "CP: Bombur Gives 25" 0.000000                0                             "COURAGE"       1              25                ABCABCAB_CABCABC0     
+[ Action241 : 1 ]
+ { ActionType241:d ActionName241:s        Action241ExecuteDelay:f Action241ExecuteImmediately:d Action241Item:s Action241Add:d Action241Amount:d Action241SourceGuid:g }
+   9               "CP: Bombur Gives 100" 0.000000                0                             "COURAGE"       1              100               ABCABCAB_CABCABC0     
+[ Action242 : 1 ]
+ { ActionType242:d ActionName242:s         Action242ExecuteDelay:f Action242ExecuteImmediately:d Action242Item:s Action242Add:d Action242Amount:d Action242SourceGuid:g }
+   9               "CP: All Kids Found 10" 0.000000                0                             "COURAGE"       1              10                ABCABCAB_CABCABC0     
+[ Action243 : 1 ]
+ { ActionType243:d ActionName243:s           Action243ExecuteDelay:f Action243ExecuteImmediately:d Action243Item:s Action243Add:d Action243Amount:d Action243SourceGuid:g }
+   9               "CP: A Child is Found 10" 0.000000                0                             "COURAGE"       1              10                ABCABCAB_CABCABC0     
+[ Action244 : 1 ]
+ { ActionType244:d ActionName244:s               Action244ExecuteDelay:f Action244ExecuteImmediately:d Action244cinemaCount:d Action244cinemaSelect:d Action244cinema0Guid:g }
+   20              "CINEMA: Start bombur dialog" 0.000000                0                             1                      1                       CA3DD890_04554800      
+[ Action245 : 1 ]
+ { ActionType245:d ActionName245:s                     Action245ExecuteDelay:f Action245ExecuteImmediately:d Action245cinemaCount:d Action245cinemaSelect:d Action245cinema0Guid:g }
+   20              "CINEMA: Start Sandyman Fix Bridge" 0.000000                0                             1                      1                       CA3DD50F_2D92E800      
+[ Action246 : 1 ]
+ { ActionType246:d ActionName246:s              Action246ExecuteDelay:f Action246ExecuteImmediately:d Action246NPCGuid:g Action246CinemaCount:d Action246SelectionMethod:d Action246Cinema0:g }
+   21              "CINEMA: Set Sand Cine04 -2" 0.000000                0                             CA3DDD8E_6ED56801  1                      1                          CA3DD952_338A4800  
+[ Action247 : 1 ]
+ { ActionType247:d ActionName247:s               Action247ExecuteDelay:f Action247ExecuteImmediately:d Action247NPCGuid:g Action247CinemaCount:d Action247SelectionMethod:d Action247Cinema0:g }
+   21              "CINEMA: Set Gandolf Inn Cin" 0.000000                0                             CA3DD190_7D9EA000  1                      0                          CA3DDE51_20A1B800  
+[ Action248 : 1 ]
+ { ActionType248:d ActionName248:s       Action248ExecuteDelay:f Action248ExecuteImmediately:d Action248cinemaCount:d Action248cinemaSelect:d Action248cinema0Guid:g }
+   20              "CINEMA: Level Start" 0.500000                0                             1                      1                       CA3DDF12_32749400      
+[ Action249 : 1 ]
+ { ActionType249:d ActionName249:s             Action249ExecuteDelay:f Action249ExecuteImmediately:d Action249cinemaCount:d Action249cinemaSelect:d Action249cinema0Guid:g }
+   20              "CINEMA: Gandolf Stick Cin" 0.000000                0                             1                      1                       CA3DDE51_209F4000      
+[ Action250 : 1 ]
+ { ActionType250:d ActionName250:s           Action250ExecuteDelay:f Action250ExecuteImmediately:d Action250cinemaCount:d Action250cinemaSelect:d Action250cinema0Guid:g }
+   20              "CINEMA: Gandolf Inn Cin" 0.000000                0                             1                      1                       CA3DDE51_20A1B800      
+[ Action251 : 1 ]
+ { ActionType251:d ActionName251:s         Action251ExecuteDelay:f Action251ExecuteImmediately:d Action251cinemaCount:d Action251cinemaSelect:d Action251cinema0Guid:g }
+   20              "CINEMA: Chicken chase" 0.000000                0                             1                      1                       CA3DD6D1_E9113000      
+[ Action252 : 1 ]
+ { ActionType252:d ActionName252:s                 Action252ExecuteDelay:f Action252ExecuteImmediately:d Action252DialogName:s Action252Speaker:g Action252AtLocation:d Action252BilboDialog:d }
+   7               "Bilbo says he's got the Motts" 0.000000                0                             "Bilbo_01_104"        ABCABCAB_CABCABC0  0                     0                      
+[ Action253 : 1 ]
+ { ActionType253:d ActionName253:s Action253ExecuteDelay:f Action253ExecuteImmediately:d Action253Object:g Action253Volume:g Action253Facing:g }
+   15              "Bell Tele"     0.000000                1                             CA3DD48F_5BA30400 CA3DDD8F_5C74DC00 CA3DDD8F_5C755C01 
+[ Action254 : 1 ]
+ { ActionType254:d ActionName254:s        Action254ExecuteDelay:f Action254ExecuteImmediately:d Action254NPCGuid:g Action254CinemaCount:d Action254SelectionMethod:d Action254Cinema0:g }
+   21              "Bell Set Trig Cinema" 0.000000                0                             CA3DD48F_5BA30400  1                      0                          CA3DDD8F_5C783000  
+[ Action255 : 1 ]
+ { ActionType255:d ActionName255:s        Action255ExecuteDelay:f Action255ExecuteImmediately:d Action255NPCGuid:g Action255CinemaCount:d Action255SelectionMethod:d Action255Cinema0:g }
+   21              "Bell Set After Found" 0.000000                0                             CA3DD48F_5BA30400  1                      0                          CA3DDD8F_5C7A0800  
+[ Action256 : 1 ]
+ { ActionType256:d ActionName256:s  Action256ExecuteDelay:f Action256ExecuteImmediately:d Action256CharacterGuid:g Action256AIStateName:s Action256GoalListName:s Action256OverrideCinematicAnimation:d }
+   4               "Bell Goal List" 0.000000                0                             CA3DD48F_5BA30400        "Idle"                 "Bell Hide"             0                                     
+[ Action257 : 1 ]
+ { ActionType257:d ActionName257:s        Action257ExecuteDelay:f Action257ExecuteImmediately:d Action257StringID:s Action257Scroll:d Action257DelayTime:f }
+   18              "Bag End Info Overlay" 0.000000                0                             "INFO_BAG_END"      0                 5.000000             
+[ Action258 : 1 ]
+ { ActionType258:d ActionName258:s         Action258ExecuteDelay:f Action258ExecuteImmediately:d }
+   44              "BILBO: Die Bilbo Die!" 0.000000                0                             
+[ Action259 : 1 ]
+ { ActionType259:d ActionName259:s         Action259ExecuteDelay:f Action259ExecuteImmediately:d Action259AmbientAudioTrigger:g }
+   45              "Ambience_Hobbiton_Ext" 0.000000                0                             9D153912_09796801              
+[ Action260 : 1 ]
+ { ActionType260:d ActionName260:s   Action260ExecuteDelay:f Action260ExecuteImmediately:d Action260AmbientAudioTrigger:g }
+   45              "Ambience_BagEnd" 0.000000                0                             9D153912_09752800              
+[ Action261 : 1 ]
+ { ActionType261:d ActionName261:s Action261ExecuteDelay:f Action261ExecuteImmediately:d Action261Object:g Action261Volume:g Action261Facing:g }
+   15              "Activate Well" 1.000000                0                             CA3DD2CF_AB86E000 CA3DD2CF_AB8BC000 00000000_00000000 
+[ Action262 : 1 ]
+ { ActionType262:d ActionName262:s          Action262ExecuteDelay:f Action262ExecuteImmediately:d Action262Enable:d Action262MaterialName:s }
+   43              "ACTION: Stop UV Well 2" 0.000000                0                             0                 "PaulRopes"             
+[ Action263 : 1 ]
+ { ActionType263:d ActionName263:s          Action263ExecuteDelay:f Action263ExecuteImmediately:d Action263Enable:d Action263MaterialName:s }
+   43              "ACTION: Stop UV Well 1" 0.000000                0                             0                 "PaulRopesOpa"          
+[ Action264 : 1 ]
+ { ActionType264:d ActionName264:s           Action264ExecuteDelay:f Action264ExecuteImmediately:d Action264InstanceCount:d Action264RigidInstance0:g Action264AnimIndex:d Action264Loops:d }
+   33              "ACTION: Start Well Anim" 0.000000                0                             1                        991186CF_A099C800         0                    0                
+[ Action265 : 1 ]
+ { ActionType265:d ActionName265:s           Action265ExecuteDelay:f Action265ExecuteImmediately:d Action265Enable:d Action265MaterialName:s }
+   43              "ACTION: Start UV Well 2" 0.000000                0                             1                 "PaulRopes"             
+[ Action266 : 1 ]
+ { ActionType266:d ActionName266:s           Action266ExecuteDelay:f Action266ExecuteImmediately:d Action266Enable:d Action266MaterialName:s }
+   43              "ACTION: Start UV Well 1" 0.000000                0                             1                 "PaulRopesOpa"          
+[ Action267 : 1 ]
+ { ActionType267:d ActionName267:s      Action267ExecuteDelay:f Action267ExecuteImmediately:d Action267InstanceCount:d Action267RigidInstance0:g Action267AnimIndex:d Action267Loops:d }
+   33              "ACT: Animate Fence" 0.000000                0                             1                        CA3DD2CF_E9EEE401         0                    0                
+[ Action268 : 1 ]
+ { ActionType268:d ActionName268:s                    Action268ExecuteDelay:f Action268ExecuteImmediately:d Action268QuestID:s   }
+   34              "QUEST: Green Dragon Inn Complete" 0.000000                0                             "A_ID_GOTO_INN_CH01" 
+[ Action269 : 1 ]
+ { ActionType269:d ActionName269:s                      Action269ExecuteDelay:f Action269ExecuteImmediately:d Action269RigidInstance:g Action269Hoistable:d }
+   52              "ACTION: Set Butter Churn non Hoist" 0.000000                0                             CA3DD20F_41F77800        0                    
+[ Action270 : 1 ]
+ { ActionType270:d ActionName270:s     Action270ExecuteDelay:f Action270ExecuteImmediately:d Action270MusicTrigger:g }
+   40              "Music - Set Int 4" 3.000000                0                             9D1531D2_B79AB001       
+[ Action271 : 1 ]
+ { ActionType271:d ActionName271:s        Action271ExecuteDelay:f Action271ExecuteImmediately:d Action271MusicTrigger:g }
+   40              "Music - Cine10 Start" 0.000000                0                             9D153490_9912B801       
+[ Action272 : 1 ]
+ { ActionType272:d ActionName272:s      Action272ExecuteDelay:f Action272ExecuteImmediately:d Action272MusicTrigger:g }
+   40              "Music - Cine10 End" 7.000000                0                             9D153713_0B76E801       
+[ Action273 : 1 ]
+ { ActionType273:d ActionName273:s  Action273ExecuteDelay:f Action273ExecuteImmediately:d Action273QuestID:s Action273Required:d }
+   22              "Quest: COKAINE" 11.000000               0                             "W_TEST_Quest"     1                   
+[ Action274 : 1 ]
+ { ActionType274:d ActionName274:s             Action274ExecuteDelay:f Action274ExecuteImmediately:d Action274QuestID:s }
+   29              "Quest: MALORIAN Completed" 1.000000                0                             "W_TEST_Quest"     
+[ Action275 : 1 ]
+ { ActionType275:d ActionName275:s         Action275ExecuteDelay:f Action275ExecuteImmediately:d Action275StringID:s                              Action275Scroll:d Action275DelayTime:f }
+   18              "MALORIAN Info Overlay" 0.500000                0                             "Yeah, this chicken certainly needs some help.." 0                 5.000000             
+[ Action276 : 1 ]
+ { ActionType276:d ActionName276:s          Action276ExecuteDelay:f Action276ExecuteImmediately:d Action276StringID:s                             Action276Scroll:d Action276DelayTime:f }
+   18              "MALORIAN Info Overlay2" 5.500000                0                             "Where should I search for this COCKaine..?" 0                 5.000000             
+[ Action277 : 1 ]
+ { ActionType277:d ActionName277:s          Action277ExecuteDelay:f Action277ExecuteImmediately:d Action277StringID:s                             Action277Scroll:d Action277DelayTime:f }
+   18              "MALORIAN Info Overlay2" 10.500000               0                             "Or I can sell it damn high on the black market.." 0                 5.000000             
+[ Action278 : 1 ]
+ { ActionType278:d ActionName278:s         Action278ExecuteDelay:f Action278ExecuteImmediately:d Action278QuestID:s    Action278Required:d }
+   22              "Quest: COKAINE select" 1.000000                0                             "W_TEST_Quest_Select" 1                   
+[ Action279 : 1 ]
+ { ActionType279:d ActionName279:s        Action279ExecuteDelay:f Action279ExecuteImmediately:d Action279QuestID:s   Action279Required:d }
+   22              "Quest: COKAINE trick" 1.000000                0                             "W_TEST_Quest_Trick" 0                   
+[ Action280 : 1 ]
+ { ActionType280:d ActionName280:s         Action280ExecuteDelay:f Action280ExecuteImmediately:d Action280QuestID:s    Action280Required:d }
+   22              "Quest: COKAINE return" 1.000000                0                             "W_TEST_Quest_Return" 0                   
+[ Action281 : 1 ]
+ { ActionType281:d ActionName281:s Action281ExecuteDelay:f Action281ExecuteImmediately:d Action281StringID:s              Action281Scroll:d Action281DelayTime:f }
+   18              "Choose...."    0.000000                0                             "Ok, now I need to think whether it's worth bringing back" 0                 5.000000             
+[ Action282 : 1 ]
+ { ActionType282:d ActionName282:s            Action282ExecuteDelay:f Action282ExecuteImmediately:d Action282QuestID:s    }
+   29              "Quest: select  Completed" 0.000000                0                             "W_TEST_Quest_Select" 
+[ Action283 : 1 ]
+ { ActionType283:d ActionName283:s        Action283ExecuteDelay:f Action283ExecuteImmediately:d Action283cinemaCount:d Action283cinemaSelect:d Action283cinema0Guid:g }
+   20              "CINEMA: balck market" 0.000000                0                             1                      1                       CA3DD61F_31370014      
+[ Action284 : 1 ]
+ { ActionType284:d ActionName284:s             Action284ExecuteDelay:f Action284ExecuteImmediately:d Action284QuestID:s   }
+   29              "Quest: black ma Completed" 0.000000                0                             "W_TEST_Quest_Trick" 
+[ Action285 : 1 ]
+ { ActionType285:d ActionName285:s                  Action285ExecuteDelay:f Action285ExecuteImmediately:d Action285InstanceCount:d Action285RigidInstance0:g Action285RigidInstance1:g Action285AnimIndex:d Action285Loops:d }
+   33              "Start Spike Animation 002, 010" 11.200000               0                             2                        0D8ADD11_16F4C401         0D8AD991_AFDA2C01         0                    0                
+[ Action286 : 1 ]
+ { ActionType286:d ActionName286:s Action286ExecuteDelay:f Action286ExecuteImmediately:d Action286StringID:s              Action286Scroll:d Action286DelayTime:f }
+   18              "Choose...."    11.180000                0                             "AHAHH I ALMOST DIED! I AM CHICKK!" 0                 5.000000             
+[ Action287 : 1 ]
+ { ActionType287:d ActionName287:s    Action287ExecuteDelay:f Action287ExecuteImmediately:d Action287LoadLayerGuid:g }
+   10              "LOAD: Black ma"   0.000000                0                             CA3DD04F_AA29A001        
+
+[ Action288  : 1 ]
+ { ActionType288:d ActionName288:s          Action288ExecuteDelay:f Action288ExecuteImmediately:d Action288NPCGuid:g Action288CinemaCount:d Action288SelectionMethod:d Action288Cinema0:g }
+   21             "CHICK Set Trig Cinema" 0.000000               0                            CA3DD5D1_CA788001 1                     0                         CA3DA61F_3137A004
+
+[ Action289 : 1 ]
+ { ActionType289:d ActionName289:s             Action289ExecuteDelay:f Action289ExecuteImmediately:d Action289QuestID:s   }
+   29              "Quest: return Completed" 0.000000                0                             "W_TEST_Quest_Return" 
+[ Action290 : 1 ]
+ { ActionType290:d ActionName290:s Action290ExecuteDelay:f Action290ExecuteImmediately:d Action290StringID:s              Action290Scroll:d Action290DelayTime:f }
+   18              "good selection "    10.600000                0                             "Whooh, I wish I never do COCKaine. Yes..?" 0                 5.000000             
+
+[ Action291 : 1 ]
+ { ActionType291:d ActionName291:s    Action291ExecuteDelay:f Action291ExecuteImmediately:d Action291LoadLayerGuid:g }
+   10              "UNLOAD: Black ma"   0.000000                0                             CA3DD04F_AA29A0A3        
+
+[ Action292  : 1 ]
+ { ActionType292:d ActionName292:s          Action292ExecuteDelay:f Action292ExecuteImmediately:d Action292NPCGuid:g Action292CinemaCount:d Action292SelectionMethod:d Action292Cinema0:g }
+   21             "CHICK Set Trig Cinema none" 0.000000               0                            CA3DD5D1_CA788001 1                     0                         00000000_00000000
+
+
+[ Action293 : 1 ]
+ { ActionType293:d ActionName293:s  Action293ExecuteDelay:f Action293ExecuteImmediately:d Action293StringID:s              Action293Scroll:d Action293DelayTime:f }
+   18              "Custom text"    5.0000000                0                             "Hello my text!"                0                 5.000000             
+
+
+
+[ Link0 : 1 ]
+ { LinkRepeats0:d LinkState0:d LogicType0:d LinkTriggerCount0:d LinkTriggerIndex0-0:d LinkTriggerIndex0-1:d LinkActionCount0:d LinkActionIndex0-0:d LinkActionIndex0-1:d LinkActionIndex0-2:d }
+   0              0            0            2                   0                     23                    3                  239                  61                   152                  
+[ Link1 : 1 ]
+ { LinkRepeats1:d LinkState1:d LogicType1:d LinkTriggerCount1:d LinkTriggerIndex1-0:d LinkTriggerIndex1-1:d LinkActionCount1:d LinkActionIndex1-0:d LinkActionIndex1-1:d LinkActionIndex1-2:d }
+   0              0            0            2                   0                     24                    3                  235                  47                   143                  
+[ Link2 : 1 ]
+ { LinkRepeats2:d LinkState2:d LogicType2:d LinkTriggerCount2:d LinkTriggerIndex2-0:d LinkTriggerIndex2-1:d LinkActionCount2:d LinkActionIndex2-0:d LinkActionIndex2-1:d LinkActionIndex2-2:d }
+   0              0            0            2                   0                     25                    3                  240                  64                   154                  
+[ Link3 : 1 ]
+ { LinkRepeats3:d LinkState3:d LogicType3:d LinkTriggerCount3:d LinkTriggerIndex3-0:d LinkTriggerIndex3-1:d LinkActionCount3:d LinkActionIndex3-0:d LinkActionIndex3-1:d LinkActionIndex3-2:d }
+   0              0            0            2                   0                     26                    3                  240                  46                   144                  
+[ Link4 : 1 ]
+ { LinkRepeats4:d LinkState4:d LogicType4:d LinkTriggerCount4:d LinkTriggerIndex4-0:d LinkTriggerIndex4-1:d LinkActionCount4:d LinkActionIndex4-0:d LinkActionIndex4-1:d LinkActionIndex4-2:d }
+   0              0            0            2                   0                     28                    3                  235                  48                   146                  
+[ Link5 : 1 ]
+ { LinkRepeats5:d LinkState5:d LogicType5:d LinkTriggerCount5:d LinkTriggerIndex5-0:d LinkTriggerIndex5-1:d LinkActionCount5:d LinkActionIndex5-0:d LinkActionIndex5-1:d LinkActionIndex5-2:d }
+   0              0            0            2                   0                     29                    3                  235                  49                   147                  
+[ Link6 : 1 ]
+ { LinkRepeats6:d LinkState6:d LogicType6:d LinkTriggerCount6:d LinkTriggerIndex6-0:d LinkTriggerIndex6-1:d LinkActionCount6:d LinkActionIndex6-0:d LinkActionIndex6-1:d LinkActionIndex6-2:d }
+   0              0            0            2                   0                     30                    3                  241                  59                   151                  
+[ Link7 : 1 ]
+ { LinkRepeats7:d LinkState7:d LogicType7:d LinkTriggerCount7:d LinkTriggerIndex7-0:d LinkTriggerIndex7-1:d LinkActionCount7:d LinkActionIndex7-0:d LinkActionIndex7-1:d LinkActionIndex7-2:d }
+   0              0            0            2                   0                     34                    3                  239                  62                   153                  
+[ Link8 : 1 ]
+ { LinkRepeats8:d LinkState8:d LogicType8:d LinkTriggerCount8:d LinkTriggerIndex8-0:d LinkTriggerIndex8-1:d LinkTriggerIndex8-2:d LinkTriggerIndex8-3:d LinkTriggerIndex8-4:d LinkTriggerIndex8-5:d LinkTriggerIndex8-6:d LinkTriggerIndex8-7:d LinkTriggerIndex8-8:d LinkActionCount8:d LinkActionIndex8-0:d LinkActionIndex8-1:d }
+   1              0            0            9                   0                     150                   14                    15                    13                    8                     9                     10                    11                    2                  192                  129                  
+[ Link9 : 1 ]
+ { LinkRepeats9:d LinkState9:d LogicType9:d LinkTriggerCount9:d LinkTriggerIndex9-0:d LinkActionCount9:d LinkActionIndex9-0:d }
+   1              0            0            1                   0                     1                  193                  
+[ Link10 : 1 ]
+ { LinkRepeats10:d LinkState10:d LogicType10:d LinkTriggerCount10:d LinkTriggerIndex10-0:d LinkActionCount10:d LinkActionIndex10-0:d }
+   1               0             0             1                    1                      1                   94                    
+[ Link11 : 1 ]
+ { LinkRepeats11:d LinkState11:d LogicType11:d LinkTriggerCount11:d LinkTriggerIndex11-0:d LinkActionCount11:d LinkActionIndex11-0:d LinkActionIndex11-1:d }
+   1               0             0             1                    2                      2                   5                     127                   
+[ Link12 : 1 ]
+ { LinkRepeats12:d LinkState12:d LogicType12:d LinkTriggerCount12:d LinkActionCount12:d }
+   1               0             0             0                    0                   
+[ Link13 : 1 ]
+ { LinkRepeats13:d LinkState13:d LogicType13:d LinkTriggerCount13:d LinkTriggerIndex13-0:d LinkActionCount13:d LinkActionIndex13-0:d }
+   0               0             0             1                    4                      1                   76                    
+[ Link14 : 1 ]
+ { LinkRepeats14:d LinkState14:d LogicType14:d LinkTriggerCount14:d LinkTriggerIndex14-0:d LinkActionCount14:d LinkActionIndex14-0:d LinkActionIndex14-1:d LinkActionIndex14-2:d }
+   0               0             0             1                    5                      3                   22                    243                   51                    
+[ Link15 : 1 ]
+ { LinkRepeats15:d LinkState15:d LogicType15:d LinkTriggerCount15:d LinkTriggerIndex15-0:d LinkActionCount15:d LinkActionIndex15-0:d LinkActionIndex15-1:d LinkActionIndex15-2:d LinkActionIndex15-3:d }
+   0               0             0             1                    6                      4                   20                    23                    21                    95                    
+[ Link16 : 1 ]
+ { LinkRepeats16:d LinkState16:d LogicType16:d LinkTriggerCount16:d LinkTriggerIndex16-0:d LinkActionCount16:d LinkActionIndex16-0:d }
+   0               1             0             1                    7                      1                   261                   
+[ Link17 : 1 ]
+ { LinkRepeats17:d LinkState17:d LogicType17:d LinkTriggerCount17:d LinkTriggerIndex17-0:d LinkActionCount17:d LinkActionIndex17-0:d }
+   0               0             0             1                    16                     1                   81                    
+[ Link18 : 1 ]
+ { LinkRepeats18:d LinkState18:d LogicType18:d LinkTriggerCount18:d LinkTriggerIndex18-0:d LinkActionCount18:d LinkActionIndex18-0:d }
+   0               0             0             1                    17                     1                   80                    
+[ Link19 : 1 ]
+ { LinkRepeats19:d LinkState19:d LogicType19:d LinkTriggerCount19:d LinkTriggerIndex19-0:d LinkActionCount19:d LinkActionIndex19-0:d }
+   0               0             0             1                    18                     1                   84                    
+[ Link20 : 1 ]
+ { LinkRepeats20:d LinkState20:d LogicType20:d LinkTriggerCount20:d LinkTriggerIndex20-0:d LinkActionCount20:d LinkActionIndex20-0:d }
+   0               0             0             1                    19                     1                   82                    
+[ Link21 : 1 ]
+ { LinkRepeats21:d LinkState21:d LogicType21:d LinkTriggerCount21:d LinkTriggerIndex21-0:d LinkActionCount21:d LinkActionIndex21-0:d }
+   0               0             0             1                    20                     1                   100                   
+[ Link22 : 1 ]
+ { LinkRepeats22:d LinkState22:d LogicType22:d LinkTriggerCount22:d LinkTriggerIndex22-0:d LinkActionCount22:d LinkActionIndex22-0:d }
+   0               0             0             1                    21                     1                   102                   
+[ Link23 : 1 ]
+ { LinkRepeats23:d LinkState23:d LogicType23:d LinkTriggerCount23:d LinkTriggerIndex23-0:d LinkActionCount23:d LinkActionIndex23-0:d LinkActionIndex23-1:d LinkActionIndex23-2:d LinkActionIndex23-3:d LinkActionIndex23-4:d LinkActionIndex23-5:d LinkActionIndex23-6:d LinkActionIndex23-7:d LinkActionIndex23-8:d LinkActionIndex23-9:d LinkActionIndex23-10:d LinkActionIndex23-11:d LinkActionIndex23-12:d LinkActionIndex23-13:d LinkActionIndex23-14:d LinkActionIndex23-15:d LinkActionIndex23-16:d }
+   0               0             0             1                    22                     17                  253                   164                   10                    20                    254                   256                   170                   167                   165                   23                    21                     267                    44                     43                     41                     39                     35                     
+[ Link24 : 1 ]
+ { LinkRepeats24:d LinkState24:d LogicType24:d LinkTriggerCount24:d LinkTriggerIndex24-0:d LinkActionCount24:d LinkActionIndex24-0:d LinkActionIndex24-1:d LinkActionIndex24-2:d }
+   0               0             0             1                    23                     3                   87                    100                   234                   
+[ Link25 : 1 ]
+ { LinkRepeats25:d LinkState25:d LogicType25:d LinkTriggerCount25:d LinkTriggerIndex25-0:d LinkActionCount25:d LinkActionIndex25-0:d }
+   0               0             0             1                    24                     1                   73                    
+[ Link26 : 1 ]
+ { LinkRepeats26:d LinkState26:d LogicType26:d LinkTriggerCount26:d LinkTriggerIndex26-0:d LinkTriggerIndex26-1:d LinkTriggerIndex26-2:d LinkTriggerIndex26-3:d LinkTriggerIndex26-4:d LinkTriggerIndex26-5:d LinkTriggerIndex26-6:d LinkTriggerIndex26-7:d LinkActionCount26:d LinkActionIndex26-0:d }
+   0               0             0             8                    25                     34                     30                     29                     28                     26                     24                     23                     1                   216                   
+[ Link27 : 1 ]
+ { LinkRepeats27:d LinkState27:d LogicType27:d LinkTriggerCount27:d LinkTriggerIndex27-0:d LinkTriggerIndex27-1:d LinkTriggerIndex27-2:d LinkTriggerIndex27-3:d LinkTriggerIndex27-4:d LinkTriggerIndex27-5:d LinkTriggerIndex27-6:d LinkTriggerIndex27-7:d LinkActionCount27:d LinkActionIndex27-0:d }
+   0               0             1             8                    25                     34                     30                     29                     28                     26                     24                     23                     1                   220                   
+[ Link28 : 1 ]
+ { LinkRepeats28:d LinkState28:d LogicType28:d LinkTriggerCount28:d LinkTriggerIndex28-0:d LinkActionCount28:d LinkActionIndex28-0:d LinkActionIndex28-1:d }
+   0               0             0             1                    25                     2                   234                   100                   
+[ Link29 : 1 ]
+ { LinkRepeats29:d LinkState29:d LogicType29:d LinkTriggerCount29:d LinkTriggerIndex29-0:d LinkActionCount29:d LinkActionIndex29-0:d }
+   0               0             0             1                    26                     1                   70                    
+[ Link30 : 1 ]
+ { LinkRepeats30:d LinkState30:d LogicType30:d LinkTriggerCount30:d LinkTriggerIndex30-0:d LinkActionCount30:d LinkActionIndex30-0:d LinkActionIndex30-1:d LinkActionIndex30-2:d LinkActionIndex30-3:d LinkActionIndex30-4:d LinkActionIndex30-5:d LinkActionIndex30-6:d LinkActionIndex30-7:d }
+   0               0             0             1                    27                     8                   2                     3                     71                    26                    137                   100                   138                   270                   
+[ Link31 : 1 ]
+ { LinkRepeats31:d LinkState31:d LogicType31:d LinkTriggerCount31:d LinkTriggerIndex31-0:d LinkTriggerIndex31-1:d LinkActionCount31:d LinkActionIndex31-0:d LinkActionIndex31-1:d LinkActionIndex31-2:d LinkActionIndex31-3:d }
+   0               0             0             2                    28                     29                     4                   198                   54                    234                   34                    
+[ Link32 : 1 ]
+ { LinkRepeats32:d LinkState32:d LogicType32:d LinkTriggerCount32:d LinkTriggerIndex32-0:d LinkActionCount32:d LinkActionIndex32-0:d LinkActionIndex32-1:d }
+   0               0             0             1                    28                     2                   74                    100                   
+[ Link33 : 1 ]
+ { LinkRepeats33:d LinkState33:d LogicType33:d LinkTriggerCount33:d LinkTriggerIndex33-0:d LinkActionCount33:d LinkActionIndex33-0:d LinkActionIndex33-1:d }
+   0               0             0             1                    29                     2                   75                    100                   
+[ Link34 : 1 ]
+ { LinkRepeats34:d LinkState34:d LogicType34:d LinkTriggerCount34:d LinkTriggerIndex34-0:d LinkActionCount34:d LinkActionIndex34-0:d }
+   0               0             0             1                    30                     1                   86                    
+[ Link35 : 1 ]
+ { LinkRepeats35:d LinkState35:d LogicType35:d LinkTriggerCount35:d LinkTriggerIndex35-0:d LinkActionCount35:d LinkActionIndex35-0:d LinkActionIndex35-1:d LinkActionIndex35-2:d LinkActionIndex35-3:d }
+   0               0             0             1                    31                     4                   214                   100                   92                    236                   
+[ Link36 : 1 ]
+ { LinkRepeats36:d LinkState36:d LogicType36:d LinkTriggerCount36:d LinkTriggerIndex36-0:d LinkTriggerIndex36-1:d LinkActionCount36:d LinkActionIndex36-0:d }
+   0               0             0             2                    32                     33                     1                   195                   
+[ Link37 : 1 ]
+ { LinkRepeats37:d LinkState37:d LogicType37:d LinkTriggerCount37:d LinkTriggerIndex37-0:d LinkTriggerIndex37-1:d LinkActionCount37:d LinkActionIndex37-0:d LinkActionIndex37-1:d }
+   0               0             0             2                    32                     33                     2                   246                   139                   
+[ Link38 : 1 ]
+ { LinkRepeats38:d LinkState38:d LogicType38:d LinkTriggerCount38:d LinkTriggerIndex38-0:d LinkActionCount38:d LinkActionIndex38-0:d }
+   0               0             0             1                    32                     1                   57                    
+[ Link39 : 1 ]
+ { LinkRepeats39:d LinkState39:d LogicType39:d LinkTriggerCount39:d LinkTriggerIndex39-0:d LinkActionCount39:d LinkActionIndex39-0:d }
+   0               0             0             1                    33                     1                   53                    
+[ Link40 : 1 ]
+ { LinkRepeats40:d LinkState40:d LogicType40:d LinkTriggerCount40:d LinkTriggerIndex40-0:d LinkActionCount40:d LinkActionIndex40-0:d }
+   0               0             0             1                    33                     1                   83                    
+[ Link41 : 1 ]
+ { LinkRepeats41:d LinkState41:d LogicType41:d LinkTriggerCount41:d LinkTriggerIndex41-0:d LinkActionCount41:d LinkActionIndex41-0:d LinkActionIndex41-1:d }
+   0               0             0             1                    34                     2                   234                   100                   
+[ Link42 : 1 ]
+ { LinkRepeats42:d LinkState42:d LogicType42:d LinkTriggerCount42:d LinkTriggerIndex42-0:d LinkActionCount42:d LinkActionIndex42-0:d }
+   0               0             0             1                    35                     1                   72                    
+[ Link43 : 1 ]
+ { LinkRepeats43:d LinkState43:d LogicType43:d LinkTriggerCount43:d LinkTriggerIndex43-0:d LinkTriggerIndex43-1:d LinkTriggerIndex43-2:d LinkActionCount43:d LinkActionIndex43-0:d }
+   1               0             1             3                    38                     37                     36                     1                   89                    
+[ Link44 : 1 ]
+ { LinkRepeats44:d LinkState44:d LogicType44:d LinkTriggerCount44:d LinkTriggerIndex44-0:d LinkTriggerIndex44-1:d LinkTriggerIndex44-2:d LinkActionCount44:d LinkActionIndex44-0:d }
+   1               0             1             3                    41                     40                     39                     1                   90                    
+[ Link45 : 1 ]
+ { LinkRepeats45:d LinkState45:d LogicType45:d LinkTriggerCount45:d LinkTriggerIndex45-0:d LinkActionCount45:d LinkActionIndex45-0:d }
+   0               0             0             1                    42                     1                   83                    
+[ Link46 : 1 ]
+ { LinkRepeats46:d LinkState46:d LogicType46:d LinkTriggerCount46:d LinkTriggerIndex46-0:d LinkActionCount46:d LinkActionIndex46-0:d }
+   0               0             0             1                    43                     1                   87                    
+[ Link47 : 1 ]
+ { LinkRepeats47:d LinkState47:d LogicType47:d LinkTriggerCount47:d LinkTriggerIndex47-0:d LinkActionCount47:d LinkActionIndex47-0:d }
+   1               0             0             1                    44                     1                   162                   
+[ Link48 : 1 ]
+ { LinkRepeats48:d LinkState48:d LogicType48:d LinkTriggerCount48:d LinkTriggerIndex48-0:d LinkActionCount48:d LinkActionIndex48-0:d }
+   1               0             0             1                    45                     1                   163                   
+[ Link49 : 1 ]
+ { LinkRepeats49:d LinkState49:d LogicType49:d LinkTriggerCount49:d LinkTriggerIndex49-0:d LinkActionCount49:d LinkActionIndex49-0:d LinkActionIndex49-1:d LinkActionIndex49-2:d }
+   0               0             0             1                    46                     3                   166                   243                   55                    
+[ Link50 : 1 ]
+ { LinkRepeats50:d LinkState50:d LogicType50:d LinkTriggerCount50:d LinkTriggerIndex50-0:d LinkActionCount50:d LinkActionIndex50-0:d LinkActionIndex50-1:d LinkActionIndex50-2:d LinkActionIndex50-3:d }
+   0               0             0             1                    47                     4                   164                   167                   165                   96                    
+[ Link51 : 1 ]
+ { LinkRepeats51:d LinkState51:d LogicType51:d LinkTriggerCount51:d LinkTriggerIndex51-0:d LinkTriggerIndex51-1:d LinkTriggerIndex51-2:d LinkTriggerIndex51-3:d LinkActionCount51:d LinkActionIndex51-0:d LinkActionIndex51-1:d LinkActionIndex51-2:d LinkActionIndex51-3:d LinkActionIndex51-4:d LinkActionIndex51-5:d }
+   0               0             0             4                    48                     46                     5                      109                    6                   242                   7                     56                    132                   141                   126                   
+[ Link52 : 1 ]
+ { LinkRepeats52:d LinkState52:d LogicType52:d LinkTriggerCount52:d LinkTriggerIndex52-0:d LinkActionCount52:d LinkActionIndex52-0:d LinkActionIndex52-1:d LinkActionIndex52-2:d }
+   0               0             0             1                    48                     3                   169                   243                   58                    
+[ Link53 : 1 ]
+ { LinkRepeats53:d LinkState53:d LogicType53:d LinkTriggerCount53:d LinkTriggerIndex53-0:d LinkActionCount53:d LinkActionIndex53-0:d LinkActionIndex53-1:d LinkActionIndex53-2:d LinkActionIndex53-3:d }
+   0               0             0             1                    49                     4                   10                    176                   170                   97                    
+[ Link54 : 1 ]
+ { LinkRepeats54:d LinkState54:d LogicType54:d LinkTriggerCount54:d LinkTriggerIndex54-0:d LinkActionCount54:d LinkActionIndex54-0:d }
+   0               0             0             1                    50                     1                   179                   
+[ Link55 : 1 ]
+ { LinkRepeats55:d LinkState55:d LogicType55:d LinkTriggerCount55:d LinkTriggerIndex55-0:d LinkActionCount55:d LinkActionIndex55-0:d LinkActionIndex55-1:d LinkActionIndex55-2:d LinkActionIndex55-3:d }
+   0               0             0             1                    52                     4                   18                    268                   271                   272                   
+[ Link56 : 1 ]
+ { LinkRepeats56:d LinkState56:d LogicType56:d LinkTriggerCount56:d LinkTriggerIndex56-0:d LinkActionCount56:d LinkActionIndex56-0:d LinkActionIndex56-1:d LinkActionIndex56-2:d }
+   1               1             0             1                    53                     3                   4                     125                   123                   
+[ Link57 : 1 ]
+ { LinkRepeats57:d LinkState57:d LogicType57:d LinkTriggerCount57:d LinkTriggerIndex57-0:d LinkActionCount57:d LinkActionIndex57-0:d }
+   0               0             0             1                    55                     1                   184                   
+[ Link58 : 1 ]
+ { LinkRepeats58:d LinkState58:d LogicType58:d LinkTriggerCount58:d LinkTriggerIndex58-0:d LinkActionCount58:d LinkActionIndex58-0:d }
+   0               0             0             1                    56                     1                   185                   
+[ Link59 : 1 ]
+ { LinkRepeats59:d LinkState59:d LogicType59:d LinkTriggerCount59:d LinkTriggerIndex59-0:d LinkActionCount59:d LinkActionIndex59-0:d }
+   1               0             0             1                    57                     1                   186                   
+[ Link60 : 1 ]
+ { LinkRepeats60:d LinkState60:d LogicType60:d LinkTriggerCount60:d LinkTriggerIndex60-0:d LinkActionCount60:d LinkActionIndex60-0:d }
+   1               0             0             1                    58                     1                   187                   
+[ Link61 : 1 ]
+ { LinkRepeats61:d LinkState61:d LogicType61:d LinkTriggerCount61:d LinkTriggerIndex61-0:d LinkActionCount61:d LinkActionIndex61-0:d }
+   1               0             0             1                    59                     1                   188                   
+[ Link62 : 1 ]
+ { LinkRepeats62:d LinkState62:d LogicType62:d LinkTriggerCount62:d LinkTriggerIndex62-0:d LinkActionCount62:d LinkActionIndex62-0:d LinkActionIndex62-1:d LinkActionIndex62-2:d }
+   0               3             0             1                    60                     3                   248                   260                   103                   
+[ Link63 : 1 ]
+ { LinkRepeats63:d LinkState63:d LogicType63:d LinkTriggerCount63:d LinkTriggerIndex63-0:d LinkActionCount63:d LinkActionIndex63-0:d LinkActionIndex63-1:d LinkActionIndex63-2:d LinkActionIndex63-3:d LinkActionIndex63-4:d LinkActionIndex63-5:d LinkActionIndex63-6:d }
+   0               0             0             1                    62                     7                   150                   149                   122                   194                   60                    19                    237                   
+[ Link64 : 1 ]
+ { LinkRepeats64:d LinkState64:d LogicType64:d LinkTriggerCount64:d LinkTriggerIndex64-0:d LinkActionCount64:d LinkActionIndex64-0:d LinkActionIndex64-1:d LinkActionIndex64-2:d }
+   0               0             0             1                    63                     3                   197                   158                   85                    
+[ Link65 : 1 ]
+ { LinkRepeats65:d LinkState65:d LogicType65:d LinkTriggerCount65:d LinkTriggerIndex65-0:d LinkActionCount65:d LinkActionIndex65-0:d LinkActionIndex65-1:d }
+   0               0             0             1                    64                     2                   199                   34                    
+[ Link66 : 1 ]
+ { LinkRepeats66:d LinkState66:d LogicType66:d LinkTriggerCount66:d LinkTriggerIndex66-0:d LinkActionCount66:d LinkActionIndex66-0:d LinkActionIndex66-1:d LinkActionIndex66-2:d LinkActionIndex66-3:d }
+   0               0             0             1                    65                     4                   155                   200                   31                    50                    
+[ Link67 : 1 ]
+ { LinkRepeats67:d LinkState67:d LogicType67:d LinkTriggerCount67:d LinkTriggerIndex67-0:d LinkActionCount67:d LinkActionIndex67-0:d LinkActionIndex67-1:d }
+   0               0             0             1                    66                     2                   202                   31                    
+[ Link68 : 1 ]
+ { LinkRepeats68:d LinkState68:d LogicType68:d LinkTriggerCount68:d LinkTriggerIndex68-0:d LinkActionCount68:d LinkActionIndex68-0:d LinkActionIndex68-1:d LinkActionIndex68-2:d LinkActionIndex68-3:d }
+   0               0             0             1                    68                     4                   156                   168                   66                    235                   
+[ Link69 : 1 ]
+ { LinkRepeats69:d LinkState69:d LogicType69:d LinkTriggerCount69:d LinkTriggerIndex69-0:d LinkTriggerIndex69-1:d LinkActionCount69:d LinkActionIndex69-0:d }
+   0               0             1             2                    69                     113                    1                   65                    
+[ Link70 : 1 ]
+ { LinkRepeats70:d LinkState70:d LogicType70:d LinkTriggerCount70:d LinkTriggerIndex70-0:d LinkActionCount70:d LinkActionIndex70-0:d }
+   0               0             0             1                    69                     1                   204                   
+[ Link71 : 1 ]
+ { LinkRepeats71:d LinkState71:d LogicType71:d LinkTriggerCount71:d LinkTriggerIndex71-0:d LinkActionCount71:d LinkActionIndex71-0:d LinkActionIndex71-1:d LinkActionIndex71-2:d LinkActionIndex71-3:d LinkActionIndex71-4:d }
+   0               0             0             1                    70                     5                   205                   36                    148                   157                   33                    
+[ Link72 : 1 ]
+ { LinkRepeats72:d LinkState72:d LogicType72:d LinkTriggerCount72:d LinkTriggerIndex72-0:d LinkActionCount72:d LinkActionIndex72-0:d LinkActionIndex72-1:d }
+   0               0             0             1                    71                     2                   207                   36                    
+[ Link73 : 1 ]
+ { LinkRepeats73:d LinkState73:d LogicType73:d LinkTriggerCount73:d LinkTriggerIndex73-0:d LinkActionCount73:d LinkActionIndex73-0:d LinkActionIndex73-1:d LinkActionIndex73-2:d LinkActionIndex73-3:d LinkActionIndex73-4:d LinkActionIndex73-5:d LinkActionIndex73-6:d LinkActionIndex73-7:d LinkActionIndex73-8:d }
+   0               0             0             1                    72                     9                   154                   152                   151                   146                   147                   144                   145                   153                   52                    
+[ Link74 : 1 ]
+ { LinkRepeats74:d LinkState74:d LogicType74:d LinkTriggerCount74:d LinkTriggerIndex74-0:d LinkActionCount74:d LinkActionIndex74-0:d }
+   0               0             0             1                    73                     1                   207                   
+[ Link75 : 1 ]
+ { LinkRepeats75:d LinkState75:d LogicType75:d LinkTriggerCount75:d LinkTriggerIndex75-0:d LinkActionCount75:d LinkActionIndex75-0:d LinkActionIndex75-1:d LinkActionIndex75-2:d LinkActionIndex75-3:d LinkActionIndex75-4:d LinkActionIndex75-5:d LinkActionIndex75-6:d LinkActionIndex75-7:d LinkActionIndex75-8:d LinkActionIndex75-9:d LinkActionIndex75-10:d }
+   0               0             0             1                    74                     11                  120                   32                    29                    30                    25                    67                    45                    68                    28                    37                    209                    
+[ Link76 : 1 ]
+ { LinkRepeats76:d LinkState76:d LogicType76:d LinkTriggerCount76:d LinkTriggerIndex76-0:d LinkActionCount76:d LinkActionIndex76-0:d }
+   1               0             0             1                    75                     1                   222                   
+[ Link77 : 1 ]
+ { LinkRepeats77:d LinkState77:d LogicType77:d LinkTriggerCount77:d LinkTriggerIndex77-0:d LinkActionCount77:d LinkActionIndex77-0:d LinkActionIndex77-1:d LinkActionIndex77-2:d }
+   0               0             0             1                    76                     3                   223                   259                   104                   
+[ Link78 : 1 ]
+ { LinkRepeats78:d LinkState78:d LogicType78:d LinkTriggerCount78:d LinkTriggerIndex78-0:d LinkActionCount78:d LinkActionIndex78-0:d }
+   1               0             0             1                    77                     1                   218                   
+[ Link79 : 1 ]
+ { LinkRepeats79:d LinkState79:d LogicType79:d LinkTriggerCount79:d LinkTriggerIndex79-0:d LinkActionCount79:d LinkActionIndex79-0:d }
+   1               0             0             1                    79                     1                   221                   
+[ Link80 : 1 ]
+ { LinkRepeats80:d LinkState80:d LogicType80:d LinkTriggerCount80:d LinkTriggerIndex80-0:d LinkTriggerIndex80-1:d LinkTriggerIndex80-2:d LinkTriggerIndex80-3:d LinkTriggerIndex80-4:d LinkTriggerIndex80-5:d LinkTriggerIndex80-6:d LinkActionCount80:d LinkActionIndex80-0:d }
+   0               1             1             7                    86                     85                     84                     83                     82                     81                     80                     1                   251                   
+[ Link81 : 1 ]
+ { LinkRepeats81:d LinkState81:d LogicType81:d LinkTriggerCount81:d LinkTriggerIndex81-0:d LinkActionCount81:d LinkActionIndex81-0:d LinkActionIndex81-1:d LinkActionIndex81-2:d LinkActionIndex81-3:d LinkActionIndex81-4:d LinkActionIndex81-5:d }
+   0               0             0             1                    87                     6                   196                   38                    42                    40                    135                   133                   
+[ Link82 : 1 ]
+ { LinkRepeats82:d LinkState82:d LogicType82:d LinkTriggerCount82:d LinkTriggerIndex82-0:d LinkActionCount82:d LinkActionIndex82-0:d }
+   0               0             0             1                    88                     1                   245                   
+[ Link83 : 1 ]
+ { LinkRepeats83:d LinkState83:d LogicType83:d LinkTriggerCount83:d LinkTriggerIndex83-0:d LinkActionCount83:d LinkActionIndex83-0:d LinkActionIndex83-1:d LinkActionIndex83-2:d LinkActionIndex83-3:d }
+   0               0             0             1                    89                     4                   69                    27                    79                    119                   
+[ Link84 : 1 ]
+ { LinkRepeats84:d LinkState84:d LogicType84:d LinkTriggerCount84:d LinkTriggerIndex84-0:d LinkActionCount84:d LinkActionIndex84-0:d LinkActionIndex84-1:d }
+   0               0             0             1                    90                     2                   260                   103                   
+[ Link85 : 1 ]
+ { LinkRepeats85:d LinkState85:d LogicType85:d LinkTriggerCount85:d LinkTriggerIndex85-0:d LinkTriggerIndex85-1:d LinkTriggerIndex85-2:d LinkTriggerIndex85-3:d LinkTriggerIndex85-4:d LinkTriggerIndex85-5:d LinkActionCount85:d LinkActionIndex85-0:d }
+   0               3             1             6                    91                     96                     95                     94                     93                     92                     1                   258                   
+[ Link86 : 1 ]
+ { LinkRepeats86:d LinkState86:d LogicType86:d LinkTriggerCount86:d LinkTriggerIndex86-0:d LinkActionCount86:d LinkActionIndex86-0:d }
+   0               3             0             1                    98                     1                   258                   
+[ Link87 : 1 ]
+ { LinkRepeats87:d LinkState87:d LogicType87:d LinkTriggerCount87:d LinkTriggerIndex87-0:d LinkActionCount87:d LinkActionIndex87-0:d }
+   0               0             0             1                    99                     1                   244                   
+[ Link88 : 1 ]
+ { LinkRepeats88:d LinkState88:d LogicType88:d LinkTriggerCount88:d LinkTriggerIndex88-0:d LinkActionCount88:d LinkActionIndex88-0:d LinkActionIndex88-1:d }
+   0               0             0             1                    100                    2                   236                   100                   
+[ Link89 : 1 ]
+ { LinkRepeats89:d LinkState89:d LogicType89:d LinkTriggerCount89:d LinkTriggerIndex89-0:d LinkActionCount89:d LinkActionIndex89-0:d }
+   1               0             0             1                    101                    1                   24                    
+[ Link90 : 1 ]
+ { LinkRepeats90:d LinkState90:d LogicType90:d LinkTriggerCount90:d LinkTriggerIndex90-0:d LinkActionCount90:d LinkActionIndex90-0:d }
+   1               0             0             1                    102                    1                   189                   
+[ Link91 : 1 ]
+ { LinkRepeats91:d LinkState91:d LogicType91:d LinkTriggerCount91:d LinkTriggerIndex91-0:d LinkActionCount91:d LinkActionIndex91-0:d }
+   1               0             0             1                    104                    1                   178                   
+[ Link92 : 1 ]
+ { LinkRepeats92:d LinkState92:d LogicType92:d LinkTriggerCount92:d LinkTriggerIndex92-0:d LinkActionCount92:d LinkActionIndex92-0:d LinkActionIndex92-1:d }
+   0               0             0             1                    106                    2                   172                   171                   
+[ Link93 : 1 ]
+ { LinkRepeats93:d LinkState93:d LogicType93:d LinkTriggerCount93:d LinkTriggerIndex93-0:d LinkActionCount93:d LinkActionIndex93-0:d LinkActionIndex93-1:d LinkActionIndex93-2:d LinkActionIndex93-3:d }
+   0               0             0             1                    108                    4                   17                    142                   136                   134                   
+[ Link94 : 1 ]
+ { LinkRepeats94:d LinkState94:d LogicType94:d LinkTriggerCount94:d LinkTriggerIndex94-0:d LinkActionCount94:d LinkActionIndex94-0:d LinkActionIndex94-1:d LinkActionIndex94-2:d }
+   0               0             0             1                    109                    3                   255                   243                   63                    
+[ Link95 : 1 ]
+ { LinkRepeats95:d LinkState95:d LogicType95:d LinkTriggerCount95:d LinkTriggerIndex95-0:d LinkActionCount95:d LinkActionIndex95-0:d LinkActionIndex95-1:d LinkActionIndex95-2:d LinkActionIndex95-3:d }
+   0               0             0             1                    110                    4                   253                   256                   254                   98                    
+[ Link96 : 1 ]
+ { LinkRepeats96:d LinkState96:d LogicType96:d LinkTriggerCount96:d LinkTriggerIndex96-0:d LinkActionCount96:d LinkActionIndex96-0:d }
+   1               0             0             1                    111                    1                   257                   
+[ Link97 : 1 ]
+ { LinkRepeats97:d LinkState97:d LogicType97:d LinkTriggerCount97:d LinkTriggerIndex97-0:d LinkTriggerIndex97-1:d LinkTriggerIndex97-2:d LinkActionCount97:d LinkActionIndex97-0:d LinkActionIndex97-1:d }
+   0               0             0             3                    112                    124                    123                    2                   234                   201                   
+[ Link98 : 1 ]
+ { LinkRepeats98:d LinkState98:d LogicType98:d LinkTriggerCount98:d LinkTriggerIndex98-0:d LinkActionCount98:d LinkActionIndex98-0:d LinkActionIndex98-1:d }
+   0               0             0             1                    113                    2                   203                   269                   
+[ Link99 : 1 ]
+ { LinkRepeats99:d LinkState99:d LogicType99:d LinkTriggerCount99:d LinkTriggerIndex99-0:d LinkActionCount99:d LinkActionIndex99-0:d }
+   0               0             0             1                    114                    1                   77                    
+[ Link100 : 1 ]
+ { LinkRepeats100:d LinkState100:d LogicType100:d LinkTriggerCount100:d LinkTriggerIndex100-0:d LinkActionCount100:d LinkActionIndex100-0:d LinkActionIndex100-1:d LinkActionIndex100-2:d }
+   1                0              0              1                     115                     3                    161                    15                     99                     
+[ Link101 : 1 ]
+ { LinkRepeats101:d LinkState101:d LogicType101:d LinkTriggerCount101:d LinkTriggerIndex101-0:d LinkActionCount101:d LinkActionIndex101-0:d }
+   1                0              0              1                     116                     1                    130                    
+[ Link102 : 1 ]
+ { LinkRepeats102:d LinkState102:d LogicType102:d LinkTriggerCount102:d LinkTriggerIndex102-0:d LinkActionCount102:d LinkActionIndex102-0:d }
+   1                0              0              1                     117                     1                    13                     
+[ Link103 : 1 ]
+ { LinkRepeats103:d LinkState103:d LogicType103:d LinkTriggerCount103:d LinkTriggerIndex103-0:d LinkActionCount103:d LinkActionIndex103-0:d }
+   1                0              0              1                     118                     1                    14                     
+[ Link104 : 1 ]
+ { LinkRepeats104:d LinkState104:d LogicType104:d LinkTriggerCount104:d LinkTriggerIndex104-0:d LinkActionCount104:d LinkActionIndex104-0:d }
+   1                0              0              1                     119                     1                    131                    
+[ Link105 : 1 ]
+ { LinkRepeats105:d LinkState105:d LogicType105:d LinkTriggerCount105:d LinkTriggerIndex105-0:d LinkActionCount105:d LinkActionIndex105-0:d LinkActionIndex105-1:d LinkActionIndex105-2:d LinkActionIndex105-3:d }
+   0                0              0              1                     120                     4                    16                     266                    265                    264                    
+[ Link106 : 1 ]
+ { LinkRepeats106:d LinkState106:d LogicType106:d LinkTriggerCount106:d LinkTriggerIndex106-0:d LinkActionCount106:d LinkActionIndex106-0:d LinkActionIndex106-1:d }
+   0                0              0              1                     120                     2                    266                    265                    
+[ Link107 : 1 ]
+ { LinkRepeats107:d LinkState107:d LogicType107:d LinkTriggerCount107:d LinkTriggerIndex107-0:d LinkActionCount107:d LinkActionIndex107-0:d LinkActionIndex107-1:d }
+   0                0              0              1                     121                     2                    263                    262                    
+[ Link108 : 1 ]
+ { LinkRepeats108:d LinkState108:d LogicType108:d LinkTriggerCount108:d LinkTriggerIndex108-0:d LinkActionCount108:d LinkActionIndex108-0:d LinkActionIndex108-1:d }
+   0                0              0              1                     122                     2                    263                    262                    
+[ Link109 : 1 ]
+ { LinkRepeats109:d LinkState109:d LogicType109:d LinkTriggerCount109:d LinkTriggerIndex109-0:d LinkTriggerIndex109-1:d LinkTriggerIndex109-2:d LinkTriggerIndex109-3:d LinkTriggerIndex109-4:d LinkTriggerIndex109-5:d LinkTriggerIndex109-6:d LinkActionCount109:d LinkActionIndex109-0:d }
+   1                0              1              7                     130                     129                     128                     127                     126                     125                     149                     1                    219                    
+[ Link110 : 1 ]
+ { LinkRepeats110:d LinkState110:d LogicType110:d LinkTriggerCount110:d LinkTriggerIndex110-0:d LinkActionCount110:d LinkActionIndex110-0:d }
+   1                0              0              1                     131                     1                    249                    
+[ Link111 : 1 ]
+ { LinkRepeats111:d LinkState111:d LogicType111:d LinkTriggerCount111:d LinkTriggerIndex111-0:d LinkActionCount111:d LinkActionIndex111-0:d }
+   1                1              0              1                     131                     1                    250                    
+[ Link112 : 1 ]
+ { LinkRepeats112:d LinkState112:d LogicType112:d LinkTriggerCount112:d LinkTriggerIndex112-0:d LinkActionCount112:d LinkActionIndex112-0:d }
+   0                0              0              1                     137                     1                    93                     
+[ Link113 : 1 ]
+ { LinkRepeats113:d LinkState113:d LogicType113:d LinkTriggerCount113:d LinkTriggerIndex113-0:d LinkActionCount113:d LinkActionIndex113-0:d }
+   0                0              0              1                     138                     1                    91                     
+[ Link114 : 1 ]
+ { LinkRepeats114:d LinkState114:d LogicType114:d LinkTriggerCount114:d LinkTriggerIndex114-0:d LinkActionCount114:d LinkActionIndex114-0:d }
+   0                0              0              1                     139                     1                    91                     
+[ Link115 : 1 ]
+ { LinkRepeats115:d LinkState115:d LogicType115:d LinkTriggerCount115:d LinkTriggerIndex115-0:d LinkActionCount115:d LinkActionIndex115-0:d }
+   0                0              0              1                     140                     1                    91                     
+[ Link116 : 1 ]
+ { LinkRepeats116:d LinkState116:d LogicType116:d LinkTriggerCount116:d LinkTriggerIndex116-0:d LinkActionCount116:d LinkActionIndex116-0:d }
+   0                0              0              1                     141                     1                    91                     
+[ Link117 : 1 ]
+ { LinkRepeats117:d LinkState117:d LogicType117:d LinkTriggerCount117:d LinkTriggerIndex117-0:d LinkActionCount117:d LinkActionIndex117-0:d }
+   0                0              0              1                     142                     1                    91                     
+[ Link118 : 1 ]
+ { LinkRepeats118:d LinkState118:d LogicType118:d LinkTriggerCount118:d LinkTriggerIndex118-0:d LinkActionCount118:d LinkActionIndex118-0:d }
+   0                0              0              1                     143                     1                    91                     
+[ Link119 : 1 ]
+ { LinkRepeats119:d LinkState119:d LogicType119:d LinkTriggerCount119:d LinkTriggerIndex119-0:d LinkTriggerIndex119-1:d LinkActionCount119:d LinkActionIndex119-0:d }
+   0                0              0              2                     144                     132                     1                    238                    
+[ Link120 : 1 ]
+ { LinkRepeats120:d LinkState120:d LogicType120:d LinkTriggerCount120:d LinkTriggerIndex120-0:d LinkTriggerIndex120-1:d LinkActionCount120:d LinkActionIndex120-0:d }
+   0                0              0              2                     145                     133                     1                    238                    
+[ Link121 : 1 ]
+ { LinkRepeats121:d LinkState121:d LogicType121:d LinkTriggerCount121:d LinkTriggerIndex121-0:d LinkTriggerIndex121-1:d LinkActionCount121:d LinkActionIndex121-0:d }
+   0                0              0              2                     146                     134                     1                    238                    
+[ Link122 : 1 ]
+ { LinkRepeats122:d LinkState122:d LogicType122:d LinkTriggerCount122:d LinkTriggerIndex122-0:d LinkTriggerIndex122-1:d LinkActionCount122:d LinkActionIndex122-0:d }
+   0                0              0              2                     147                     135                     1                    238                    
+[ Link123 : 1 ]
+ { LinkRepeats123:d LinkState123:d LogicType123:d LinkTriggerCount123:d LinkTriggerIndex123-0:d LinkTriggerIndex123-1:d LinkActionCount123:d LinkActionIndex123-0:d }
+   0                0              0              2                     148                     136                     1                    238                    
+[ Link124 : 1 ]
+ { LinkRepeats124:d LinkState124:d LogicType124:d LinkTriggerCount124:d LinkTriggerIndex124-0:d LinkActionCount124:d LinkActionIndex124-0:d }
+   0                3              0              1                     151                     1                    103                    
+[ Link125 : 1 ]
+ { LinkRepeats125:d LinkState125:d LogicType125:d LinkTriggerCount125:d LinkTriggerIndex125-0:d LinkActionCount125:d LinkActionIndex125-0:d }
+   0                0              0              1                     152                     1                    119                    
+[ Link126 : 1 ]
+ { LinkRepeats126:d LinkState126:d LogicType126:d LinkTriggerCount126:d LinkTriggerIndex126-0:d LinkActionCount126:d LinkActionIndex126-0:d LinkActionIndex126-1:d LinkActionIndex126-2:d LinkActionIndex126-3:d }
+   0                0              0              1                     153                     4                    273                    275                    276                    277                    
+[ Link127 : 1 ]
+ { LinkRepeats127:d LinkState127:d LogicType127:d LinkTriggerCount127:d LinkTriggerIndex127-0:d LinkTriggerIndex127-1:d LinkTriggerIndex127-2:d LinkTriggerIndex127-3:d LinkTriggerIndex127-3:d LinkActionCount127:d LinkActionIndex127-0:d LinkActionIndex127-1:d LinkActionIndex127-2:d LinkActionIndex127-3:d LinkActionIndex127-4:d  LinkActionIndex127-5:d }
+   0                0              0              5                     154                     155                     156                     157                     158                     6                    278                    279                    280                    281                    287                     288
+[ Link128 : 1 ]
+ { LinkRepeats128:d LinkState128:d LogicType128:d LinkTriggerCount128:d LinkTriggerIndex128-0:d LinkTriggerIndex128-1:d LinkTriggerIndex128-2:d LinkTriggerIndex128-3:d LinkTriggerIndex128-4:d LinkTriggerIndex128-5:d LinkActionCount128:d LinkActionIndex128-0:d LinkActionIndex128-1:d LinkActionIndex128-2:d LinkActionIndex128-3:d LinkActionIndex128-4:d LinkActionIndex128-5:d LinkActionIndex128-6:d }
+   0                0              0              6                     159 154 155 156 157 158                     7                    283                    282                    274                    286                    285   292      284            
+[ Link129 : 1 ]
+ { LinkRepeats129:d LinkState129:d LogicType129:d LinkTriggerCount129:d LinkTriggerIndex129-0:d LinkActionCount129:d LinkActionIndex129-0:d LinkActionIndex129-1:d LinkActionIndex129-2:d LinkActionIndex129-3:d LinkActionIndex129-4:d }
+   0                0              0              1                     160                     5                    289                    282                    274                    290                     291
+
+[ Link130 : 1 ]
+ { LinkRepeats130:d LinkState130:d LogicType130:d LinkTriggerCount130:d LinkTriggerIndex130-0:d LinkActionCount130:d LinkActionIndex130-0:d  }
+   0                0              0              1                     161                     1                    293                 
+
+
+[ ConversationMgr : 1 ]
+ { ConversationCount:d ConversationListCount:d DialogListCount:d }
+   0                   0                       0                 
+[ CameraMgr : 1 ]
+ { ChaseOffset:fff            }
+   0.000000 0.000000 0.000000 

@@ -315,7 +315,7 @@ void drawInputFields(string type) {
 }
 
 imgui_addons::ImGuiFileBrowser file_dialog; // As a class member or globally
-string fileToEdit = "globals-editor/main.cpp";
+string fileToEdit = "globals-editor/globals.TXT";
 
 void gui::Render() noexcept
 {
@@ -493,7 +493,7 @@ void gui::Render() noexcept
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 		ImGui::Combo("  ", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
 
-		const char* actionsTypes[] = { "1", "2", "4", "7"};
+		const char* actionsTypes[] = { "1", "2", "4", "7" };
 		static int actionsTypeIndex = 0;
 
 		ImGui::Text("");
@@ -556,6 +556,33 @@ void gui::Render() noexcept
 			log.clear();
 			log.appendf(a.c_str());
 		}
+
+		std::ifstream file(fileToEdit);
+		if (!file) {
+			std::cerr << "Unable to open file";
+		}
+		else {
+
+			std::string line;
+			while (std::getline(file, line)) {
+
+				//cout << line << '\n';
+				if (!line.find("[ Action"))
+				{
+					// Action header
+					if (std::getline(file, line))
+					{
+						//Action propreties
+						if (std::getline(file, line))
+						{
+							//Action Parameters
+							//cout << line << '\n';
+						}
+					}
+				}
+			}
+		}
+
 	}
 
 	ImGui::TextUnformatted(log.begin(), log.end());
