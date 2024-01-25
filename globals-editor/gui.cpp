@@ -464,7 +464,7 @@ void gui::Render() noexcept
 	ImGui::Text("");
 	ImGui::Text("");
 	ImGui::Text("");
-
+	
 	if (actions)
 	{
 
@@ -523,7 +523,9 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
 		{
-
+			actionsEdit = false;
+			triggersEdit = false;
+			linksEdit = true;
 		}
 		ImGui::Text("");
 
@@ -544,12 +546,17 @@ void gui::Render() noexcept
 	ImGui::SameLine();
 
 	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
-
+	if (linksEdit)
+	{
+		ImGui::Text("Links");
+		ImGui::Text("LinkRepeats0:d");
+		char buf[255]{};
+		ImGui::InputText("", buf, sizeof(buf));
+	}
 	if (actionsEdit)
 	{
 		ImGui::Text("Action");
 		ImGui::SameLine();
-
 
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
