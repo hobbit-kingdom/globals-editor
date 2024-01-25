@@ -390,6 +390,68 @@ void editAction()
 	}
 }
 
+
+void reloadFile(ImGuiTextBuffer& log)
+{
+	globalsActions.clear();
+	globalsActionsPositions.clear();
+	ActionsNames.clear();
+
+	fileToEdit = fileToEdit.c_str();
+
+	std::ifstream t(fileToEdit);
+
+	if (t.good())
+	{
+		string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+		a = str;
+		log.clear();
+		log.appendf(a.c_str());
+	}
+
+	std::ifstream file(fileToEdit);
+	if (!file) {
+		std::cerr << "Unable to open file";
+	}
+	else {
+		string line;
+		int lineCounter = 1;
+		while (std::getline(file, line)) {
+
+			if (!line.find("[ Action"))
+			{
+				// Action header
+				int actionNumber = getObjectNumber(line);
+
+				if (std::getline(file, line))
+				{
+					//Action propreties not needed since we can always get Action type from first parameter in parameters
+					/*
+					vector<string> propreties = splitBySpaces(line);
+
+					propreties.erase(propreties.begin());
+					propreties.pop_back();
+					*/
+					if (std::getline(file, line))
+					{
+						//Action Parameters
+						vector<string> parameters = splitBySpaces(line);
+
+						globalsActions.emplace(actionNumber, parameters);
+						globalsActionsPositions.emplace(actionNumber, lineCounter);
+						lineCounter++;
+					}
+					lineCounter++;
+				}
+			}
+
+			lineCounter++;
+		}
+
+		for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
+	}
+}
+
 void gui::Render() noexcept
 {
 	ImGui::SetNextWindowPos({ 0, 0 });
@@ -548,6 +610,8 @@ void gui::Render() noexcept
 
 	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
 
+	static ImGuiTextBuffer log;
+
 	if (actionsEdit)
 	{
 		ImGui::Text("Action");
@@ -614,7 +678,7 @@ void gui::Render() noexcept
 			}
 
 			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx));
-
+			reloadFile(log);
 		}
 		ImGui::SameLine();
 		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
@@ -637,63 +701,11 @@ void gui::Render() noexcept
 
 	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
 
-	static ImGuiTextBuffer log;
+
 
 	if (ImGui::Button("Show File"))
 	{
-		fileToEdit = fileToEdit.c_str();
-
-		std::ifstream t(fileToEdit);
-
-		if (t.good())
-		{
-			string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
-			a = str;
-			log.clear();
-			log.appendf(a.c_str());
-		}
-
-		std::ifstream file(fileToEdit);
-		if (!file) {
-			std::cerr << "Unable to open file";
-		}
-		else {
-			string line;
-			int lineCounter = 1;
-			while (std::getline(file, line)) {
-
-				if (!line.find("[ Action"))
-				{
-					// Action header
-					int actionNumber = getObjectNumber(line);
-
-					if (std::getline(file, line))
-					{
-						//Action propreties not needed since we can always get Action type from first parameter in parameters
-						/*
-						vector<string> propreties = splitBySpaces(line);
-
-						propreties.erase(propreties.begin());
-						propreties.pop_back();
-						*/
-						if (std::getline(file, line))
-						{
-							//Action Parameters
-							vector<string> parameters = splitBySpaces(line);
-
-							globalsActions.emplace(actionNumber, parameters);
-							globalsActionsPositions.emplace(actionNumber, lineCounter);
-							lineCounter++;
-						}
-						lineCounter++;
-					}
-				}
-				cout << lineCounter << " ";
-				lineCounter++;
-			}
-
-			for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
-		}
+		reloadFile(log);
 
 	}
 

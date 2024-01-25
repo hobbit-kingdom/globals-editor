@@ -9,8 +9,10 @@ using namespace std;
 
 string replaceStr(string orig_str, const string& replace_string, const string& with_string) {
 	size_t pos = orig_str.find(replace_string);
+
 	if (pos != std::string::npos)
 		orig_str.replace(pos, replace_string.length(), with_string);
+
 	return orig_str;
 }
 
@@ -24,25 +26,23 @@ vector<string> compileAction(vector<string> parameters, int type, int actionNumb
 
 	string typeS = to_string(type);
 
-	for (auto i : ActivityTypeArray[typeS])
-	{
+	for (auto i : ActivityTypeArray[typeS]) {
 		typeRow += replaceStr(i, "0", to_string(actionNumber)) + " ";
 	}
+
 	typeRow += "}";
 
 	compiled.push_back(typeRow);
 
 	string paramerRow = "";
 
-	for (auto i : parameters)
-	{
+	for (auto i : parameters) {
 		paramerRow += i + " ";
 	}
 
 	compiled.push_back(paramerRow);
 
 	return compiled;
-
 }
 
 
@@ -74,8 +74,6 @@ void insertText(string filename, int line_number, vector<string> insertText)
 
 void replaceText(string filename, int start_line_number, vector<string> insertText)
 {
-
-
 	std::ifstream input_file(filename);
 	std::vector<std::string> lines;
 	std::string line;
