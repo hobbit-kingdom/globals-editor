@@ -14,6 +14,7 @@
 #include "TextEditor.h"
 #include "ActivityTypeArray.h"
 #include "imguiFileBrowser.h"
+#include "TextFunctions.h"
 
 
 using namespace std::chrono;
@@ -348,6 +349,7 @@ imgui_addons::ImGuiFileBrowser file_dialog;
 string fileToEdit = "globals-editor/globals.TXT";
 
 map<int, vector<string>> globalsActions;
+map<int, int> globalsActionsPositions;
 vector<int> ActionIndexes;
 
 vector<string> ActionsNames = {};
@@ -479,7 +481,7 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
 		{
 			matchInputFieldsSize("1");
-			actionsEdit = true;
+			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
 		}
@@ -610,6 +612,9 @@ void gui::Render() noexcept
 			for (const std::string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
 			}
+
+			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx));
+
 		}
 		ImGui::SameLine();
 		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
@@ -654,6 +659,7 @@ void gui::Render() noexcept
 		}
 		else {
 			string line;
+			int lineCounter = 1;
 			while (std::getline(file, line)) {
 
 				if (!line.find("[ Action"))
@@ -676,9 +682,14 @@ void gui::Render() noexcept
 							vector<string> parameters = splitBySpaces(line);
 
 							globalsActions.emplace(actionNumber, parameters);
+							globalsActionsPositions.emplace(actionNumber, lineCounter);
+							lineCounter++;
 						}
+						lineCounter++;
 					}
 				}
+				cout << lineCounter << " ";
+				lineCounter++;
 			}
 
 			for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);

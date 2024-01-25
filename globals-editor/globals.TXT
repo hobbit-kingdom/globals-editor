@@ -489,20 +489,17 @@
    19               "CINEMA: Chicken Malorian end" CA3DA61F_3137A004 0                0              1                    
 [ Trigger161 : 1 ]
  { TriggerType161:d TriggerName161:s           Volume161:g       Character161:g    TriggersOnce161:d AllNPCs161:d StaysTrue161:d TriggeredOnTrue161:d }
-   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                    
-
-
-
-
+   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                   
 [ Action0 : 1 ]
  { ActionType0:d ActionName0:s            Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0SwitchGuid:g Action0SwitchOn:d Action0Toggle:d }
    1             "Trigger Switch"         0.000000              0                           0D8ADF8D_033D1000   1                 0       
+
 [ Action1 : 1 ]
- { ActionType1:d ActionName1:s            Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1CharacterGuid:g Action1Team:d }
-   2             "Set NPC to Team 2" 0.000000              0                           0D8ADD11_16E57001      2     
+{ ActionType1:d ActionName1:s Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1CharacterGuid:g Action1Team:d }
+2 "Set NPC to Team 278787" 1.000000 0 0D8ADD11_16E57001 0 
 [ Action2 : 1 ]
- { ActionType2:d ActionName2:s         Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2CharacterGuid:g Action2AIStateName:s Action2GoalListName:s Action2OverrideCinematicAnimation:d }
-   4             "Set NPC To state and goallist" 0.000000              0                           0D8ADD11_16E57001      "PatrolIdleState"    "Run to Bilbo"        0  
+{ ActionType2:d ActionName2:s Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2DialogName:s Action2Speaker:g Action2AtLocation:d Action2BilboDialog:d }
+7 "hjkhkh" 0.00 0 "hi" 0000_0000 0 1 
 [ Action3 : 1 ]
  { ActionType3:d ActionName3:s Action3ExecuteDelay:f Action3ExecuteImmediately:d Action3DialogName:s Action3Speaker:g Action3AtLocation:d Action3BilboDialog:d }
    7               "NPC Dialog"    0.000000                0                             "DogHowl"             63CA720F_67036001  0                     0    
