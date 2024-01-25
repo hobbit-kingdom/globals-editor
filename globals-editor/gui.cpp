@@ -277,14 +277,7 @@ void addInputField() {
 	inputFields.push_back("");
 }
 
-void matchInputFieldsSize(string type)
-{
-	inputFields.clear();
-	for (auto i : ActivityTypeArray[type])
-	{
-		inputFields.push_back("");
-	}
-}
+
 
 void removeInputField(int index) {
 	inputFields.erase(inputFields.begin() + index);
@@ -365,6 +358,19 @@ vector<string> ActionsNames = {};
 static int item_current_idx = 0;
 static int currentActionTypeIndex = 0;
 static const char* actionsTypes[] = { "1", "2", "4", "7" };
+
+void matchInputFieldsSize(string type)
+{
+	inputFields.clear();
+	cout << item_current_idx << "\n";
+	int inde = 0;
+	for (auto i : ActivityTypeArray[type])
+	{
+
+		inputFields.push_back(globalsActions[item_current_idx][inde]);
+		inde++;
+	}
+}
 
 void editAction()
 {
@@ -578,12 +584,10 @@ void gui::Render() noexcept
 					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
 				}
 
-
 				if (is_selected)
 					ImGui::SetItemDefaultFocus();
 			}
 			ImGui::EndCombo();
-
 		}
 
 		ImGui::Text("");
@@ -622,7 +626,6 @@ void gui::Render() noexcept
 		fileToEdit = fileToEdit.c_str();
 
 		std::ifstream t(fileToEdit);
-		std::cout << t.good();
 
 		if (t.good())
 		{
