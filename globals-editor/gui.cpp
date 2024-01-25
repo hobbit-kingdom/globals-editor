@@ -277,8 +277,6 @@ void addInputField() {
 	inputFields.push_back("");
 }
 
-
-
 void removeInputField(int index) {
 	inputFields.erase(inputFields.begin() + index);
 }
@@ -304,7 +302,6 @@ void drawInputFields(string type) {
 		ImGui::PopID();
 	}
 }
-
 
 std::vector<std::string> splitBySpaces(string s)
 {
@@ -366,7 +363,6 @@ void matchInputFieldsSize(string type)
 	int inde = 0;
 	for (auto i : ActivityTypeArray[type])
 	{
-
 		inputFields.push_back(globalsActions[item_current_idx][inde]);
 		inde++;
 	}
@@ -611,7 +607,9 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
 		{
-
+			for (const std::string& value : inputFields) {
+				std::cout << "Input Value: " << value << std::endl;
+			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
