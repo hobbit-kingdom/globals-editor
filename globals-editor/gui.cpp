@@ -15,6 +15,7 @@
 #include "ActivityTypeArray.h"
 #include "imguiFileBrowser.h"
 
+
 using namespace std::chrono;
 using namespace std;
 
@@ -314,8 +315,42 @@ void drawInputFields(string type) {
 	}
 }
 
+
+std::vector<std::string> splitBySpaces(string s)
+{
+	std::istringstream iss(s);
+	vector<std::string> words;
+	// Use a loop to extract words from the stringstream
+	do {
+		std::string word;
+		iss >> word;
+		if (!word.empty()) {
+			words.push_back(word);
+		}
+	} while (iss);
+
+
+	return words;
+}
+
+int getObjectNumber(string s)
+{
+	std::stringstream ss(s);
+	while (!isdigit(ss.peek()) && ss.peek() != EOF) {
+		ss.ignore();
+	}
+
+	// Extract the number
+	int extractedNumber;
+	ss >> extractedNumber;
+
+	return extractedNumber;
+}
+
 imgui_addons::ImGuiFileBrowser file_dialog; // As a class member or globally
 string fileToEdit = "globals-editor/globals.TXT";
+
+map<int, vector<string>> globalsActions;
 
 void gui::Render() noexcept
 {
@@ -364,7 +399,6 @@ void gui::Render() noexcept
 	ImGui::Text("                                                                            THE GLOBALS EDITOR                  ");
 	ImGui::Text("");
 
-
 	ImGui::BeginChild("left2 pane", ImVec2(200, 0), true);
 
 	if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
@@ -378,8 +412,6 @@ void gui::Render() noexcept
 		linksEdit = false;
 	}
 
-
-
 	if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Тригеры"))
 	{
 		actions = false;
@@ -390,8 +422,6 @@ void gui::Render() noexcept
 		triggersEdit = false;
 		linksEdit = false;
 	}
-
-
 
 	if (ImGui::Button(lang ? "Links" : (const char*)u8"Ссылки"))
 	{
@@ -482,6 +512,7 @@ void gui::Render() noexcept
 	ImGui::SameLine();
 
 	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
+
 	if (actionsEdit)
 	{
 		ImGui::Text("Action");
@@ -528,6 +559,7 @@ void gui::Render() noexcept
 		}
 
 	}
+
 	ImGui::EndChild();
 
 	ImGui::SameLine();
@@ -560,21 +592,39 @@ void gui::Render() noexcept
 			std::string line;
 			while (std::getline(file, line)) {
 
-				//cout << line << '\n';
 				if (!line.find("[ Action"))
 				{
 					// Action header
+					int actionNumber = getObjectNumber(line);
+
 					if (std::getline(file, line))
 					{
-						//Action propreties
+						//Action propreties not needed since we can always get Action type from first parameter in parameters
+						/*
+						vector<string> propreties = splitBySpaces(line);
+
+						propreties.erase(propreties.begin());
+						propreties.pop_back();
+						*/
 						if (std::getline(file, line))
 						{
 							//Action Parameters
-							//cout << line << '\n';
+							vector<string> parameters = splitBySpaces(line);
+
+							globalsActions.emplace(actionNumber, parameters);
 						}
 					}
 				}
 			}
+
+			/*
+			for (const auto& pair : globalsActions) {
+				cout << pair.first << " ";
+				for (auto aa : pair.second)
+					cout << aa << " ";
+				cout << "\n";
+			}
+			*/
 		}
 
 	}
