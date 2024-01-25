@@ -372,6 +372,16 @@ void matchInputFieldsSize(string type)
 	}
 }
 
+void changeTypeInputFields(string type)
+{
+	inputFields.clear();
+	for (auto i : ActivityTypeArray[type])
+	{
+		inputFields.push_back("");
+	}
+}
+
+
 void editAction()
 {
 	string s = to_string(getObjectNumber(ActionsNames[item_current_idx]));
@@ -517,7 +527,6 @@ void gui::Render() noexcept
 
 	if (links)
 	{
-
 		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
 		{
 
@@ -533,7 +542,6 @@ void gui::Render() noexcept
 		{
 
 		}
-
 	}
 
 	ImGui::EndChild();
@@ -581,13 +589,20 @@ void gui::Render() noexcept
 				if (ImGui::Selectable(actionsTypes[n], is_selected))
 				{
 					currentActionTypeIndex = n;
-					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+					changeTypeInputFields(actionsTypes[currentActionTypeIndex]);
 				}
 
 				if (is_selected)
 					ImGui::SetItemDefaultFocus();
 			}
 			ImGui::EndCombo();
+		}
+
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+		{
+			editAction();
+			matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
 		}
 
 		ImGui::Text("");
