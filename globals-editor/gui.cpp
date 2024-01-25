@@ -269,8 +269,6 @@ bool actionsEdit = false;
 bool triggersEdit = false;
 bool linksEdit = false;
 
-
-
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 std::vector<std::string> inputFields;
@@ -299,7 +297,6 @@ void drawInputFields(string type) {
 		ImGui::PushID(i);
 
 		ImGui::Text(ActivityTypeArray[type][i].c_str());
-
 
 		if (ImGui::InputText("", buf, sizeof(buf))) {
 			inputFields[i] = buf;
@@ -357,7 +354,6 @@ int getObjectNumber(string s)
 	return extractedNumber;
 }
 
-
 imgui_addons::ImGuiFileBrowser file_dialog;
 string fileToEdit = "globals-editor/globals.TXT";
 
@@ -393,6 +389,7 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoMove |
 		ImGuiWindowFlags_MenuBar
 	);
+
 	bool open = false, save = false;
 	if (ImGui::BeginMenuBar())
 	{
@@ -467,29 +464,24 @@ void gui::Render() noexcept
 
 	if (actions)
 	{
-
 		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
 		{
 			matchInputFieldsSize("1");
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
-
 		}
+
 		ImGui::Text("");
 
 		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
 		{
-
-
 			editAction();
 			matchInputFieldsSize(to_string(getObjectNumber(ActionsNames[item_current_idx])));
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
-
 		}
-
 	}
 
 	if (triggers)
@@ -515,7 +507,6 @@ void gui::Render() noexcept
 		{
 
 		}
-
 	}
 
 	if (links)
@@ -550,8 +541,6 @@ void gui::Render() noexcept
 		ImGui::Text("Action");
 		ImGui::SameLine();
 
-
-
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
 
 		const char* combo_preview_value = ActionsNames[item_current_idx].c_str();
@@ -567,14 +556,11 @@ void gui::Render() noexcept
 					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
 				}
 
-
 				if (is_selected)
 					ImGui::SetItemDefaultFocus();
 			}
 			ImGui::EndCombo();
-
 		}
-
 
 		ImGui::Text("");
 
@@ -604,7 +590,6 @@ void gui::Render() noexcept
 
 		drawInputFields(actionsTypes[currentActionTypeIndex]);
 
-
 		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
 		{
 
@@ -622,7 +607,6 @@ void gui::Render() noexcept
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
-
 	}
 
 	ImGui::EndChild();
@@ -642,7 +626,7 @@ void gui::Render() noexcept
 
 		if (t.good())
 		{
-			std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+			string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
 			a = str;
 			log.clear();
 			log.appendf(a.c_str());
@@ -653,8 +637,7 @@ void gui::Render() noexcept
 			std::cerr << "Unable to open file";
 		}
 		else {
-
-			std::string line;
+			string line;
 			while (std::getline(file, line)) {
 
 				if (!line.find("[ Action"))
@@ -682,15 +665,7 @@ void gui::Render() noexcept
 				}
 			}
 
-
-
-
-			int i = 0;
-			for (const auto& pair : globalsActions) {
-				ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
-				i++;
-			}
-
+			for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
 		}
 
 	}
@@ -698,7 +673,6 @@ void gui::Render() noexcept
 	ImGui::TextUnformatted(log.begin(), log.end());
 
 	ImGui::EndChild();
-
 
 	ImGui::Text("");
 	ImGui::Text("");
