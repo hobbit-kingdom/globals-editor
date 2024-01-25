@@ -534,10 +534,7 @@ void gui::Render() noexcept
 
 	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
 
-
-	static int test_type = 0;
 	static ImGuiTextBuffer log;
-	static int lines = 0;
 
 	if (ImGui::Button("Show File"))
 	{
@@ -549,10 +546,7 @@ void gui::Render() noexcept
 		if (t.good())
 		{
 			std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
-
 			a = str;
-			//std::cout << str;
-			std::cout << "fff";
 			log.clear();
 			log.appendf(a.c_str());
 		}
