@@ -319,16 +319,26 @@ void drawInputFields(string type) {
 std::vector<std::string> splitBySpaces(string s)
 {
 	std::istringstream iss(s);
-	vector<std::string> words;
-	// Use a loop to extract words from the stringstream
-	do {
-		std::string word;
-		iss >> word;
-		if (!word.empty()) {
-			words.push_back(word);
-		}
-	} while (iss);
+	std::vector<std::string> words;
+	std::string word;
 
+	while (iss >> word) {
+		if (!word.empty()) {
+			// Check if the word is quoted
+			if (word.front() == '"' && word.back() != '"') {
+				std::string quotedWord = word;
+				while (iss >> word && word.back() != '"') {
+					quotedWord += " " + word;
+				}
+				// Add the complete quoted word (including spaces) to the vector
+				quotedWord += " " + word;
+				words.push_back(quotedWord);
+			}
+			else {
+				words.push_back(word);
+			}
+		}
+	}
 
 	return words;
 }
@@ -347,14 +357,31 @@ int getObjectNumber(string s)
 	return extractedNumber;
 }
 
-imgui_addons::ImGuiFileBrowser file_dialog; // As a class member or globally
+
+imgui_addons::ImGuiFileBrowser file_dialog;
 string fileToEdit = "globals-editor/globals.TXT";
 
 map<int, vector<string>> globalsActions;
+vector<int> ActionIndexes;
+
+vector<string> ActionsNames = {};
+
+static int item_current_idx = 0;
+static int currentActionTypeIndex = 0;
+static const char* actionsTypes[] = { "1", "2", "4", "7" };
+
+void editAction()
+{
+	string s = to_string(getObjectNumber(ActionsNames[item_current_idx]));
+
+	for (int i = 0; i < IM_ARRAYSIZE(actionsTypes); i++)
+	{
+		if (s == actionsTypes[i]) currentActionTypeIndex = i;
+	}
+}
 
 void gui::Render() noexcept
 {
-
 	ImGui::SetNextWindowPos({ 0, 0 });
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
@@ -453,9 +480,14 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
 		{
+
+
+			editAction();
+			matchInputFieldsSize(to_string(getObjectNumber(ActionsNames[item_current_idx])));
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
+
 		}
 
 	}
@@ -518,26 +550,59 @@ void gui::Render() noexcept
 		ImGui::Text("Action");
 		ImGui::SameLine();
 
-		const char* ActionNames[] = { "1", "2", "3" };
-		static int ActivityName = 0;
 
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		ImGui::Combo("  ", &ActivityName, ActionNames, IM_ARRAYSIZE(ActionNames));
 
-		const char* actionsTypes[] = { "1", "2", "4", "7" };
-		static int actionsTypeIndex = 0;
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
+
+		const char* combo_preview_value = ActionsNames[item_current_idx].c_str();
+		if (ImGui::BeginCombo("   ", combo_preview_value))
+		{
+			for (int n = 0; n < ActionsNames.size(); n++)
+			{
+				const bool is_selected = (item_current_idx == n);
+				if (ImGui::Selectable(ActionsNames[n].c_str(), is_selected))
+				{
+					item_current_idx = n;
+					editAction();
+					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+				}
+
+
+				if (is_selected)
+					ImGui::SetItemDefaultFocus();
+			}
+			ImGui::EndCombo();
+
+		}
+
 
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		if (ImGui::Combo(lang ? "Select Action Type1" : (const char*)u8"Выбрать Тип Активность", &actionsTypeIndex, actionsTypes, IM_ARRAYSIZE(actionsTypes)))
+
+		const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
+		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
 		{
-			matchInputFieldsSize(actionsTypes[actionsTypeIndex]);
+			for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
+			{
+				const bool is_selected = (currentActionTypeIndex == n);
+				if (ImGui::Selectable(actionsTypes[n], is_selected))
+				{
+					currentActionTypeIndex = n;
+					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+				}
+
+
+				if (is_selected)
+					ImGui::SetItemDefaultFocus();
+			}
+			ImGui::EndCombo();
+
 		}
 
 		ImGui::Text("");
 
-		drawInputFields(actionsTypes[actionsTypeIndex]);
+		drawInputFields(actionsTypes[currentActionTypeIndex]);
 
 
 		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
@@ -617,14 +682,15 @@ void gui::Render() noexcept
 				}
 			}
 
-			/*
+
+
+
+			int i = 0;
 			for (const auto& pair : globalsActions) {
-				cout << pair.first << " ";
-				for (auto aa : pair.second)
-					cout << aa << " ";
-				cout << "\n";
+				ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
+				i++;
 			}
-			*/
+
 		}
 
 	}
