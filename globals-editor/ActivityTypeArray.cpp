@@ -22,6 +22,13 @@ std::map<std::string, std::vector<std::string>> TriggersTypeArray = {
 	"AllNPCs0:d",    "StaysTrue0:d",    "TriggeredOnTrue0:d"}}
 };
 std::map<std::string, std::string>  DefaultValues = {
+	{"TriggerName0:s", "\"DefaultName\""},
+	{"Volume0:g", "00000000_00000000"},
+	{"Character0:g", "00000000_00000000"},
+	{"TriggersOnce0:d", "0"},
+	{"AllNPCs0:d", "0"},
+	{"StaysTrue0:d", "0"},
+	{"TriggeredOnTrue0:d", "0"},
 	{"ActionName0:s", "\"DefaultName\""},
 	{"Action0ExecuteDelay:f", "0.000000"},
 	{"Action0ExecuteImmediately:d", "0"},

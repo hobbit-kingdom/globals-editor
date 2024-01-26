@@ -392,15 +392,28 @@ static const char* actionsTypes[] = { "1", "2", "4", "7" };
 static const char* TriggerTypes[] = { "3" };
 static int TriggerType = 0;
 string vibor = " ";
-void matchInputFieldsSize(string type)
+void matchInputFieldsSize(string type,string vibor)
 {
 	inputFields.clear();
-	cout << item_current_idx << "\n";
-	int inde = 0;
-	for (auto i : ActivityTypeArray[type])
+	if (vibor == "Actions")
 	{
-		inputFields.push_back(globalsActions[item_current_idx][inde]);
-		inde++;
+		cout << item_current_idx << "\n";
+		int inde = 0;
+		for (auto i : ActivityTypeArray[type])
+		{
+			inputFields.push_back(globalsActions[item_current_idx][inde]);
+			inde++;
+		}
+	}
+	else if (vibor == "Triggers")
+	{
+		cout << item_current_idx << "\n";
+		int inde = 0;
+		for (auto i : TriggersTypeArray[type])
+		{
+			inputFields.push_back(globalsTriggers[item_current_idx][inde]);
+			inde++;
+		}
 	}
 }
 
@@ -447,6 +460,9 @@ static int aiManagerPropRowIndex = 0;
 
 void reloadFile(ImGuiTextBuffer& log)
 {
+	globalsTriggers.clear();
+	globalsTriggersPositions.clear();
+	TriggersNames.clear();
 	globalsActions.clear();
 	globalsActionsPositions.clear();
 	ActionsNames.clear();
@@ -493,12 +509,30 @@ void reloadFile(ImGuiTextBuffer& log)
 
 						globalsActions.emplace(actionNumber, parameters);
 						globalsActionsPositions.emplace(actionNumber, lineCounter);
+
 						lineCounter++;
 					}
 					lineCounter++;
 				}
 			}
+			if (!line.find("[ Trigger"))
+			{
+				int actionNumber = getObjectNumber(line);
 
+				if (getline(file, line))
+				{
+					if (getline(file, line))
+					{
+						vector<string> parameters = splitBySpaces(line);
+
+						globalsTriggers.emplace(actionNumber, parameters);
+						globalsTriggersPositions.emplace(actionNumber, lineCounter);
+
+						lineCounter++;
+					}
+					lineCounter++;
+				}
+			}
 			if (!line.find("[ AIManager : 1 ]"))
 			{
 				if (std::getline(file, line))
@@ -514,7 +548,7 @@ void reloadFile(ImGuiTextBuffer& log)
 
 			lineCounter++;
 		}
-
+		for (const auto& pair : globalsTriggers) TriggersNames.push_back(pair.second[0] + "|" + pair.second[1]);
 		for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
 	}
 }
@@ -637,7 +671,7 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
 		{
 			editAction();
-			matchInputFieldsSize(to_string(getObjectNumber(ActionsNames[item_current_idx])));
+			matchInputFieldsSize(to_string(getObjectNumber(ActionsNames[item_current_idx])), vibor);
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
@@ -712,22 +746,22 @@ void gui::Render() noexcept
 	static ImGuiTextBuffer log;
 	if (triggersEdit)
 	{
-		ImGui::Text("Action");
+		ImGui::Text("Trigger");
 		ImGui::SameLine();
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
 
-		const char* combo_preview_value = ActionsNames[item_current_idx].c_str();
+		const char* combo_preview_value = TriggersNames[item_current_idx].c_str();
 		if (ImGui::BeginCombo("   ", combo_preview_value))
 		{
-			for (int n = 0; n < ActionsNames.size(); n++)
+			for (int n = 0; n < TriggersNames.size(); n++)
 			{
 				const bool is_selected = (item_current_idx == n);
-				if (ImGui::Selectable(ActionsNames[n].c_str(), is_selected))
+				if (ImGui::Selectable(TriggersNames[n].c_str(), is_selected))
 				{
 					item_current_idx = n;
 					editAction();
-					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+					matchInputFieldsSize(TriggerTypes[TriggerType], vibor);
 				}
 
 				if (is_selected)
@@ -762,7 +796,7 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
 		{
 			editAction();
-			matchInputFieldsSize(TriggerTypes[TriggerType]);
+			matchInputFieldsSize(TriggerTypes[TriggerType], vibor);
 		}
 
 		ImGui::Text("");
@@ -775,7 +809,7 @@ void gui::Render() noexcept
 				std::cout << "Input Value: " << value << std::endl;
 			}
 
-			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx));
+			replaceText(fileToEdit, globalsTriggersPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx, vibor));
 			reloadFile(log);
 		}
 		ImGui::SameLine();
@@ -785,7 +819,7 @@ void gui::Render() noexcept
 				inputFields[i] = "";
 			inputFields[0] = "0";
 
-			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 0, item_current_idx)); // 0 - empty activity
+			replaceText(fileToEdit, globalsTriggersPositions[item_current_idx], compileAction(inputFields, 0, item_current_idx, vibor)); // 0 - empty activity
 			actionsEdit = false;
 			reloadFile(log);
 		}
@@ -802,7 +836,7 @@ void gui::Render() noexcept
 	{
 		ImGui::Text("Trigger ");
 		ImGui::SameLine();
-		ImGui::Text(to_string(globalsActions.size()).c_str());
+		ImGui::Text(to_string(globalsTriggers.size()).c_str());
 
 
 		ImGui::Text("");
@@ -829,8 +863,8 @@ void gui::Render() noexcept
 		drawInputFields(TriggerTypes[TriggerType], vibor);
 		if (ImGui::Button(lang ? "Save trigger" : (const char*)u8"Сохранить триггер"))
 		{
-			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size()));
-			vector<string> aiManagerProp = { "153            " + to_string(globalsActions.size() + 1) + "         126         " };
+			insertText(fileToEdit, globalsTriggersPositions[globalsTriggersPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsTriggersPositions.size(), vibor));
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1)+ "  " + to_string(globalsActions.size() + 1) + "         126         "};
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
@@ -860,7 +894,7 @@ void gui::Render() noexcept
 					{
 						item_current_idx = n;
 						editAction();
-						matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+						matchInputFieldsSize(actionsTypes[currentActionTypeIndex], vibor);
 					}
 
 					if (is_selected)
@@ -895,7 +929,7 @@ void gui::Render() noexcept
 			if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
 			{
 				editAction();
-				matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+				matchInputFieldsSize(actionsTypes[currentActionTypeIndex], vibor);
 			}
 
 			ImGui::Text("");
@@ -908,7 +942,7 @@ void gui::Render() noexcept
 					std::cout << "Input Value: " << value << std::endl;
 				}
 
-				replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx));
+				replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx, vibor));
 				reloadFile(log);
 			}
 			ImGui::SameLine();
@@ -918,7 +952,7 @@ void gui::Render() noexcept
 					inputFields[i] = "";
 				inputFields[0] = "0";
 
-				replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 0, item_current_idx)); // 0 - empty activity
+				replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 0, item_current_idx, vibor)); // 0 - empty activity
 				actionsEdit = false;
 				reloadFile(log);
 			}
@@ -979,8 +1013,8 @@ void gui::Render() noexcept
 					std::cout << "Input Value: " << value << std::endl;
 				}
 
-				insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size()));
-				vector<string> aiManagerProp = { "153            " + to_string(globalsActions.size() + 1) + "         126         " };
+				insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size(), vibor));
+				vector<string> aiManagerProp = {  to_string(globalsTriggers.size() + 1) + to_string(globalsActions.size() + 1) + "         126         "};
 				replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 				reloadFile(log);
 			}

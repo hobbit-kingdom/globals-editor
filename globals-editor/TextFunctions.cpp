@@ -16,33 +16,63 @@ string replaceStr(string orig_str, const string& replace_string, const string& w
 	return orig_str;
 }
 
-vector<string> compileAction(vector<string> parameters, int type, int actionNumber)
+vector<string> compileAction(vector<string> parameters, int type, int actionNumber, string vibor)
 {
-	vector<string> compiled;
+	if (vibor == "Actions") {
+		vector<string> compiled;
 
-	compiled.push_back("[ Action" + to_string(actionNumber) + " : 1 ]");
+		compiled.push_back("[ Action" + to_string(actionNumber) + " : 1 ]");
 
-	string typeRow = "{ ";
+		string typeRow = "{ ";
 
-	string typeS = to_string(type);
+		string typeS = to_string(type);
 
-	for (auto i : ActivityTypeArray[typeS]) {
-		typeRow += replaceStr(i, "0", to_string(actionNumber)) + " ";
+		for (auto i : ActivityTypeArray[typeS]) {
+			typeRow += replaceStr(i, "0", to_string(actionNumber)) + " ";
+		}
+
+		typeRow += "}";
+
+		compiled.push_back(typeRow);
+
+		string paramerRow = "";
+
+		for (auto i : parameters) {
+			paramerRow += i + " ";
+		}
+
+		compiled.push_back(paramerRow);
+
+		return compiled;
 	}
+	else if (vibor == "Triggers")
+	{
+		vector<string> compiled;
 
-	typeRow += "}";
+		compiled.push_back("[ Trigger" + to_string(actionNumber) + " : 1 ]");
 
-	compiled.push_back(typeRow);
+		string typeRow = "{ ";
 
-	string paramerRow = "";
+		string typeS = to_string(type);
 
-	for (auto i : parameters) {
-		paramerRow += i + " ";
+		for (auto i : TriggersTypeArray[typeS]) {
+			typeRow += replaceStr(i, "0", to_string(actionNumber)) + " ";
+		}
+
+		typeRow += "}";
+
+		compiled.push_back(typeRow);
+
+		string paramerRow = "";
+
+		for (auto i : parameters) {
+			paramerRow += i + " ";
+		}
+
+		compiled.push_back(paramerRow);
+
+		return compiled;
 	}
-
-	compiled.push_back(paramerRow);
-
-	return compiled;
 }
 
 
