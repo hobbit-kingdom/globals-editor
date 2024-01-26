@@ -361,7 +361,7 @@ vector<string> ActionsNames = {};
 static int item_current_idx = 0;
 static int currentActionTypeIndex = 0;
 static const char* actionsTypes[] = { "1", "2", "3", "4", "7" };
-
+string asdf = "";
 void matchInputFieldsSize(string type)
 {
 	inputFields.clear();
@@ -379,8 +379,13 @@ void changeTypeInputFields(string type)
 	inputFields.clear();
 	for (auto i : ActivityTypeArray[type])
 	{
-		std::cout << i<<endl;
-		inputFields.push_back(DefaultValues[i]);
+		
+		if (i == "ActionType0:d")
+		{
+			asdf = actionsTypes[currentActionTypeIndex];
+			inputFields.push_back(ActionTypeList[asdf]);
+		}
+		else inputFields.push_back(DefaultValues[i]);
 	}
 }
 
@@ -794,7 +799,7 @@ void gui::Render() noexcept
 			}
 
 			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size()));
-			vector<string> aiManagerProp = { "162            " + to_string(globalsActions.size()) + "         131         " };
+			vector<string> aiManagerProp = { "153            " + to_string(globalsActions.size() + 1) + "         126         " };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
