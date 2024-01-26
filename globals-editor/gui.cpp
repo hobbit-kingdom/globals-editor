@@ -361,7 +361,6 @@ vector<string> ActionsNames = {};
 static int item_current_idx = 0;
 static int currentActionTypeIndex = 0;
 static const char* actionsTypes[] = { "1", "2", "4", "7" };
-string asdf = "";
 void matchInputFieldsSize(string type)
 {
 	inputFields.clear();
@@ -382,8 +381,7 @@ void changeTypeInputFields(string type)
 		
 		if (i == "ActionType0:d")
 		{
-			asdf = actionsTypes[currentActionTypeIndex];
-			inputFields.push_back(ActionTypeList[asdf]);
+			inputFields.push_back(actionsTypes[currentActionTypeIndex]);
 		}
 		else inputFields.push_back(DefaultValues[i]);
 	}

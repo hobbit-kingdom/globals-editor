@@ -38,6 +38,3 @@ std::map<std::string, std::string>  DefaultValues = {
 	{"Action0AtLocation:d", "0"},
 	{"Action0BilboDialog:d", "0"},
 };
-std::map<std::string, std::string> ActionTypeList = {
-	{"1", "1"},{"2", "2"},{"3","3"}, {"4","4"}, {"7","7"},
-};

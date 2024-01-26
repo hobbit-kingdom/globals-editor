@@ -11,5 +11,4 @@ extern std::map<std::string, std::vector<std::string>> ActivityTypeArray;
 
 extern std::map<std::string, std::vector<std::string>> TriggersTypeArray;
 extern std::map<std::string, std::string>  DefaultValues;
-extern std::map<std::string, std::string> ActionTypeList;
 #endif 
