@@ -360,7 +360,7 @@ vector<string> ActionsNames = {};
 
 static int item_current_idx = 0;
 static int currentActionTypeIndex = 0;
-static const char* actionsTypes[] = { "1", "2", "4", "7" };
+static const char* actionsTypes[] = { "1", "2", "3", "4", "7" };
 
 void matchInputFieldsSize(string type)
 {
@@ -721,7 +721,13 @@ void gui::Render() noexcept
 		ImGui::SameLine();
 		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
 		{
+			for (int i = 2; i < inputFields.size(); i++)
+				inputFields[i] = "";
+			inputFields[0] = "3";
 
+			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 3, item_current_idx)); // 3 - empty activity
+			actionsEdit = false;
+			reloadFile(log);
 		}
 		if (ImGui::IsItemHovered())
 		{
@@ -785,11 +791,6 @@ void gui::Render() noexcept
 			vector<string> aiManagerProp = { "162            " + to_string(globalsActions.size()) + "         131         " };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
-		}
-		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
-		{
-
 		}
 		if (ImGui::IsItemHovered())
 		{

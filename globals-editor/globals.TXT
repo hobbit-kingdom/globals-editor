@@ -491,22 +491,22 @@
  { TriggerType161:d TriggerName161:s           Volume161:g       Character161:g    TriggersOnce161:d AllNPCs161:d StaysTrue161:d TriggeredOnTrue161:d }
    3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                   
 [ Action0 : 1 ]
-{ ActionType0:d ActionName0:s Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0SwitchGuid:g Action0SwitchOn:d Action0Toggle:d }
-1 "Trigger Switch877778" 0.000000 0 0D8ADF8D_033D1000 1 0 
+{ ActionType0:d ActionName0:s }
+3 "Trigger Switch877778" 
 
 [ Action1 : 1 ]
-{ ActionType1:d ActionName1:s Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1CharacterGuid:g Action1Team:d }
-2 "Set NPC to Team 278787" 1.000000 0 0D8ADD11_16E57001 0 
+{ ActionType1:d ActionName1:s }
+3 "Set NPC to Team 278787"     
 [ Action2 : 1 ]
-{ ActionType2:d ActionName2:s Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2DialogName:s Action2Speaker:g Action2AtLocation:d Action2BilboDialog:d }
-7 "hjkhkh999" 0.00 0 "hi" 0000_0000 0 1 
+{ ActionType2:d ActionName2:s }
+3 "hjkhkh999" 
 [ Action3 : 1 ]
-{ ActionType3:d ActionName3:s Action3ExecuteDelay:f Action3ExecuteImmediately:d Action3DialogName:s Action3Speaker:g Action3AtLocation:d Action3BilboDialog:d }
-7 "NPC999" 0.000000 0 "DogHowl" 63CA720F_67036001 0 0 
+{ ActionType3:d ActionName3:s }
+3 "NPC999"       
 
 [ Action4 : 1 ]
-{ ActionType4:d ActionName4:s Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4CharacterGuid:g Action4AIStateName:s Action4GoalListName:s Action4OverrideCinematicAnimation:d }
-4 "fdfdf" 1 1 111 11 11 111 
+{ ActionType4:d ActionName4:s }
+3 "fdfdf"       
 
 [ Action5 : 1 ]
  { ActionType5:d ActionName5:s             Action5ExecuteDelay:f Action5ExecuteImmediately:d Action5Object:g   Action5Volume:g   Action5Facing:g   }
