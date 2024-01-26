@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-   162            294           131         
+162            300 131         
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -492,7 +492,7 @@
    3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                   
 [ Action0 : 1 ]
 { ActionType0:d ActionName0:s Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0SwitchGuid:g Action0SwitchOn:d Action0Toggle:d }
-1 "Trigger Switch878" 0.000000 0 0D8ADF8D_033D1000 1 0 
+1 "Trigger Switch877778" 0.000000 0 0D8ADF8D_033D1000 1 0 
 
 [ Action1 : 1 ]
 { ActionType1:d ActionName1:s Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1CharacterGuid:g Action1Team:d }
@@ -505,8 +505,8 @@
 7 "NPC999" 0.000000 0 "DogHowl" 63CA720F_67036001 0 0 
 
 [ Action4 : 1 ]
-{ ActionType4:d ActionName4:s Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4CharacterGuid:g Action4Team:d }
-2 "Changed" 0.00 0 0000_000 2 
+{ ActionType4:d ActionName4:s Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4CharacterGuid:g Action4AIStateName:s Action4GoalListName:s Action4OverrideCinematicAnimation:d }
+4 "fdfdf" 1 1 111 11 11 111 
 
 [ Action5 : 1 ]
  { ActionType5:d ActionName5:s             Action5ExecuteDelay:f Action5ExecuteImmediately:d Action5Object:g   Action5Volume:g   Action5Facing:g   }
@@ -1390,6 +1390,18 @@
 [ Action296 : 1 ]
 { ActionType296:d ActionName296:s Action296ExecuteDelay:f Action296ExecuteImmediately:d Action296SwitchGuid:g Action296SwitchOn:d Action296Toggle:d }
 1 "11" 3323 23 23 23 23 
+[ Action297 : 1 ]
+{ ActionType297:d ActionName297:s Action297ExecuteDelay:f Action297ExecuteImmediately:d Action297CharacterGuid:g Action297Team:d }
+2 "222" sf 232 2323 2323 
+[ Action298 : 1 ]
+{ ActionType298:d ActionName298:s Action298ExecuteDelay:f Action298ExecuteImmediately:d Action298CharacterGuid:g Action298Team:d }
+2 "222" sf 232 2323 2323 
+[ Action299 : 1 ]
+{ ActionType299:d ActionName299:s Action299ExecuteDelay:f Action299ExecuteImmediately:d Action299CharacterGuid:g Action299Team:d }
+2 "Sd" 1 1 1 1 
+[ Action300 : 1 ]
+{ ActionType300:d ActionName300:s Action300ExecuteDelay:f Action300ExecuteImmediately:d Action300SwitchGuid:g Action300SwitchOn:d Action300Toggle:d }
+1 1 1 1 1 1 1 
 
 
 [ Link0 : 1 ]

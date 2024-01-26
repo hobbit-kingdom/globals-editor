@@ -394,6 +394,7 @@ void editAction()
 	}
 }
 
+static int aiManagerPropRowIndex = 0;
 
 void reloadFile(ImGuiTextBuffer& log)
 {
@@ -446,6 +447,19 @@ void reloadFile(ImGuiTextBuffer& log)
 						lineCounter++;
 					}
 					lineCounter++;
+				}
+			}
+
+			if (!line.find("[ AIManager : 1 ]"))
+			{
+				if (std::getline(file, line))
+				{
+					lineCounter++;
+					if (std::getline(file, line))
+					{
+						lineCounter++;
+						aiManagerPropRowIndex = lineCounter;
+					}
 				}
 			}
 
@@ -768,6 +782,8 @@ void gui::Render() noexcept
 			}
 
 			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size()));
+			vector<string> aiManagerProp = { "162            " + to_string(globalsActions.size()) + "         131         " };
+			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
 		ImGui::SameLine();
