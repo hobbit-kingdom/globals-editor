@@ -843,7 +843,6 @@ void gui::Render() noexcept
 			ImGui::EndTooltip();
 		}
 	}
-	}
 		if (actionsEdit)
 		{
 			ImGui::Text("Action");
@@ -994,7 +993,7 @@ void gui::Render() noexcept
 				ImGui::EndTooltip();
 			}
 		}
-	}
+
 
 		ImGui::EndChild();
 
