@@ -22,17 +22,17 @@ std::map<std::string, std::vector<std::string>> TriggersTypeArray = {
 	"AllNPCs0:d",    "StaysTrue0:d",    "TriggeredOnTrue0:d"}}
 };
 std::map<std::string, std::string>  DefaultValues = {
-	{"ActionName0:s", "DefaultName"},
+	{"ActionName0:s", "\"DefaultName\""},
 	{"Action0ExecuteDelay:f", "0.000000"},
 	{"Action0ExecuteImmediately:d", "0"},
 	{"Action0SwitchGuid:g", "00000000_00000000"},
 	{"Action0CharacterGuid:g", "00000000_00000000"},
-	{"Action0DialogName:s", "DefaultName"},
+	{"Action0DialogName:s", "\"DialogName\""},
 	{"Action0SwitchOn:d", "0"},
 	{"Action0Toggle:d", "0"},
-	{"Action0AIStateName:s", "Idle"},
+	{"Action0AIStateName:s", "\"Idle\""},
 	{"Action0Team:d", "0"},
-	{"Action0GoalListName:s", "Idle"},
+	{"Action0GoalListName:s", "\"Idle\""},
 	{"Action0OverrideCinematicAnimation:d", "0"},
 	{"Action0Speaker:g", "00000000_00000000"},
 	{"Action0AtLocation:d", "0"},
