@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-162            300 131         
+162            295         131         
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -489,25 +489,26 @@
    19               "CINEMA: Chicken Malorian end" CA3DA61F_3137A004 0                0              1                    
 [ Trigger161 : 1 ]
  { TriggerType161:d TriggerName161:s           Volume161:g       Character161:g    TriggersOnce161:d AllNPCs161:d StaysTrue161:d TriggeredOnTrue161:d }
-   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                   
+   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                    
+
+
+
+
 [ Action0 : 1 ]
-{ ActionType0:d ActionName0:s }
-3 "Trigger Switch877778" 
-
+ { ActionType0:d ActionName0:s        Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0LoadLayerGuid:g }
+   10            "Unload Doggy Layer" 0.000000              0                           CA3DD7CF_713DDC00      
 [ Action1 : 1 ]
-{ ActionType1:d ActionName1:s }
-3 "Set NPC to Team 278787"     
+ { ActionType1:d ActionName1:s        Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1LoadLayerGuid:g }
+   10            "Unload Doggy Block" 0.000000              0                           CA3DD5CF_65E3F800      
 [ Action2 : 1 ]
-{ ActionType2:d ActionName2:s }
-3 "hjkhkh999" 
+ { ActionType2:d ActionName2:s                  Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2Link:s                                                                                    Action2LinkState:d }
+   12            "Toggle Link: H-Town Teleport" 0.000000              0                           "TRIGGERS: Door 2 Htown trig/  ACTIONS: Teleport: H-Town/ Load: H-Town/ Load: Resourse HTown / " 0                  
 [ Action3 : 1 ]
-{ ActionType3:d ActionName3:s }
-3 "NPC999"       
-
+ { ActionType3:d ActionName3:s                             Action3ExecuteDelay:f Action3ExecuteImmediately:d Action3Link:s                                                                       Action3LinkState:d }
+   12            "Toggle Link: Dialog Turn off Cant Leave" 0.000000              0                           "TRIGGERS: Dialog:  Bilbo Needs Walking Stick/  ACTIONS: DIALOG: Can't Leave Yet/ " 1                  
 [ Action4 : 1 ]
-{ ActionType4:d ActionName4:s }
-3 "fdfdf"       
-
+ { ActionType4:d ActionName4:s      Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4Object:g   Action4Volume:g   Action4Facing:g   }
+   15            "Teleport: H-Town" 0.000000              0                           ABCABCAB_CABCABC0 CA3DDACF_36330800 CA3DDACF_36340801 
 [ Action5 : 1 ]
  { ActionType5:d ActionName5:s             Action5ExecuteDelay:f Action5ExecuteImmediately:d Action5Object:g   Action5Volume:g   Action5Facing:g   }
    15            "Teleport: Bilbo Bag End" 0.000000              0                           ABCABCAB_CABCABC0 CA3DDACF_36368401 CA3DDACF_36373C01 
@@ -539,8 +540,8 @@
  { ActionType14:d ActionName14:s          Action14ExecuteDelay:f Action14ExecuteImmediately:d Action14CharacterGuid:g Action14Team:d }
    2              "Team: Set Holman EVIL" 0.000000               0                            CA3DDD8E_6F198C01       2              
 [ Action15 : 1 ]
- { ActionType15:d ActionName15:s                Action15ExecuteDelay:f Action15ExecuteImmediately:d Action15CharacterGuid:g Action15Team:d }
-   2              "Team: Holman Reset 2 Team 1" 0.000000               0                            CA3DDD8E_6F198C01       1              
+{ ActionType15:d ActionName15:s }
+0 "Team: Holman Reset 2 Team 1"     
 [ Action16 : 1 ]
  { ActionType16:d ActionName16:s                Action16ExecuteDelay:f Action16ExecuteImmediately:d Action16Object:g  Action16Volume:g  Action16Facing:g  }
    15             "TELE: Move Waters of vigour" 3.000000               0                            CA3DD2CF_AB86E000 CA3DD2CF_AB8BC000 00000000_00000000 
@@ -1142,8 +1143,8 @@
  { ActionType215:d ActionName215:s                 Action215ExecuteDelay:f Action215ExecuteImmediately:d Action215DialogName:s Action215Speaker:g Action215AtLocation:d Action215BilboDialog:d }
    7               "DIALOG: Sees Green Dragon Inn" 0.000000                0                             "Bilbo_01_17"         ABCABCAB_CABCABC0  0                     0                      
 [ Action216 : 1 ]
- { ActionType216:d ActionName216:s       Action216ExecuteDelay:f Action216ExecuteImmediately:d Action216DialogName:s Action216Speaker:g Action216AtLocation:d Action216BilboDialog:d }
-   7               "DIALOG: Plenty Food" 0.000000                0                             "BILBO_01_19"         ABCABCAB_CABCABC0  0                     1                      
+{ ActionType216:d ActionName216:s }
+3 "DIALOG: Plenty Food"       
 [ Action217 : 1 ]
  { ActionType217:d ActionName217:s        Action217ExecuteDelay:f Action217ExecuteImmediately:d Action217DialogName:s Action217Speaker:g Action217AtLocation:d Action217BilboDialog:d }
    7               "DIALOG: Please Dwarf" 0.000000                0                             "Bilbo_01_18"         ABCABCAB_CABCABC0  0                     0                      
@@ -1383,25 +1384,11 @@
    18              "Custom text"    5.0000000                0                             "Hello my text!"                0                 5.000000             
 [ Action294 : 1 ]
 { ActionType294:d ActionName294:s Action294ExecuteDelay:f Action294ExecuteImmediately:d Action294CharacterGuid:g Action294Team:d }
-2 "222" 2.22 2 22 2 
+2 DefaultName 0.000000 0 00000000_00000000 0 
 [ Action295 : 1 ]
 { ActionType295:d ActionName295:s Action295ExecuteDelay:f Action295ExecuteImmediately:d Action295CharacterGuid:g Action295Team:d }
-2 "1331" 2.22 2 22 2 
-[ Action296 : 1 ]
-{ ActionType296:d ActionName296:s Action296ExecuteDelay:f Action296ExecuteImmediately:d Action296SwitchGuid:g Action296SwitchOn:d Action296Toggle:d }
-1 "11" 3323 23 23 23 23 
-[ Action297 : 1 ]
-{ ActionType297:d ActionName297:s Action297ExecuteDelay:f Action297ExecuteImmediately:d Action297CharacterGuid:g Action297Team:d }
-2 "222" sf 232 2323 2323 
-[ Action298 : 1 ]
-{ ActionType298:d ActionName298:s Action298ExecuteDelay:f Action298ExecuteImmediately:d Action298CharacterGuid:g Action298Team:d }
-2 "222" sf 232 2323 2323 
-[ Action299 : 1 ]
-{ ActionType299:d ActionName299:s Action299ExecuteDelay:f Action299ExecuteImmediately:d Action299CharacterGuid:g Action299Team:d }
-2 "Sd" 1 1 1 1 
-[ Action300 : 1 ]
-{ ActionType300:d ActionName300:s Action300ExecuteDelay:f Action300ExecuteImmediately:d Action300SwitchGuid:g Action300SwitchOn:d Action300Toggle:d }
-1 1 1 1 1 1 1 
+2 DefaultName 0.000000 0 00000000_00000000 0 
+
 
 
 [ Link0 : 1 ]

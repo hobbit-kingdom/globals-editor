@@ -379,7 +379,7 @@ void changeTypeInputFields(string type)
 	inputFields.clear();
 	for (auto i : ActivityTypeArray[type])
 	{
-		std::cout << i<<endl;
+		std::cout << i << endl;
 		inputFields.push_back(DefaultValues[i]);
 	}
 }
@@ -568,7 +568,7 @@ void gui::Render() noexcept
 	ImGui::Text("");
 	ImGui::Text("");
 	ImGui::Text("");
-	
+
 	if (actions)
 	{
 		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
@@ -729,9 +729,9 @@ void gui::Render() noexcept
 		{
 			for (int i = 2; i < inputFields.size(); i++)
 				inputFields[i] = "";
-			inputFields[0] = "3";
+			inputFields[0] = "0";
 
-			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 3, item_current_idx)); // 3 - empty activity
+			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 0, item_current_idx)); // 0 - empty activity
 			actionsEdit = false;
 			reloadFile(log);
 		}
