@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 23                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-153            302         126         
+153            304         126         
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -1413,6 +1413,12 @@
 [ Action301 : 1 ]
 { ActionType301:d ActionName301:s }
 0 DefaultName       
+[ Action302 : 1 ]
+{ ActionType302:d ActionName302:s Action302ExecuteDelay:f Action302ExecuteImmediately:d Action302CharacterGuid:g Action302AIStateName:s Action302GoalListName:s Action302OverrideCinematicAnimation:d }
+4 DefaultName 0.000000 0 00000000_00000000 Idle Idle 0 
+[ Action303 : 1 ]
+{ ActionType303:d ActionName303:s Action303ExecuteDelay:f Action303ExecuteImmediately:d Action303CharacterGuid:g Action303AIStateName:s Action303GoalListName:s Action303OverrideCinematicAnimation:d }
+4 DefaultName 0.000000 0 00000000_00000000 Idle Idle 0 
 
 
 
