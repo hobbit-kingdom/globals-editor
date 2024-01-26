@@ -269,23 +269,12 @@ bool actionsEdit = false;
 bool triggersEdit = false;
 bool linksEdit = false;
 
-
-
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 std::vector<std::string> inputFields;
 
 void addInputField() {
 	inputFields.push_back("");
-}
-
-void matchInputFieldsSize(string type)
-{
-	inputFields.clear();
-	for (auto i : ActivityTypeArray[type])
-	{
-		inputFields.push_back("");
-	}
 }
 
 void removeInputField(int index) {
@@ -300,7 +289,6 @@ void drawInputFields(string type) {
 
 		ImGui::Text(ActivityTypeArray[type][i].c_str());
 
-
 		if (ImGui::InputText("", buf, sizeof(buf))) {
 			inputFields[i] = buf;
 		}
@@ -314,7 +302,6 @@ void drawInputFields(string type) {
 		ImGui::PopID();
 	}
 }
-
 
 std::vector<std::string> splitBySpaces(string s)
 {
@@ -357,7 +344,6 @@ int getObjectNumber(string s)
 	return extractedNumber;
 }
 
-
 imgui_addons::ImGuiFileBrowser file_dialog;
 string fileToEdit = "globals-editor/globals.TXT";
 
@@ -369,6 +355,29 @@ vector<string> ActionsNames = {};
 static int item_current_idx = 0;
 static int currentActionTypeIndex = 0;
 static const char* actionsTypes[] = { "1", "2", "4", "7" };
+
+void matchInputFieldsSize(string type)
+{
+	inputFields.clear();
+	cout << item_current_idx << "\n";
+	int inde = 0;
+	for (auto i : ActivityTypeArray[type])
+	{
+		inputFields.push_back(globalsActions[item_current_idx][inde]);
+		inde++;
+	}
+}
+
+void changeTypeInputFields(string type)
+{
+	inputFields.clear();
+	for (auto i : ActivityTypeArray[type])
+	{
+		std::cout << i<<endl;
+		inputFields.push_back(DefaultValues[i]);
+	}
+}
+
 
 void editAction()
 {
@@ -393,6 +402,7 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoMove |
 		ImGuiWindowFlags_MenuBar
 	);
+
 	bool open = false, save = false;
 	if (ImGui::BeginMenuBar())
 	{
@@ -467,29 +477,24 @@ void gui::Render() noexcept
 	
 	if (actions)
 	{
-
 		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
 		{
 			matchInputFieldsSize("1");
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
-
 		}
+
 		ImGui::Text("");
 
 		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
 		{
-
-
 			editAction();
 			matchInputFieldsSize(to_string(getObjectNumber(ActionsNames[item_current_idx])));
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
-
 		}
-
 	}
 
 	if (triggers)
@@ -515,12 +520,10 @@ void gui::Render() noexcept
 		{
 
 		}
-
 	}
 
 	if (links)
 	{
-
 		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
 		{
 			actionsEdit = false;
@@ -538,7 +541,6 @@ void gui::Render() noexcept
 		{
 
 		}
-
 	}
 
 	ImGui::EndChild();
@@ -548,16 +550,12 @@ void gui::Render() noexcept
 	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
 	if (linksEdit)
 	{
-		ImGui::Text("Links");
-		ImGui::Text("LinkRepeats0:d");
-		char buf[255]{};
-		ImGui::InputText("", buf, sizeof(buf));
+
 	}
 	if (actionsEdit)
 	{
 		ImGui::Text("Action");
 		ImGui::SameLine();
-
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
 
@@ -574,14 +572,11 @@ void gui::Render() noexcept
 					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
 				}
 
-
 				if (is_selected)
 					ImGui::SetItemDefaultFocus();
 			}
 			ImGui::EndCombo();
-
 		}
-
 
 		ImGui::Text("");
 
@@ -596,25 +591,31 @@ void gui::Render() noexcept
 				if (ImGui::Selectable(actionsTypes[n], is_selected))
 				{
 					currentActionTypeIndex = n;
-					matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+					changeTypeInputFields(actionsTypes[currentActionTypeIndex]);
 				}
-
 
 				if (is_selected)
 					ImGui::SetItemDefaultFocus();
 			}
 			ImGui::EndCombo();
+		}
 
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+		{
+			editAction();
+			matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
 		}
 
 		ImGui::Text("");
 
 		drawInputFields(actionsTypes[currentActionTypeIndex]);
 
-
 		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
 		{
-
+			for (const std::string& value : inputFields) {
+				std::cout << "Input Value: " << value << std::endl;
+			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
@@ -629,7 +630,6 @@ void gui::Render() noexcept
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
-
 	}
 
 	ImGui::EndChild();
@@ -645,11 +645,10 @@ void gui::Render() noexcept
 		fileToEdit = fileToEdit.c_str();
 
 		std::ifstream t(fileToEdit);
-		std::cout << t.good();
 
 		if (t.good())
 		{
-			std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+			string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
 			a = str;
 			log.clear();
 			log.appendf(a.c_str());
@@ -660,8 +659,7 @@ void gui::Render() noexcept
 			std::cerr << "Unable to open file";
 		}
 		else {
-
-			std::string line;
+			string line;
 			while (std::getline(file, line)) {
 
 				if (!line.find("[ Action"))
@@ -689,15 +687,7 @@ void gui::Render() noexcept
 				}
 			}
 
-
-
-
-			int i = 0;
-			for (const auto& pair : globalsActions) {
-				ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
-				i++;
-			}
-
+			for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
 		}
 
 	}
@@ -705,7 +695,6 @@ void gui::Render() noexcept
 	ImGui::TextUnformatted(log.begin(), log.end());
 
 	ImGui::EndChild();
-
 
 	ImGui::Text("");
 	ImGui::Text("");

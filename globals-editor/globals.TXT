@@ -495,20 +495,22 @@
 
 
 [ Action0 : 1 ]
- { ActionType0:d ActionName0:s        Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0LoadLayerGuid:g }
-   7            "Unload Doggy Layer" 0.000000              0                           CA3DD7CF_713DDC00      
+ { ActionType0:d ActionName0:s            Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0SwitchGuid:g Action0SwitchOn:d Action0Toggle:d }
+   1             "Trigger Switch"         0.000000              0                           0D8ADF8D_033D1000   1                 0       
 [ Action1 : 1 ]
- { ActionType1:d ActionName1:s        Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1LoadLayerGuid:g }
-   7            "Unload Doggy Block" 0.000000              0                           CA3DD5CF_65E3F800      
+ { ActionType1:d ActionName1:s            Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1CharacterGuid:g Action1Team:d }
+   2             "Set NPC to Team 2" 0.000000              0                           0D8ADD11_16E57001      2     
 [ Action2 : 1 ]
- { ActionType2:d ActionName2:s                  Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2Link:s                                                                                    Action2LinkState:d }
-   1            "Toggle Link: H-Town Teleport" 0.000000              0                           "TRIGGERS: Door 2 Htown trig/  ACTIONS: Teleport: H-Town/ Load: H-Town/ Load: Resourse HTown / " 0                  
+ { ActionType2:d ActionName2:s         Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2CharacterGuid:g Action2AIStateName:s Action2GoalListName:s Action2OverrideCinematicAnimation:d }
+   4             "Set NPC To state and goallist" 0.000000              0                           0D8ADD11_16E57001      "PatrolIdleState"    "Run to Bilbo"        0  
 [ Action3 : 1 ]
- { ActionType3:d ActionName3:s                             Action3ExecuteDelay:f Action3ExecuteImmediately:d Action3Link:s                                                                       Action3LinkState:d }
-   2            "Toggle Link: Dialog Turn off Cant Leave" 0.000000              0                           "TRIGGERS: Dialog:  Bilbo Needs Walking Stick/  ACTIONS: DIALOG: Can't Leave Yet/ " 1                  
+ { ActionType3:d ActionName3:s Action3ExecuteDelay:f Action3ExecuteImmediately:d Action3DialogName:s Action3Speaker:g Action3AtLocation:d Action3BilboDialog:d }
+   7               "NPC Dialog"    0.000000                0                             "DogHowl"             63CA720F_67036001  0                     0    
+
 [ Action4 : 1 ]
- { ActionType4:d ActionName4:s      Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4Object:g   Action4Volume:g   Action4Facing:g   }
-   4            "Teleport: H-Town" 0.000000              0                           ABCABCAB_CABCABC0 CA3DDACF_36330800 CA3DDACF_36340801 
+ { ActionType4:d ActionName4s Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4DialogName:s Action4Speaker:g Action4AtLocation:d Action4BilboDialog:d }
+   7               "NPC Dialog2"    1.000000                0                             "DogHowl333"             63CA720F_67036121  0                     0    
+
 [ Action5 : 1 ]
  { ActionType5:d ActionName5:s             Action5ExecuteDelay:f Action5ExecuteImmediately:d Action5Object:g   Action5Volume:g   Action5Facing:g   }
    15            "Teleport: Bilbo Bag End" 0.000000              0                           ABCABCAB_CABCABC0 CA3DDACF_36368401 CA3DDACF_36373C01 

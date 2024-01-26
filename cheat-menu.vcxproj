@@ -149,6 +149,7 @@
     <ClInclude Include="globals-editor\ActivityTypeArray.h" />
     <ClInclude Include="globals-editor\Dirent\dirent.h" />
     <ClInclude Include="globals-editor\ImGuiFileBrowser.h" />
+    <ClInclude Include="globals-editor\TextFunctions.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx9.h" />
@@ -163,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="globals-editor\ActivityTypeArray.cpp" />
     <ClCompile Include="globals-editor\ImGuiFileBrowser.cpp" />
+    <ClCompile Include="globals-editor\TextFunctions.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
