@@ -285,26 +285,48 @@ void addInputField() {
 void removeInputField(int index) {
 	inputFields.erase(inputFields.begin() + index);
 }
+void drawInputFields(string type, string vibor) {
+	if (vibor == "Actions")
+	{
+		for (int i = 0; i < inputFields.size(); i++) {
+			char buf[255]{};
+			strcpy_s(buf, inputFields[i].c_str());
+			ImGui::PushID(i);
+			ImGui::Text(ActivityTypeArray[type][i].c_str());
 
-void drawInputFields(string type) {
-	for (int i = 0; i < inputFields.size(); i++) {
-		char buf[255]{};
-		strcpy_s(buf, inputFields[i].c_str());
-		ImGui::PushID(i);
-
-		ImGui::Text(ActivityTypeArray[type][i].c_str());
-
-		if (ImGui::InputText("", buf, sizeof(buf))) {
-			inputFields[i] = buf;
+			if (ImGui::InputText("", buf, sizeof(buf))) {
+				inputFields[i] = buf;
+			}
+			/*
+			ImGui::SameLine();
+			if (ImGui::Button("Remove")) {
+				removeInputField(i);
+				i--;
+			}
+			*/
+			ImGui::PopID();
 		}
-		/*
-		ImGui::SameLine();
-		if (ImGui::Button("Remove")) {
-			removeInputField(i);
-			i--;
+	}
+	else if (vibor == "Triggers")
+	{
+		for (int i = 0; i < inputFields.size(); i++) {
+			char buf[255]{};
+			strcpy_s(buf, inputFields[i].c_str());
+			ImGui::PushID(i);
+			ImGui::Text(TriggersTypeArray[type][i].c_str());
+
+			if (ImGui::InputText("", buf, sizeof(buf))) {
+				inputFields[i] = buf;
+			}
+			/*
+			ImGui::SameLine();
+			if (ImGui::Button("Remove")) {
+				removeInputField(i);
+				i--;
+			}
+			*/
+			ImGui::PopID();
 		}
-		*/
-		ImGui::PopID();
 	}
 }
 
@@ -358,9 +380,18 @@ vector<int> ActionIndexes;
 
 vector<string> ActionsNames = {};
 
+map<int, vector<string>> globalsTriggers;
+map<int, int> globalsTriggersPositions;
+vector<int> TriggerIndexes;
+
+vector<string> TriggersNames = {};
+
 static int item_current_idx = 0;
 static int currentActionTypeIndex = 0;
 static const char* actionsTypes[] = { "1", "2", "4", "7" };
+static const char* TriggerTypes[] = { "3" };
+static int TriggerType = 0;
+string vibor = " ";
 void matchInputFieldsSize(string type)
 {
 	inputFields.clear();
@@ -373,19 +404,33 @@ void matchInputFieldsSize(string type)
 	}
 }
 
-void changeTypeInputFields(string type)
+void changeTypeInputFields(string type, string vibor)
 {
+
 	inputFields.clear();
-	for (auto i : ActivityTypeArray[type])
-	{
-		
-		if (i == "ActionType0:d")
+	if (vibor == "Actions") {
+		for (auto i : ActivityTypeArray[type])
 		{
-			inputFields.push_back(actionsTypes[currentActionTypeIndex]);
+
+			if (i == "ActionType0:d")
+			{
+				inputFields.push_back(actionsTypes[currentActionTypeIndex]);
+			}
+			else inputFields.push_back(DefaultValues[i]);
 		}
-		else inputFields.push_back(DefaultValues[i]);
 	}
+	else if (vibor == "Triggers")
+		for (auto i : TriggersTypeArray[type])
+		{
+
+			if (i == "TriggerType0:d")
+			{
+				inputFields.push_back(TriggerTypes[TriggerType]);
+			}
+			else inputFields.push_back(DefaultValues[i]);
+		}
 }
+
 
 
 void editAction()
@@ -574,9 +619,10 @@ void gui::Render() noexcept
 
 	if (actions)
 	{
+		vibor = "Actions";
 		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
 		{
-			changeTypeInputFields(actionsTypes[currentActionTypeIndex]);
+			changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
@@ -604,26 +650,32 @@ void gui::Render() noexcept
 
 	if (triggers)
 	{
-		const char* TriggerTypes[] = { "test Trigger" };
-		static int TriggerType = 0;
 
+		vibor = "Triggers";
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		ImGui::Combo(lang ? "Select Trigger type" : (const char*)u8"Выбрать вид триггера", &TriggerType, TriggerTypes, IM_ARRAYSIZE(TriggerTypes));
 
 		if (ImGui::Button(lang ? "Add Trigger" : (const char*)u8"Добавить триггер"))
 		{
+			actionsEdit = false;
+			triggersEdit = false;
+			linksEdit = false;
+			actionsAdd = false;
+			triggersAdd = true;
+			linksAdd = false;
 
 		}
 		ImGui::Text("");
 
-		const char* TriggerNames[] = { "Trigger name" };
-		static int TriggerName = 0;
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		ImGui::Combo(lang ? "Select Trigger" : (const char*)u8"Выбрать Тригер", &TriggerName, TriggerNames, IM_ARRAYSIZE(TriggerNames));
 		if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить тригер"))
 		{
-
+			actionsEdit = false;
+			triggersEdit = true;
+			linksEdit = false;
+			actionsAdd = false;
+			triggersAdd = false;
+			linksAdd = false;
 		}
 	}
 
@@ -658,8 +710,7 @@ void gui::Render() noexcept
 
 	}
 	static ImGuiTextBuffer log;
-
-	if (actionsEdit)
+	if (triggersEdit)
 	{
 		ImGui::Text("Action");
 		ImGui::SameLine();
@@ -689,16 +740,16 @@ void gui::Render() noexcept
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
-		const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
-		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
+		const char* combo_preview_value2 = TriggerTypes[TriggerType];
+		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"Изменить Тип Триггера", combo_preview_value2))
 		{
-			for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
+			for (int n = 0; n < IM_ARRAYSIZE(TriggerTypes); n++)
 			{
-				const bool is_selected = (currentActionTypeIndex == n);
-				if (ImGui::Selectable(actionsTypes[n], is_selected))
+				const bool is_selected = (TriggerType == n);
+				if (ImGui::Selectable(TriggerTypes[n], is_selected))
 				{
 					currentActionTypeIndex = n;
-					changeTypeInputFields(actionsTypes[currentActionTypeIndex]);
+					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
 				}
 
 				if (is_selected)
@@ -711,12 +762,12 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
 		{
 			editAction();
-			matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+			matchInputFieldsSize(TriggerTypes[TriggerType]);
 		}
 
 		ImGui::Text("");
 
-		drawInputFields(actionsTypes[currentActionTypeIndex]);
+		drawInputFields(TriggerTypes[TriggerType], vibor);
 
 		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
 		{
@@ -747,10 +798,9 @@ void gui::Render() noexcept
 			ImGui::EndTooltip();
 		}
 	}
-
-	if (actionsAdd)
+	if (triggersAdd)
 	{
-		ImGui::Text("Action ");
+		ImGui::Text("Trigger ");
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsActions.size()).c_str());
 
@@ -759,16 +809,16 @@ void gui::Render() noexcept
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
-		const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
-		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
+		const char* combo_preview_value2 = TriggerTypes[TriggerType];
+		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"Изменить Тип Триггера", combo_preview_value2))
 		{
-			for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
+			for (int n = 0; n < IM_ARRAYSIZE(TriggerTypes); n++)
 			{
-				const bool is_selected = (currentActionTypeIndex == n);
-				if (ImGui::Selectable(actionsTypes[n], is_selected))
+				const bool is_selected = (TriggerType == n);
+				if (ImGui::Selectable(TriggerTypes[n], is_selected))
 				{
-					currentActionTypeIndex = n;
-					changeTypeInputFields(actionsTypes[currentActionTypeIndex]);
+					TriggerType = n;
+					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
 				}
 
 				if (is_selected)
@@ -776,26 +826,9 @@ void gui::Render() noexcept
 			}
 			ImGui::EndCombo();
 		}
-
-		/*
-		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+		drawInputFields(TriggerTypes[TriggerType], vibor);
+		if (ImGui::Button(lang ? "Save trigger" : (const char*)u8"Сохранить триггер"))
 		{
-			editAction();
-			matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
-		}
-		*/
-
-		ImGui::Text("");
-
-		drawInputFields(actionsTypes[currentActionTypeIndex]);
-
-		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
-		{
-			for (const std::string& value : inputFields) {
-				std::cout << "Input Value: " << value << std::endl;
-			}
-
 			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size()));
 			vector<string> aiManagerProp = { "153            " + to_string(globalsActions.size() + 1) + "         126         " };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
@@ -810,50 +843,199 @@ void gui::Render() noexcept
 			ImGui::EndTooltip();
 		}
 	}
+	}
+		if (actionsEdit)
+		{
+			ImGui::Text("Action");
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
+
+			const char* combo_preview_value = ActionsNames[item_current_idx].c_str();
+			if (ImGui::BeginCombo("   ", combo_preview_value))
+			{
+				for (int n = 0; n < ActionsNames.size(); n++)
+				{
+					const bool is_selected = (item_current_idx == n);
+					if (ImGui::Selectable(ActionsNames[n].c_str(), is_selected))
+					{
+						item_current_idx = n;
+						editAction();
+						matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+					}
+
+					if (is_selected)
+						ImGui::SetItemDefaultFocus();
+				}
+				ImGui::EndCombo();
+			}
+
+			ImGui::Text("");
+
+			ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+
+			const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
+			if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
+			{
+				for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
+				{
+					const bool is_selected = (currentActionTypeIndex == n);
+					if (ImGui::Selectable(actionsTypes[n], is_selected))
+					{
+						currentActionTypeIndex = n;
+						changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
+					}
+
+					if (is_selected)
+						ImGui::SetItemDefaultFocus();
+				}
+				ImGui::EndCombo();
+			}
+
+			ImGui::SameLine();
+			if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+			{
+				editAction();
+				matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+			}
+
+			ImGui::Text("");
+
+			drawInputFields(actionsTypes[currentActionTypeIndex], vibor);
+
+			if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
+			{
+				for (const std::string& value : inputFields) {
+					std::cout << "Input Value: " << value << std::endl;
+				}
+
+				replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx));
+				reloadFile(log);
+			}
+			ImGui::SameLine();
+			if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
+			{
+				for (int i = 2; i < inputFields.size(); i++)
+					inputFields[i] = "";
+				inputFields[0] = "0";
+
+				replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 0, item_current_idx)); // 0 - empty activity
+				actionsEdit = false;
+				reloadFile(log);
+			}
+			if (ImGui::IsItemHovered())
+			{
+				ImGui::BeginTooltip();
+				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+				ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Заменяет активность на пустую");
+				ImGui::PopTextWrapPos();
+				ImGui::EndTooltip();
+			}
+		}
+		if (actionsAdd)
+		{
+			ImGui::Text("Action ");
+			ImGui::SameLine();
+			ImGui::Text(to_string(globalsActions.size()).c_str());
 
 
-	ImGui::EndChild();
+			ImGui::Text("");
 
-	ImGui::SameLine();
+			ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
-	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
+			const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
+			if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
+			{
+				for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
+				{
+					const bool is_selected = (currentActionTypeIndex == n);
+					if (ImGui::Selectable(actionsTypes[n], is_selected))
+					{
+						currentActionTypeIndex = n;
+						changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
+					}
 
+					if (is_selected)
+						ImGui::SetItemDefaultFocus();
+				}
+				ImGui::EndCombo();
+			}
 
+			/*
+			ImGui::SameLine();
+			if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+			{
+				editAction();
+				matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+			}
+			*/
 
-	if (ImGui::Button("Show File"))
-	{
-		reloadFile(log);
+			ImGui::Text("");
 
+			drawInputFields(actionsTypes[currentActionTypeIndex], vibor);
+
+			if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
+			{
+				for (const std::string& value : inputFields) {
+					std::cout << "Input Value: " << value << std::endl;
+				}
+
+				insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size()));
+				vector<string> aiManagerProp = { "153            " + to_string(globalsActions.size() + 1) + "         126         " };
+				replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
+				reloadFile(log);
+			}
+			if (ImGui::IsItemHovered())
+			{
+				ImGui::BeginTooltip();
+				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+				ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Заменяет активность на пустую");
+				ImGui::PopTextWrapPos();
+				ImGui::EndTooltip();
+			}
+		}
 	}
 
-	ImGui::TextUnformatted(log.begin(), log.end());
+		ImGui::EndChild();
 
-	ImGui::EndChild();
+		ImGui::SameLine();
 
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
+		ImGui::BeginChild("text pane", ImVec2(370, 0), true);
 
-	if (ImGui::Button(!lang ? "Change Language" : (const char*)u8"Поменять язык")) lang = !lang;
 
-	ImGui::Text(lang ? "Our links" : (const char*)u8"Наши ссылки");
-	ImGui::Separator();
+		if (ImGui::Button("Show File"))
+		{
+			reloadFile(log);
 
-	if (ImGui::Button("king174rus")) {
-		ShellExecute(NULL, "open", "https://www.youtube.com/c/@king174rus", 0, 0, SW_SHOWNORMAL);
+		}
+
+		ImGui::TextUnformatted(log.begin(), log.end());
+	
+		ImGui::EndChild();
+		ImGui::Text("");
+		ImGui::Text("");
+		ImGui::Text("");
+		ImGui::Text("");
+		ImGui::Text("");
+		ImGui::Text("");
+
+		if (ImGui::Button(!lang ? "Change Language" : (const char*)u8"Поменять язык")) lang = !lang;
+
+		ImGui::Text(lang ? "Our links" : (const char*)u8"Наши ссылки");
+		ImGui::Separator();
+
+		if (ImGui::Button("king174rus")) {
+			ShellExecute(NULL, "open", "https://www.youtube.com/c/@king174rus", 0, 0, SW_SHOWNORMAL);
+		}
+		ImGui::SameLine(); ImGui::Text(" "); ImGui::SameLine();
+		if (ImGui::Button("Mr_Kliff")) {
+			ShellExecute(NULL, "open", "https://youtube.com/c/@YKliffa", 0, 0, SW_SHOWNORMAL);
+		}
+		ImGui::SameLine(); ImGui::Text(" "); ImGui::SameLine();
+		if (ImGui::Button(lang ? "Hobbit Technical Discord" : (const char*)u8"Технический канал Хоббита в Дискорде")) {
+			ShellExecute(NULL, "open", "https://discord.gg/hvzB3maxQ3", 0, 0, SW_SHOWNORMAL);
+		}
+
+
+		ImGui::End();
 	}
-	ImGui::SameLine(); ImGui::Text(" "); ImGui::SameLine();
-	if (ImGui::Button("Mr_Kliff")) {
-		ShellExecute(NULL, "open", "https://youtube.com/c/@YKliffa", 0, 0, SW_SHOWNORMAL);
-	}
-	ImGui::SameLine(); ImGui::Text(" "); ImGui::SameLine();
-	if (ImGui::Button(lang ? "Hobbit Technical Discord" : (const char*)u8"Технический канал Хоббита в Дискорде")) {
-		ShellExecute(NULL, "open", "https://discord.gg/hvzB3maxQ3", 0, 0, SW_SHOWNORMAL);
-	}
-
-
-	ImGui::End();
-}
