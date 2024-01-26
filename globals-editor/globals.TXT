@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 23                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-153            274         126         
+153            302         126         
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -463,6 +463,40 @@
 [ Trigger152 : 1 ]
  { TriggerType152:d TriggerName152:s             Cinema152:g       TriggerOnce152:d StaysTrue152:d TriggeredOnTrue152:d }
    19               "Cinema : Intro Cinema Ends" CA3DDF12_32749400 0                0              1                    
+<<<<<<< HEAD
+=======
+[ Trigger153 : 1 ]
+ { TriggerType153:d TriggerName153:s           Cinema153:g       TriggerOnce153:d StaysTrue153:d TriggeredOnTrue153:d }
+   19               "CINEMA: Chicken Malorian" CA3DD61F_31370001 0                0              1                    
+[ Trigger154 : 1 ]
+ { TriggerType154:d TriggerName154:s                  Item154:g         StaysTrue154:d TriggeredOnTrue154:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C01 1              1                    
+[ Trigger155 : 1 ]
+ { TriggerType155:d TriggerName155:s                  Item155:g         StaysTrue155:d TriggeredOnTrue155:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C02 1              1                    
+[ Trigger156 : 1 ]
+ { TriggerType156:d TriggerName156:s                  Item156:g         StaysTrue156:d TriggeredOnTrue156:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C03 1              1                    
+[ Trigger157 : 1 ]
+ { TriggerType157:d TriggerName157:s                  Item157:g         StaysTrue157:d TriggeredOnTrue157:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C04 1              1                    
+[ Trigger158 : 1 ]
+ { TriggerType158:d TriggerName158:s                  Item158:g         StaysTrue158:d TriggeredOnTrue158:d }
+   31               "Inventory: Bilbo Has 5 COCKaine" CA3DD40F_10511C05 1              1                    
+[ Trigger159 : 1 ]
+ { TriggerType159:d TriggerName159:s       Volume159:g       Character159:g    TriggersOnce159:d AllNPCs159:d StaysTrue159:d TriggeredOnTrue159:d }
+   3                "CINEMA: Black Market" CA32DD51_FA476410 ABCABCAB_CABCABC0 0                 0            0              1                    
+[ Trigger160 : 1 ]
+ { TriggerType160:d TriggerName160:s               Cinema160:g       TriggerOnce160:d StaysTrue160:d TriggeredOnTrue160:d }
+   19               "CINEMA: Chicken Malorian end" CA3DA61F_3137A004 0                0              1                    
+[ Trigger161 : 1 ]
+ { TriggerType161:d TriggerName161:s           Volume161:g       Character161:g    TriggersOnce161:d AllNPCs161:d StaysTrue161:d TriggeredOnTrue161:d }
+   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                    
+
+
+
+
+>>>>>>> d487ff8a2f68d8728073a141a9458db99f77c55b
 [ Action0 : 1 ]
  { ActionType0:d ActionName0:s        Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0LoadLayerGuid:g }
    10            "Unload Doggy Layer" 0.000000              0                           CA3DD7CF_713DDC00      
@@ -509,8 +543,8 @@
  { ActionType14:d ActionName14:s          Action14ExecuteDelay:f Action14ExecuteImmediately:d Action14CharacterGuid:g Action14Team:d }
    2              "Team: Set Holman EVIL" 0.000000               0                            CA3DDD8E_6F198C01       2              
 [ Action15 : 1 ]
- { ActionType15:d ActionName15:s                Action15ExecuteDelay:f Action15ExecuteImmediately:d Action15CharacterGuid:g Action15Team:d }
-   2              "Team: Holman Reset 2 Team 1" 0.000000               0                            CA3DDD8E_6F198C01       1              
+{ ActionType15:d ActionName15:s }
+0 "Team: Holman Reset 2 Team 1"     
 [ Action16 : 1 ]
  { ActionType16:d ActionName16:s                Action16ExecuteDelay:f Action16ExecuteImmediately:d Action16Object:g  Action16Volume:g  Action16Facing:g  }
    15             "TELE: Move Waters of vigour" 3.000000               0                            CA3DD2CF_AB86E000 CA3DD2CF_AB8BC000 00000000_00000000 
@@ -1112,8 +1146,8 @@
  { ActionType215:d ActionName215:s                 Action215ExecuteDelay:f Action215ExecuteImmediately:d Action215DialogName:s Action215Speaker:g Action215AtLocation:d Action215BilboDialog:d }
    7               "DIALOG: Sees Green Dragon Inn" 0.000000                0                             "Bilbo_01_17"         ABCABCAB_CABCABC0  0                     0                      
 [ Action216 : 1 ]
- { ActionType216:d ActionName216:s       Action216ExecuteDelay:f Action216ExecuteImmediately:d Action216DialogName:s Action216Speaker:g Action216AtLocation:d Action216BilboDialog:d }
-   7               "DIALOG: Plenty Food" 0.000000                0                             "BILBO_01_19"         ABCABCAB_CABCABC0  0                     1                      
+{ ActionType216:d ActionName216:s }
+3 "DIALOG: Plenty Food"       
 [ Action217 : 1 ]
  { ActionType217:d ActionName217:s        Action217ExecuteDelay:f Action217ExecuteImmediately:d Action217DialogName:s Action217Speaker:g Action217AtLocation:d Action217BilboDialog:d }
    7               "DIALOG: Please Dwarf" 0.000000                0                             "Bilbo_01_18"         ABCABCAB_CABCABC0  0                     0                      
@@ -1283,8 +1317,106 @@
  { ActionType272:d ActionName272:s      Action272ExecuteDelay:f Action272ExecuteImmediately:d Action272MusicTrigger:g }
    40              "Music - Cine10 End" 7.000000                0                             9D153713_0B76E801       
 [ Action273 : 1 ]
+<<<<<<< HEAD
 { ActionType273:d ActionName273:s Action273ExecuteDelay:f Action273ExecuteImmediately:d Action273CharacterGuid:g Action273Team:d }
 2 DefaultName 0.000000 0 00000000_00000000 0 
+=======
+ { ActionType273:d ActionName273:s  Action273ExecuteDelay:f Action273ExecuteImmediately:d Action273QuestID:s Action273Required:d }
+   22              "Quest: COKAINE" 11.000000               0                             "W_TEST_Quest"     1                   
+[ Action274 : 1 ]
+ { ActionType274:d ActionName274:s             Action274ExecuteDelay:f Action274ExecuteImmediately:d Action274QuestID:s }
+   29              "Quest: MALORIAN Completed" 1.000000                0                             "W_TEST_Quest"     
+[ Action275 : 1 ]
+ { ActionType275:d ActionName275:s         Action275ExecuteDelay:f Action275ExecuteImmediately:d Action275StringID:s                              Action275Scroll:d Action275DelayTime:f }
+   18              "MALORIAN Info Overlay" 0.500000                0                             "Yeah, this chicken certainly needs some help.." 0                 5.000000             
+[ Action276 : 1 ]
+ { ActionType276:d ActionName276:s          Action276ExecuteDelay:f Action276ExecuteImmediately:d Action276StringID:s                             Action276Scroll:d Action276DelayTime:f }
+   18              "MALORIAN Info Overlay2" 5.500000                0                             "Where should I search for this COCKaine..?" 0                 5.000000             
+[ Action277 : 1 ]
+ { ActionType277:d ActionName277:s          Action277ExecuteDelay:f Action277ExecuteImmediately:d Action277StringID:s                             Action277Scroll:d Action277DelayTime:f }
+   18              "MALORIAN Info Overlay2" 10.500000               0                             "Or I can sell it damn high on the black market.." 0                 5.000000             
+[ Action278 : 1 ]
+ { ActionType278:d ActionName278:s         Action278ExecuteDelay:f Action278ExecuteImmediately:d Action278QuestID:s    Action278Required:d }
+   22              "Quest: COKAINE select" 1.000000                0                             "W_TEST_Quest_Select" 1                   
+[ Action279 : 1 ]
+ { ActionType279:d ActionName279:s        Action279ExecuteDelay:f Action279ExecuteImmediately:d Action279QuestID:s   Action279Required:d }
+   22              "Quest: COKAINE trick" 1.000000                0                             "W_TEST_Quest_Trick" 0                   
+[ Action280 : 1 ]
+ { ActionType280:d ActionName280:s         Action280ExecuteDelay:f Action280ExecuteImmediately:d Action280QuestID:s    Action280Required:d }
+   22              "Quest: COKAINE return" 1.000000                0                             "W_TEST_Quest_Return" 0                   
+[ Action281 : 1 ]
+ { ActionType281:d ActionName281:s Action281ExecuteDelay:f Action281ExecuteImmediately:d Action281StringID:s              Action281Scroll:d Action281DelayTime:f }
+   18              "Choose...."    0.000000                0                             "Ok, now I need to think whether it's worth bringing back" 0                 5.000000             
+[ Action282 : 1 ]
+ { ActionType282:d ActionName282:s            Action282ExecuteDelay:f Action282ExecuteImmediately:d Action282QuestID:s    }
+   29              "Quest: select  Completed" 0.000000                0                             "W_TEST_Quest_Select" 
+[ Action283 : 1 ]
+ { ActionType283:d ActionName283:s        Action283ExecuteDelay:f Action283ExecuteImmediately:d Action283cinemaCount:d Action283cinemaSelect:d Action283cinema0Guid:g }
+   20              "CINEMA: balck market" 0.000000                0                             1                      1                       CA3DD61F_31370014      
+[ Action284 : 1 ]
+ { ActionType284:d ActionName284:s             Action284ExecuteDelay:f Action284ExecuteImmediately:d Action284QuestID:s   }
+   29              "Quest: black ma Completed" 0.000000                0                             "W_TEST_Quest_Trick" 
+[ Action285 : 1 ]
+ { ActionType285:d ActionName285:s                  Action285ExecuteDelay:f Action285ExecuteImmediately:d Action285InstanceCount:d Action285RigidInstance0:g Action285RigidInstance1:g Action285AnimIndex:d Action285Loops:d }
+   33              "Start Spike Animation 002, 010" 11.200000               0                             2                        0D8ADD11_16F4C401         0D8AD991_AFDA2C01         0                    0                
+[ Action286 : 1 ]
+ { ActionType286:d ActionName286:s Action286ExecuteDelay:f Action286ExecuteImmediately:d Action286StringID:s              Action286Scroll:d Action286DelayTime:f }
+   18              "Choose...."    11.180000                0                             "AHAHH I ALMOST DIED! I AM CHICKK!" 0                 5.000000             
+[ Action287 : 1 ]
+ { ActionType287:d ActionName287:s    Action287ExecuteDelay:f Action287ExecuteImmediately:d Action287LoadLayerGuid:g }
+   10              "LOAD: Black ma"   0.000000                0                             CA3DD04F_AA29A001        
+
+[ Action288  : 1 ]
+ { ActionType288:d ActionName288:s          Action288ExecuteDelay:f Action288ExecuteImmediately:d Action288NPCGuid:g Action288CinemaCount:d Action288SelectionMethod:d Action288Cinema0:g }
+   21             "CHICK Set Trig Cinema" 0.000000               0                            CA3DD5D1_CA788001 1                     0                         CA3DA61F_3137A004
+
+[ Action289 : 1 ]
+ { ActionType289:d ActionName289:s             Action289ExecuteDelay:f Action289ExecuteImmediately:d Action289QuestID:s   }
+   29              "Quest: return Completed" 0.000000                0                             "W_TEST_Quest_Return" 
+[ Action290 : 1 ]
+ { ActionType290:d ActionName290:s Action290ExecuteDelay:f Action290ExecuteImmediately:d Action290StringID:s              Action290Scroll:d Action290DelayTime:f }
+   18              "good selection "    10.600000                0                             "Whooh, I wish I never do COCKaine. Yes..?" 0                 5.000000             
+
+[ Action291 : 1 ]
+ { ActionType291:d ActionName291:s    Action291ExecuteDelay:f Action291ExecuteImmediately:d Action291LoadLayerGuid:g }
+   10              "UNLOAD: Black ma"   0.000000                0                             CA3DD04F_AA29A0A3        
+
+[ Action292  : 1 ]
+ { ActionType292:d ActionName292:s          Action292ExecuteDelay:f Action292ExecuteImmediately:d Action292NPCGuid:g Action292CinemaCount:d Action292SelectionMethod:d Action292Cinema0:g }
+   21             "CHICK Set Trig Cinema none" 0.000000               0                            CA3DD5D1_CA788001 1                     0                         00000000_00000000
+
+
+[ Action293 : 1 ]
+ { ActionType293:d ActionName293:s  Action293ExecuteDelay:f Action293ExecuteImmediately:d Action293StringID:s              Action293Scroll:d Action293DelayTime:f }
+   18              "Custom text"    5.0000000                0                             "Hello my text!"                0                 5.000000             
+[ Action294 : 1 ]
+{ ActionType294:d ActionName294:s Action294ExecuteDelay:f Action294ExecuteImmediately:d Action294CharacterGuid:g Action294Team:d }
+2 DefaultName 0.000000 0 00000000_00000000 0 
+[ Action295 : 1 ]
+{ ActionType295:d ActionName295:s Action295ExecuteDelay:f Action295ExecuteImmediately:d Action295CharacterGuid:g Action295Team:d }
+2 DefaultName 0.000000 0 00000000_00000000 0 
+[ Action296 : 1 ]
+{ ActionType296:d ActionName296:s Action296ExecuteDelay:f Action296ExecuteImmediately:d Action296SwitchGuid:g Action296SwitchOn:d Action296Toggle:d }
+1 DefaultName 0.000000 0 00000000_00000000 0 0 
+[ Action297 : 1 ]
+{ ActionType297:d ActionName297:s Action297ExecuteDelay:f Action297ExecuteImmediately:d Action297SwitchGuid:g Action297SwitchOn:d Action297Toggle:d }
+1 DefaultName 0.000000 0 00000000_00000000 0 0 
+[ Action298 : 1 ]
+{ ActionType298:d ActionName298:s Action298ExecuteDelay:f Action298ExecuteImmediately:d Action298SwitchGuid:g Action298SwitchOn:d Action298Toggle:d }
+1 DefaultName 0.000000 0 00000000_00000000 0 0 
+[ Action299 : 1 ]
+{ ActionType299:d ActionName299:s Action299ExecuteDelay:f Action299ExecuteImmediately:d Action299SwitchGuid:g Action299SwitchOn:d Action299Toggle:d }
+1 DefaultName 0.000000 0 00000000_00000000 0 0 
+[ Action300 : 1 ]
+{ ActionType300:d ActionName300:s Action300ExecuteDelay:f Action300ExecuteImmediately:d Action300SwitchGuid:g Action300SwitchOn:d Action300Toggle:d }
+1 DefaultName 0.000000 0 00000000_00000000 0 0 
+[ Action301 : 1 ]
+{ ActionType301:d ActionName301:s }
+0 DefaultName       
+
+
+
+>>>>>>> d487ff8a2f68d8728073a141a9458db99f77c55b
 [ Link0 : 1 ]
  { LinkRepeats0:d LinkState0:d LogicType0:d LinkTriggerCount0:d LinkTriggerIndex0-0:d LinkTriggerIndex0-1:d LinkActionCount0:d LinkActionIndex0-0:d LinkActionIndex0-1:d LinkActionIndex0-2:d }
    0              0            0            2                   0                     23                    3                  239                  61                   152                  
