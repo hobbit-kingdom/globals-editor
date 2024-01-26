@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-   162            294           131         
+162            300 131         
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -489,27 +489,24 @@
    19               "CINEMA: Chicken Malorian end" CA3DA61F_3137A004 0                0              1                    
 [ Trigger161 : 1 ]
  { TriggerType161:d TriggerName161:s           Volume161:g       Character161:g    TriggersOnce161:d AllNPCs161:d StaysTrue161:d TriggeredOnTrue161:d }
-   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                    
-
-
-
-
+   3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                   
 [ Action0 : 1 ]
- { ActionType0:d ActionName0:s            Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0SwitchGuid:g Action0SwitchOn:d Action0Toggle:d }
-   1             "Trigger Switch"         0.000000              0                           0D8ADF8D_033D1000   1                 0       
+{ ActionType0:d ActionName0:s }
+3 "Trigger Switch877778" 
+
 [ Action1 : 1 ]
- { ActionType1:d ActionName1:s            Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1CharacterGuid:g Action1Team:d }
-   2             "Set NPC to Team 2" 0.000000              0                           0D8ADD11_16E57001      2     
+{ ActionType1:d ActionName1:s }
+3 "Set NPC to Team 278787"     
 [ Action2 : 1 ]
- { ActionType2:d ActionName2:s         Action2ExecuteDelay:f Action2ExecuteImmediately:d Action2CharacterGuid:g Action2AIStateName:s Action2GoalListName:s Action2OverrideCinematicAnimation:d }
-   4             "Set NPC To state and goallist" 0.000000              0                           0D8ADD11_16E57001      "PatrolIdleState"    "Run to Bilbo"        0  
+{ ActionType2:d ActionName2:s }
+3 "hjkhkh999" 
 [ Action3 : 1 ]
- { ActionType3:d ActionName3:s Action3ExecuteDelay:f Action3ExecuteImmediately:d Action3DialogName:s Action3Speaker:g Action3AtLocation:d Action3BilboDialog:d }
-   7               "NPC Dialog"    0.000000                0                             "DogHowl"             63CA720F_67036001  0                     0    
+{ ActionType3:d ActionName3:s }
+3 "NPC999"       
 
 [ Action4 : 1 ]
- { ActionType4:d ActionName4s Action4ExecuteDelay:f Action4ExecuteImmediately:d Action4DialogName:s Action4Speaker:g Action4AtLocation:d Action4BilboDialog:d }
-   7               "NPC Dialog2"    1.000000                0                             "DogHowl333"             63CA720F_67036121  0                     0    
+{ ActionType4:d ActionName4:s }
+3 "fdfdf"       
 
 [ Action5 : 1 ]
  { ActionType5:d ActionName5:s             Action5ExecuteDelay:f Action5ExecuteImmediately:d Action5Object:g   Action5Volume:g   Action5Facing:g   }
@@ -1384,7 +1381,27 @@
 [ Action293 : 1 ]
  { ActionType293:d ActionName293:s  Action293ExecuteDelay:f Action293ExecuteImmediately:d Action293StringID:s              Action293Scroll:d Action293DelayTime:f }
    18              "Custom text"    5.0000000                0                             "Hello my text!"                0                 5.000000             
-
+[ Action294 : 1 ]
+{ ActionType294:d ActionName294:s Action294ExecuteDelay:f Action294ExecuteImmediately:d Action294CharacterGuid:g Action294Team:d }
+2 "222" 2.22 2 22 2 
+[ Action295 : 1 ]
+{ ActionType295:d ActionName295:s Action295ExecuteDelay:f Action295ExecuteImmediately:d Action295CharacterGuid:g Action295Team:d }
+2 "1331" 2.22 2 22 2 
+[ Action296 : 1 ]
+{ ActionType296:d ActionName296:s Action296ExecuteDelay:f Action296ExecuteImmediately:d Action296SwitchGuid:g Action296SwitchOn:d Action296Toggle:d }
+1 "11" 3323 23 23 23 23 
+[ Action297 : 1 ]
+{ ActionType297:d ActionName297:s Action297ExecuteDelay:f Action297ExecuteImmediately:d Action297CharacterGuid:g Action297Team:d }
+2 "222" sf 232 2323 2323 
+[ Action298 : 1 ]
+{ ActionType298:d ActionName298:s Action298ExecuteDelay:f Action298ExecuteImmediately:d Action298CharacterGuid:g Action298Team:d }
+2 "222" sf 232 2323 2323 
+[ Action299 : 1 ]
+{ ActionType299:d ActionName299:s Action299ExecuteDelay:f Action299ExecuteImmediately:d Action299CharacterGuid:g Action299Team:d }
+2 "Sd" 1 1 1 1 
+[ Action300 : 1 ]
+{ ActionType300:d ActionName300:s Action300ExecuteDelay:f Action300ExecuteImmediately:d Action300SwitchGuid:g Action300SwitchOn:d Action300Toggle:d }
+1 1 1 1 1 1 1 
 
 
 [ Link0 : 1 ]

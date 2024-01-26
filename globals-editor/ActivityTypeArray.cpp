@@ -9,10 +9,12 @@ std::map<std::string, std::vector<std::string>> ActivityTypeArray = {
 	{"2", {"ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d",
 	"Action0CharacterGuid:g", "Action0Team:d"}},
 
+	{"3", {"ActionType0:d", "ActionName0:s"}},
+
 	{"4", {"ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d",
 	"Action0CharacterGuid:g", "Action0AIStateName:s", "Action0GoalListName:s", "Action0OverrideCinematicAnimation:d"}},
 
-	{"7", {"ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d", "Action0DialogName:s", 
+	{"7", {"ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d", "Action0DialogName:s",
 	"Action0Speaker:g", "Action0AtLocation:d", "Action0BilboDialog:d" }}
 };
 std::map<std::string, std::vector<std::string>> TriggersTypeArray = {

@@ -14,6 +14,7 @@
 #include "TextEditor.h"
 #include "ActivityTypeArray.h"
 #include "imguiFileBrowser.h"
+#include "TextFunctions.h"
 
 
 using namespace std::chrono;
@@ -269,6 +270,10 @@ bool actionsEdit = false;
 bool triggersEdit = false;
 bool linksEdit = false;
 
+bool actionsAdd = false;
+bool triggersAdd = false;
+bool linksAdd = false;
+
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 std::vector<std::string> inputFields;
@@ -348,13 +353,14 @@ imgui_addons::ImGuiFileBrowser file_dialog;
 string fileToEdit = "globals-editor/globals.TXT";
 
 map<int, vector<string>> globalsActions;
+map<int, int> globalsActionsPositions;
 vector<int> ActionIndexes;
 
 vector<string> ActionsNames = {};
 
 static int item_current_idx = 0;
 static int currentActionTypeIndex = 0;
-static const char* actionsTypes[] = { "1", "2", "4", "7" };
+static const char* actionsTypes[] = { "1", "2", "3", "4", "7" };
 
 void matchInputFieldsSize(string type)
 {
@@ -386,6 +392,82 @@ void editAction()
 	for (int i = 0; i < IM_ARRAYSIZE(actionsTypes); i++)
 	{
 		if (s == actionsTypes[i]) currentActionTypeIndex = i;
+	}
+}
+
+static int aiManagerPropRowIndex = 0;
+
+void reloadFile(ImGuiTextBuffer& log)
+{
+	globalsActions.clear();
+	globalsActionsPositions.clear();
+	ActionsNames.clear();
+
+	fileToEdit = fileToEdit.c_str();
+
+	std::ifstream t(fileToEdit);
+
+	if (t.good())
+	{
+		string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+		a = str;
+		log.clear();
+		log.appendf(a.c_str());
+	}
+
+	std::ifstream file(fileToEdit);
+	if (!file) {
+		std::cerr << "Unable to open file";
+	}
+	else {
+		string line;
+		int lineCounter = 1;
+		while (std::getline(file, line)) {
+
+			if (!line.find("[ Action"))
+			{
+				// Action header
+				int actionNumber = getObjectNumber(line);
+
+				if (std::getline(file, line))
+				{
+					//Action propreties not needed since we can always get Action type from first parameter in parameters
+					/*
+					vector<string> propreties = splitBySpaces(line);
+
+					propreties.erase(propreties.begin());
+					propreties.pop_back();
+					*/
+					if (std::getline(file, line))
+					{
+						//Action Parameters
+						vector<string> parameters = splitBySpaces(line);
+
+						globalsActions.emplace(actionNumber, parameters);
+						globalsActionsPositions.emplace(actionNumber, lineCounter);
+						lineCounter++;
+					}
+					lineCounter++;
+				}
+			}
+
+			if (!line.find("[ AIManager : 1 ]"))
+			{
+				if (std::getline(file, line))
+				{
+					lineCounter++;
+					if (std::getline(file, line))
+					{
+						lineCounter++;
+						aiManagerPropRowIndex = lineCounter;
+					}
+				}
+			}
+
+			lineCounter++;
+		}
+
+		for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
 	}
 }
 
@@ -447,6 +529,10 @@ void gui::Render() noexcept
 		actionsEdit = false;
 		triggersEdit = false;
 		linksEdit = false;
+
+		actionsAdd = false;
+		triggersAdd = false;
+		linksAdd = false;
 	}
 
 	if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Тригеры"))
@@ -458,6 +544,10 @@ void gui::Render() noexcept
 		actionsEdit = false;
 		triggersEdit = false;
 		linksEdit = false;
+
+		actionsAdd = false;
+		triggersAdd = false;
+		linksAdd = false;
 	}
 
 	if (ImGui::Button(lang ? "Links" : (const char*)u8"Ссылки"))
@@ -469,6 +559,10 @@ void gui::Render() noexcept
 		actionsEdit = false;
 		triggersEdit = false;
 		linksEdit = false;
+
+		actionsAdd = false;
+		triggersAdd = false;
+		linksAdd = false;
 	}
 
 	ImGui::Text("");
@@ -479,10 +573,14 @@ void gui::Render() noexcept
 	{
 		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
 		{
-			matchInputFieldsSize("1");
-			actionsEdit = true;
+			changeTypeInputFields(actionsTypes[currentActionTypeIndex]);
+			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
+
+			actionsAdd = true;
+			triggersAdd = false;
+			linksAdd = false;
 		}
 
 		ImGui::Text("");
@@ -494,6 +592,10 @@ void gui::Render() noexcept
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
+
+			actionsAdd = false;
+			triggersAdd = false;
+			linksAdd = false;
 		}
 	}
 
@@ -552,6 +654,8 @@ void gui::Render() noexcept
 	{
 
 	}
+	static ImGuiTextBuffer log;
+
 	if (actionsEdit)
 	{
 		ImGui::Text("Action");
@@ -616,11 +720,20 @@ void gui::Render() noexcept
 			for (const std::string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
 			}
+
+			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, stoi(inputFields[0]), item_current_idx));
+			reloadFile(log);
 		}
 		ImGui::SameLine();
 		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
 		{
+			for (int i = 2; i < inputFields.size(); i++)
+				inputFields[i] = "";
+			inputFields[0] = "3";
 
+			replaceText(fileToEdit, globalsActionsPositions[item_current_idx], compileAction(inputFields, 3, item_current_idx)); // 3 - empty activity
+			actionsEdit = false;
+			reloadFile(log);
 		}
 		if (ImGui::IsItemHovered())
 		{
@@ -632,63 +745,81 @@ void gui::Render() noexcept
 		}
 	}
 
+	if (actionsAdd)
+	{
+		ImGui::Text("Action ");
+		ImGui::SameLine();
+		ImGui::Text(to_string(globalsActions.size()).c_str());
+
+
+		ImGui::Text("");
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+
+		const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
+		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
+		{
+			for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
+			{
+				const bool is_selected = (currentActionTypeIndex == n);
+				if (ImGui::Selectable(actionsTypes[n], is_selected))
+				{
+					currentActionTypeIndex = n;
+					changeTypeInputFields(actionsTypes[currentActionTypeIndex]);
+				}
+
+				if (is_selected)
+					ImGui::SetItemDefaultFocus();
+			}
+			ImGui::EndCombo();
+		}
+
+		/*
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+		{
+			editAction();
+			matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
+		}
+		*/
+
+		ImGui::Text("");
+
+		drawInputFields(actionsTypes[currentActionTypeIndex]);
+
+		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
+		{
+			for (const std::string& value : inputFields) {
+				std::cout << "Input Value: " << value << std::endl;
+			}
+
+			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size()));
+			vector<string> aiManagerProp = { "162            " + to_string(globalsActions.size()) + "         131         " };
+			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
+			reloadFile(log);
+		}
+		if (ImGui::IsItemHovered())
+		{
+			ImGui::BeginTooltip();
+			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+			ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Заменяет активность на пустую");
+			ImGui::PopTextWrapPos();
+			ImGui::EndTooltip();
+		}
+	}
+
+
 	ImGui::EndChild();
 
 	ImGui::SameLine();
 
 	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
 
-	static ImGuiTextBuffer log;
+
 
 	if (ImGui::Button("Show File"))
 	{
-		fileToEdit = fileToEdit.c_str();
-
-		std::ifstream t(fileToEdit);
-
-		if (t.good())
-		{
-			string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
-			a = str;
-			log.clear();
-			log.appendf(a.c_str());
-		}
-
-		std::ifstream file(fileToEdit);
-		if (!file) {
-			std::cerr << "Unable to open file";
-		}
-		else {
-			string line;
-			while (std::getline(file, line)) {
-
-				if (!line.find("[ Action"))
-				{
-					// Action header
-					int actionNumber = getObjectNumber(line);
-
-					if (std::getline(file, line))
-					{
-						//Action propreties not needed since we can always get Action type from first parameter in parameters
-						/*
-						vector<string> propreties = splitBySpaces(line);
-
-						propreties.erase(propreties.begin());
-						propreties.pop_back();
-						*/
-						if (std::getline(file, line))
-						{
-							//Action Parameters
-							vector<string> parameters = splitBySpaces(line);
-
-							globalsActions.emplace(actionNumber, parameters);
-						}
-					}
-				}
-			}
-
-			for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
-		}
+		reloadFile(log);
 
 	}
 
