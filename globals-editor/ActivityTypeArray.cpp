@@ -18,6 +18,8 @@ std::map<std::string, std::vector<std::string>> ActivityTypeArray = {
 	"Action0Speaker:g", "Action0AtLocation:d", "Action0BilboDialog:d" }}
 };
 std::map<std::string, std::vector<std::string>> TriggersTypeArray = {
+	{"0", {"TriggerType0:d", "TriggerName0:s"}},
+
 	{"3", {"TriggerType0:d", "TriggerName0:s",  "Volume0:g",    "Character0:g", "TriggersOnce0:d",
 	"AllNPCs0:d",    "StaysTrue0:d",    "TriggeredOnTrue0:d"}}
 };

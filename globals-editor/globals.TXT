@@ -2,7 +2,7 @@
  { GUID:s              BilboStartYaw:f BilboStartPos:fff                  FogColor:dddd   FogStart:f  FogEnd:f     FogEnabled:d LevelName:s     'Number of Quests:d' OpeningCinema:g   Ambient0:dddd Ambient1:dddd Ambient2:dddd Ambient3:dddd Ambient4:dddd Ambient5:dddd Ambient6:dddd Ambient7:dddd }          
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-165  306         126         
+171  306         126         
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -52,17 +52,17 @@
  { TriggerType15:d TriggerName15:s           QuestName15:s       StaysTrue15:d TriggeredOnTrue15:d }
    24              "Quest: Berries Complete" "L_ID_BERRIES_CH01" 1             1                   
 [ Trigger16 : 1 ]
- { TriggerType16:d TriggerName16:s         Volume16:g        Character16:g     TriggersOnce16:d AllNPCs16:d StaysTrue16:d TriggeredOnTrue16:d }
-   3               "Overlay: Silver Penny" CA3DD38F_5280E000 ABCABCAB_CABCABC0 1                0           0             1                   
+{ }
+0 "Overlay: Silver Penny"       
 [ Trigger17 : 1 ]
- { TriggerType17:d TriggerName17:s            Volume17:g        Character17:g     TriggersOnce17:d AllNPCs17:d StaysTrue17:d TriggeredOnTrue17:d }
-   3               "Overlay: Push Block Trig" CA3DD38F_5296E000 ABCABCAB_CABCABC0 1                0           0             1                   
+{ TriggerType17:d TriggerName17:s }
+0 "Overlay: Push Block Trig"       
 [ Trigger18 : 1 ]
  { TriggerType18:d TriggerName18:s           Volume18:g        Character18:g     TriggersOnce18:d AllNPCs18:d StaysTrue18:d TriggeredOnTrue18:d }
    3               "Overlay: Hoistable Trig" CA3DD38F_528F4400 ABCABCAB_CABCABC0 1                0           0             1                   
 [ Trigger19 : 1 ]
- { TriggerType19:d TriggerName19:s              Volume19:g        Character19:g     TriggersOnce19:d AllNPCs19:d StaysTrue19:d TriggeredOnTrue19:d }
-   3               "Noisy Surface Overlay Trig" CA3DD38F_52C31C00 ABCABCAB_CABCABC0 1                0           0             1                   
+{ TriggerType19:d TriggerName19:s Volume19:g Character19:g TriggersOnce19:d AllNPCs19:d StaysTrue19:d TriggeredOnTrue19:d }
+3 "Noisy Surface Overlay fdTrig" CA3DD38F_52C31C00 ABCABCAB_CABCABC0 1 0 0 1 
 [ Trigger20 : 1 ]
  { TriggerType20:d TriggerName20:s    Item20:s       Amount20:d StaysTrue20:d TriggeredOnTrue20:d }
    9               "Music_VigorFound" "Vigor Health" 1          0             1                   
@@ -498,6 +498,24 @@
 [ Trigger164 : 1 ]
 { TriggerType164:d TriggerName164:s Volume164:g Character164:g TriggersOnce164:d AllNPCs164:d StaysTrue164:d TriggeredOnTrue164:d }
 3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger165 : 1 ]
+{ TriggerType165:d TriggerName165:s Volume165:g Character165:g TriggersOnce165:d AllNPCs165:d StaysTrue165:d TriggeredOnTrue165:d }
+3 "DefaultName1" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger166 : 1 ]
+{ TriggerType166:d TriggerName166:s Volume166:g Character166:g TriggersOnce166:d AllNPCs166:d StaysTrue166:d TriggeredOnTrue166:d }
+3 "DefaultName31" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger167 : 1 ]
+{ TriggerType167:d TriggerName167:s }
+0 "DefaultName" 
+[ Trigger168 : 1 ]
+{ TriggerType168:d TriggerName168:s Volume168:g Character168:g TriggersOnce168:d AllNPCs168:d StaysTrue168:d TriggeredOnTrue168:d }
+3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger169 : 1 ]
+{ TriggerType169:d TriggerName169:s Volume169:g Character169:g TriggersOnce169:d AllNPCs169:d StaysTrue169:d TriggeredOnTrue169:d }
+3 "DefaultNam66e" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger170 : 1 ]
+{ TriggerType170:d TriggerName170:s Volume170:g Character170:g TriggersOnce170:d AllNPCs170:d StaysTrue170:d TriggeredOnTrue170:d }
+3 "DefaultNam66e" 00000000_00000000 00000000_00000000 0 0 0 0 
                  
 [ Action0 : 1 ]
  { ActionType0:d ActionName0:s        Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0LoadLayerGuid:g }
@@ -542,11 +560,11 @@
  { ActionType13:d ActionName13:s          Action13ExecuteDelay:f Action13ExecuteImmediately:d Action13CharacterGuid:g Action13Team:d }
    2              "Team: Set Holman GOOD" 0.000000               0                            CA3DDD8E_6F198C01       1              
 [ Action14 : 1 ]
- { ActionType14:d ActionName14:s          Action14ExecuteDelay:f Action14ExecuteImmediately:d Action14CharacterGuid:g Action14Team:d }
-   2              "Team: Set Holman EVIL" 0.000000               0                            CA3DDD8E_6F198C01       2              
+{ ActionType14:d ActionName14:s }
+0 "Team: Set Holman EVIL"     
 [ Action15 : 1 ]
-{ ActionType15:d ActionName15:s }
-0 "Team: Holman Reset 2 Team 1"     
+{ ActionType15:d ActionName15:s Action15ExecuteDelay:f Action15ExecuteImmediately:d Action15CharacterGuid:g Action15Team:d }
+2 "DefaultName" 0.000000 0 00000000_00000000 0 
 [ Action16 : 1 ]
  { ActionType16:d ActionName16:s                Action16ExecuteDelay:f Action16ExecuteImmediately:d Action16Object:g  Action16Volume:g  Action16Facing:g  }
    15             "TELE: Move Waters of vigour" 3.000000               0                            CA3DD2CF_AB86E000 CA3DD2CF_AB8BC000 00000000_00000000 

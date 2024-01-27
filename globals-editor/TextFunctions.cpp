@@ -16,19 +16,19 @@ string replaceStr(string orig_str, const string& replace_string, const string& w
 	return orig_str;
 }
 
-vector<string> compileAction(vector<string> parameters, int type, int actionNumber, string vibor)
+vector<string> compileAction(vector<string> parameters, int type, int objectNumber, string vibor)
 {
 	if (vibor == "Actions") {
 		vector<string> compiled;
 
-		compiled.push_back("[ Action" + to_string(actionNumber) + " : 1 ]");
+		compiled.push_back("[ Action" + to_string(objectNumber) + " : 1 ]");
 
 		string typeRow = "{ ";
 
 		string typeS = to_string(type);
 
 		for (auto i : ActivityTypeArray[typeS]) {
-			typeRow += replaceStr(i, "0", to_string(actionNumber)) + " ";
+			typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
 		}
 
 		typeRow += "}";
@@ -49,14 +49,14 @@ vector<string> compileAction(vector<string> parameters, int type, int actionNumb
 	{
 		vector<string> compiled;
 
-		compiled.push_back("[ Trigger" + to_string(actionNumber) + " : 1 ]");
+		compiled.push_back("[ Trigger" + to_string(objectNumber) + " : 1 ]");
 
 		string typeRow = "{ ";
 
 		string typeS = to_string(type);
 
 		for (auto i : TriggersTypeArray[typeS]) {
-			typeRow += replaceStr(i, "0", to_string(actionNumber)) + " ";
+			typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
 		}
 
 		typeRow += "}";
