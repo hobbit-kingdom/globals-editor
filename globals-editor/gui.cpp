@@ -480,7 +480,7 @@ void changeTypeInputFields(string type, string vibor)
 	{
 		for (auto i : LinksTypeArray[type])
 		{
-			inputFields.push_back("");
+			inputFields.push_back(DefaultValues[i]);
 		}
 	}
 }
@@ -856,6 +856,7 @@ void gui::Render() noexcept
 		ImGui::Text("");
 
 		drawInputFields("1", vibor);
+
 	}
 	if (triggersEdit)
 	{
