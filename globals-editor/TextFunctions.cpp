@@ -18,12 +18,13 @@ string replaceStr(string orig_str, const string& replace_string, const string& w
 
 vector<string> compileAction(vector<string> parameters, int type, int objectNumber, string vibor)
 {
-	if (vibor == "Actions") {
-		vector<string> compiled;
+	vector<string> compiled;
+	string typeRow = "{ ";
+	string paramerRow = "";
 
+	if (vibor == "Actions")
+	{
 		compiled.push_back("[ Action" + to_string(objectNumber) + " : 1 ]");
-
-		string typeRow = "{ ";
 
 		string typeS = to_string(type);
 
@@ -35,23 +36,13 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 
 		compiled.push_back(typeRow);
 
-		string paramerRow = "";
-
 		for (auto i : parameters) {
 			paramerRow += i + " ";
 		}
-
-		compiled.push_back(paramerRow);
-
-		return compiled;
 	}
 	else if (vibor == "Triggers")
 	{
-		vector<string> compiled;
-
 		compiled.push_back("[ Trigger" + to_string(objectNumber) + " : 1 ]");
-
-		string typeRow = "{ ";
 
 		string typeS = to_string(type);
 
@@ -63,16 +54,39 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 
 		compiled.push_back(typeRow);
 
-		string paramerRow = "";
-
 		for (auto i : parameters) {
 			paramerRow += i + " ";
 		}
-
-		compiled.push_back(paramerRow);
-
-		return compiled;
 	}
+
+	compiled.push_back(paramerRow);
+
+	return compiled;
+}
+
+vector<string> compileLink(vector<string> parameters, vector<string> parametersObj, int type, int objectNumber)
+{
+	vector<string> compiled;
+	string typeRow = "{ ";
+	string paramerRow = "";
+	compiled.push_back("[ Link" + to_string(objectNumber) + " : 1 ]");
+
+	string typeS = to_string(type);
+
+	for (auto i : parametersObj) {
+		typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
+	}
+
+	typeRow += "}";
+
+	compiled.push_back(typeRow);
+
+	for (auto i : parameters) {
+		paramerRow += i + " ";
+	}
+	compiled.push_back(paramerRow);
+
+	return compiled;
 }
 
 

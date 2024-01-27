@@ -1,6 +1,8 @@
 #include "ActivityTypeArray.h"
-
 // Define and initialize the map
+
+
+
 std::map<std::string, std::vector<std::string>> ActivityTypeArray = {
 
 	{"0", {"ActionType0:d", "ActionName0:s"}},
@@ -22,6 +24,10 @@ std::map<std::string, std::vector<std::string>> TriggersTypeArray = {
 
 	{"3", {"TriggerType0:d", "TriggerName0:s",  "Volume0:g",    "Character0:g", "TriggersOnce0:d",
 	"AllNPCs0:d",    "StaysTrue0:d",    "TriggeredOnTrue0:d"}}
+};
+std::map<std::string, std::vector<std::string>> LinksTypeArray = {
+	{"0", { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",   "LinkActionCount0:d" }},
+	{"1",  { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",  "LinkTriggerIndex0-0:d", "LinkActionCount0:d", "LinkActionIndex0-0:d"}}
 };
 std::map<std::string, std::string>  DefaultValues = {
 	{"TriggerName0:s", "\"DefaultName\""},

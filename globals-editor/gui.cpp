@@ -278,6 +278,8 @@ int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 std::vector<std::string> inputFields;
 
+
+
 void addInputField() {
 	inputFields.push_back("");
 }
@@ -297,13 +299,6 @@ void drawInputFields(string type, string vibor) {
 			if (ImGui::InputText("", buf, sizeof(buf))) {
 				inputFields[i] = buf;
 			}
-			/*
-			ImGui::SameLine();
-			if (ImGui::Button("Remove")) {
-				removeInputField(i);
-				i--;
-			}
-			*/
 			ImGui::PopID();
 		}
 	}
@@ -314,6 +309,27 @@ void drawInputFields(string type, string vibor) {
 			strcpy_s(buf, inputFields[i].c_str());
 			ImGui::PushID(i);
 			ImGui::Text(TriggersTypeArray[type][i].c_str());
+
+			if (ImGui::InputText("", buf, sizeof(buf))) {
+				inputFields[i] = buf;
+			}
+			/*
+			ImGui::SameLine();
+			if (ImGui::Button("Remove")) {
+				removeInputField(i);
+				i--;
+			}
+			*/
+			ImGui::PopID();
+		}
+	}
+	else if (vibor == "Links")
+	{
+		for (int i = 0; i < inputFields.size(); i++) {
+			char buf[255]{};
+			strcpy_s(buf, inputFields[i].c_str());
+			ImGui::PushID(i);
+			ImGui::Text(LinksTypeArray[type][i].c_str());
 
 			if (ImGui::InputText("", buf, sizeof(buf))) {
 				inputFields[i] = buf;
@@ -384,13 +400,16 @@ map<int, int> globalsTriggersPositions;
 
 vector<string> TriggersNames = {};
 
-struct link {
-	string parameterObj = "";
-	string parameter = "";
+struct link
+{
+	string pObj;
+	string p;
 };
 
 map<int, vector<link>> globalsLinks;
-map<int, int> globalsLinkssPositions;
+map<int, int> globalsLinksPositions;
+
+vector<string> linkObjs;
 
 vector<string> LinksNames = {};
 
@@ -405,10 +424,10 @@ string vibor = " ";
 void matchInputFieldsSize(string type, string vibor)
 {
 	inputFields.clear();
+	int inde = 0;
+
 	if (vibor == "Actions")
 	{
-		cout << item_current_idx << "\n";
-		int inde = 0;
 		for (auto i : ActivityTypeArray[type])
 		{
 			inputFields.push_back(globalsActions[item_current_idx][inde]);
@@ -417,11 +436,17 @@ void matchInputFieldsSize(string type, string vibor)
 	}
 	else if (vibor == "Triggers")
 	{
-		cout << item_current_idx_trigger << "\n";
-		int inde = 0;
 		for (auto i : TriggersTypeArray[type])
 		{
 			inputFields.push_back(globalsTriggers[item_current_idx_trigger][inde]);
+			inde++;
+		}
+	}
+	else if (vibor == "Links")
+	{
+		for (auto i : globalsLinks[item_current_idx_trigger])
+		{
+			inputFields.push_back(globalsLinks[item_current_idx_trigger][inde].p);
 			inde++;
 		}
 	}
@@ -433,7 +458,6 @@ void changeTypeInputFields(string type, string vibor)
 	if (vibor == "Actions") {
 		for (auto i : ActivityTypeArray[type])
 		{
-
 			if (i == "ActionType0:d")
 			{
 				inputFields.push_back(actionsTypes[currentActionTypeIndex]);
@@ -442,6 +466,7 @@ void changeTypeInputFields(string type, string vibor)
 		}
 	}
 	else if (vibor == "Triggers")
+	{
 		for (auto i : TriggersTypeArray[type])
 		{
 			if (i == "TriggerType0:d")
@@ -450,11 +475,19 @@ void changeTypeInputFields(string type, string vibor)
 			}
 			else inputFields.push_back(DefaultValues[i]);
 		}
+	}
+	else if (vibor == "Links")
+	{
+		for (auto i : LinksTypeArray[type])
+		{
+			inputFields.push_back("");
+		}
+	}
 }
 
 void editAction()
 {
-	string s = to_string(getObjectNumber(ActionsNames[item_current_idx]));
+	string s = to_string(getObjectNumber(globalsActions[item_current_idx][0]));
 
 	for (int i = 0; i < IM_ARRAYSIZE(actionsTypes); i++)
 	{
@@ -464,7 +497,7 @@ void editAction()
 
 void editTrigger()
 {
-	string s = to_string(getObjectNumber(TriggersNames[item_current_idx_trigger]));
+	string s = to_string(getObjectNumber(globalsTriggers[item_current_idx_trigger][0]));
 
 	for (int i = 0; i < IM_ARRAYSIZE(TriggerTypes); i++)
 	{
@@ -512,12 +545,6 @@ void reloadFile(ImGuiTextBuffer& log)
 				if (std::getline(file, line))
 				{
 					//Action propreties not needed since we can always get Action type from first parameter in parameters
-					/*
-					vector<string> propreties = splitBySpaces(line);
-
-					propreties.erase(propreties.begin());
-					propreties.pop_back();
-					*/
 					if (std::getline(file, line))
 					{
 						//Action Parameters
@@ -563,13 +590,17 @@ void reloadFile(ImGuiTextBuffer& log)
 					if (getline(file, line))
 					{
 						vector<string> parameters = splitBySpaces(line);
+
 						vector<link> l;
+
 						for (int i = 0; i < min(parameters.size(), parameterObjects.size()); i++)
 						{
-							l.push_back({ parameterObjects[i], parameters[i] });
+							link temp = { parameterObjects[i], parameters[i] };
+							l.push_back(temp);
 						}
 
 						globalsLinks.emplace(linkNumber, l);
+						globalsLinksPositions.emplace(linkNumber, lineCounter);
 						lineCounter++;
 					}
 					lineCounter++;
@@ -590,8 +621,9 @@ void reloadFile(ImGuiTextBuffer& log)
 
 			lineCounter++;
 		}
-		for (const auto& pair : globalsTriggers) TriggersNames.push_back(pair.second[0] + "|" + pair.second[1]);
-		for (const auto& pair : globalsActions) ActionsNames.push_back(pair.second[0] + "|" + pair.second[1]);
+		for (const auto& pair : globalsTriggers) TriggersNames.push_back(" #" + to_string(pair.first) + " T" + pair.second[0] + " " + pair.second[1]);
+		for (const auto& pair : globalsActions) ActionsNames.push_back(" #" + to_string(pair.first) + " T" + pair.second[0] + " " + pair.second[1]);
+		for (const auto& pair : globalsLinks) LinksNames.push_back("#" + to_string(pair.first));
 	}
 }
 
@@ -713,7 +745,7 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
 		{
 			editAction();
-			matchInputFieldsSize(to_string(getObjectNumber(ActionsNames[item_current_idx])), vibor);
+			matchInputFieldsSize(to_string(getObjectNumber(globalsActions[item_current_idx][0])), vibor);
 			actionsEdit = true;
 			triggersEdit = false;
 			linksEdit = false;
@@ -735,6 +767,7 @@ void gui::Render() noexcept
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
+
 			actionsAdd = false;
 			triggersAdd = true;
 			linksAdd = false;
@@ -745,11 +778,12 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить тригер"))
 		{
 			editTrigger();
-			matchInputFieldsSize(to_string(getObjectNumber(TriggersNames[item_current_idx_trigger])), vibor);
+			matchInputFieldsSize(to_string(getObjectNumber(globalsTriggers[item_current_idx_trigger][0])), vibor);
 
 			actionsEdit = false;
 			triggersEdit = true;
 			linksEdit = false;
+
 			actionsAdd = false;
 			triggersAdd = false;
 			linksAdd = false;
@@ -758,8 +792,10 @@ void gui::Render() noexcept
 
 	if (links)
 	{
+		vibor = "Links";
 		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
 		{
+			changeTypeInputFields("1", vibor);
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
@@ -787,11 +823,40 @@ void gui::Render() noexcept
 	ImGui::SameLine();
 
 	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
+	static ImGuiTextBuffer log;
 	if (linksEdit)
 	{
 
 	}
-	static ImGuiTextBuffer log;
+	if (linksAdd)
+	{
+		ImGui::Text("Link ");
+		ImGui::SameLine();
+		ImGui::Text(to_string(globalsLinks.size()).c_str());
+
+		ImGui::Text("");
+
+		if (ImGui::Button(lang ? "Add link " : (const char*)u8"Добавить ссылку "))
+		{
+			for (const std::string& value : inputFields) {
+				std::cout << "Input Value: " << value << std::endl;
+			}
+
+			for (auto it : globalsLinks[item_current_idx])
+			{
+				linkObjs.push_back(it.pObj);
+			}
+
+			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, compileLink(inputFields, linkObjs, stoi(inputFields[0]), globalsLinksPositions.size()));
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
+			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
+			reloadFile(log);
+		}
+
+		ImGui::Text("");
+
+		drawInputFields("1", vibor);
+	}
 	if (triggersEdit)
 	{
 
@@ -850,7 +915,7 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Save triger" : (const char*)u8"Сохранить тригер"))
+		if (ImGui::Button(lang ? "Save triger" : (const char*)u8"Сохранить триггер"))
 		{
 			for (const std::string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
@@ -860,7 +925,7 @@ void gui::Render() noexcept
 			reloadFile(log);
 		}
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Delete triger" : (const char*)u8"Удалить тригер"))
+		if (ImGui::Button(lang ? "Delete trigger" : (const char*)u8"Удалить триггер"))
 		{
 			for (int i = 2; i < inputFields.size(); i++)
 				inputFields[i] = "";
@@ -874,25 +939,20 @@ void gui::Render() noexcept
 		{
 			ImGui::BeginTooltip();
 			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces trgiger with an empty one" : (const char*)u8"Заменяет тригер на пустой");
+			ImGui::TextUnformatted(lang ? "Replaces trigger with an empty one" : (const char*)u8"Заменяет тригер на пустой");
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
 
 		ImGui::Text("");
 
-
-
 		drawInputFields(TriggerTypes[TriggerType], vibor);
-
-
 	}
 	if (triggersAdd)
 	{
 		ImGui::Text("Trigger ");
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsTriggers.size()).c_str());
-
 
 		ImGui::Text("");
 
@@ -921,7 +981,7 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Add trigger " : (const char*)u8"Добавить триггер "))
 		{
 			insertText(fileToEdit, globalsTriggersPositions[globalsTriggersPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsTriggersPositions.size(), vibor));
-			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + "  " + to_string(globalsActions.size() + 1) + "         126         " };
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
@@ -929,8 +989,6 @@ void gui::Render() noexcept
 		ImGui::Text("");
 
 		drawInputFields(TriggerTypes[TriggerType], vibor);
-
-
 	}
 	if (actionsEdit)
 	{
@@ -1023,7 +1081,6 @@ void gui::Render() noexcept
 
 		drawInputFields(actionsTypes[currentActionTypeIndex], vibor);
 	}
-
 	if (actionsAdd)
 	{
 		ImGui::Text("Action ");
@@ -1061,7 +1118,7 @@ void gui::Render() noexcept
 			}
 
 			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size(), vibor));
-			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + to_string(globalsActions.size() + 1) + "         126         " };
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + "  " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}

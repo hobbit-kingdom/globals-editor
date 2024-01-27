@@ -2,7 +2,7 @@
  { GUID:s              BilboStartYaw:f BilboStartPos:fff                  FogColor:dddd   FogStart:f  FogEnd:f     FogEnabled:d LevelName:s     'Number of Quests:d' OpeningCinema:g   Ambient0:dddd Ambient1:dddd Ambient2:dddd Ambient3:dddd Ambient4:dddd Ambient5:dddd Ambient6:dddd Ambient7:dddd }          
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-172306         126         
+172 308 127
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -1445,6 +1445,9 @@
 [ Action305 : 1 ]
 { ActionType305:d ActionName305:s Action305ExecuteDelay:f Action305ExecuteImmediately:d Action305CharacterGuid:g Action305Team:d }
 2 "DefaultName" 0.000000 0 00000000_00000000 0 
+[ Action306 : 1 ]
+{ ActionType306:d ActionName306:s }
+0 "DefaultName" 
 
 [ Link0 : 1 ]
  { LinkRepeats0:d LinkState0:d LogicType0:d LinkTriggerCount0:d LinkTriggerIndex0-0:d LinkTriggerIndex0-1:d LinkActionCount0:d LinkActionIndex0-0:d LinkActionIndex0-1:d LinkActionIndex0-2:d }
@@ -1824,6 +1827,12 @@
 [ Link125 : 1 ]
  { LinkRepeats125:d LinkState125:d LogicType125:d LinkTriggerCount125:d LinkTriggerIndex125-0:d LinkActionCount125:d LinkActionIndex125-0:d }
    0                0              0              1                     152                     1                    119                    
+[ Link126 : 1 ]
+{ LinkRepeats126:d LinkState126:d LogicType126:d LinkTriggerCount126:d LinkTriggerIndex126-0:d LinkTriggerIndex126-1:d LinkActionCount126:d LinkActionIndex126-0:d LinkActionIndex126-1:d LinkActionIndex126-2:d }
+1 1 1 1 1 1 1 
+
+
+
 [ ConversationMgr : 1 ]
  { ConversationCount:d ConversationListCount:d DialogListCount:d }
    0                   0                       0                 
