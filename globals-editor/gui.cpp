@@ -376,15 +376,23 @@ string fileToEdit = "globals-editor/globals.TXT";
 
 map<int, vector<string>> globalsActions;
 map<int, int> globalsActionsPositions;
-vector<int> ActionIndexes;
 
 vector<string> ActionsNames = {};
 
 map<int, vector<string>> globalsTriggers;
 map<int, int> globalsTriggersPositions;
-vector<int> TriggerIndexes;
 
 vector<string> TriggersNames = {};
+
+struct link {
+	string parameterObj = "";
+	string parameter = "";
+};
+
+map<int, vector<link>> globalsLinks;
+map<int, int> globalsLinkssPositions;
+
+vector<string> LinksNames = {};
 
 static int item_current_idx = 0;
 static int item_current_idx_trigger = 0;
@@ -496,7 +504,7 @@ void reloadFile(ImGuiTextBuffer& log)
 		int lineCounter = 1;
 		while (std::getline(file, line)) {
 
-			if (!line.find("[ Action"))
+			if (!line.find("[ Action") || !line.find("[Action"))
 			{
 				// Action header
 				int actionNumber = getObjectNumber(line);
@@ -523,9 +531,9 @@ void reloadFile(ImGuiTextBuffer& log)
 					lineCounter++;
 				}
 			}
-			if (!line.find("[ Trigger"))
+			else if (!line.find("[ Trigger") || !line.find("[Trigger"))
 			{
-				int actionNumber = getObjectNumber(line);
+				int triggerNumber = getObjectNumber(line);
 
 				if (getline(file, line))
 				{
@@ -533,15 +541,41 @@ void reloadFile(ImGuiTextBuffer& log)
 					{
 						vector<string> parameters = splitBySpaces(line);
 
-						globalsTriggers.emplace(actionNumber, parameters);
-						globalsTriggersPositions.emplace(actionNumber, lineCounter);
+						globalsTriggers.emplace(triggerNumber, parameters);
+						globalsTriggersPositions.emplace(triggerNumber, lineCounter);
 
 						lineCounter++;
 					}
 					lineCounter++;
 				}
 			}
-			if (!line.find("[ AIManager : 1 ]"))
+			else if (!line.find("[ Link") || !line.find("[Link"))
+			{
+				int linkNumber = getObjectNumber(line);
+
+				if (getline(file, line))
+				{
+					vector<string> parameterObjects = splitBySpaces(line);
+
+					parameterObjects.erase(parameterObjects.begin());
+					parameterObjects.erase(parameterObjects.end() - 1);
+
+					if (getline(file, line))
+					{
+						vector<string> parameters = splitBySpaces(line);
+						vector<link> l;
+						for (int i = 0; i < min(parameters.size(), parameterObjects.size()); i++)
+						{
+							l.push_back({ parameterObjects[i], parameters[i] });
+						}
+
+						globalsLinks.emplace(linkNumber, l);
+						lineCounter++;
+					}
+					lineCounter++;
+				}
+			}
+			else if (!line.find("[ AIManager : 1 ]") || !line.find("[AIManager"))
 			{
 				if (std::getline(file, line))
 				{
@@ -728,18 +762,23 @@ void gui::Render() noexcept
 		{
 			actionsEdit = false;
 			triggersEdit = false;
-			linksEdit = true;
+			linksEdit = false;
+
+			actionsAdd = false;
+			triggersAdd = false;
+			linksAdd = true;
 		}
 		ImGui::Text("");
 
-		const char* LinkNames[] = { "action name" };
-		static int LinkName = 0;
-
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		ImGui::Combo(lang ? "Select Link" : (const char*)u8"Выбрать ссылку", &LinkName, LinkNames, IM_ARRAYSIZE(LinkNames));
 		if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"Изменить ссылку"))
 		{
+			actionsEdit = false;
+			triggersEdit = false;
+			linksEdit = true;
 
+			actionsAdd = false;
+			triggersAdd = false;
+			linksAdd = false;
 		}
 	}
 
@@ -1066,7 +1105,6 @@ void gui::Render() noexcept
 	if (ImGui::Button(lang ? "Hobbit Technical Discord" : (const char*)u8"Технический канал Хоббита в Дискорде")) {
 		ShellExecute(NULL, "open", "https://discord.gg/hvzB3maxQ3", 0, 0, SW_SHOWNORMAL);
 	}
-
 
 	ImGui::End();
 }

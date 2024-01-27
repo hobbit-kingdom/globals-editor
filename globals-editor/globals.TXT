@@ -2,7 +2,7 @@
  { GUID:s              BilboStartYaw:f BilboStartPos:fff                  FogColor:dddd   FogStart:f  FogEnd:f     FogEnabled:d LevelName:s     'Number of Quests:d' OpeningCinema:g   Ambient0:dddd Ambient1:dddd Ambient2:dddd Ambient3:dddd Ambient4:dddd Ambient5:dddd Ambient6:dddd Ambient7:dddd }          
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-171  306         126         
+172306         126         
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -564,7 +564,7 @@
 0 "Team: Set Holman EVIL"     
 [ Action15 : 1 ]
 { ActionType15:d ActionName15:s Action15ExecuteDelay:f Action15ExecuteImmediately:d Action15CharacterGuid:g Action15Team:d }
-2 "DefaultName" 0.000000 0 00000000_00000000 0 
+2 "DefaultNamsdfsdfe" 0.000000 0 00000000_00000000 0 
 [ Action16 : 1 ]
  { ActionType16:d ActionName16:s                Action16ExecuteDelay:f Action16ExecuteImmediately:d Action16Object:g  Action16Volume:g  Action16Facing:g  }
    15             "TELE: Move Waters of vigour" 3.000000               0                            CA3DD2CF_AB86E000 CA3DD2CF_AB8BC000 00000000_00000000 
@@ -1442,6 +1442,9 @@
 [ Action304 : 1 ]
 { ActionType304:d ActionName304:s Action304ExecuteDelay:f Action304ExecuteImmediately:d Action304SwitchGuid:g Action304SwitchOn:d Action304Toggle:d }
 1 "DefaultName" 0.000000 0 00000000_00000000 0 0 
+[ Action305 : 1 ]
+{ ActionType305:d ActionName305:s Action305ExecuteDelay:f Action305ExecuteImmediately:d Action305CharacterGuid:g Action305Team:d }
+2 "DefaultName" 0.000000 0 00000000_00000000 0 
 
 [ Link0 : 1 ]
  { LinkRepeats0:d LinkState0:d LogicType0:d LinkTriggerCount0:d LinkTriggerIndex0-0:d LinkTriggerIndex0-1:d LinkActionCount0:d LinkActionIndex0-0:d LinkActionIndex0-1:d LinkActionIndex0-2:d }
