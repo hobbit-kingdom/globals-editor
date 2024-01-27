@@ -811,8 +811,6 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		drawInputFields(TriggerTypes[TriggerType], vibor);
-
 		if (ImGui::Button(lang ? "Save triger" : (const char*)u8"Сохранить тригер"))
 		{
 			for (const std::string& value : inputFields) {
@@ -841,6 +839,14 @@ void gui::Render() noexcept
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
+
+		ImGui::Text("");
+
+
+
+		drawInputFields(TriggerTypes[TriggerType], vibor);
+
+
 	}
 	if (triggersAdd)
 	{
@@ -870,22 +876,22 @@ void gui::Render() noexcept
 			}
 			ImGui::EndCombo();
 		}
-		drawInputFields(TriggerTypes[TriggerType], vibor);
-		if (ImGui::Button(lang ? "Save trigger" : (const char*)u8"Сохранить триггер"))
+
+		ImGui::Text("");
+
+		if (ImGui::Button(lang ? "Add trigger " : (const char*)u8"Добавить триггер "))
 		{
 			insertText(fileToEdit, globalsTriggersPositions[globalsTriggersPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsTriggersPositions.size(), vibor));
 			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + "  " + to_string(globalsActions.size() + 1) + "         126         " };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
-		if (ImGui::IsItemHovered())
-		{
-			ImGui::BeginTooltip();
-			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Заменяет активность на пустую");
-			ImGui::PopTextWrapPos();
-			ImGui::EndTooltip();
-		}
+
+		ImGui::Text("");
+
+		drawInputFields(TriggerTypes[TriggerType], vibor);
+
+
 	}
 	if (actionsEdit)
 	{
@@ -945,8 +951,6 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		drawInputFields(actionsTypes[currentActionTypeIndex], vibor);
-
 		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
 		{
 			for (const std::string& value : inputFields) {
@@ -975,7 +979,12 @@ void gui::Render() noexcept
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
+
+		ImGui::Text("");
+
+		drawInputFields(actionsTypes[currentActionTypeIndex], vibor);
 	}
+
 	if (actionsAdd)
 	{
 		ImGui::Text("Action ");
@@ -1004,20 +1013,9 @@ void gui::Render() noexcept
 			ImGui::EndCombo();
 		}
 
-		/*
-		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
-		{
-			editAction();
-			matchInputFieldsSize(actionsTypes[currentActionTypeIndex]);
-		}
-		*/
-
 		ImGui::Text("");
 
-		drawInputFields(actionsTypes[currentActionTypeIndex], vibor);
-
-		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
+		if (ImGui::Button(lang ? "Add action " : (const char*)u8"Добавить активность "))
 		{
 			for (const std::string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
@@ -1028,14 +1026,10 @@ void gui::Render() noexcept
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
-		if (ImGui::IsItemHovered())
-		{
-			ImGui::BeginTooltip();
-			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Заменяет активность на пустую");
-			ImGui::PopTextWrapPos();
-			ImGui::EndTooltip();
-		}
+
+		ImGui::Text("");
+
+		drawInputFields(actionsTypes[currentActionTypeIndex], vibor);
 	}
 
 	ImGui::EndChild();
