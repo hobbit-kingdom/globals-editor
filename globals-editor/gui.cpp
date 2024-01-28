@@ -261,6 +261,7 @@ void gui::EndRender() noexcept
 	if (result == D3DERR_DEVICELOST && device->TestCooperativeLevel() == D3DERR_DEVICENOTRESET)
 		ResetDevice();
 }
+int t = 0;
 
 bool actions = true;
 bool triggers = false;
@@ -327,12 +328,28 @@ void drawInputFields(string type, string vibor) {
 	{
 		for (int i = 0; i < inputFields.size(); i++) {
 			char buf[255]{};
-			strcpy_s(buf, inputFields[i].c_str());
-			ImGui::PushID(i);
-			ImGui::Text(LinksTypeArray[type][i].c_str());
+			if (i == 4) {
+				strcpy_s(buf, inputFields[i].c_str());
+				ImGui::PushID(i);
+				for (int j = 0; j <= t; j++) {
+					ImGui::Text(LinksTypeArray[type][i].c_str());
+					ImGui::SameLine(0, 0);
+					ImGui::Text((const char*)to_string(j).c_str());
+					ImGui::SameLine(0, 0);
+					ImGui::Text(":d");
+					if (ImGui::InputText("", buf, sizeof(buf))) {
+						inputFields[i] = buf;
+					}
+				}
+			}
+			else {
+				strcpy_s(buf, inputFields[i].c_str());
+				ImGui::PushID(i);
+				ImGui::Text(LinksTypeArray[type][i].c_str());
 
-			if (ImGui::InputText("", buf, sizeof(buf))) {
-				inputFields[i] = buf;
+				if (ImGui::InputText("", buf, sizeof(buf))) {
+					inputFields[i] = buf;
+				}
 			}
 			/*
 			ImGui::SameLine();
@@ -345,6 +362,7 @@ void drawInputFields(string type, string vibor) {
 		}
 	}
 }
+
 
 std::vector<std::string> splitBySpaces(string s)
 {
@@ -854,9 +872,13 @@ void gui::Render() noexcept
 		}
 
 		ImGui::Text("");
-
+		
+		
+		if (ImGui::Button(lang ? "Add trigger" : (const char*)u8"Добавить триггер"))
+		{
+			t++; 
+		}
 		drawInputFields("1", vibor);
-
 	}
 	if (triggersEdit)
 	{
