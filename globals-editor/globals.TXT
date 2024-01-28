@@ -2,7 +2,7 @@
  { GUID:s              BilboStartYaw:f BilboStartPos:fff                  FogColor:dddd   FogStart:f  FogEnd:f     FogEnabled:d LevelName:s     'Number of Quests:d' OpeningCinema:g   Ambient0:dddd Ambient1:dddd Ambient2:dddd Ambient3:dddd Ambient4:dddd Ambient5:dddd Ambient6:dddd Ambient7:dddd }          
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-172 308 128
+172 308 130
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -1832,6 +1832,12 @@
 1 1 1 1 1 1 1 
 [ Link127 : 1 ]
 { LinkRepeats127:d LinkState127:d LogicType127:d LinkTriggerCount127:d LinkTriggerIndex127-0:d LinkTriggerIndex127-1:d LinkActionCount127:d LinkActionIndex127-0:d LinkActionIndex127-1:d LinkActionIndex127-2:d }
+0 0 0 1 0 1 0 
+[ Link128 : 1 ]
+{ LinkRepeats128:d LinkState128:d LogicType128:d LinkTriggerCount128:d LinkTriggerIndex128-0:d LinkTriggerIndex128-1:d LinkActionCount128:d LinkActionIndex128-0:d LinkActionIndex128-1:d LinkActionIndex128-2:d }
+0 0 0 1 0 1 0 
+[ Link129 : 1 ]
+{ LinkRepeats129:d LinkState129:d LogicType129:d LinkTriggerCount129:d LinkTriggerIndex129-0:d LinkTriggerIndex129-1:d LinkActionCount129:d LinkActionIndex129-0:d LinkActionIndex129-1:d LinkActionIndex129-2:d }
 0 0 0 1 0 1 0 
 
 

@@ -261,7 +261,7 @@ void gui::EndRender() noexcept
 	if (result == D3DERR_DEVICELOST && device->TestCooperativeLevel() == D3DERR_DEVICENOTRESET)
 		ResetDevice();
 }
-int t = 0;
+
 
 bool actions = true;
 bool triggers = false;
@@ -280,6 +280,8 @@ std::string a = "Test";
 std::vector<std::string> inputFields;
 
 
+vector < string > inputTriggerFields = { "0" };
+vector < string > inputActionFields = { "0" };
 
 void addInputField() {
 	inputFields.push_back("");
@@ -288,6 +290,15 @@ void addInputField() {
 void removeInputField(int index) {
 	inputFields.erase(inputFields.begin() + index);
 }
+
+void addLinkTriggerField() {
+	inputTriggerFields.push_back("0");
+}
+
+void addLinkActionField() {
+	inputActionFields.push_back("0");
+}
+
 void drawInputFields(string type, string vibor) {
 	if (vibor == "Actions")
 	{
@@ -328,21 +339,47 @@ void drawInputFields(string type, string vibor) {
 	{
 		for (int i = 0; i < inputFields.size(); i++) {
 			char buf[255]{};
+
 			if (i == 4) {
-				strcpy_s(buf, inputFields[i].c_str());
-				ImGui::PushID(i);
-				for (int j = 0; j <= t; j++) {
+				for (int j = 0; j < inputTriggerFields.size(); j++) {
+					ImGui::PushID(i + j + 255);
+					char buf1[255]{};
+					strcpy_s(buf1, inputTriggerFields[j].c_str());
+
 					ImGui::Text(LinksTypeArray[type][i].c_str());
 					ImGui::SameLine(0, 0);
 					ImGui::Text((const char*)to_string(j).c_str());
 					ImGui::SameLine(0, 0);
 					ImGui::Text(":d");
-					if (ImGui::InputText("", buf, sizeof(buf))) {
-						inputFields[i] = buf;
+					if (ImGui::InputText("", buf1, sizeof(buf1))) {
+						inputTriggerFields[j] = buf1;
 					}
+					ImGui::PopID();
+
+				}
+			}
+			else if (i == 6) {
+				for (int j = 0; j < inputActionFields.size(); j++) {
+					ImGui::PushID(i + j + 255 + 255);
+					char buf1[255]{};
+					strcpy_s(buf1, inputActionFields[j].c_str());
+
+					ImGui::Text(LinksTypeArray[type][i].c_str());
+					ImGui::SameLine(0, 0);
+					ImGui::Text((const char*)to_string(j).c_str());
+					ImGui::SameLine(0, 0);
+					ImGui::Text(":d");
+					if (ImGui::InputText("", buf1, sizeof(buf1))) {
+						inputActionFields[j] = buf1;
+					}
+					ImGui::PopID();
+
 				}
 			}
 			else {
+				if (i == 3) inputFields[i] = to_string(inputTriggerFields.size());
+				else if (i == 5) inputFields[i] = to_string(inputActionFields.size());
+
 				strcpy_s(buf, inputFields[i].c_str());
 				ImGui::PushID(i);
 				ImGui::Text(LinksTypeArray[type][i].c_str());
@@ -350,6 +387,7 @@ void drawInputFields(string type, string vibor) {
 				if (ImGui::InputText("", buf, sizeof(buf))) {
 					inputFields[i] = buf;
 				}
+				ImGui::PopID();
 			}
 			/*
 			ImGui::SameLine();
@@ -358,7 +396,6 @@ void drawInputFields(string type, string vibor) {
 				i--;
 			}
 			*/
-			ImGui::PopID();
 		}
 	}
 }
@@ -872,12 +909,12 @@ void gui::Render() noexcept
 		}
 
 		ImGui::Text("");
-		
-		
-		if (ImGui::Button(lang ? "Add trigger" : (const char*)u8"Добавить триггер"))
-		{
-			t++; 
-		}
+
+
+		if (ImGui::Button(lang ? "Add trigger  " : (const char*)u8"Добавить триггер  ")) addLinkTriggerField();
+
+		if (ImGui::Button(lang ? "Add Action  " : (const char*)u8"Добавить действие  ")) addLinkActionField();
+
 		drawInputFields("1", vibor);
 	}
 	if (triggersEdit)

@@ -27,7 +27,7 @@ std::map<std::string, std::vector<std::string>> TriggersTypeArray = {
 };
 std::map<std::string, std::vector<std::string>> LinksTypeArray = {
 	{"0", { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",   "LinkActionCount0:d" }},
-	{"1",  { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",  "LinkTriggerIndex0-", "LinkActionCount0:d", "LinkActionIndex0-0:d"}}
+	{"1",  { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",  "LinkTriggerIndex0-", "LinkActionCount0:d", "LinkActionIndex0-"}}
 };
 std::map<std::string, std::string>  DefaultValues = {
 	{"LinkRepeats0:d", "0"},
