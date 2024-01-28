@@ -291,6 +291,10 @@ void removeInputField(int index) {
 	inputFields.erase(inputFields.begin() + index);
 }
 
+void removeInputFieldVar(int index, vector<string>& arr) {
+	arr.erase(arr.begin() + index);
+}
+
 void addLinkTriggerField() {
 	inputTriggerFields.push_back("0");
 }
@@ -354,6 +358,12 @@ void drawInputFields(string type, string vibor) {
 					if (ImGui::InputText("", buf1, sizeof(buf1))) {
 						inputTriggerFields[j] = buf1;
 					}
+
+					ImGui::SameLine();
+					if (ImGui::Button("-")) {
+						removeInputFieldVar(j, inputTriggerFields);
+					}
+
 					ImGui::PopID();
 
 				}
@@ -371,6 +381,10 @@ void drawInputFields(string type, string vibor) {
 					ImGui::Text(":d");
 					if (ImGui::InputText("", buf1, sizeof(buf1))) {
 						inputActionFields[j] = buf1;
+					}
+					ImGui::SameLine();
+					if (ImGui::Button("-")) {
+						removeInputFieldVar(j, inputActionFields);
 					}
 					ImGui::PopID();
 
