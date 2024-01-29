@@ -25,13 +25,13 @@ std::map<std::string, std::vector<std::string>> TriggersTypeArray = {
 	{"3", {"TriggerType0:d", "TriggerName0:s",  "Volume0:g",    "Character0:g", "TriggersOnce0:d",
 	"AllNPCs0:d",    "StaysTrue0:d",    "TriggeredOnTrue0:d"}},
 
-	{"5", { "TriggerType38:d", "TriggerName38:s", "CheckTime38:f", "RandomPercent38:d", "StaysTrue38:d", "TriggeredOnTrue38:d"}},
+	{"5", { "TriggerType0:d", "TriggerName0:s", "CheckTime0:f", "RandomPercent0:d", "StaysTrue0:d", "TriggeredOnTrue0:d"}},
 
-	{"6", { "TriggerType25:d", "TriggerName25:s", "NPC25:g", "AttackType25:d", "StaysTrue25:d", "TriggeredOnTrue25:d"}},
+	{"6", { "TriggerType0:d", "TriggerName0:s", "NPC0:g", "AttackType0:d", "StaysTrue0:d", "TriggeredOnTrue0:d"}},
 
-	{"7",  { "TriggerType44:d", "TriggerName44:s", "NPCCount44:d", "Trigger44NPC0:g", "ExitState44:d", "EnterState44:d", "StaysTrue44:d", "TriggeredOnTrue44:d"}},
+	{"7",  { "TriggerType0:d", "TriggerName0:s", "NPCCount0:d", "Trigger0NPC0:g", "ExitState0:d", "EnterState0:d", "StaysTrue0:d", "TriggeredOnTrue0:d"}},
 
-	{"8", { "TriggerType55:d", "TriggerName55:s", "NPC55:g", "ActionName55:s", "StaysTrue55:d", "TriggeredOnTrue55:d"}}
+	{"8", { "TriggerType0:d", "TriggerName0:s", "NPC0:g", "ActionName0:s", "StaysTrue0:d", "TriggeredOnTrue0:d"}}
 };
 std::map<std::string, std::vector<std::string>> LinksTypeArray = {
 	{"0", { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",   "LinkActionCount0:d" }},
