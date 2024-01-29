@@ -383,7 +383,6 @@ void drawInputFields(string type, string vibor) {
 				else if (i == 5)
 					inputFields[i] = to_string(inputActionFields.size());
 
-
 				strcpy_s(buf, inputFields[i].c_str());
 				ImGui::PushID(i);
 				ImGui::Text(LinksTypeArray[type][i].c_str());
@@ -733,11 +732,11 @@ void gui::Render() noexcept
 	}
 
 	ImGui::ShowDemoWindow();
-
-	ImGui::Text("                                                                            THE GLOBALS EDITOR                  ");
+	ImGui::SetCursorPosX((ImGui::GetWindowWidth() - ImGui::CalcTextSize("THE GLOBALS EDITOR").x) / 2.f);
+	ImGui::Text("THE GLOBALS EDITOR");
 	ImGui::Text("");
 
-	ImGui::BeginChild("left2 pane", ImVec2(200, 0), true);
+	ImGui::BeginChild("left2 pane", ImVec2(170, 450), true);
 
 	if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
 	{
@@ -885,7 +884,7 @@ void gui::Render() noexcept
 
 	ImGui::SameLine();
 
-	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
+	ImGui::BeginChild("left pane", ImVec2(500, 450), true);
 	static ImGuiTextBuffer log;
 	if (linksEdit)
 	{
@@ -918,14 +917,10 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-
-
-
 		drawInputFields("1", vibor);
 	}
 	if (triggersEdit)
 	{
-
 		ImGui::Text("Trigger");
 		ImGui::SameLine();
 
@@ -1058,7 +1053,6 @@ void gui::Render() noexcept
 	}
 	if (actionsEdit)
 	{
-
 		ImGui::Text("Action");
 		ImGui::SameLine();
 
@@ -1198,19 +1192,16 @@ void gui::Render() noexcept
 
 	ImGui::SameLine();
 
-	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
+	ImGui::BeginChild("text pane", ImVec2(525, 450), true, ImGuiWindowFlags_HorizontalScrollbar);
 
-	if (ImGui::Button("Show File")) reloadFile(log);
+	ImGui::Text(fileToEdit.c_str());
+	if (ImGui::Button("Load Globals")) reloadFile(log);
+
+
 
 	ImGui::TextUnformatted(log.begin(), log.end());
 
 	ImGui::EndChild();
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
 
 	if (ImGui::Button(!lang ? "Change Language" : (const char*)u8"Поменять язык")) lang = !lang;
 
