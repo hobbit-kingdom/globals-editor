@@ -895,7 +895,7 @@ void gui::Render() noexcept
 	static ImGuiTextBuffer log;
 	if (linksEdit)
 	{
-
+		
 	}
 	if (linksAdd)
 	{
