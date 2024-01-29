@@ -378,8 +378,11 @@ void drawInputFields(string type, string vibor) {
 				}
 			}
 			else {
-				if (i == 3) inputFields[i] = to_string(inputTriggerFields.size());
-				else if (i == 5) inputFields[i] = to_string(inputActionFields.size());
+				if (i == 3)
+					inputFields[i] = to_string(inputTriggerFields.size());
+				else if (i == 5)
+					inputFields[i] = to_string(inputActionFields.size());
+
 
 				strcpy_s(buf, inputFields[i].c_str());
 				ImGui::PushID(i);
@@ -388,6 +391,17 @@ void drawInputFields(string type, string vibor) {
 				if (ImGui::InputText("", buf, sizeof(buf))) {
 					inputFields[i] = buf;
 				}
+				if (i == 3)
+				{
+					ImGui::SameLine();
+					if (ImGui::Button("+")) addLinkTriggerField();
+				}
+				else if (i == 5)
+				{
+					ImGui::SameLine();
+					if (ImGui::Button("+")) addLinkActionField();
+				}
+
 				ImGui::PopID();
 			}
 		}
@@ -905,9 +919,7 @@ void gui::Render() noexcept
 		ImGui::Text("");
 
 
-		if (ImGui::Button(lang ? "Add trigger  " : (const char*)u8"Добавить триггер  ")) addLinkTriggerField();
 
-		if (ImGui::Button(lang ? "Add Action  " : (const char*)u8"Добавить действие  ")) addLinkActionField();
 
 		drawInputFields("1", vibor);
 	}
