@@ -63,8 +63,8 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 
 	return compiled;
 }
-
-vector<string> compileLink(vector<string> parameters, vector<string> parametersObj, int type, int objectNumber)
+vector<string> parametersObj = { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",  "LinkTriggerIndex0-", "LinkActionCount0:d", "LinkActionIndex0-" };
+vector<string> compileLink(vector<string> parameters, vector<string> triggers, vector<string> actions, int type, int objectNumber)
 {
 	vector<string> compiled;
 	string typeRow = "{ ";
@@ -73,16 +73,40 @@ vector<string> compileLink(vector<string> parameters, vector<string> parametersO
 
 	string typeS = to_string(type);
 
-	for (auto i : parametersObj) {
-		typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
+	for (int i = 0; i < 7; i++) {
+		cout << i << " ";
+
+		if (i == 4)
+		{
+			for (int j = 0; j < triggers.size(); j++)
+				typeRow += replaceStr("LinkTriggerIndex0-" + to_string(j) + ":d", "0", to_string(objectNumber)) + " ";
+		}
+		else if (i == 6)
+		{
+			for (int j = 0; j < actions.size(); j++)
+				typeRow += replaceStr("LinkActionIndex0-" + to_string(j) + ":d", "0", to_string(objectNumber)) + " ";
+
+		}
+		else
+			typeRow += replaceStr(parametersObj[i], "0", to_string(objectNumber)) + " ";
 	}
 
 	typeRow += "}";
 
 	compiled.push_back(typeRow);
 
-	for (auto i : parameters) {
-		paramerRow += i + " ";
+	for (int i = 0; i < parameters.size(); i++) {
+		if (i != 4 && i != 6) paramerRow += parameters[i] + " ";
+		if (i == 4)
+		{
+			for (auto j : triggers)
+				paramerRow += j + " ";
+		}
+		else if (i == 6)
+		{
+			for (auto j : actions)
+				paramerRow += j + " ";
+		}
 	}
 	compiled.push_back(paramerRow);
 

@@ -2,7 +2,7 @@
  { GUID:s              BilboStartYaw:f BilboStartPos:fff                  FogColor:dddd   FogStart:f  FogEnd:f     FogEnabled:d LevelName:s     'Number of Quests:d' OpeningCinema:g   Ambient0:dddd Ambient1:dddd Ambient2:dddd Ambient3:dddd Ambient4:dddd Ambient5:dddd Ambient6:dddd Ambient7:dddd }          
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-172 308 130
+172 308 139
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -1839,6 +1839,33 @@
 [ Link129 : 1 ]
 { LinkRepeats129:d LinkState129:d LogicType129:d LinkTriggerCount129:d LinkTriggerIndex129-0:d LinkTriggerIndex129-1:d LinkActionCount129:d LinkActionIndex129-0:d LinkActionIndex129-1:d LinkActionIndex129-2:d }
 0 0 0 1 0 1 0 
+[ Link130 : 1 ]
+{ LinkTriggerIndexLinkTriggerIndex0-0:d-1:d LinkTriggerIndexLinkTriggerIndex0-1:d-1:d LinkTriggerIndexLinkTriggerIndex0-2:d-1:d LinkActionCountLinkActionIndex0-0:d:d LinkActionCountLinkActionIndex0-1:d:d LinkActionCountLinkActionIndex0-2:d:d }
+0 0 0 3 4 3 1 3 35 53 23 
+[ Link131 : 1 ]
+{ LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkTriggerIndex131-1:d LinkTriggerIndex131-0:d LinkTriggerIndex131-1:d LinkTriggerIndex131-2:d LinkTriggerIndex131-3:d LinkActionIndex131-0:d LinkActionIndex131-1:d LinkActionIndex131-2:d LinkActionIndex131-0:d LinkActionIndex131-1:d LinkActionIndex131-2:d }
+0 0 0 4 44 4 23 43434 3 1 2 3 
+[ Link132 : 1 ]
+{ LinkRepeats132:d LinkState132:d LogicType132:d LinkTriggerCount132:d LinkTriggerIndex132-1:d LinkTriggerIndex132-0:d LinkTriggerIndex132-1:d LinkActionIndex132-0:d LinkActionIndex132-1:d LinkActionIndex132-0:d LinkActionIndex132-1:d LinkActionIndex132-2:d }
+0 0 0 2 23 444 2 23 4 
+[ Link133 : 1 ]
+{ LinkRepeats133:d LinkState133:d LogicType133:d LinkTriggerCount133:d LinkTriggerIndex133-1:d LinkTriggerIndex133-0:d LinkActionIndex133-0:d LinkActionIndex133-1:d }
+0 0 0 1 0 2 0 1 
+[ Link134 : 1 ]
+{ LinkRepeats134:d LinkState134:d LogicType134:d LinkTriggerCount134:d LinkTriggerIndex134-1:d LinkTriggerIndex134-0:d LinkActionIndex134-0:d LinkActionIndex134-1:d }
+0 0 0 1 0 2 0 1 
+[ Link135 : 1 ]
+{ LinkRepeats135:d LinkState135:d LogicType135:d LinkTriggerCount135:d LinkTriggerIndex135-0:d LinkTriggerIndex135-1:d LinkTriggerIndex135-1:d LinkActionIndex135-0:d LinkActionIndex135-1:d }
+0 0 0 2 0 0 2 0 0 
+[ Link136 : 1 ]
+{ LinkRepeats136:d LinkState136:d LogicType136:d LinkTriggerCount136:d LinkTriggerIndex136-0:d LinkTriggerIndex136-1:d LinkActionIndex136-0:d LinkActionIndex136-1:d }
+0 0 0 1 0 2 0 0 
+[ Link137 : 1 ]
+{ LinkRepeats137:d LinkState137:d LogicType137:d LinkTriggerCount137:d LinkTriggerIndex137-0:d LinkTriggerIndex137-1:d LinkTriggerIndex137-2:d LinkTriggerIndex137-3:d LinkActionCount137:d LinkActionIndex137-0:d LinkActionIndex137-1:d LinkActionIndex137-2:d }
+0 0 0 4 0 0 0 0 3 0 0 0 
+[ Link138 : 1 ]
+{ LinkRepeats138:d LinkState138:d LogicType138:d LinkTriggerCount138:d LinkTriggerIndex138-0:d LinkTriggerIndex138-1:d LinkActionCount138:d LinkActionIndex138-0:d LinkActionIndex138-1:d }
+0 0 0 2 2 12 2 3 323 
 
 
 

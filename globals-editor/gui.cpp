@@ -262,7 +262,6 @@ void gui::EndRender() noexcept
 		ResetDevice();
 }
 
-
 bool actions = true;
 bool triggers = false;
 bool links = false;
@@ -278,7 +277,6 @@ bool linksAdd = false;
 int lang = 0; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 std::vector<std::string> inputFields;
-
 
 vector < string > inputTriggerFields = { "0" };
 vector < string > inputActionFields = { "0" };
@@ -329,13 +327,6 @@ void drawInputFields(string type, string vibor) {
 			if (ImGui::InputText("", buf, sizeof(buf))) {
 				inputFields[i] = buf;
 			}
-			/*
-			ImGui::SameLine();
-			if (ImGui::Button("Remove")) {
-				removeInputField(i);
-				i--;
-			}
-			*/
 			ImGui::PopID();
 		}
 	}
@@ -358,14 +349,11 @@ void drawInputFields(string type, string vibor) {
 					if (ImGui::InputText("", buf1, sizeof(buf1))) {
 						inputTriggerFields[j] = buf1;
 					}
-
 					ImGui::SameLine();
 					if (ImGui::Button("-")) {
 						removeInputFieldVar(j, inputTriggerFields);
 					}
-
 					ImGui::PopID();
-
 				}
 			}
 			else if (i == 6) {
@@ -387,7 +375,6 @@ void drawInputFields(string type, string vibor) {
 						removeInputFieldVar(j, inputActionFields);
 					}
 					ImGui::PopID();
-
 				}
 			}
 			else {
@@ -403,13 +390,6 @@ void drawInputFields(string type, string vibor) {
 				}
 				ImGui::PopID();
 			}
-			/*
-			ImGui::SameLine();
-			if (ImGui::Button("Remove")) {
-				removeInputField(i);
-				i--;
-			}
-			*/
 		}
 	}
 }
@@ -916,7 +896,7 @@ void gui::Render() noexcept
 				linkObjs.push_back(it.pObj);
 			}
 
-			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, compileLink(inputFields, linkObjs, stoi(inputFields[0]), globalsLinksPositions.size()));
+			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, compileLink(inputFields, inputTriggerFields, inputActionFields, stoi(inputFields[0]), globalsLinksPositions.size()));
 			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
