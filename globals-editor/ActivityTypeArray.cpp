@@ -37,6 +37,23 @@ std::map<std::string, std::vector<std::string>> LinksTypeArray = {
 	{"0", { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",   "LinkActionCount0:d" }},
 	{"1",  { "LinkRepeats0:d", "LinkState0:d" ,"LogicType0:d", "LinkTriggerCount0:d",  "LinkTriggerIndex0-", "LinkActionCount0:d", "LinkActionIndex0-"}}
 };
+
+std::map <std::string, std::string> tipsENG = {
+	{ "3", "Npc enters Volume" },
+	{ "5", "Activates after a certain amount of time with some kind of chance" },
+	{ "6", "Stone hits a npc" },
+	{ "7", "Npc cahnges states" },
+	{ "8", "Npc does an activity" }
+};
+
+std::map <std::string, std::string> tipsRUS = {
+	{ "3",  (const char*)u8"Нпс заходит в волум" } ,
+	{ "5",  (const char*)u8"Срабатывает через какое-то время с каким-то шансом" } ,
+	{ "6",  (const char*)u8"По нпс попадает камень" } ,
+	{ "7",  (const char*)u8"Нпс выходит из одного состояния и входит в другое" } ,
+	{ "8",  (const char*)u8"Нпс делает активность" }
+};
+
 std::map<std::string, std::string>  DefaultValues = {
 	{"LinkRepeats0:d", "0"},
 	{"LinkState0:d", "0"},

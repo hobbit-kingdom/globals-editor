@@ -262,6 +262,19 @@ void gui::EndRender() noexcept
 		ResetDevice();
 }
 
+static void HelpMarker(const char* desc)
+{
+	ImGui::TextDisabled("(?)");
+	if (ImGui::IsItemHovered())
+	{
+		ImGui::BeginTooltip();
+		ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+		ImGui::TextUnformatted(desc);
+		ImGui::PopTextWrapPos();
+		ImGui::EndTooltip();
+	}
+}
+
 bool actions = true;
 bool triggers = false;
 bool links = false;
@@ -472,7 +485,7 @@ static int item_current_idx_trigger = 0;
 static int item_current_idx_link = 0;
 static int currentActionTypeIndex = 0;
 static const char* actionsTypes[] = { "0", "1", "2", "4", "7" };
-static const char* TriggerTypes[] = { "0", "3" };
+static const char* TriggerTypes[] = { "0", "3", "5", "6", "7", "8" };
 static int TriggerType = 0;
 string vibor = " ";
 
@@ -943,6 +956,13 @@ void gui::Render() noexcept
 			ImGui::EndCombo();
 		}
 
+		ImGui::SameLine(); HelpMarker(lang ?
+			"With a link you can like triggers and actions together.\n\n"
+			"When a trigger will be triggered, an action will de executed.\n\n"
+			"Multiple triggers can be linked to multiple actions, etc." :
+			(const char*)u8"Ссылка соединяет триггер с активностью.\n\nКогда сработает триггер, будет запущена активность.\n\nНесколько триггеров может быть соединено с несколькими активностями."
+		);
+
 		ImGui::Text("");
 
 		if (ImGui::Button(lang ? "Save link " : (const char*)u8"Сохранить ссылку "))
@@ -985,6 +1005,13 @@ void gui::Render() noexcept
 		ImGui::Text("Link ");
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsLinks.size()).c_str());
+
+		ImGui::SameLine(); HelpMarker(lang ?
+			"With a link you can like triggers and actions together.\n\n"
+			"When a trigger will be triggered, an action will de executed.\n\n"
+			"Multiple triggers can be linked to multiple actions, etc." :
+			(const char*)u8"Ссылка соединяет триггер с активностью.\n\nКогда сработает триггер, будет запущена активность.\n\nНесколько триггеров может быть соединено с несколькими активностями."
+		);
 
 		ImGui::Text("");
 
@@ -1030,6 +1057,13 @@ void gui::Render() noexcept
 			ImGui::EndCombo();
 		}
 
+		ImGui::SameLine(); HelpMarker(lang ?
+			"A trigger is something that can happen in The Hobbit.\n\n"
+			"For example it can be when a stone hits an NPC,\n\n"
+			"when Bilbo enters volume, a cutscene finishes, etc." :
+			(const char*)u8"Триггер это что-то, что происходит в игре.\n\nНапример Бильбо заходит в волум, катсцена закончилась,\n\nпо НПС попал камень и тд."
+		);
+
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -1044,6 +1078,15 @@ void gui::Render() noexcept
 				{
 					TriggerType = n;
 					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
+				}
+
+				if (ImGui::IsItemHovered())
+				{
+					ImGui::BeginTooltip();
+					ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+					ImGui::TextUnformatted(lang ? tipsENG[TriggerTypes[n]].c_str() : tipsRUS[TriggerTypes[n]].c_str());
+					ImGui::PopTextWrapPos();
+					ImGui::EndTooltip();
 				}
 
 				if (is_selected)
@@ -1099,7 +1142,12 @@ void gui::Render() noexcept
 		ImGui::Text("Trigger ");
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsTriggers.size()).c_str());
-
+		ImGui::SameLine(); HelpMarker(lang ?
+			"A trigger is something that can happen in The Hobbit.\n\n"
+			"For example it can be when a stone hits an NPC,\n\n"
+			"when Bilbo enters volume, a cutscene finishes, etc." :
+			(const char*)u8"Триггер это что-то, что происходит в игре.\n\nНапример Бильбо заходит в волум, катсцена закончилась,\n\nпо НПС попал камень и тд."
+		);
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -1161,6 +1209,12 @@ void gui::Render() noexcept
 			}
 			ImGui::EndCombo();
 		}
+
+		ImGui::SameLine(); HelpMarker(lang ?
+			"Action is something that will be executed.\n\n"
+			"This can be telport Bilbo, start a cutscene, spawn NPC, etc." :
+			(const char*)u8"Активность это действие что произойдет в игре.\n\nНапример телепортировать Бильбо, заспавнить НПС, начать катсцену и тд."
+		);
 
 		ImGui::Text("");
 
@@ -1231,6 +1285,12 @@ void gui::Render() noexcept
 		ImGui::Text("Action ");
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsActions.size()).c_str());
+
+		ImGui::SameLine(); HelpMarker(lang ?
+			"Action is something that will be executed.\n\n"
+			"This can be telport Bilbo, start a cutscene, spawn NPC, etc." :
+			(const char*)u8"Активность это действие что произойдет в игре.\n\nНапример телепортировать Бильбо, заспавнить НПС, начать катсцену и тд."
+		);
 
 		ImGui::Text("");
 
