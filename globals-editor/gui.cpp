@@ -274,7 +274,7 @@ bool actionsAdd = false;
 bool triggersAdd = false;
 bool linksAdd = false;
 
-int lang = 0; // 0 - RUS , 1 - ENG
+int lang = 1; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 std::vector<std::string> inputFields;
 
@@ -450,7 +450,7 @@ int getObjectNumber(string s)
 }
 
 imgui_addons::ImGuiFileBrowser file_dialog;
-string fileToEdit = "globals-editor/globals.TXT";
+string fileToEdit = "globals.TXT";
 
 map<int, vector<string>> globalsActions;
 map<int, int> globalsActionsPositions;
@@ -462,21 +462,14 @@ map<int, int> globalsTriggersPositions;
 
 vector<string> TriggersNames = {};
 
-struct link
-{
-	string pObj;
-	string p;
-};
-
-map<int, vector<link>> globalsLinks;
+map<int, vector<string>> globalsLinks;
 map<int, int> globalsLinksPositions;
-
-vector<string> linkObjs;
 
 vector<string> LinksNames = {};
 
 static int item_current_idx = 0;
 static int item_current_idx_trigger = 0;
+static int item_current_idx_link = 0;
 static int currentActionTypeIndex = 0;
 static const char* actionsTypes[] = { "0", "1", "2", "4", "7" };
 static const char* TriggerTypes[] = { "0", "3" };
@@ -506,11 +499,45 @@ void matchInputFieldsSize(string type, string vibor)
 	}
 	else if (vibor == "Links")
 	{
-		for (auto i : globalsLinks[item_current_idx_trigger])
+		inputTriggerFields.clear();
+		inputActionFields.clear();
+		for (int i = 0; i < globalsLinks[item_current_idx_link].size(); i++)
 		{
-			inputFields.push_back(globalsLinks[item_current_idx_trigger][inde].p);
-			inde++;
+			inputFields.push_back(globalsLinks[item_current_idx_link][i]);
+
+			if (i == 3)
+			{
+				inputFields.push_back("0");
+				int actionCountPos = i + 1 + stoi(globalsLinks[item_current_idx_link][i]);
+				i++;
+				while (i < actionCountPos)
+				{
+					inputTriggerFields.push_back(globalsLinks[item_current_idx_link][i]);
+					i++;
+				}
+				inputFields.push_back(globalsLinks[item_current_idx_link][i]);
+				inputFields.push_back("0");
+				i++;
+				while (i < globalsLinks[item_current_idx_link].size())
+				{
+					inputActionFields.push_back(globalsLinks[item_current_idx_link][i]);
+					i++;
+				}
+				break;
+
+			}
 		}
+
+
+		for (auto k : inputFields) cout << k << " ";
+		cout << "\n";
+
+		for (auto k : inputTriggerFields) cout << k << " ";
+		cout << "\n";
+
+		for (auto k : inputActionFields) cout << k << " ";
+		cout << "\n";
+
 	}
 }
 
@@ -574,9 +601,15 @@ void reloadFile(ImGuiTextBuffer& log)
 	globalsTriggers.clear();
 	globalsTriggersPositions.clear();
 	TriggersNames.clear();
+
 	globalsActions.clear();
 	globalsActionsPositions.clear();
 	ActionsNames.clear();
+
+	globalsLinks.clear();
+	globalsLinksPositions.clear();
+	LinksNames.clear();
+
 
 	fileToEdit = fileToEdit.c_str();
 
@@ -653,15 +686,7 @@ void reloadFile(ImGuiTextBuffer& log)
 					{
 						vector<string> parameters = splitBySpaces(line);
 
-						vector<link> l;
-
-						for (int i = 0; i < min(parameters.size(), parameterObjects.size()); i++)
-						{
-							link temp = { parameterObjects[i], parameters[i] };
-							l.push_back(temp);
-						}
-
-						globalsLinks.emplace(linkNumber, l);
+						globalsLinks.emplace(linkNumber, parameters);
 						globalsLinksPositions.emplace(linkNumber, lineCounter);
 						lineCounter++;
 					}
@@ -731,7 +756,6 @@ void gui::Render() noexcept
 		fileToEdit = file_dialog.selected_path;
 	}
 
-	ImGui::ShowDemoWindow();
 	ImGui::SetCursorPosX((ImGui::GetWindowWidth() - ImGui::CalcTextSize("THE GLOBALS EDITOR").x) / 2.f);
 	ImGui::Text("THE GLOBALS EDITOR");
 	ImGui::Text("");
@@ -857,7 +881,10 @@ void gui::Render() noexcept
 		vibor = "Links";
 		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
 		{
+			inputTriggerFields.clear();
+			inputActionFields.clear();
 			changeTypeInputFields("1", vibor);
+
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
@@ -870,6 +897,11 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"Изменить ссылку"))
 		{
+			inputTriggerFields.clear();
+			inputActionFields.clear();
+			item_current_idx_link = 0;
+			changeTypeInputFields("1", vibor);
+
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = true;
@@ -893,16 +925,15 @@ void gui::Render() noexcept
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
 
-		const char* combo_preview_value = LinksNames[item_current_idx_trigger].c_str();
+		const char* combo_preview_value = LinksNames[item_current_idx_link].c_str();
 		if (ImGui::BeginCombo(" ", combo_preview_value))
 		{
 			for (int n = 0; n < LinksNames.size(); n++)
 			{
-				const bool is_selected = (item_current_idx_trigger == n);
+				const bool is_selected = (item_current_idx_link == n);
 				if (ImGui::Selectable(LinksNames[n].c_str(), is_selected))
 				{
-					item_current_idx_trigger = n;
-					//editTrigger();
+					item_current_idx_link = n;
 					matchInputFieldsSize("1", vibor);
 				}
 
@@ -913,70 +944,40 @@ void gui::Render() noexcept
 		}
 
 		ImGui::Text("");
-		/*
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
-		const char* combo_preview_value2 = TriggerTypes[TriggerType];
-		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"Изменить Тип Триггера", combo_preview_value2))
+		if (ImGui::Button(lang ? "Save link " : (const char*)u8"Сохранить ссылку "))
 		{
-			for (int n = 0; n < IM_ARRAYSIZE(TriggerTypes); n++)
-			{
-				const bool is_selected = (TriggerType == n);
-				if (ImGui::Selectable(TriggerTypes[n], is_selected))
-				{
-					TriggerType = n;
-					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
-				}
+			cout << "idx " << item_current_idx_link << " ";
 
-				if (is_selected)
-					ImGui::SetItemDefaultFocus();
-			}
-			ImGui::EndCombo();
-		}
-
-		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
-		{
-			editTrigger();
-			matchInputFieldsSize(TriggerTypes[TriggerType], vibor);
-		}
-
-		ImGui::Text("");
-
-		if (ImGui::Button(lang ? "Save triger" : (const char*)u8"Сохранить триггер"))
-		{
-			for (const std::string& value : inputFields) {
-				std::cout << "Input Value: " << value << std::endl;
-			}
-
-			replaceText(fileToEdit, globalsTriggersPositions[item_current_idx_trigger], compileAction(inputFields, stoi(inputFields[0]), item_current_idx_trigger, vibor));
+			replaceText(fileToEdit, globalsLinksPositions[item_current_idx_link], compileLink(inputFields, inputTriggerFields, inputActionFields, item_current_idx_link, item_current_idx_link));
 			reloadFile(log);
 		}
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Delete trigger" : (const char*)u8"Удалить триггер"))
+		if (ImGui::Button(lang ? "Delete Link" : (const char*)u8"Удалить триггер"))
 		{
-			for (int i = 2; i < inputFields.size(); i++)
-				inputFields[i] = "";
-			inputFields[0] = "0";
-
-			replaceText(fileToEdit, globalsTriggersPositions[item_current_idx_trigger], compileAction(inputFields, 0, item_current_idx_trigger, vibor)); // 0 - empty activity
-			actionsEdit = false;
+			inputTriggerFields.clear();
+			inputActionFields.clear();
+			inputFields[3] = "0";
+			inputFields[5] = "0";
+			replaceText(fileToEdit, globalsLinksPositions[item_current_idx_link], compileLink(inputFields, inputTriggerFields, inputActionFields, item_current_idx_link, item_current_idx_link));
 			reloadFile(log);
 		}
 		if (ImGui::IsItemHovered())
 		{
 			ImGui::BeginTooltip();
 			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces trigger with an empty one" : (const char*)u8"Заменяет тригер на пустой");
+			ImGui::TextUnformatted(lang ? "Replaces link with an empty one" : (const char*)u8"Заменяет ссылку на пустую");
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
-
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Revert" : (const char*)u8"Вернуть исходное"))
+		{
+			matchInputFieldsSize("1", vibor);
+		}
 
 		ImGui::Text("");
 		drawInputFields("1", vibor);
-
-		*/
 
 	}
 	if (linksAdd)
@@ -991,11 +992,6 @@ void gui::Render() noexcept
 		{
 			for (const std::string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
-			}
-
-			for (auto it : globalsLinks[item_current_idx])
-			{
-				linkObjs.push_back(it.pObj);
 			}
 
 			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, compileLink(inputFields, inputTriggerFields, inputActionFields, stoi(inputFields[0]), globalsLinksPositions.size()));
@@ -1285,6 +1281,14 @@ void gui::Render() noexcept
 
 	ImGui::Text(fileToEdit.c_str());
 	if (ImGui::Button("Load Globals")) reloadFile(log);
+	if (ImGui::IsItemHovered())
+	{
+		ImGui::BeginTooltip();
+		ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+		ImGui::TextUnformatted(lang ? "Make sure you selected globals file in the Menu" : (const char*)u8"Убедитесь что вы выбрали глобалс файл в меню");
+		ImGui::PopTextWrapPos();
+		ImGui::EndTooltip();
+	}
 
 	ImGui::TextUnformatted(log.begin(), log.end());
 
