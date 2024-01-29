@@ -888,6 +888,95 @@ void gui::Render() noexcept
 	static ImGuiTextBuffer log;
 	if (linksEdit)
 	{
+		ImGui::Text("Link");
+		ImGui::SameLine();
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
+
+		const char* combo_preview_value = LinksNames[item_current_idx_trigger].c_str();
+		if (ImGui::BeginCombo(" ", combo_preview_value))
+		{
+			for (int n = 0; n < LinksNames.size(); n++)
+			{
+				const bool is_selected = (item_current_idx_trigger == n);
+				if (ImGui::Selectable(LinksNames[n].c_str(), is_selected))
+				{
+					item_current_idx_trigger = n;
+					//editTrigger();
+					matchInputFieldsSize("1", vibor);
+				}
+
+				if (is_selected)
+					ImGui::SetItemDefaultFocus();
+			}
+			ImGui::EndCombo();
+		}
+
+		ImGui::Text("");
+		/*
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+
+		const char* combo_preview_value2 = TriggerTypes[TriggerType];
+		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"Изменить Тип Триггера", combo_preview_value2))
+		{
+			for (int n = 0; n < IM_ARRAYSIZE(TriggerTypes); n++)
+			{
+				const bool is_selected = (TriggerType == n);
+				if (ImGui::Selectable(TriggerTypes[n], is_selected))
+				{
+					TriggerType = n;
+					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
+				}
+
+				if (is_selected)
+					ImGui::SetItemDefaultFocus();
+			}
+			ImGui::EndCombo();
+		}
+
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+		{
+			editTrigger();
+			matchInputFieldsSize(TriggerTypes[TriggerType], vibor);
+		}
+
+		ImGui::Text("");
+
+		if (ImGui::Button(lang ? "Save triger" : (const char*)u8"Сохранить триггер"))
+		{
+			for (const std::string& value : inputFields) {
+				std::cout << "Input Value: " << value << std::endl;
+			}
+
+			replaceText(fileToEdit, globalsTriggersPositions[item_current_idx_trigger], compileAction(inputFields, stoi(inputFields[0]), item_current_idx_trigger, vibor));
+			reloadFile(log);
+		}
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Delete trigger" : (const char*)u8"Удалить триггер"))
+		{
+			for (int i = 2; i < inputFields.size(); i++)
+				inputFields[i] = "";
+			inputFields[0] = "0";
+
+			replaceText(fileToEdit, globalsTriggersPositions[item_current_idx_trigger], compileAction(inputFields, 0, item_current_idx_trigger, vibor)); // 0 - empty activity
+			actionsEdit = false;
+			reloadFile(log);
+		}
+		if (ImGui::IsItemHovered())
+		{
+			ImGui::BeginTooltip();
+			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+			ImGui::TextUnformatted(lang ? "Replaces trigger with an empty one" : (const char*)u8"Заменяет тригер на пустой");
+			ImGui::PopTextWrapPos();
+			ImGui::EndTooltip();
+		}
+
+
+		ImGui::Text("");
+		drawInputFields("1", vibor);
+
+		*/
 
 	}
 	if (linksAdd)
@@ -1196,8 +1285,6 @@ void gui::Render() noexcept
 
 	ImGui::Text(fileToEdit.c_str());
 	if (ImGui::Button("Load Globals")) reloadFile(log);
-
-
 
 	ImGui::TextUnformatted(log.begin(), log.end());
 
