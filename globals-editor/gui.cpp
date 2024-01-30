@@ -262,6 +262,18 @@ void gui::EndRender() noexcept
 		ResetDevice();
 }
 
+static void HelpMarker(const char* desc)
+{
+	ImGui::TextDisabled("(?)");
+	if (ImGui::IsItemHovered())
+	{
+		ImGui::BeginTooltip();
+		ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+		ImGui::TextUnformatted(desc);
+		ImGui::PopTextWrapPos();
+		ImGui::EndTooltip();
+	}
+}
 
 bool actions = true;
 bool triggers = false;
@@ -275,7 +287,7 @@ bool actionsAdd = false;
 bool triggersAdd = false;
 bool linksAdd = false;
 
-int lang = 0; // 0 - RUS , 1 - ENG
+int lang = 1; // 0 - RUS , 1 - ENG
 std::string a = "Test";
 std::vector<std::string> inputFields;
 
@@ -312,8 +324,15 @@ void drawInputFields(string type, string vibor) {
 			ImGui::PushID(i);
 			ImGui::Text(ActivityTypeArray[type][i].c_str());
 
-			if (ImGui::InputText("", buf, sizeof(buf))) {
+			if (i == 0)
+			{
+				ImGui::Text(buf);
 				inputFields[i] = buf;
+			}
+			else {
+				if (ImGui::InputText("", buf, sizeof(buf))) {
+					inputFields[i] = buf;
+				}
 			}
 			ImGui::PopID();
 		}
@@ -325,17 +344,16 @@ void drawInputFields(string type, string vibor) {
 			strcpy_s(buf, inputFields[i].c_str());
 			ImGui::PushID(i);
 			ImGui::Text(TriggersTypeArray[type][i].c_str());
-
-			if (ImGui::InputText("", buf, sizeof(buf))) {
+			if (i == 0)
+			{
+				ImGui::Text(buf);
 				inputFields[i] = buf;
 			}
-			/*
-			ImGui::SameLine();
-			if (ImGui::Button("Remove")) {
-				removeInputField(i);
-				i--;
+			else {
+				if (ImGui::InputText("", buf, sizeof(buf))) {
+					inputFields[i] = buf;
+				}
 			}
-			*/
 			ImGui::PopID();
 		}
 	}
@@ -391,8 +409,10 @@ void drawInputFields(string type, string vibor) {
 				}
 			}
 			else {
-				if (i == 3) inputFields[i] = to_string(inputTriggerFields.size());
-				else if (i == 5) inputFields[i] = to_string(inputActionFields.size());
+				if (i == 3)
+					inputFields[i] = to_string(inputTriggerFields.size());
+				else if (i == 5)
+					inputFields[i] = to_string(inputActionFields.size());
 
 				strcpy_s(buf, inputFields[i].c_str());
 				ImGui::PushID(i);
@@ -401,6 +421,25 @@ void drawInputFields(string type, string vibor) {
 				if (ImGui::InputText("", buf, sizeof(buf))) {
 					inputFields[i] = buf;
 				}
+				if (i == 3)
+				{
+					ImGui::SameLine();
+					if (ImGui::Button("+")) addLinkTriggerField();
+				}
+				else if (i == 5)
+				{
+					ImGui::SameLine();
+					if (ImGui::Button("+")) addLinkActionField();
+				}
+				else if (i == 2)
+				{
+					ImGui::SameLine(); HelpMarker(lang ?
+						"0 - all triggers must be activated\n\n1 - one of the triggers has to be activated"
+						:
+						(const char*)u8"0 - все триггеры должны сработать\n\n1 - один из триггеров должен сработать"
+					);
+				}
+
 				ImGui::PopID();
 			}
 			/*
@@ -457,7 +496,8 @@ int getObjectNumber(string s)
 }
 
 imgui_addons::ImGuiFileBrowser file_dialog;
-string fileToEdit = "globals-editor/globals.TXT";
+string fileToEdit = "globals.TXT";
+string saveFilePath = "globals.TXT";
 
 map<int, vector<string>> globalsActions;
 map<int, int> globalsActionsPositions;
@@ -469,24 +509,25 @@ map<int, int> globalsTriggersPositions;
 
 vector<string> TriggersNames = {};
 
-struct link
-{
-	string pObj;
-	string p;
-};
-
-map<int, vector<link>> globalsLinks;
+map<int, vector<string>> globalsLinks;
 map<int, int> globalsLinksPositions;
-
-vector<string> linkObjs;
 
 vector<string> LinksNames = {};
 
 static int item_current_idx = 0;
 static int item_current_idx_trigger = 0;
+static int item_current_idx_link = 0;
 static int currentActionTypeIndex = 0;
-static const char* actionsTypes[] = { "0", "1", "2", "4", "7" };
-static const char* TriggerTypes[] = { "0", "3" };
+
+static const char* actionsTypes[] = { "0", "1", "2", "4", "7", "8", "9", "10", "11",
+"12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "25", "28",
+"29", "30", "33", "34", "35", "36", "37", "40", "41", "43", "44", "45", "48", "49",
+"50", "51", "52" };
+
+static const char* TriggerTypes[] = { "0", "3", "5", "6", "7", "8", "9", "11", "12",
+"15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "29", "30",
+"31", "32", "34" };
+
 static int TriggerType = 0;
 string vibor = " ";
 
@@ -513,10 +554,33 @@ void matchInputFieldsSize(string type, string vibor)
 	}
 	else if (vibor == "Links")
 	{
-		for (auto i : globalsLinks[item_current_idx_trigger])
+		inputTriggerFields.clear();
+		inputActionFields.clear();
+		for (int i = 0; i < globalsLinks[item_current_idx_link].size(); i++)
 		{
-			inputFields.push_back(globalsLinks[item_current_idx_trigger][inde].p);
-			inde++;
+			inputFields.push_back(globalsLinks[item_current_idx_link][i]);
+
+			if (i == 3)
+			{
+				inputFields.push_back("0");
+				int actionCountPos = i + 1 + stoi(globalsLinks[item_current_idx_link][i]);
+				i++;
+				while (i < actionCountPos)
+				{
+					inputTriggerFields.push_back(globalsLinks[item_current_idx_link][i]);
+					i++;
+				}
+				inputFields.push_back(globalsLinks[item_current_idx_link][i]);
+				inputFields.push_back("0");
+				i++;
+				while (i < globalsLinks[item_current_idx_link].size())
+				{
+					inputActionFields.push_back(globalsLinks[item_current_idx_link][i]);
+					i++;
+				}
+				break;
+
+			}
 		}
 	}
 }
@@ -581,9 +645,15 @@ void reloadFile(ImGuiTextBuffer& log)
 	globalsTriggers.clear();
 	globalsTriggersPositions.clear();
 	TriggersNames.clear();
+
 	globalsActions.clear();
 	globalsActionsPositions.clear();
 	ActionsNames.clear();
+
+	globalsLinks.clear();
+	globalsLinksPositions.clear();
+	LinksNames.clear();
+
 
 	fileToEdit = fileToEdit.c_str();
 
@@ -660,15 +730,7 @@ void reloadFile(ImGuiTextBuffer& log)
 					{
 						vector<string> parameters = splitBySpaces(line);
 
-						vector<link> l;
-
-						for (int i = 0; i < min(parameters.size(), parameterObjects.size()); i++)
-						{
-							link temp = { parameterObjects[i], parameters[i] };
-							l.push_back(temp);
-						}
-
-						globalsLinks.emplace(linkNumber, l);
+						globalsLinks.emplace(linkNumber, parameters);
 						globalsLinksPositions.emplace(linkNumber, lineCounter);
 						lineCounter++;
 					}
@@ -713,11 +775,11 @@ void gui::Render() noexcept
 	bool open = false, save = false;
 	if (ImGui::BeginMenuBar())
 	{
-		if (ImGui::BeginMenu("Menu"))
+		if (ImGui::BeginMenu(lang ? "Menu": (const char*)u8"Меню"))
 		{
-			if (ImGui::MenuItem("Open", NULL))
+			if (ImGui::MenuItem(lang ? "Open File": (const char*)u8"Открыть Файл", NULL))
 				open = true;
-			if (ImGui::MenuItem("Save", NULL))
+			if (ImGui::MenuItem(lang ? "Save File": (const char*)u8"Сохранить Файл", NULL))
 				save = true;
 
 			ImGui::EndMenu();
@@ -726,24 +788,40 @@ void gui::Render() noexcept
 	}
 
 	if (open)
-		ImGui::OpenPopup("Open File");
-	if (save)
-		ImGui::OpenPopup("Save File");
+		ImGui::OpenPopup(lang ? "Open File": (const char*)u8"Открыть Файл");
+	if (save) 
+		ImGui::OpenPopup(lang ? "Save File" : (const char*)u8"Сохранить Файл");
+	
 
-	if (file_dialog.showFileDialog("Open File", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
+	if (file_dialog.showFileDialog(lang ? "Open File" : (const char*)u8"Открыть Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
 	{
-		std::cout << file_dialog.selected_fn << std::endl;      // The name of the selected file or directory in case of Select Directory dialog mode
-		std::cout << file_dialog.selected_path << std::endl;    // The absolute path to the selected file
 
 		fileToEdit = file_dialog.selected_path;
 	}
-
-	ImGui::ShowDemoWindow();
-
-	ImGui::Text("                                                                            THE GLOBALS EDITOR                  ");
+	if (file_dialog.showFileDialog(lang ? "Save File" : (const char*)u8"Сохранить Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
+	{
+		saveFilePath = file_dialog.selected_path;
+		std::ofstream fileStream(saveFilePath);
+		if (fileStream.is_open()) {
+			fileToEdit = fileToEdit.c_str();
+			std::ifstream file(fileToEdit);
+			if (!file) {
+				std::cerr << "Unable to open file";
+			}
+			else {
+				string line;
+				while (std::getline(file, line)) {
+					fileStream << line << endl;
+				}
+			}
+			fileStream.close(); // Закрываем файл
+		}
+	}
+	ImGui::SetCursorPosX((ImGui::GetWindowWidth() - ImGui::CalcTextSize("THE GLOBALS EDITOR").x) / 2.f);
+	ImGui::Text("THE GLOBALS EDITOR");
 	ImGui::Text("");
 
-	ImGui::BeginChild("left2 pane", ImVec2(200, 0), true);
+	ImGui::BeginChild("left2 pane", ImVec2(170, 450), true);
 
 	if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
 	{
@@ -760,7 +838,7 @@ void gui::Render() noexcept
 		linksAdd = false;
 	}
 
-	if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Тригеры"))
+	if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Триггеры"))
 	{
 		actions = false;
 		triggers = true;
@@ -844,7 +922,7 @@ void gui::Render() noexcept
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить тригер"))
+		if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить триггер"))
 		{
 			editTrigger();
 			matchInputFieldsSize(to_string(getObjectNumber(globalsTriggers[item_current_idx_trigger][0])), vibor);
@@ -864,7 +942,10 @@ void gui::Render() noexcept
 		vibor = "Links";
 		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
 		{
+			inputTriggerFields.clear();
+			inputActionFields.clear();
 			changeTypeInputFields("1", vibor);
+
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
@@ -877,6 +958,11 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"Изменить ссылку"))
 		{
+			inputTriggerFields.clear();
+			inputActionFields.clear();
+			item_current_idx_link = 0;
+			changeTypeInputFields("1", vibor);
+
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = true;
@@ -891,10 +977,75 @@ void gui::Render() noexcept
 
 	ImGui::SameLine();
 
-	ImGui::BeginChild("left pane", ImVec2(600, 0), true);
+	ImGui::BeginChild("left pane", ImVec2(500, 450), true);
 	static ImGuiTextBuffer log;
 	if (linksEdit)
 	{
+		ImGui::Text("Link");
+		ImGui::SameLine();
+
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.5f);
+
+		const char* combo_preview_value = LinksNames[item_current_idx_link].c_str();
+		if (ImGui::BeginCombo(" ", combo_preview_value))
+		{
+			for (int n = 0; n < LinksNames.size(); n++)
+			{
+				const bool is_selected = (item_current_idx_link == n);
+				if (ImGui::Selectable(LinksNames[n].c_str(), is_selected))
+				{
+					item_current_idx_link = n;
+					matchInputFieldsSize("1", vibor);
+				}
+
+				if (is_selected)
+					ImGui::SetItemDefaultFocus();
+			}
+			ImGui::EndCombo();
+		}
+
+		ImGui::SameLine(); HelpMarker(lang ?
+			"With a link you can like triggers and actions together.\n\n"
+			"When a trigger will be triggered, an action will de executed.\n\n"
+			"Multiple triggers can be linked to multiple actions, etc." :
+			(const char*)u8"Ссылка соединяет триггер с активностью.\n\nКогда сработает триггер, будет запущена активность.\n\nНесколько триггеров может быть соединено с несколькими активностями."
+		);
+
+		ImGui::Text("");
+
+		if (ImGui::Button(lang ? "Save link " : (const char*)u8"Сохранить ссылку "))
+		{
+			cout << "idx " << item_current_idx_link << " ";
+
+			replaceText(fileToEdit, globalsLinksPositions[item_current_idx_link], compileLink(inputFields, inputTriggerFields, inputActionFields, item_current_idx_link, item_current_idx_link));
+			reloadFile(log);
+		}
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Delete Link" : (const char*)u8"Удалить ссылку"))
+		{
+			inputTriggerFields.clear();
+			inputActionFields.clear();
+			inputFields[3] = "0";
+			inputFields[5] = "0";
+			replaceText(fileToEdit, globalsLinksPositions[item_current_idx_link], compileLink(inputFields, inputTriggerFields, inputActionFields, item_current_idx_link, item_current_idx_link));
+			reloadFile(log);
+		}
+		if (ImGui::IsItemHovered())
+		{
+			ImGui::BeginTooltip();
+			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+			ImGui::TextUnformatted(lang ? "Replaces link with an empty one" : (const char*)u8"Заменяет ссылку на пустую");
+			ImGui::PopTextWrapPos();
+			ImGui::EndTooltip();
+		}
+		ImGui::SameLine();
+		if (ImGui::Button(lang ? "Revert" : (const char*)u8"Вернуть исходное"))
+		{
+			matchInputFieldsSize("1", vibor);
+		}
+
+		ImGui::Text("");
+		drawInputFields("1", vibor);
 
 	}
 	if (linksAdd)
@@ -902,6 +1053,13 @@ void gui::Render() noexcept
 		ImGui::Text("Link ");
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsLinks.size()).c_str());
+
+		ImGui::SameLine(); HelpMarker(lang ?
+			"With a link you can like triggers and actions together.\n\n"
+			"When a trigger will be triggered, an action will de executed.\n\n"
+			"Multiple triggers can be linked to multiple actions, etc." :
+			(const char*)u8"Ссылка соединяет триггер с активностью.\n\nКогда сработает триггер, будет запущена активность.\n\nНесколько триггеров может быть соединено с несколькими активностями."
+		);
 
 		ImGui::Text("");
 
@@ -911,12 +1069,7 @@ void gui::Render() noexcept
 				std::cout << "Input Value: " << value << std::endl;
 			}
 
-			for (auto it : globalsLinks[item_current_idx])
-			{
-				linkObjs.push_back(it.pObj);
-			}
-
-			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, compileLink(inputFields, linkObjs, stoi(inputFields[0]), globalsLinksPositions.size()));
+			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, compileLink(inputFields, inputTriggerFields, inputActionFields, stoi(inputFields[0]), globalsLinksPositions.size()));
 			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
@@ -924,16 +1077,10 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-
-		if (ImGui::Button(lang ? "Add trigger  " : (const char*)u8"Добавить триггер  ")) addLinkTriggerField();
-
-		if (ImGui::Button(lang ? "Add Action  " : (const char*)u8"Добавить действие  ")) addLinkActionField();
-
 		drawInputFields("1", vibor);
 	}
 	if (triggersEdit)
 	{
-
 		ImGui::Text("Trigger");
 		ImGui::SameLine();
 
@@ -958,6 +1105,13 @@ void gui::Render() noexcept
 			ImGui::EndCombo();
 		}
 
+		ImGui::SameLine(); HelpMarker(lang ?
+			"A trigger is something that can happen in The Hobbit.\n\n"
+			"For example it can be when a stone hits an NPC,\n\n"
+			"when Bilbo enters volume, a cutscene finishes, etc." :
+			(const char*)u8"Триггер это что-то, что происходит в игре.\n\nНапример Бильбо заходит в волум, катсцена закончилась,\n\nпо НПС попал камень и тд."
+		);
+
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -972,6 +1126,15 @@ void gui::Render() noexcept
 				{
 					TriggerType = n;
 					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
+				}
+
+				if (ImGui::IsItemHovered())
+				{
+					ImGui::BeginTooltip();
+					ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+					ImGui::TextUnformatted(lang ? tipsTriggersENG[TriggerTypes[n]].c_str() : tipsTriggersRUS[TriggerTypes[n]].c_str());
+					ImGui::PopTextWrapPos();
+					ImGui::EndTooltip();
 				}
 
 				if (is_selected)
@@ -989,7 +1152,7 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Save triger" : (const char*)u8"Сохранить триггер"))
+		if (ImGui::Button(lang ? "Save trigger" : (const char*)u8"Сохранить триггер"))
 		{
 			for (const std::string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
@@ -1013,7 +1176,7 @@ void gui::Render() noexcept
 		{
 			ImGui::BeginTooltip();
 			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces trigger with an empty one" : (const char*)u8"Заменяет тригер на пустой");
+			ImGui::TextUnformatted(lang ? "Replaces trigger with an empty one" : (const char*)u8"Заменяет триггер на пустой");
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
@@ -1027,7 +1190,12 @@ void gui::Render() noexcept
 		ImGui::Text("Trigger ");
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsTriggers.size()).c_str());
-
+		ImGui::SameLine(); HelpMarker(lang ?
+			"A trigger is something that can happen in The Hobbit.\n\n"
+			"For example it can be when a stone hits an NPC,\n\n"
+			"when Bilbo enters volume, a cutscene finishes, etc." :
+			(const char*)u8"Триггер это что-то, что происходит в игре.\n\nНапример Бильбо заходит в волум, катсцена закончилась,\n\nпо НПС попал камень и тд."
+		);
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -1042,6 +1210,15 @@ void gui::Render() noexcept
 				{
 					TriggerType = n;
 					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
+				}
+
+				if (ImGui::IsItemHovered())
+				{
+					ImGui::BeginTooltip();
+					ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+					ImGui::TextUnformatted(lang ? tipsTriggersENG[TriggerTypes[n]].c_str() : tipsTriggersRUS[TriggerTypes[n]].c_str());
+					ImGui::PopTextWrapPos();
+					ImGui::EndTooltip();
 				}
 
 				if (is_selected)
@@ -1066,7 +1243,6 @@ void gui::Render() noexcept
 	}
 	if (actionsEdit)
 	{
-
 		ImGui::Text("Action");
 		ImGui::SameLine();
 
@@ -1091,6 +1267,12 @@ void gui::Render() noexcept
 			ImGui::EndCombo();
 		}
 
+		ImGui::SameLine(); HelpMarker(lang ?
+			"Action is something that will be executed.\n\n"
+			"This can be telport Bilbo, start a cutscene, spawn NPC, etc." :
+			(const char*)u8"Активность это действие что произойдет в игре.\n\nНапример телепортировать Бильбо, заспавнить НПС, начать катсцену и тд."
+		);
+
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -1105,6 +1287,14 @@ void gui::Render() noexcept
 				{
 					currentActionTypeIndex = n;
 					changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
+				}
+				if (ImGui::IsItemHovered())
+				{
+					ImGui::BeginTooltip();
+					ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+					ImGui::TextUnformatted(lang ? tipsActionsENG[actionsTypes[n]].c_str() : tipsActionsRUS[actionsTypes[n]].c_str());
+					ImGui::PopTextWrapPos();
+					ImGui::EndTooltip();
 				}
 
 				if (is_selected)
@@ -1161,6 +1351,12 @@ void gui::Render() noexcept
 		ImGui::SameLine();
 		ImGui::Text(to_string(globalsActions.size()).c_str());
 
+		ImGui::SameLine(); HelpMarker(lang ?
+			"Action is something that will be executed.\n\n"
+			"This can be telport Bilbo, start a cutscene, spawn NPC, etc." :
+			(const char*)u8"Активность это действие что произойдет в игре.\n\nНапример телепортировать Бильбо, заспавнить НПС, начать катсцену и тд."
+		);
+
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
@@ -1175,6 +1371,14 @@ void gui::Render() noexcept
 				{
 					currentActionTypeIndex = n;
 					changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
+				}
+				if (ImGui::IsItemHovered())
+				{
+					ImGui::BeginTooltip();
+					ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+					ImGui::TextUnformatted(lang ? tipsActionsENG[actionsTypes[n]].c_str() : tipsActionsRUS[actionsTypes[n]].c_str());
+					ImGui::PopTextWrapPos();
+					ImGui::EndTooltip();
 				}
 
 				if (is_selected)
@@ -1206,19 +1410,22 @@ void gui::Render() noexcept
 
 	ImGui::SameLine();
 
-	ImGui::BeginChild("text pane", ImVec2(370, 0), true);
+	ImGui::BeginChild("text pane", ImVec2(525, 450), true, ImGuiWindowFlags_HorizontalScrollbar);
 
-	if (ImGui::Button("Show File")) reloadFile(log);
+	ImGui::Text(fileToEdit.c_str());
+	if (ImGui::Button(lang ? "Load Globals" : (const char*)u8"Загрузить Глобалс")) reloadFile(log);
+	if (ImGui::IsItemHovered())
+	{
+		ImGui::BeginTooltip();
+		ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+		ImGui::TextUnformatted(lang ? "Make sure you selected globals file in the Menu" : (const char*)u8"Убедитесь что вы выбрали глобалс файл в меню");
+		ImGui::PopTextWrapPos();
+		ImGui::EndTooltip();
+	}
 
 	ImGui::TextUnformatted(log.begin(), log.end());
 
 	ImGui::EndChild();
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
 
 	if (ImGui::Button(!lang ? "Change Language" : (const char*)u8"Поменять язык")) lang = !lang;
 

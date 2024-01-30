@@ -12,7 +12,7 @@
 #include "ActivityTypeArray.h"
 using namespace gui;
 
-int main(  //__stdcall wWinMain
+int main(  //__stdcall wWinMain wWinMain
 	HINSTANCE instance,
 	HINSTANCE previousInstance,
 	PWSTR arguments,
@@ -20,14 +20,6 @@ int main(  //__stdcall wWinMain
 {
 
 	//ActivityTypeArray.insert({ "hii", {"ff","dsd"} });
-
-	for (const auto& pair : ActivityTypeArray) {
-		std::cout << "Key: " << pair.first << ", Values: ";
-		for (const auto& value : pair.second) {
-			std::cout << value << " ";
-		}
-		std::cout << std::endl;
-	}
 
 	setlocale(LC_ALL, "RUSSIAN");
 
