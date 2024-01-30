@@ -991,7 +991,7 @@ void gui::Render() noexcept
 			reloadFile(log);
 		}
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Delete Link" : (const char*)u8"Удалить триггер"))
+		if (ImGui::Button(lang ? "Delete Link" : (const char*)u8"Удалить ссылку"))
 		{
 			inputTriggerFields.clear();
 			inputActionFields.clear();
