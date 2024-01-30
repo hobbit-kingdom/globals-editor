@@ -295,6 +295,10 @@ std::vector<std::string> inputFields;
 vector < string > inputTriggerFields = { "0" };
 vector < string > inputActionFields = { "0" };
 
+vector<string> TriggersNames = {};
+vector<string> ActionsNames = {};
+
+
 void addInputField() {
 	inputFields.push_back("");
 }
@@ -313,6 +317,15 @@ void addLinkTriggerField() {
 
 void addLinkActionField() {
 	inputActionFields.push_back("0");
+}
+
+bool is_numeric(const std::string& str) {
+	for (char c : str) {
+		if (!std::isdigit(c)) {
+			return false;
+		}
+	}
+	return true;
 }
 
 void drawInputFields(string type, string vibor) {
@@ -377,13 +390,21 @@ void drawInputFields(string type, string vibor) {
 						inputTriggerFields[j] = buf1;
 					}
 
+					if (inputTriggerFields[j] != "" && is_numeric(inputTriggerFields[j]) && stoi(inputTriggerFields[j]) < TriggersNames.size() && ImGui::IsItemHovered())
+					{
+						ImGui::BeginTooltip();
+						ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+
+						ImGui::TextUnformatted(TriggersNames[stoi(inputTriggerFields[j])].c_str());
+						ImGui::PopTextWrapPos();
+						ImGui::EndTooltip();
+					}
 					ImGui::SameLine();
 					if (ImGui::Button("-")) {
 						removeInputFieldVar(j, inputTriggerFields);
 					}
 
 					ImGui::PopID();
-
 				}
 			}
 			else if (i == 6) {
@@ -400,6 +421,17 @@ void drawInputFields(string type, string vibor) {
 					if (ImGui::InputText("", buf1, sizeof(buf1))) {
 						inputActionFields[j] = buf1;
 					}
+
+					if (inputActionFields[j] != "" && is_numeric(inputActionFields[j]) && stoi(inputActionFields[j]) < ActionsNames.size() && ImGui::IsItemHovered())
+					{
+						ImGui::BeginTooltip();
+						ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+
+						ImGui::TextUnformatted(ActionsNames[stoi(inputActionFields[j])].c_str());
+						ImGui::PopTextWrapPos();
+						ImGui::EndTooltip();
+					}
+
 					ImGui::SameLine();
 					if (ImGui::Button("-")) {
 						removeInputFieldVar(j, inputActionFields);
@@ -502,12 +534,9 @@ string saveFilePath = "globals.TXT";
 map<int, vector<string>> globalsActions;
 map<int, int> globalsActionsPositions;
 
-vector<string> ActionsNames = {};
-
 map<int, vector<string>> globalsTriggers;
 map<int, int> globalsTriggersPositions;
 
-vector<string> TriggersNames = {};
 
 map<int, vector<string>> globalsLinks;
 map<int, int> globalsLinksPositions;
@@ -640,6 +669,9 @@ void editTrigger()
 
 static int aiManagerPropRowIndex = 0;
 
+bool loaded = false;
+bool errorOpen = false;
+
 void reloadFile(ImGuiTextBuffer& log)
 {
 	globalsTriggers.clear();
@@ -670,6 +702,9 @@ void reloadFile(ImGuiTextBuffer& log)
 	std::ifstream file(fileToEdit);
 	if (!file) {
 		std::cerr << "Unable to open file";
+		errorOpen = true;
+		loaded = false;
+		log.clear();
 	}
 	else {
 		string line;
@@ -752,9 +787,10 @@ void reloadFile(ImGuiTextBuffer& log)
 
 			lineCounter++;
 		}
-		for (const auto& pair : globalsTriggers) TriggersNames.push_back(" #" + to_string(pair.first) + " T" + pair.second[0] + " " + pair.second[1]);
-		for (const auto& pair : globalsActions) ActionsNames.push_back(" #" + to_string(pair.first) + " T" + pair.second[0] + " " + pair.second[1]);
+		for (const auto& pair : globalsTriggers) TriggersNames.push_back("#" + to_string(pair.first) + " T" + pair.second[0] + " " + pair.second[1]);
+		for (const auto& pair : globalsActions) ActionsNames.push_back("#" + to_string(pair.first) + " T" + pair.second[0] + " " + pair.second[1]);
 		for (const auto& pair : globalsLinks) LinksNames.push_back("#" + to_string(pair.first));
+		loaded = true;
 	}
 }
 
@@ -772,26 +808,63 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_MenuBar
 	);
 
-	bool open = false, save = false;
+	bool open = false, save = false, help = false;
 	if (ImGui::BeginMenuBar())
 	{
-		if (ImGui::BeginMenu(lang ? "Menu": (const char*)u8"Меню"))
+		if (ImGui::BeginMenu(lang ? "Menu" : (const char*)u8"Меню"))
 		{
-			if (ImGui::MenuItem(lang ? "Open File": (const char*)u8"Открыть Файл", NULL))
+			if (ImGui::MenuItem(lang ? "Open File" : (const char*)u8"Открыть Файл", NULL))
 				open = true;
-			if (ImGui::MenuItem(lang ? "Save File": (const char*)u8"Сохранить Файл", NULL))
+			if (ImGui::MenuItem(lang ? "Save File" : (const char*)u8"Сохранить Файл", NULL))
 				save = true;
 
 			ImGui::EndMenu();
+		}
+		if (ImGui::Button(lang ? "Help" : (const char*)u8"Помощь"))
+		{
+			help = true;
 		}
 		ImGui::EndMenuBar();
 	}
 
 	if (open)
-		ImGui::OpenPopup(lang ? "Open File": (const char*)u8"Открыть Файл");
-	if (save) 
-		ImGui::OpenPopup(lang ? "Save File" : (const char*)u8"Сохранить Файл");
-	
+		ImGui::OpenPopup(lang ? "Open File" : (const char*)u8"Открыть Файл");
+	if (help)
+		ImGui::OpenPopup("Help");
+	if (errorOpen)
+		ImGui::OpenPopup("Error");
+
+	if (ImGui::BeginPopupModal("Error"))
+	{
+		ImGui::Text(lang ? "File path is invalid/file can't be opened" : (const char*)u8"Путь к файлу не верен/нельзя открыть файл");
+
+		if (ImGui::Button("OK"))
+		{
+			ImGui::CloseCurrentPopup();
+			errorOpen = false;
+		}
+		ImGui::EndPopup();
+	}
+
+	if (ImGui::BeginPopupModal("Help"))
+	{
+		ImGui::Text("Actions");
+
+		ImGui::Indent();
+
+		ImGui::Text(lang ? "StringID: if you write text directly in a field\n\nand it will be displayed in the game.\n\nFor example subtitles." : (const char*)u8"StringID: впишите в поле текст\n\nи он будетв игре,\n\nнапример субтитры для катсцен.");
+
+		ImGui::Unindent();
+
+		ImGui::Text("");
+
+		if (ImGui::Button("OK"))
+		{
+			ImGui::CloseCurrentPopup();
+			help = false;
+		}
+		ImGui::EndPopup();
+	}
 
 	if (file_dialog.showFileDialog(lang ? "Open File" : (const char*)u8"Открыть Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
 	{
@@ -822,157 +895,161 @@ void gui::Render() noexcept
 	ImGui::Text("");
 
 	ImGui::BeginChild("left2 pane", ImVec2(170, 450), true);
-
-	if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
+	if (loaded)
 	{
-		actions = true;
-		triggers = false;
-		links = false;
-
-		actionsEdit = false;
-		triggersEdit = false;
-		linksEdit = false;
-
-		actionsAdd = false;
-		triggersAdd = false;
-		linksAdd = false;
-	}
-
-	if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Триггеры"))
-	{
-		actions = false;
-		triggers = true;
-		links = false;
-
-		actionsEdit = false;
-		triggersEdit = false;
-		linksEdit = false;
-
-		actionsAdd = false;
-		triggersAdd = false;
-		linksAdd = false;
-	}
-
-	if (ImGui::Button(lang ? "Links" : (const char*)u8"Ссылки"))
-	{
-		actions = false;
-		triggers = false;
-		links = true;
-
-		actionsEdit = false;
-		triggersEdit = false;
-		linksEdit = false;
-
-		actionsAdd = false;
-		triggersAdd = false;
-		linksAdd = false;
-	}
-
-	ImGui::Text("");
-	ImGui::Text("");
-	ImGui::Text("");
-
-	if (actions)
-	{
-		vibor = "Actions";
-		if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
+		if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
 		{
-			changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
+			actions = true;
+			triggers = false;
+			links = false;
+
 			actionsEdit = false;
 			triggersEdit = false;
 			linksEdit = false;
 
-			actionsAdd = true;
+			actionsAdd = false;
 			triggersAdd = false;
 			linksAdd = false;
 		}
 
+		if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Триггеры"))
+		{
+			actions = false;
+			triggers = true;
+			links = false;
+
+			actionsEdit = false;
+			triggersEdit = false;
+			linksEdit = false;
+
+			actionsAdd = false;
+			triggersAdd = false;
+			linksAdd = false;
+		}
+
+		if (ImGui::Button(lang ? "Links" : (const char*)u8"Ссылки"))
+		{
+			actions = false;
+			triggers = false;
+			links = true;
+
+			actionsEdit = false;
+			triggersEdit = false;
+			linksEdit = false;
+
+			actionsAdd = false;
+			triggersAdd = false;
+			linksAdd = false;
+		}
+
+		ImGui::Text("");
+		ImGui::Text("");
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
+		if (actions)
 		{
-			editAction();
-			matchInputFieldsSize(to_string(getObjectNumber(globalsActions[item_current_idx][0])), vibor);
-			actionsEdit = true;
-			triggersEdit = false;
-			linksEdit = false;
+			vibor = "Actions";
+			if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
+			{
+				changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
+				actionsEdit = false;
+				triggersEdit = false;
+				linksEdit = false;
 
-			actionsAdd = false;
-			triggersAdd = false;
-			linksAdd = false;
+				actionsAdd = true;
+				triggersAdd = false;
+				linksAdd = false;
+			}
+
+			ImGui::Text("");
+
+			if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
+			{
+				editAction();
+				matchInputFieldsSize(to_string(getObjectNumber(globalsActions[item_current_idx][0])), vibor);
+				actionsEdit = true;
+				triggersEdit = false;
+				linksEdit = false;
+
+				actionsAdd = false;
+				triggersAdd = false;
+				linksAdd = false;
+			}
+		}
+
+		if (triggers)
+		{
+			vibor = "Triggers";
+			ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+
+			if (ImGui::Button(lang ? "Add Trigger" : (const char*)u8"Добавить триггер"))
+			{
+				changeTypeInputFields(TriggerTypes[TriggerType], vibor);
+				actionsEdit = false;
+				triggersEdit = false;
+				linksEdit = false;
+
+				actionsAdd = false;
+				triggersAdd = true;
+				linksAdd = false;
+			}
+			ImGui::Text("");
+
+			ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
+			if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить триггер"))
+			{
+				editTrigger();
+				matchInputFieldsSize(to_string(getObjectNumber(globalsTriggers[item_current_idx_trigger][0])), vibor);
+
+				actionsEdit = false;
+				triggersEdit = true;
+				linksEdit = false;
+
+				actionsAdd = false;
+				triggersAdd = false;
+				linksAdd = false;
+			}
+		}
+
+		if (links)
+		{
+			vibor = "Links";
+			if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
+			{
+				inputTriggerFields.clear();
+				inputActionFields.clear();
+				changeTypeInputFields("1", vibor);
+
+				actionsEdit = false;
+				triggersEdit = false;
+				linksEdit = false;
+
+				actionsAdd = false;
+				triggersAdd = false;
+				linksAdd = true;
+			}
+			ImGui::Text("");
+
+			if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"Изменить ссылку"))
+			{
+				inputTriggerFields.clear();
+				inputActionFields.clear();
+				item_current_idx_link = 0;
+				changeTypeInputFields("1", vibor);
+
+				actionsEdit = false;
+				triggersEdit = false;
+				linksEdit = true;
+
+				actionsAdd = false;
+				triggersAdd = false;
+				linksAdd = false;
+			}
 		}
 	}
-
-	if (triggers)
-	{
-		vibor = "Triggers";
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-
-		if (ImGui::Button(lang ? "Add Trigger" : (const char*)u8"Добавить триггер"))
-		{
-			changeTypeInputFields(TriggerTypes[TriggerType], vibor);
-			actionsEdit = false;
-			triggersEdit = false;
-			linksEdit = false;
-
-			actionsAdd = false;
-			triggersAdd = true;
-			linksAdd = false;
-		}
-		ImGui::Text("");
-
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-		if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить триггер"))
-		{
-			editTrigger();
-			matchInputFieldsSize(to_string(getObjectNumber(globalsTriggers[item_current_idx_trigger][0])), vibor);
-
-			actionsEdit = false;
-			triggersEdit = true;
-			linksEdit = false;
-
-			actionsAdd = false;
-			triggersAdd = false;
-			linksAdd = false;
-		}
+	else {
+		ImGui::Text(lang ? "Load globals file at first" : (const char*)u8"Сначало загрузите\n\nфайл глобалс");
 	}
-
-	if (links)
-	{
-		vibor = "Links";
-		if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
-		{
-			inputTriggerFields.clear();
-			inputActionFields.clear();
-			changeTypeInputFields("1", vibor);
-
-			actionsEdit = false;
-			triggersEdit = false;
-			linksEdit = false;
-
-			actionsAdd = false;
-			triggersAdd = false;
-			linksAdd = true;
-		}
-		ImGui::Text("");
-
-		if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"Изменить ссылку"))
-		{
-			inputTriggerFields.clear();
-			inputActionFields.clear();
-			item_current_idx_link = 0;
-			changeTypeInputFields("1", vibor);
-
-			actionsEdit = false;
-			triggersEdit = false;
-			linksEdit = true;
-
-			actionsAdd = false;
-			triggersAdd = false;
-			linksAdd = false;
-		}
-	}
-
 	ImGui::EndChild();
 
 	ImGui::SameLine();
@@ -1015,8 +1092,6 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Save link " : (const char*)u8"Сохранить ссылку "))
 		{
-			cout << "idx " << item_current_idx_link << " ";
-
 			replaceText(fileToEdit, globalsLinksPositions[item_current_idx_link], compileLink(inputFields, inputTriggerFields, inputActionFields, item_current_idx_link, item_current_idx_link));
 			reloadFile(log);
 		}
@@ -1045,8 +1120,8 @@ void gui::Render() noexcept
 		}
 
 		ImGui::Text("");
-		drawInputFields("1", vibor);
 
+		drawInputFields("1", vibor);
 	}
 	if (linksAdd)
 	{

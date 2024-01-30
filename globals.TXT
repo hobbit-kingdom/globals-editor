@@ -3,17 +3,13 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-163 295 141
-172 308 140
-=======
-163 295 136
->>>>>>> a86dc62e6d67e8bcf63f7fe2dd0802664026e5b4:globals.TXT
+165  295 133
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
 [ Trigger1 : 1 ]
- { TriggerType1:d TriggerName1:s            Volume1:g         Character1:g      TriggersOnce1:d AllNPCs1:d StaysTrue1:d TriggeredOnTrue1:d }
-   3              "VOLUME: Turtle Trig Vol" CA3DD291_3101F400 ABCABCAB_CABCABC0 0               0          0            1                  
+{ TriggerType1:d TriggerName1:s Volume1:g Character1:g TriggersOnce1:d AllNPCs1:d StaysTrue1:d TriggeredOnTrue1:d }
+3 "VOLUME: Turtle Trig Vol" CA3DD291_31032323 ABCABCAB_CABCABC0 0 0 0 1 
 [ Trigger2 : 1 ]
  { TriggerType2:d TriggerName2:s               Trigger2:g        TriggerToggle2:d StaysTrue2:d TriggeredOnTrue2:d }
    18             "Teleport: Take Me 2 BagEnd" CA3DDF12_B1857C01 1                0            1                  
@@ -494,6 +490,12 @@
 [ Trigger161 : 1 ]
  { TriggerType161:d TriggerName161:s           Volume161:g       Character161:g    TriggersOnce161:d AllNPCs161:d StaysTrue161:d TriggeredOnTrue161:d }
    3                "Bilbo enters our volume" CA3DD3D2_68430800 ABCABCAB_CABCABC0 1                 0            0              1                    
+[ Trigger162 : 1 ]
+{ TriggerType162:d TriggerName162:s Item162:s Amount162:d StaysTrue162:d TriggeredOnTrue162:d }
+9 "DefaultName" "DefaultName" 1 0 0 
+[ Trigger163 : 1 ]
+{ TriggerType163:d TriggerName163:s Vine163:g StaysTrue163:d TriggeredOnTrue163:d }
+32 "DefaultName" 00000000_00000000 0 0 
 
 
 
@@ -652,8 +654,8 @@
  { ActionType50:d ActionName50:s              Action50ExecuteDelay:f Action50ExecuteImmediately:d Action50QuestID:s      }
    34             "Quest: Complete Scarecrow" 0.000000               0                            "R_ID_SCARECROWS_CH01" 
 [ Action51 : 1 ]
- { ActionType51:d ActionName51:s          Action51ExecuteDelay:f Action51ExecuteImmediately:d Action51QuestID:s      }
-   29             "Quest: Complete Sadoc" 0.000000               0                            "W_ID_FIND_SADOC_CH01" 
+{ ActionType51:d ActionName51:s Action51ExecuteDelay:f Action51ExecuteImmediately:d Action51QuestID:s }
+29 "Quest: Complete Sadoc" 0.000000 1 "W_ID_FIND_SADOC_CH01" 
 [ Action52 : 1 ]
  { ActionType52:d ActionName52:s               Action52ExecuteDelay:f Action52ExecuteImmediately:d Action52QuestID:s      }
    34             "Quest: Complete Provisions" 0.000000               1                            "H_ID_PROVISIONS_CH01" 
@@ -832,8 +834,8 @@
  { ActionType110:d ActionName110:s       Action110ExecuteDelay:f Action110ExecuteImmediately:d Action110State:s       Action110NPC:g    }
    13              "Make Chicken5 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_520E7001 
 [ Action111 : 1 ]
-{ ActionType111:d ActionName111:s Action111ExecuteDelay:f Action111ExecuteImmediately:d Action111CharacterGuid:g Action111AIStateName:s Action111GoalListName:s Action111OverrideCinematicAnimation:d }
-4 "DefaultName" 0.000000 0 00000000_00000000 "Idle" "Idle" 0 
+ { ActionType111:d ActionName111:s      Action111ExecuteDelay:f Action111ExecuteImmediately:d Action111CharacterGuid:g Action111Team:d }
+   2               "Make Chicken3 Good" 2.000000                0                             CA3DD48F_520D1801        0               
 [ Action112 : 1 ]
  { ActionType112:d ActionName112:s       Action112ExecuteDelay:f Action112ExecuteImmediately:d Action112State:s       Action112NPC:g    }
    13              "Make Chicken3 Alert" 0.000000                0                             "SleepingChickenAlert" CA3DD48F_520D1801 
@@ -1386,30 +1388,33 @@
 [ Action293 : 1 ]
  { ActionType293:d ActionName293:s  Action293ExecuteDelay:f Action293ExecuteImmediately:d Action293StringID:s              Action293Scroll:d Action293DelayTime:f }
    18              "Custom text"    5.0000000                0                             "Hello my text!"                0                 5.000000             
+[ Action294 : 1 ]
+{ ActionType294:d ActionName294:s Action294ExecuteDelay:f Action294ExecuteImmediately:d Action294DoRunAI:d Action294NPC:g }
+50 "DefaultName" 0.000000 0 0 00000000_00000000 
 
 
 
 [ Link0 : 1 ]
-{ LinkRepeats0:d LinkState0:d LogicType0:d LinkTriggerCount0:d LinkTriggerIndex0-0:d LinkTriggerIndex0-1:d LinkActionCount0:d }
-0 0 0 2 0 0 0 
+ { LinkRepeats0:d LinkState0:d LogicType0:d LinkTriggerCount0:d LinkTriggerIndex0-0:d LinkTriggerIndex0-1:d LinkActionCount0:d LinkActionIndex0-0:d LinkActionIndex0-1:d LinkActionIndex0-2:d }
+   0              0            0            2                   0                     23                    3                  239                  61                   152                  
 [ Link1 : 1 ]
  { LinkRepeats1:d LinkState1:d LogicType1:d LinkTriggerCount1:d LinkTriggerIndex1-0:d LinkTriggerIndex1-1:d LinkActionCount1:d LinkActionIndex1-0:d LinkActionIndex1-1:d LinkActionIndex1-2:d }
    0              0            0            2                   0                     24                    3                  235                  47                   143                  
 [ Link2 : 1 ]
-{ LinkRepeats2:d LinkState2:d LogicType2:d LinkTriggerCount2:d LinkActionCount2:d }
-0 0 0 0 0 
+ { LinkRepeats2:d LinkState2:d LogicType2:d LinkTriggerCount2:d LinkTriggerIndex2-0:d LinkTriggerIndex2-1:d LinkActionCount2:d LinkActionIndex2-0:d LinkActionIndex2-1:d LinkActionIndex2-2:d }
+   0              0            0            2                   0                     25                    3                  240                  64                   154                  
 [ Link3 : 1 ]
  { LinkRepeats3:d LinkState3:d LogicType3:d LinkTriggerCount3:d LinkTriggerIndex3-0:d LinkTriggerIndex3-1:d LinkActionCount3:d LinkActionIndex3-0:d LinkActionIndex3-1:d LinkActionIndex3-2:d }
    0              0            0            2                   0                     26                    3                  240                  46                   144                  
 [ Link4 : 1 ]
-{ LinkRepeats4:d LinkState4:d LogicType4:d LinkTriggerCount4:d LinkTriggerIndex4-0:d LinkActionCount4:d LinkActionIndex4-0:d LinkActionIndex4-1:d LinkActionIndex4-2:d LinkActionIndex4-3:d }
-0 0 0 1 30 4 59 151 0 0 
+ { LinkRepeats4:d LinkState4:d LogicType4:d LinkTriggerCount4:d LinkTriggerIndex4-0:d LinkTriggerIndex4-1:d LinkActionCount4:d LinkActionIndex4-0:d LinkActionIndex4-1:d LinkActionIndex4-2:d }
+   0              0            0            2                   0                     28                    3                  235                  48                   146                  
 [ Link5 : 1 ]
  { LinkRepeats5:d LinkState5:d LogicType5:d LinkTriggerCount5:d LinkTriggerIndex5-0:d LinkTriggerIndex5-1:d LinkActionCount5:d LinkActionIndex5-0:d LinkActionIndex5-1:d LinkActionIndex5-2:d }
    0              0            0            2                   0                     29                    3                  235                  49                   147                  
 [ Link6 : 1 ]
-{ LinkRepeats6:d LinkState6:d LogicType6:d LinkTriggerCount6:d LinkActionCount6:d }
-0 0 0 0 0 
+ { LinkRepeats6:d LinkState6:d LogicType6:d LinkTriggerCount6:d LinkTriggerIndex6-0:d LinkTriggerIndex6-1:d LinkActionCount6:d LinkActionIndex6-0:d LinkActionIndex6-1:d LinkActionIndex6-2:d }
+   0              0            0            2                   0                     30                    3                  241                  59                   151                  
 [ Link7 : 1 ]
  { LinkRepeats7:d LinkState7:d LogicType7:d LinkTriggerCount7:d LinkTriggerIndex7-0:d LinkTriggerIndex7-1:d LinkActionCount7:d LinkActionIndex7-0:d LinkActionIndex7-1:d LinkActionIndex7-2:d }
    0              0            0            2                   0                     34                    3                  239                  62                   153                  
@@ -1441,8 +1446,8 @@
  { LinkRepeats16:d LinkState16:d LogicType16:d LinkTriggerCount16:d LinkTriggerIndex16-0:d LinkActionCount16:d LinkActionIndex16-0:d }
    0               1             0             1                    7                      1                   261                   
 [ Link17 : 1 ]
-{ LinkRepeats17:d LinkState17:d LogicType17:d LinkTriggerCount17:d LinkTriggerIndex17-0:d LinkTriggerIndex17-1:d LinkTriggerIndex17-2:d LinkActionCount17:d LinkActionIndex17-0:d }
-0 0 0 3 16 0 0 1 81 
+ { LinkRepeats17:d LinkState17:d LogicType17:d LinkTriggerCount17:d LinkTriggerIndex17-0:d LinkActionCount17:d LinkActionIndex17-0:d }
+   0               0             0             1                    16                     1                   81                    
 [ Link18 : 1 ]
  { LinkRepeats18:d LinkState18:d LogicType18:d LinkTriggerCount18:d LinkTriggerIndex18-0:d LinkActionCount18:d LinkActionIndex18-0:d }
    0               0             0             1                    17                     1                   80                    
@@ -1477,8 +1482,8 @@
  { LinkRepeats28:d LinkState28:d LogicType28:d LinkTriggerCount28:d LinkTriggerIndex28-0:d LinkActionCount28:d LinkActionIndex28-0:d LinkActionIndex28-1:d }
    0               0             0             1                    25                     2                   234                   100                   
 [ Link29 : 1 ]
- { LinkRepeats29:d LinkState29:d LogicType29:d LinkTriggerCount29:d LinkTriggerIndex29-0:d LinkActionCount29:d LinkActionIndex29-0:d }
-   0               0             0             1                    26                     1                   70                    
+{ LinkRepeats29:d LinkState29:d LogicType29:d LinkTriggerCount29:d LinkTriggerIndex29-0:d LinkTriggerIndex29-1:d LinkActionCount29:d }
+0 0 0 2 0 0 0 
 [ Link30 : 1 ]
  { LinkRepeats30:d LinkState30:d LogicType30:d LinkTriggerCount30:d LinkTriggerIndex30-0:d LinkActionCount30:d LinkActionIndex30-0:d LinkActionIndex30-1:d LinkActionIndex30-2:d LinkActionIndex30-3:d LinkActionIndex30-4:d LinkActionIndex30-5:d LinkActionIndex30-6:d LinkActionIndex30-7:d }
    0               0             0             1                    27                     8                   2                     3                     71                    26                    137                   100                   138                   270                   
@@ -1528,8 +1533,8 @@
  { LinkRepeats45:d LinkState45:d LogicType45:d LinkTriggerCount45:d LinkTriggerIndex45-0:d LinkActionCount45:d LinkActionIndex45-0:d }
    0               0             0             1                    42                     1                   83                    
 [ Link46 : 1 ]
-{ LinkRepeats46:d LinkState46:d LogicType46:d LinkTriggerCount46:d LinkTriggerIndex46-0:d LinkTriggerIndex46-1:d LinkActionCount46:d }
-0 0 0 2 43 2323 0 
+ { LinkRepeats46:d LinkState46:d LogicType46:d LinkTriggerCount46:d LinkTriggerIndex46-0:d LinkActionCount46:d LinkActionIndex46-0:d }
+   0               0             0             1                    43                     1                   87                    
 [ Link47 : 1 ]
  { LinkRepeats47:d LinkState47:d LogicType47:d LinkTriggerCount47:d LinkTriggerIndex47-0:d LinkActionCount47:d LinkActionIndex47-0:d }
    1               0             0             1                    44                     1                   162                   
@@ -1543,8 +1548,8 @@
  { LinkRepeats50:d LinkState50:d LogicType50:d LinkTriggerCount50:d LinkTriggerIndex50-0:d LinkActionCount50:d LinkActionIndex50-0:d LinkActionIndex50-1:d LinkActionIndex50-2:d LinkActionIndex50-3:d }
    0               0             0             1                    47                     4                   164                   167                   165                   96                    
 [ Link51 : 1 ]
-{ LinkRepeats51:d LinkState51:d LogicType51:d LinkTriggerCount51:d LinkActionCount51:d }
-0 0 0 0 0 
+ { LinkRepeats51:d LinkState51:d LogicType51:d LinkTriggerCount51:d LinkTriggerIndex51-0:d LinkTriggerIndex51-1:d LinkTriggerIndex51-2:d LinkTriggerIndex51-3:d LinkActionCount51:d LinkActionIndex51-0:d LinkActionIndex51-1:d LinkActionIndex51-2:d LinkActionIndex51-3:d LinkActionIndex51-4:d LinkActionIndex51-5:d }
+   0               0             0             4                    48                     46                     5                      109                    6                   242                   7                     56                    132                   141                   126                   
 [ Link52 : 1 ]
  { LinkRepeats52:d LinkState52:d LogicType52:d LinkTriggerCount52:d LinkTriggerIndex52-0:d LinkActionCount52:d LinkActionIndex52-0:d LinkActionIndex52-1:d LinkActionIndex52-2:d }
    0               0             0             1                    48                     3                   169                   243                   58                    
@@ -1567,11 +1572,11 @@
  { LinkRepeats58:d LinkState58:d LogicType58:d LinkTriggerCount58:d LinkTriggerIndex58-0:d LinkActionCount58:d LinkActionIndex58-0:d }
    0               0             0             1                    56                     1                   185                   
 [ Link59 : 1 ]
-{ LinkRepeats59:d LinkState59:d LogicType59:d LinkTriggerCount59:d LinkActionCount59:d }
-1 0 0 0 0 
+ { LinkRepeats59:d LinkState59:d LogicType59:d LinkTriggerCount59:d LinkTriggerIndex59-0:d LinkActionCount59:d LinkActionIndex59-0:d }
+   1               0             0             1                    57                     1                   186                   
 [ Link60 : 1 ]
-{ LinkRepeats60:d LinkState60:d LogicType60:d LinkTriggerCount60:d LinkActionCount60:d }
-1 0 0 0 0 
+ { LinkRepeats60:d LinkState60:d LogicType60:d LinkTriggerCount60:d LinkTriggerIndex60-0:d LinkActionCount60:d LinkActionIndex60-0:d }
+   1               0             0             1                    58                     1                   187                   
 [ Link61 : 1 ]
  { LinkRepeats61:d LinkState61:d LogicType61:d LinkTriggerCount61:d LinkTriggerIndex61-0:d LinkActionCount61:d LinkActionIndex61-0:d }
    1               0             0             1                    59                     1                   188                   
@@ -1603,8 +1608,8 @@
  { LinkRepeats70:d LinkState70:d LogicType70:d LinkTriggerCount70:d LinkTriggerIndex70-0:d LinkActionCount70:d LinkActionIndex70-0:d }
    0               0             0             1                    69                     1                   204                   
 [ Link71 : 1 ]
-{ LinkRepeats71:d LinkState71:d LogicType71:d LinkTriggerCount71:d LinkActionCount71:d }
-0 0 0 0 0 
+ { LinkRepeats71:d LinkState71:d LogicType71:d LinkTriggerCount71:d LinkTriggerIndex71-0:d LinkActionCount71:d LinkActionIndex71-0:d LinkActionIndex71-1:d LinkActionIndex71-2:d LinkActionIndex71-3:d LinkActionIndex71-4:d }
+   0               0             0             1                    70                     5                   205                   36                    148                   157                   33                    
 [ Link72 : 1 ]
  { LinkRepeats72:d LinkState72:d LogicType72:d LinkTriggerCount72:d LinkTriggerIndex72-0:d LinkActionCount72:d LinkActionIndex72-0:d LinkActionIndex72-1:d }
    0               0             0             1                    71                     2                   207                   36                    
@@ -1777,65 +1782,15 @@
  { LinkRepeats128:d LinkState128:d LogicType128:d LinkTriggerCount128:d LinkTriggerIndex128-0:d LinkTriggerIndex128-1:d LinkTriggerIndex128-2:d LinkTriggerIndex128-3:d LinkTriggerIndex128-4:d LinkTriggerIndex128-5:d LinkActionCount128:d LinkActionIndex128-0:d LinkActionIndex128-1:d LinkActionIndex128-2:d LinkActionIndex128-3:d LinkActionIndex128-4:d LinkActionIndex128-5:d LinkActionIndex128-6:d }
    0                0              0              6                     159 154 155 156 157 158                     7                    283                    282                    274                    286                    285   292      284            
 [ Link129 : 1 ]
-<<<<<<< HEAD:globals-editor/globals.TXT
-{ LinkRepeats129:d LinkState129:d LogicType129:d LinkTriggerCount129:d LinkTriggerIndex129-0:d LinkTriggerIndex129-1:d LinkActionCount129:d LinkActionIndex129-0:d LinkActionIndex129-1:d LinkActionIndex129-2:d }
-0 0 0 1 0 1 0 
-[ Link130 : 1 ]
-{ LinkTriggerIndexLinkTriggerIndex0-0:d-1:d LinkTriggerIndexLinkTriggerIndex0-1:d-1:d LinkTriggerIndexLinkTriggerIndex0-2:d-1:d LinkActionCountLinkActionIndex0-0:d:d LinkActionCountLinkActionIndex0-1:d:d LinkActionCountLinkActionIndex0-2:d:d }
-0 0 0 3 4 3 1 3 35 53 23 
-[ Link131 : 1 ]
-{ LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkTriggerIndex131-1:d LinkTriggerIndex131-0:d LinkTriggerIndex131-1:d LinkTriggerIndex131-2:d LinkTriggerIndex131-3:d LinkActionIndex131-0:d LinkActionIndex131-1:d LinkActionIndex131-2:d LinkActionIndex131-0:d LinkActionIndex131-1:d LinkActionIndex131-2:d }
-0 0 0 4 44 4 23 43434 3 1 2 3 
-[ Link132 : 1 ]
-{ LinkRepeats132:d LinkState132:d LogicType132:d LinkTriggerCount132:d LinkTriggerIndex132-1:d LinkTriggerIndex132-0:d LinkTriggerIndex132-1:d LinkActionIndex132-0:d LinkActionIndex132-1:d LinkActionIndex132-0:d LinkActionIndex132-1:d LinkActionIndex132-2:d }
-0 0 0 2 23 444 2 23 4 
-[ Link133 : 1 ]
-{ LinkRepeats133:d LinkState133:d LogicType133:d LinkTriggerCount133:d LinkTriggerIndex133-1:d LinkTriggerIndex133-0:d LinkActionIndex133-0:d LinkActionIndex133-1:d }
-0 0 0 1 0 2 0 1 
-[ Link134 : 1 ]
-{ LinkRepeats134:d LinkState134:d LogicType134:d LinkTriggerCount134:d LinkTriggerIndex134-1:d LinkTriggerIndex134-0:d LinkActionIndex134-0:d LinkActionIndex134-1:d }
-0 0 0 1 0 2 0 1 
-[ Link135 : 1 ]
-{ LinkRepeats135:d LinkState135:d LogicType135:d LinkTriggerCount135:d LinkTriggerIndex135-0:d LinkTriggerIndex135-1:d LinkTriggerIndex135-1:d LinkActionIndex135-0:d LinkActionIndex135-1:d }
-0 0 0 2 0 0 2 0 0 
-[ Link136 : 1 ]
-{ LinkRepeats136:d LinkState136:d LogicType136:d LinkTriggerCount136:d LinkTriggerIndex136-0:d LinkTriggerIndex136-1:d LinkActionIndex136-0:d LinkActionIndex136-1:d }
-0 0 0 1 0 2 0 0 
-[ Link137 : 1 ]
-{ LinkRepeats137:d LinkState137:d LogicType137:d LinkTriggerCount137:d LinkTriggerIndex137-0:d LinkTriggerIndex137-1:d LinkTriggerIndex137-2:d LinkTriggerIndex137-3:d LinkActionCount137:d LinkActionIndex137-0:d LinkActionIndex137-1:d LinkActionIndex137-2:d }
-0 0 0 4 0 0 0 0 3 0 0 0 
-[ Link138 : 1 ]
-{ LinkRepeats138:d LinkState138:d LogicType138:d LinkTriggerCount138:d LinkTriggerIndex138-0:d LinkTriggerIndex138-1:d LinkActionCount138:d LinkActionIndex138-0:d LinkActionIndex138-1:d }
-0 0 0 2 2 12 2 3 323 
-[ Link139 : 1 ]
-{ LinkRepeats139:d LinkState139:d LogicType139:d LinkTriggerCount139:d LinkTriggerIndex139-0:d LinkTriggerIndex139-1:d LinkTriggerIndex139-2:d LinkTriggerIndex139-3:d LinkTriggerIndex139-4:d LinkActionCount139:d LinkActionIndex139-0:d LinkActionIndex139-1:d LinkActionIndex139-2:d LinkActionIndex139-3:d LinkActionIndex139-4:d }
-0 0 0 5 0 0 0 0 0 5 0 0 0 0 0 
-[ Link140 : 1 ]
-{ LinkRepeats140:d LinkState140:d LogicType140:d LinkTriggerCount140:d LinkTriggerIndex140-0:d LinkTriggerIndex140-1:d LinkActionCount140:d LinkActionIndex140-0:d LinkActionIndex140-1:d }
-0 0 0 2 0 0 2 0 0 
-=======
  { LinkRepeats129:d LinkState129:d LogicType129:d LinkTriggerCount129:d LinkTriggerIndex129-0:d LinkActionCount129:d LinkActionIndex129-0:d LinkActionIndex129-1:d LinkActionIndex129-2:d LinkActionIndex129-3:d LinkActionIndex129-4:d }
    0                0              0              1                     160                     5                    289                    282                    274                    290                     291
->>>>>>> a86dc62e6d67e8bcf63f7fe2dd0802664026e5b4:globals.TXT
 
 [ Link130 : 1 ]
  { LinkRepeats130:d LinkState130:d LogicType130:d LinkTriggerCount130:d LinkTriggerIndex130-0:d LinkActionCount130:d LinkActionIndex130-0:d  }
    0                0              0              1                     161                     1                    293                 
 [ Link131 : 1 ]
-{ LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkTriggerIndex131-0:d LinkTriggerIndex131-1:d LinkActionCount131:d LinkActionIndex131-0:d LinkActionIndex131-1:d }
-0 0 0 2 3323 1 2 23 23 
-[ Link132 : 1 ]
-{ LinkRepeats132:d LinkState132:d LogicType132:d LinkTriggerCount132:d LinkTriggerIndex132-0:d LinkActionCount132:d LinkActionIndex132-0:d }
-0 0 0 1 3 1 23 
-[ Link133 : 1 ]
-{ LinkRepeats133:d LinkState133:d LogicType133:d LinkTriggerCount133:d LinkTriggerIndex133-0:d LinkTriggerIndex133-1:d LinkActionCount133:d }
-0 0 0 2 0 566 0 
-[ Link134 : 1 ]
-{ LinkRepeats134:d LinkState134:d LogicType134:d LinkTriggerCount134:d LinkActionCount134:d }
-0 0 0 2 3 
-[ Link135 : 1 ]
-{ LinkRepeats135:d LinkState135:d LogicType135:d LinkTriggerCount135:d LinkTriggerIndex135-0:d LinkActionCount135:d }
-0 0 0 1 0 0 
+{ LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkTriggerIndex131-0:d LinkTriggerIndex131-1:d LinkActionCount131:d LinkActionIndex131-0:d }
+0 0 0 2 34 43 1 123 
 
 
 [ ConversationMgr : 1 ]
