@@ -323,8 +323,15 @@ void drawInputFields(string type, string vibor) {
 			ImGui::PushID(i);
 			ImGui::Text(ActivityTypeArray[type][i].c_str());
 
-			if (ImGui::InputText("", buf, sizeof(buf))) {
+			if (i == 0)
+			{
+				ImGui::Text(buf);
 				inputFields[i] = buf;
+			}
+			else {
+				if (ImGui::InputText("", buf, sizeof(buf))) {
+					inputFields[i] = buf;
+				}
 			}
 			ImGui::PopID();
 		}
@@ -336,9 +343,15 @@ void drawInputFields(string type, string vibor) {
 			strcpy_s(buf, inputFields[i].c_str());
 			ImGui::PushID(i);
 			ImGui::Text(TriggersTypeArray[type][i].c_str());
-
-			if (ImGui::InputText("", buf, sizeof(buf))) {
+			if (i == 0)
+			{
+				ImGui::Text(buf);
 				inputFields[i] = buf;
+			}
+			else {
+				if (ImGui::InputText("", buf, sizeof(buf))) {
+					inputFields[i] = buf;
+				}
 			}
 			ImGui::PopID();
 		}
@@ -412,6 +425,14 @@ void drawInputFields(string type, string vibor) {
 				{
 					ImGui::SameLine();
 					if (ImGui::Button("+")) addLinkActionField();
+				}
+				else if (i == 2)
+				{
+					ImGui::SameLine(); HelpMarker(lang ?
+						"0 - all triggers must be activated\n\n1 - one of the triggers has to be activated"
+						:
+						(const char*)u8"0 - все триггеры должны сработать\n\n1 - один из триггеров должен сработать"
+					);
 				}
 
 				ImGui::PopID();
@@ -548,17 +569,6 @@ void matchInputFieldsSize(string type, string vibor)
 
 			}
 		}
-
-
-		for (auto k : inputFields) cout << k << " ";
-		cout << "\n";
-
-		for (auto k : inputTriggerFields) cout << k << " ";
-		cout << "\n";
-
-		for (auto k : inputActionFields) cout << k << " ";
-		cout << "\n";
-
 	}
 }
 
@@ -1092,7 +1102,7 @@ void gui::Render() noexcept
 				{
 					ImGui::BeginTooltip();
 					ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-					ImGui::TextUnformatted(lang ? tipsENG[TriggerTypes[n]].c_str() : tipsRUS[TriggerTypes[n]].c_str());
+					ImGui::TextUnformatted(lang ? tipsTriggersENG[TriggerTypes[n]].c_str() : tipsTriggersRUS[TriggerTypes[n]].c_str());
 					ImGui::PopTextWrapPos();
 					ImGui::EndTooltip();
 				}
@@ -1170,6 +1180,15 @@ void gui::Render() noexcept
 				{
 					TriggerType = n;
 					changeTypeInputFields(TriggerTypes[TriggerType], vibor);
+				}
+
+				if (ImGui::IsItemHovered())
+				{
+					ImGui::BeginTooltip();
+					ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+					ImGui::TextUnformatted(lang ? tipsTriggersENG[TriggerTypes[n]].c_str() : tipsTriggersRUS[TriggerTypes[n]].c_str());
+					ImGui::PopTextWrapPos();
+					ImGui::EndTooltip();
 				}
 
 				if (is_selected)

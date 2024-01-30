@@ -12,8 +12,8 @@ extern std::map<std::string, std::vector<std::string>> ActivityTypeArray;
 extern std::map<std::string, std::vector<std::string>> TriggersTypeArray;
 extern std::map<std::string, std::vector<std::string>> LinksTypeArray;
 
-extern std::map <std::string, std::string> tipsENG;
-extern std::map <std::string, std::string> tipsRUS;
+extern std::map <std::string, std::string> tipsTriggersENG;
+extern std::map <std::string, std::string> tipsTriggersRUS;
 
 
 extern std::map<std::string, std::string>  DefaultValues;
