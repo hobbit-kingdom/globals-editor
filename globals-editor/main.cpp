@@ -19,12 +19,8 @@ int main(  //__stdcall wWinMain wWinMain
 	int commandShow)
 {
 
-	//ActivityTypeArray.insert({ "hii", {"ff","dsd"} });
-
-	setlocale(LC_ALL, "RUSSIAN");
-
 	// create gui
-	CreateHWindow("Cheat Menu");
+	CreateHWindow("The Globals Editor");
 	CreateDevice();
 	CreateImGui();
 
