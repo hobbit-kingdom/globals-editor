@@ -1145,7 +1145,7 @@ void gui::Render() noexcept
 			}
 
 			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, compileLink(inputFields, inputTriggerFields, inputActionFields, stoi(inputFields[0]), globalsLinksPositions.size()));
-			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size()) + " " + to_string(globalsActions.size()) + " " + to_string(globalsLinks.size() + 1) };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
@@ -1307,7 +1307,7 @@ void gui::Render() noexcept
 		if (ImGui::Button(lang ? "Add trigger " : (const char*)u8"Добавить триггер "))
 		{
 			insertText(fileToEdit, globalsTriggersPositions[globalsTriggersPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsTriggersPositions.size(), vibor));
-			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size()) + " " + to_string(globalsLinks.size()) };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}
@@ -1471,7 +1471,7 @@ void gui::Render() noexcept
 			}
 
 			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsActionsPositions.size(), vibor));
-			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + "  " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size() + 1) };
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size()) + "  " + to_string(globalsActions.size() + 1) + " " + to_string(globalsLinks.size()) };
 			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
 			reloadFile(log);
 		}

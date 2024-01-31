@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-165  295 133
+177 307 134
 [ Trigger0 : 1 ]
  { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
    18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
@@ -496,6 +496,45 @@
 [ Trigger163 : 1 ]
 { TriggerType163:d TriggerName163:s Vine163:g StaysTrue163:d TriggeredOnTrue163:d }
 32 "DefaultName" 00000000_00000000 0 0 
+[ Trigger164 : 1 ]
+{ TriggerType164:d TriggerName164:s NPC164:g AttackType164:d StaysTrue164:d TriggeredOnTrue164:d }
+6 "DefaultName" 00000000_00000000 0 0 0 
+[ Trigger165 : 1 ]
+{ TriggerType165:d TriggerName165:s Volume165:g Character165:g TriggersOnce165:d AllNPCs165:d StaysTrue165:d TriggeredOnTrue165:d }
+3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger166 : 1 ]
+{ TriggerType166:d TriggerName166:s Volume166:g Character166:g TriggersOnce166:d AllNPCs166:d StaysTrue166:d TriggeredOnTrue166:d }
+3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger167 : 1 ]
+{ TriggerType167:d TriggerName167:s Volume167:g Character167:g TriggersOnce167:d AllNPCs167:d StaysTrue167:d TriggeredOnTrue167:d }
+3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger168 : 1 ]
+{ TriggerType168:d TriggerName168:s Volume168:g Character168:g TriggersOnce168:d AllNPCs168:d StaysTrue168:d TriggeredOnTrue168:d }
+3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger169 : 1 ]
+{ TriggerType169:d TriggerName169:s Volume169:g Character169:g TriggersOnce169:d AllNPCs169:d StaysTrue169:d TriggeredOnTrue169:d }
+3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger170 : 1 ]
+{ TriggerType170:d TriggerName170:s Volume170:g Character170:g TriggersOnce170:d AllNPCs170:d StaysTrue170:d TriggeredOnTrue170:d }
+3 "DefaultName" 00000000_00000000 00000000_00000000 0 0 0 0 
+[ Trigger171 : 1 ]
+{ TriggerType171:d TriggerName171:s }
+0 "DefaultName" 
+[ Trigger172 : 1 ]
+{ TriggerType172:d TriggerName172:s }
+0 "DefaultName" 
+[ Trigger173 : 1 ]
+{ TriggerType173:d TriggerName173:s }
+0 "DefaultName" 
+[ Trigger174 : 1 ]
+{ TriggerType174:d TriggerName174:s }
+0 "DefaultName" 
+[ Trigger175 : 1 ]
+{ TriggerType175:d TriggerName175:s }
+0 "DefaultName" 
+[ Trigger176 : 1 ]
+{ TriggerType176:d TriggerName176:s }
+0 "DefaultName" 
 
 
 
@@ -1391,6 +1430,42 @@
 [ Action294 : 1 ]
 { ActionType294:d ActionName294:s Action294ExecuteDelay:f Action294ExecuteImmediately:d Action294DoRunAI:d Action294NPC:g }
 50 "DefaultName" 0.000000 0 0 00000000_00000000 
+[ Action295 : 1 ]
+{ ActionType295:d ActionName295:s Action295ExecuteDelay:f Action295ExecuteImmediately:d Action295DialogName:s Action295Speaker:g Action295AtLocation:d Action295BilboDialog:d }
+7 "DefaultName" 0.000000 0 "DialogName" 00000000_00000000 0 0 
+[ Action296 : 1 ]
+{ ActionType296:d ActionName296:s Action296ExecuteDelay:f Action296ExecuteImmediately:d Action296DialogName:s Action296Speaker:g Action296AtLocation:d Action296BilboDialog:d }
+7 "DefaultName" 0.000000 0 "DialogName" 00000000_00000000 0 0 
+[ Action297 : 1 ]
+{ ActionType297:d ActionName297:s Action297ExecuteDelay:f Action297ExecuteImmediately:d Action297DialogName:s Action297Speaker:g Action297AtLocation:d Action297BilboDialog:d }
+7 "DefaultName" 0.000000 0 "DialogName" 00000000_00000000 0 0 
+[ Action298 : 1 ]
+{ ActionType298:d ActionName298:s Action298ExecuteDelay:f Action298ExecuteImmediately:d Action298DialogName:s Action298Speaker:g Action298AtLocation:d Action298BilboDialog:d }
+7 "DefaultName" 0.000000 0 "DialogName" 00000000_00000000 0 0 
+[ Action299 : 1 ]
+{ ActionType299:d ActionName299:s Action299ExecuteDelay:f Action299ExecuteImmediately:d Action299DialogName:s Action299Speaker:g Action299AtLocation:d Action299BilboDialog:d }
+7 "DefaultName" 0.000000 0 "DialogName" 00000000_00000000 0 0 
+[ Action300 : 1 ]
+{ ActionType300:d ActionName300:s Action300ExecuteDelay:f Action300ExecuteImmediately:d Action300DialogName:s Action300Speaker:g Action300AtLocation:d Action300BilboDialog:d }
+7 "DefaultName" 0.000000 0 "DialogName" 00000000_00000000 0 0 
+[ Action301 : 1 ]
+{ ActionType301:d ActionName301:s Action301ExecuteDelay:f Action301ExecuteImmediately:d Action301DialogName:s Action301Speaker:g Action301AtLocation:d Action301BilboDialog:d }
+7 "DefaultName" 0.000000 0 "DialogName" 00000000_00000000 0 0 
+[ Action302 : 1 ]
+{ ActionType302:d ActionName302:s }
+0 "DefaultName" 
+[ Action303 : 1 ]
+{ ActionType303:d ActionName303:s }
+0 "DefaultName" 
+[ Action304 : 1 ]
+{ ActionType304:d ActionName304:s }
+0 "DefaultName" 
+[ Action305 : 1 ]
+{ ActionType305:d ActionName305:s }
+0 "DefaultName" 
+[ Action306 : 1 ]
+{ ActionType306:d ActionName306:s }
+0 "DefaultName" 
 
 
 
@@ -1791,6 +1866,12 @@
 [ Link131 : 1 ]
 { LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkTriggerIndex131-0:d LinkTriggerIndex131-1:d LinkActionCount131:d LinkActionIndex131-0:d }
 0 0 0 2 34 43 1 123 
+[ Link132 : 1 ]
+{ LinkRepeats132:d LinkState132:d LogicType132:d LinkTriggerCount132:d LinkActionCount132:d }
+0 0 0 0 0 
+[ Link133 : 1 ]
+{ LinkRepeats133:d LinkState133:d LogicType133:d LinkTriggerCount133:d LinkActionCount133:d }
+0 0 0 0 0 
 
 
 [ ConversationMgr : 1 ]
