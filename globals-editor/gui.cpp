@@ -333,6 +333,7 @@ void drawInputFields(string type, string vibor) {
 	{
 		for (int i = 0; i < inputFields.size(); i++) {
 			char buf[255]{};
+			static int bufInt = 0;
 			strcpy_s(buf, inputFields[i].c_str());
 			ImGui::PushID(i);
 			ImGui::Text(ActivityTypeArray[type][i].c_str());
@@ -343,9 +344,14 @@ void drawInputFields(string type, string vibor) {
 				inputFields[i] = buf;
 			}
 			else {
-				if (ImGui::InputText("", buf, sizeof(buf))) {
-					inputFields[i] = buf;
+				if (ActivityTypeArray[type][i][ActivityTypeArray[type][i].size()-1] == 'd') {
+					if (ImGui::InputText("", buf, sizeof(buf), ImGuiInputTextFlags_CharsDecimal)) {
+						inputFields[i] = buf;
+					}
 				}
+					else if (ImGui::InputText("", buf, sizeof(buf))) {
+						inputFields[i] = buf;
+					}
 			}
 			ImGui::PopID();
 		}
@@ -363,7 +369,12 @@ void drawInputFields(string type, string vibor) {
 				inputFields[i] = buf;
 			}
 			else {
-				if (ImGui::InputText("", buf, sizeof(buf))) {
+				if (TriggersTypeArray[type][i][TriggersTypeArray[type][i].size() - 1] == 'd') {
+					if (ImGui::InputText("", buf, sizeof(buf), ImGuiInputTextFlags_CharsDecimal)) {
+						inputFields[i] = buf;
+					}
+				}
+				else if (ImGui::InputText("", buf, sizeof(buf))) {
 					inputFields[i] = buf;
 				}
 			}
@@ -386,7 +397,7 @@ void drawInputFields(string type, string vibor) {
 					ImGui::Text((const char*)to_string(j).c_str());
 					ImGui::SameLine(0, 0);
 					ImGui::Text(":d");
-					if (ImGui::InputText("", buf1, sizeof(buf1))) {
+					if (ImGui::InputText("", buf1, sizeof(buf1), ImGuiInputTextFlags_CharsDecimal)) {
 						inputTriggerFields[j] = buf1;
 					}
 
@@ -418,7 +429,7 @@ void drawInputFields(string type, string vibor) {
 					ImGui::Text((const char*)to_string(j).c_str());
 					ImGui::SameLine(0, 0);
 					ImGui::Text(":d");
-					if (ImGui::InputText("", buf1, sizeof(buf1))) {
+					if (ImGui::InputText("", buf1, sizeof(buf1), ImGuiInputTextFlags_CharsDecimal)) {
 						inputActionFields[j] = buf1;
 					}
 
@@ -450,7 +461,7 @@ void drawInputFields(string type, string vibor) {
 				ImGui::PushID(i);
 				ImGui::Text(LinksTypeArray[type][i].c_str());
 
-				if (ImGui::InputText("", buf, sizeof(buf))) {
+				if (ImGui::InputText("", buf, sizeof(buf), ImGuiInputTextFlags_CharsDecimal)) {
 					inputFields[i] = buf;
 				}
 				if (i == 3)

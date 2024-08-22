@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-179  311 134
+180 313 135
 [ Trigger0 : 1 ]
 { TriggerType0:d TriggerName0:s }
 0 "DefaultName"     
@@ -541,6 +541,9 @@
 [ Trigger178 : 1 ]
 { TriggerType178:d TriggerName178:s }
 0 "ggggds" sdsa ds a s 
+[ Trigger179 : 1 ]
+{ TriggerType179:d TriggerName179:s NPCCount179:d Trigger179NPC0:g ExitState179:d EnterState179:d StaysTrue179:d TriggeredOnTrue179:d }
+7 "DefaultNamedsa" 1 00000000_00000000 0122 0123 032 1123 
 
 
 
@@ -1484,6 +1487,12 @@
 [ Action310 : 1 ]
 { ActionType310:d ActionName310:s }
 0 "dffssff"       
+[ Action311 : 1 ]
+{ ActionType311:d ActionName311:s Action311ExecuteDelay:f Action311ExecuteImmediately:d Action311CharacterGuid:g Action311Team:d }
+2 "DefaultNamedsad" 0.000000 0213 00000000_00000000 0 
+[ Action312 : 1 ]
+{ ActionType312:d ActionName312:s Action312ExecuteDelay:f Action312ExecuteImmediately:d Action312CharacterGuid:g Action312AIStateName:s Action312GoalListName:s Action312OverrideCinematicAnimation:d }
+4 "3123das" 0.000000312 02123 00000000_00000000 "Idle" "Idle" 023121 
 
 
 
@@ -1890,6 +1899,9 @@
 [ Link133 : 1 ]
 { LinkRepeats133:d LinkState133:d LogicType133:d LinkTriggerCount133:d LinkActionCount133:d }
 1 1 0 0 0 
+[ Link134 : 1 ]
+{ LinkRepeats134:d LinkState134:d LogicType134:d LinkTriggerCount134:d LinkTriggerIndex134-0:d LinkActionCount134:d LinkActionIndex134-0:d LinkActionIndex134-1:d }
+0321 0321 032 1 0 2 0 0 
 
 
 [ ConversationMgr : 1 ]
