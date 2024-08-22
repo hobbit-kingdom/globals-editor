@@ -1244,7 +1244,7 @@ void gui::Render() noexcept
 			inputFields[0] = "0";
 
 			replaceText(fileToEdit, globalsTriggersPositions[item_current_idx_trigger], compileAction(inputFields, 0, item_current_idx_trigger, vibor)); // 0 - empty activity
-			actionsEdit = false;
+			triggersEdit = false;
 			reloadFile(log);
 		}
 		if (ImGui::IsItemHovered())

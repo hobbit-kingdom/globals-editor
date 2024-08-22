@@ -3,10 +3,10 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-177 307 134
+179  311 134
 [ Trigger0 : 1 ]
- { TriggerType0:d TriggerName0:s          Trigger0:g        TriggerToggle0:d StaysTrue0:d TriggeredOnTrue0:d }
-   18             "WORLD TRIGGER: Bombur" CA3DD310_54610C00 1                0            1                  
+{ TriggerType0:d TriggerName0:s }
+0 "DefaultName"     
 [ Trigger1 : 1 ]
 { TriggerType1:d TriggerName1:s Volume1:g Character1:g TriggersOnce1:d AllNPCs1:d StaysTrue1:d TriggeredOnTrue1:d }
 3 "VOLUME: Turtle Trig Vol" CA3DD291_31032323 ABCABCAB_CABCABC0 0 0 0 1 
@@ -535,13 +535,19 @@
 [ Trigger176 : 1 ]
 { TriggerType176:d TriggerName176:s }
 0 "DefaultName" 
+[ Trigger177 : 1 ]
+{ TriggerType177:d TriggerName177:s }
+0 "dssdsaaaaa"       
+[ Trigger178 : 1 ]
+{ TriggerType178:d TriggerName178:s }
+0 "ggggds" sdsa ds a s 
 
 
 
 
 [ Action0 : 1 ]
- { ActionType0:d ActionName0:s        Action0ExecuteDelay:f Action0ExecuteImmediately:d Action0LoadLayerGuid:g }
-   10            "Unload Doggy Layer" 0.000000              0                           CA3DD7CF_713DDC00      
+{ ActionType0:d ActionName0:s }
+0 "DefaultName"     
 [ Action1 : 1 ]
  { ActionType1:d ActionName1:s        Action1ExecuteDelay:f Action1ExecuteImmediately:d Action1LoadLayerGuid:g }
    10            "Unload Doggy Block" 0.000000              0                           CA3DD5CF_65E3F800      
@@ -1466,6 +1472,18 @@
 [ Action306 : 1 ]
 { ActionType306:d ActionName306:s }
 0 "DefaultName" 
+[ Action307 : 1 ]
+{ ActionType307:d ActionName307:s Action307ExecuteDelay:f Action307ExecuteImmediately:d Action307CharacterGuid:g Action307AIStateName:s Action307GoalListName:s Action307OverrideCinematicAnimation:d }
+4 "dfsfsdsfddfsfsdsfddfsfsdsfddfsfsdsfddfsfsdsfddfsfsdsfddfsfsdsfddfsfsdsfddfsfsdsfd" 0.000000 0 00000000_00000000 ""Id"""""Id""""" ""Idle"xadsd"Idle"xadsd"Idle"xadsd"Idle"xadsd"Idle"xadsd"Idle"xadsd"Idle"xadsd"Idle"xadsd"Idle"xadsd" 0 
+[ Action308 : 1 ]
+{ ActionType308:d ActionName308:s Action308ExecuteDelay:f Action308ExecuteImmediately:d Action308CharacterGuid:g Action308AIStateName:s Action308GoalListName:s Action308OverrideCinematicAnimation:d }
+4 "dsadss" 0.000000 0 00000000_00000000 "Id" "Idledssdsd" 0 
+[ Action309 : 1 ]
+{ ActionType309:d ActionName309:s }
+0 "eqwe"       
+[ Action310 : 1 ]
+{ ActionType310:d ActionName310:s }
+0 "dffssff"       
 
 
 
@@ -1861,17 +1879,17 @@
    0                0              0              1                     160                     5                    289                    282                    274                    290                     291
 
 [ Link130 : 1 ]
- { LinkRepeats130:d LinkState130:d LogicType130:d LinkTriggerCount130:d LinkTriggerIndex130-0:d LinkActionCount130:d LinkActionIndex130-0:d  }
-   0                0              0              1                     161                     1                    293                 
+{ LinkRepeats130:d LinkState130:d LogicType130:d LinkTriggerCount130:d LinkActionCount130:d }
+0 0 0 0 0 
 [ Link131 : 1 ]
-{ LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkTriggerIndex131-0:d LinkTriggerIndex131-1:d LinkActionCount131:d LinkActionIndex131-0:d }
-0 0 0 2 34 43 1 123 
+{ LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkActionCount131:d }
+0 0 0 0 0 
 [ Link132 : 1 ]
 { LinkRepeats132:d LinkState132:d LogicType132:d LinkTriggerCount132:d LinkActionCount132:d }
 0 0 0 0 0 
 [ Link133 : 1 ]
 { LinkRepeats133:d LinkState133:d LogicType133:d LinkTriggerCount133:d LinkActionCount133:d }
-0 0 0 0 0 
+1 1 0 0 0 
 
 
 [ ConversationMgr : 1 ]

@@ -7,6 +7,17 @@
 
 using namespace std;
 
+string addKovichki(string origString)
+{
+	
+	string modString = "";
+	for (int j = 0; j < origString.size(); j++) if (origString[j] != '"') modString += origString[j];
+
+	modString = '"' + modString + '"';
+
+	return modString;
+}
+
 string replaceStr(string orig_str, const string& replace_string, const string& with_string) {
 	size_t pos = orig_str.find(replace_string);
 
@@ -21,6 +32,8 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 	vector<string> compiled;
 	string typeRow = "{ ";
 	string paramerRow = "";
+	vector<int> strings = {};
+	int counter = 0;
 
 	if (vibor == "Actions")
 	{
@@ -30,15 +43,14 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 
 		for (auto i : ActivityTypeArray[typeS]) {
 			typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
+
+			if (i[i.size() - 1] == 's') strings.push_back(counter);
+			counter++;
 		}
 
 		typeRow += "}";
 
 		compiled.push_back(typeRow);
-
-		for (auto i : parameters) {
-			paramerRow += i + " ";
-		}
 	}
 	else if (vibor == "Triggers")
 	{
@@ -48,15 +60,23 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 
 		for (auto i : TriggersTypeArray[typeS]) {
 			typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
+
+			if (i[i.size() - 1] == 's') strings.push_back(counter);
+			counter++;
 		}
 
 		typeRow += "}";
 
 		compiled.push_back(typeRow);
+	}
 
-		for (auto i : parameters) {
-			paramerRow += i + " ";
-		}
+	for (int k = 0; k < parameters.size(); k++) {
+		string modString = parameters[k];
+		auto it = std::find(strings.begin(), strings.end(), k);
+
+		if (it != strings.end()) modString = addKovichki(parameters[k]);
+
+		paramerRow += modString + " ";
 	}
 
 	compiled.push_back(paramerRow);
