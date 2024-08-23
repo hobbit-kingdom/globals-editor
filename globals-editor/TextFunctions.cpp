@@ -6,7 +6,15 @@
 #include "ActivityTypeArray.h"
 
 using namespace std;
+string  addPodcherkivanie(string origString)
+{
+	string modString = "";
+	for (int j = 0; j < origString.size(); j++) if (origString[j] != '_') modString += origString[j];
 
+	modString = modString.substr(0, 8) + '_' + modString.substr(8, 15);
+
+	return modString;
+}
 string addKovichki(string origString)
 {
 	
@@ -33,7 +41,9 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 	string typeRow = "{ ";
 	string paramerRow = "";
 	vector<int> strings = {};
+	vector<int> hexs = {};
 	int counter = 0;
+	int counter1 = 0;
 
 	if (vibor == "Actions")
 	{
@@ -45,7 +55,9 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 			typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
 
 			if (i[i.size() - 1] == 's') strings.push_back(counter);
+			else if (i[i.size() - 1] == 'g') hexs.push_back(counter1);
 			counter++;
+			counter1++;
 		}
 
 		typeRow += "}";
@@ -62,7 +74,9 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 			typeRow += replaceStr(i, "0", to_string(objectNumber)) + " ";
 
 			if (i[i.size() - 1] == 's') strings.push_back(counter);
+			else if (i[i.size() - 1] == 'g') hexs.push_back(counter1);
 			counter++;
+			counter1++;
 		}
 
 		typeRow += "}";
@@ -75,6 +89,10 @@ vector<string> compileAction(vector<string> parameters, int type, int objectNumb
 		auto it = std::find(strings.begin(), strings.end(), k);
 
 		if (it != strings.end()) modString = addKovichki(parameters[k]);
+
+		auto it1 = std::find(hexs.begin(), hexs.end(), k);
+
+		if (it1 != hexs.end()) modString = addPodcherkivanie(parameters[k]);
 
 		paramerRow += modString + " ";
 	}

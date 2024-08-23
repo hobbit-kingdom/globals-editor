@@ -336,7 +336,7 @@ std::map<std::string, std::string>  DefaultValues = {
 	{"Senses0:d", "0"},
 	{"RigidInstance0:g", "00000000_00000000"},
 	{"Animation0:d", "0"},
-	{"Item0:g", "\"DefaultName\""},
+	{"Item0:s", "\"DefaultName\""},
 	{"Vine0:g", "00000000_00000000"},
 	{"ActionName0:s", "\"DefaultName\""},
 	{"Action0ExecuteDelay:f", "0.000000"},

@@ -3,7 +3,7 @@
    "CD58888E_10013C06" 0.062832        76.000000 -1689.000000 -522.000000 231 250 249 255 4000.000000 70000.000000 1            "Ch01_Hobbiton" 27                   CA3DDF12_32749400 36 27 38 255  24 19 25 255  0 0 0 255     0 0 0 255     0 0 0 255     60 45 45 255  0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-180 313 135
+181  320 135
 [ Trigger0 : 1 ]
 { TriggerType0:d TriggerName0:s }
 0 "DefaultName"     
@@ -544,6 +544,9 @@
 [ Trigger179 : 1 ]
 { TriggerType179:d TriggerName179:s NPCCount179:d Trigger179NPC0:g ExitState179:d EnterState179:d StaysTrue179:d TriggeredOnTrue179:d }
 7 "DefaultNamedsa" 1 00000000_00000000 0122 0123 032 1123 
+[ Trigger180 : 1 ]
+{ TriggerType180:d TriggerName180:s NPCCount180:d Trigger180NPC0:g StaysTrue180:d TriggeredOnTrue180:d }
+11 "DefaultName" 1 12345678_12345678 0 1 
 
 
 
@@ -1493,6 +1496,27 @@
 [ Action312 : 1 ]
 { ActionType312:d ActionName312:s Action312ExecuteDelay:f Action312ExecuteImmediately:d Action312CharacterGuid:g Action312AIStateName:s Action312GoalListName:s Action312OverrideCinematicAnimation:d }
 4 "3123das" 0.000000312 02123 00000000_00000000 "Idle" "Idle" 023121 
+[ Action313 : 1 ]
+{ ActionType313:d ActionName313:s Action313ExecuteDelay:f Action313ExecuteImmediately:d Action313SpawnCount:d Action313NPCGuid0:g Action313LocationGuid0:g Action313FacingGuid0:g Action313Animation0:s }
+_ _ _ _ _ ‡ ‡ ‡ _ 
+[ Action314 : 1 ]
+{ ActionType314:d ActionName314:s Action314ExecuteDelay:f Action314ExecuteImmediately:d Action314LoadLayerGuid:g }
+10 "DefaultName" 0.000000 0 ) 
+[ Action315 : 1 ]
+{ ActionType315:d ActionName315:s Action315ExecuteDelay:f Action315ExecuteImmediately:d Action315LoadLayerGuid:g }
+10 "DefaultName" 0.000000 0 1234567_12345678 
+[ Action316 : 1 ]
+{ ActionType316:d ActionName316:s Action316ExecuteDelay:f Action316ExecuteImmediately:d Action316LoadLayerGuid:g }
+10 "DefaultName" 0.000000 0 12345678_12345678 
+[ Action317 : 1 ]
+{ ActionType317:d ActionName317:s Action317ExecuteDelay:f Action317ExecuteImmediately:d Action317LoadLayerGuid:g }
+10 "DefaultName" 0.000000 0 12332141_24123456 
+[ Action318 : 1 ]
+{ ActionType318:d ActionName318:s Action318ExecuteDelay:f Action318ExecuteImmediately:d Action318LoadLayerGuid:g }
+10 "DefaultName" 0.000000 0 32132321_32132 
+[ Action319 : 1 ]
+{ ActionType319:d ActionName319:s Action319ExecuteDelay:f Action319ExecuteImmediately:d Action319DialogName:s Action319Speaker:g Action319AtLocation:d Action319BilboDialog:d }
+7 "213124241" 0.000000 0 "DialogName" 12345678_90123456 0 0 
 
 
 
