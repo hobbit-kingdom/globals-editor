@@ -909,7 +909,7 @@ void gui::Render() noexcept
 	ImGui::Text("");
 
 	ImGui::SameLine();
-	ImGui::Checkbox("Show Trigger Types", &typeMenuTriggers);
+	ImGui::Checkbox(lang ? "Show Trigger Types" : (const char*)u8"Показать типы триггеров", &typeMenuTriggers);
 
 	if (typeMenuTriggers)
 	{
@@ -928,7 +928,7 @@ void gui::Render() noexcept
 	}
 
 	ImGui::SameLine();
-	ImGui::Checkbox("Show Action Types", &typeMenuActions);
+	ImGui::Checkbox(lang ? "Show Action Types" : (const char*)u8"Показать типы активностей", &typeMenuActions);
 
 	if (typeMenuActions)
 	{
