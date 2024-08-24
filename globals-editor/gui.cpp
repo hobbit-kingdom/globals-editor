@@ -344,14 +344,14 @@ void drawInputFields(string type, string vibor) {
 				inputFields[i] = buf;
 			}
 			else {
-				if (ActivityTypeArray[type][i][ActivityTypeArray[type][i].size()-1] == 'd') {
+				if (ActivityTypeArray[type][i][ActivityTypeArray[type][i].size() - 1] == 'd') {
 					if (ImGui::InputText("", buf, sizeof(buf), ImGuiInputTextFlags_CharsDecimal)) {
 						inputFields[i] = buf;
 					}
 				}
-					else if (ImGui::InputText("", buf, sizeof(buf))) {
-						inputFields[i] = buf;
-					}
+				else if (ImGui::InputText("", buf, sizeof(buf))) {
+					inputFields[i] = buf;
+				}
 			}
 			ImGui::PopID();
 		}
@@ -682,6 +682,8 @@ static int aiManagerPropRowIndex = 0;
 
 bool loaded = false;
 bool errorOpen = false;
+bool typeMenuTriggers = false;
+bool typeMenuActions = false;
 
 void reloadFile(ImGuiTextBuffer& log)
 {
@@ -810,13 +812,14 @@ void gui::Render() noexcept
 	ImGui::SetNextWindowPos({ 0, 0 });
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
-		"The Globals Editor v1.0 by Mr_Kliff and king174rus",
+		"The Globals Editor v1.1 by Mr_Kliff and king174rus",
 		&isRunning,
 		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoSavedSettings |
 		ImGuiWindowFlags_NoCollapse |
 		ImGuiWindowFlags_NoMove |
-		ImGuiWindowFlags_MenuBar
+		ImGuiWindowFlags_MenuBar |
+		ImGuiWindowFlags_NoBringToFrontOnFocus
 	);
 
 	bool open = false, save = false, help = false;
@@ -904,6 +907,45 @@ void gui::Render() noexcept
 	ImGui::SetCursorPosX((ImGui::GetWindowWidth() - ImGui::CalcTextSize("THE GLOBALS EDITOR").x) / 2.f);
 	ImGui::Text("THE GLOBALS EDITOR");
 	ImGui::Text("");
+
+	ImGui::SameLine();
+	ImGui::Checkbox("Show Trigger Types", &typeMenuTriggers);
+
+	if (typeMenuTriggers)
+	{
+		ImGui::SetNextWindowSize({ 500, 300 });
+
+		ImGui::Begin("Trigger Types");
+
+		for (int counter = 0; counter < 26; counter++)
+		{
+			ImGui::Text(TriggerTypes[counter]);
+			ImGui::SameLine();
+			ImGui::TextUnformatted(lang ? tipsTriggersENG[TriggerTypes[counter]].c_str() : tipsTriggersRUS[TriggerTypes[counter]].c_str());
+		}
+
+		ImGui::End();
+	}
+
+	ImGui::SameLine();
+	ImGui::Checkbox("Show Action Types", &typeMenuActions);
+
+	if (typeMenuActions)
+	{
+		ImGui::SetNextWindowSize({ 500, 300 });
+
+		ImGui::Begin("Action Types");
+
+		for (int counter = 0; counter < 40; counter++)
+		{
+			ImGui::Text(actionsTypes[counter]);
+			ImGui::SameLine();
+			ImGui::TextUnformatted(lang ? tipsActionsENG[actionsTypes[counter]].c_str() : tipsActionsRUS[actionsTypes[counter]].c_str());
+		}
+
+		ImGui::End();
+	}
+
 
 	ImGui::BeginChild("left2 pane", ImVec2(170, 450), true);
 	if (loaded)

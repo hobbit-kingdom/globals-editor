@@ -151,6 +151,7 @@ std::map<std::string, std::vector<std::string>> LinksTypeArray = {
 };
 
 std::map <std::string, std::string> tipsTriggersENG = {
+	{ "0", "Empty Trigger" },
 	{ "3", "Npc enters Volume" },
 	{ "5", "Activates after a certain amount of time with some kind of chance" },
 	{ "6", "Stone hits a npc" },
@@ -179,6 +180,7 @@ std::map <std::string, std::string> tipsTriggersENG = {
 };
 
 std::map <std::string, std::string> tipsTriggersRUS = {
+	{ "0",  (const char*)u8"Пустой триггер" } ,
 	{ "3",  (const char*)u8"Нпс заходит в волум" } ,
 	{ "5",  (const char*)u8"Срабатывает через какое-то время с каким-то шансом" } ,
 	{ "6",  (const char*)u8"По нпс попадает камень" } ,
@@ -207,6 +209,7 @@ std::map <std::string, std::string> tipsTriggersRUS = {
 };
 
 std::map <std::string, std::string> tipsActionsENG = {
+	{ "0", "Empty activity" },
 	{ "1", "Toggles the switch" },
 	{ "2", "Replaces the npc`s team" },
 	{ "4", "Replace the npc`s state and started goallist" },
@@ -249,6 +252,7 @@ std::map <std::string, std::string> tipsActionsENG = {
 };
 
 std::map <std::string, std::string> tipsActionsRUS = {
+	{ "0",  (const char*)u8"Пустая активность" } ,
 	{ "1",  (const char*)u8"Переключает переключатель" } ,
 	{ "2",  (const char*)u8"Заменяет команду нпс" } ,
 	{ "4",  (const char*)u8"Заменяет состояниет нпс и стартует гоал лист" } ,
