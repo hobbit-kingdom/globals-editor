@@ -10,6 +10,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
+#include <filesystem>
 
 #include "TextEditor.h"
 #include "ActivityTypeArray.h"
@@ -539,8 +540,8 @@ int getObjectNumber(string s)
 }
 
 imgui_addons::ImGuiFileBrowser file_dialog;
-string fileToEdit = "globals.TXT";
-string saveFilePath = "globals.TXT";
+string fileToEdit = "GLOBALS.TXT";
+string saveFilePath = "GLOBALS.TXT";
 
 map<int, vector<string>> globalsActions;
 map<int, int> globalsActionsPositions;
@@ -681,6 +682,7 @@ void editTrigger()
 static int aiManagerPropRowIndex = 0;
 
 bool loaded = false;
+bool createdFromTemplate = false;
 bool errorOpen = false;
 bool typeMenuTriggers = false;
 bool typeMenuActions = false;
@@ -831,6 +833,31 @@ void gui::Render() noexcept
 				open = true;
 			if (ImGui::MenuItem(lang ? "Save File" : (const char*)u8"Сохранить Файл", NULL))
 				save = true;
+			if (ImGui::MenuItem(lang ? "Create Default Globals File" : (const char*)u8"Создать дефолтный файл глобалс", NULL))
+			{
+				std::string sourceFile = "Template/EMPTY_LEVEL_DREAMWORLD.TXT";
+				std::string destinationFolder = "./";
+				std::string newFileName = "GLOBALS.TXT";
+
+				try {
+
+					if (!filesystem::exists(sourceFile)) {
+						std::cerr << "Source file does not exist." << std::endl;
+					}
+
+					filesystem::path destinationPath = filesystem::path(destinationFolder) / newFileName;
+
+					filesystem::copy(sourceFile, destinationPath, filesystem::copy_options::overwrite_existing);
+
+					std::cout << "File copied and renamed successfully!" << std::endl;
+					createdFromTemplate = true;
+
+
+				}
+				catch (const filesystem::filesystem_error& e) {
+					std::cerr << "Filesystem error: " << e.what() << std::endl;
+				}
+			}
 
 			ImGui::EndMenu();
 		}
@@ -839,6 +866,26 @@ void gui::Render() noexcept
 			help = true;
 		}
 		ImGui::EndMenuBar();
+	}
+	if (createdFromTemplate)
+	{
+		ImGui::OpenPopup("File Created");
+		if (ImGui::BeginPopupModal("File Created"))
+		{
+			ImGui::Text("Globals");
+
+			ImGui::Indent();
+
+			ImGui::Text(lang ? "File has been created from DreamWorld Template.\nClick on Load Globals and also don't forget to\nchange level name and skybox.\nYou have to do this manually." : (const char*)u8"Файл был создан с использованием шаблона DreamWorld.\nНажмите «Загрузить глобальные настройки»,\nи не забудьте также изменить название уровня\n и небесный фон(skybox).\nЭто надо делать вручную.");
+
+			if (ImGui::Button("OK"))
+			{
+				ImGui::CloseCurrentPopup();
+				createdFromTemplate = false;
+			}
+
+			ImGui::EndPopup();
+		}
 	}
 
 	if (open)
