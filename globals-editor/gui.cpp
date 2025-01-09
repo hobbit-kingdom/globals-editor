@@ -11,6 +11,7 @@
 #include <vector>
 #include <map>
 #include <filesystem>
+#include <regex>
 
 #include "TextEditor.h"
 #include "ActivityTypeArray.h"
@@ -93,7 +94,7 @@ long __stdcall WindowProcess(
 }
 void FileSelectionCallback(const char* result) {
 	// Получить выбранный файл
-	std::string selectedFile = result;
+	string selectedFile = result;
 
 	// Выполнить необходимые действия с выбранным файлом
 	// Например, вывести путь до файла на консоль
@@ -289,8 +290,8 @@ bool triggersAdd = false;
 bool linksAdd = false;
 
 int lang = 1; // 0 - RUS , 1 - ENG
-std::string a = "Test";
-std::vector<std::string> inputFields;
+string a = "Test";
+std::vector<string> inputFields;
 
 
 vector < string > inputTriggerFields = { "0" };
@@ -320,7 +321,7 @@ void addLinkActionField() {
 	inputActionFields.push_back("0");
 }
 
-bool is_numeric(const std::string& str) {
+bool is_numeric(const string& str) {
 	for (char c : str) {
 		if (!std::isdigit(c)) {
 			return false;
@@ -498,17 +499,17 @@ void drawInputFields(string type, string vibor) {
 }
 
 
-std::vector<std::string> splitBySpaces(string s)
+std::vector<string> splitBySpaces(string s)
 {
 	std::istringstream iss(s);
-	std::vector<std::string> words;
-	std::string word;
+	std::vector<string> words;
+	string word;
 
 	while (iss >> word) {
 		if (!word.empty()) {
 			// Check if the word is quoted
 			if (word.front() == '"' && word.back() != '"') {
-				std::string quotedWord = word;
+				string quotedWord = word;
 				while (iss >> word && word.back() != '"') {
 					quotedWord += " " + word;
 				}
@@ -525,9 +526,24 @@ std::vector<std::string> splitBySpaces(string s)
 	return words;
 }
 
+vector<int> convertToIntVector(const vector<string>& stringList) {
+	vector<int> intList;
+	for (const string& str : stringList) {
+		try {
+			// Convert each string to int and add to the intList
+			intList.push_back(std::stoi(str));
+		}
+		catch (const std::invalid_argument& e) {
+			// Handle invalid string-to-int conversion if necessary
+			cout << "Invalid integer: " << str << endl;
+		}
+	}
+	return intList;
+}
+
 int getObjectNumber(string s)
 {
-	std::stringstream ss(s);
+	stringstream ss(s);
 	while (!isdigit(ss.peek()) && ss.peek() != EOF) {
 		ss.ignore();
 	}
@@ -541,6 +557,7 @@ int getObjectNumber(string s)
 
 imgui_addons::ImGuiFileBrowser file_dialog;
 string fileToEdit = "GLOBALS.TXT";
+string fileToMerge = "ACTIONS.TXT";
 string saveFilePath = "GLOBALS.TXT";
 
 map<int, vector<string>> globalsActions;
@@ -684,6 +701,7 @@ static int aiManagerPropRowIndex = 0;
 bool loaded = false;
 bool createdFromTemplate = false;
 bool errorOpen = false;
+bool successMerge = false;
 bool typeMenuTriggers = false;
 bool typeMenuActions = false;
 
@@ -809,12 +827,225 @@ void reloadFile(ImGuiTextBuffer& log)
 	}
 }
 
+string replaceFirstOccurrence(const string& line, const string& target, const string& replacement) {
+	// Search for the first occurrence of the target string
+	std::regex pattern(target);
+	std::smatch match;
+
+	if (std::regex_search(line, match, pattern)) {
+		// Replace the first match with the replacement
+		return line.substr(0, match.position()) + replacement + line.substr(match.position() + match.length());
+	}
+
+	return line;  // Return the original line if no match is found
+}
+
+void mergeActionsAndTriggersFromFile()
+{
+	map<int, int> mapActionIndex;
+	map<int, int> mapTriggerIndex;
+
+	cout << "File to merge actions: " + fileToMerge << '\n';
+	fileToMerge = fileToMerge.c_str();
+
+	std::ifstream t(fileToMerge);
+
+	if (t.good())
+	{
+		string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+		a = str;
+	}
+
+	std::ifstream file(fileToMerge);
+	if (!file) {
+		std::cerr << "Unable to open file";
+		errorOpen = true;
+	}
+	else {
+		string line;
+		int lineCounter = 1;
+
+		int newActionNumber = globalsActions.size();
+		int newTriggerNumber = globalsTriggers.size();
+		int newLinkNumber = globalsLinks.size();
+
+		cout << "Before total triggers: " << newTriggerNumber << '\n';
+		cout << "Before total actions: " << newActionNumber << '\n';
+		cout << "Before total links: " << newLinkNumber << '\n';
+
+		vector<string> mergeTriggers;
+		vector<string> mergeActions;
+		vector<string> mergeLinks;
+
+
+		while (std::getline(file, line))
+		{
+
+			if (!line.find("[ Action") || !line.find("[Action"))
+			{
+				// Action header
+				int actionNumber = getObjectNumber(line);
+				mapActionIndex.emplace(actionNumber, newActionNumber);
+
+				string modifiedLine = replaceFirstOccurrence(line, to_string(actionNumber), to_string(newActionNumber));
+
+				mergeActions.push_back(modifiedLine);
+
+				if (std::getline(file, line))
+				{
+					vector<string> words = splitBySpaces(line);
+					string modifiedLine = "";
+					for (auto word : words)
+					{
+						string modWord = replaceFirstOccurrence(word, to_string(actionNumber), to_string(newActionNumber));
+						modifiedLine += modWord + " ";
+					}
+
+					newActionNumber++;
+
+					mergeActions.push_back(modifiedLine);
+
+					if (std::getline(file, line))
+					{
+						mergeActions.push_back(line);
+
+						lineCounter++;
+					}
+					lineCounter++;
+				}
+			}
+
+			if (!line.find("[ Trigger") || !line.find("[Trigger"))
+			{
+				// Trigger header
+				int triggerNumber = getObjectNumber(line);
+				mapTriggerIndex.emplace(triggerNumber, newTriggerNumber);
+
+				string modifiedLine = replaceFirstOccurrence(line, to_string(triggerNumber), to_string(newTriggerNumber));
+
+				mergeTriggers.push_back(modifiedLine);
+
+
+				if (std::getline(file, line))
+				{
+					vector<string> words = splitBySpaces(line);
+					string modifiedLine = "";
+					for (auto word : words)
+					{
+						string modWord = replaceFirstOccurrence(word, to_string(triggerNumber), to_string(newTriggerNumber));
+						modifiedLine += modWord + " ";
+					}
+
+					newTriggerNumber++;
+
+					mergeTriggers.push_back(modifiedLine);
+
+					if (std::getline(file, line))
+					{
+						mergeTriggers.push_back(line);
+
+						lineCounter++;
+					}
+					lineCounter++;
+				}
+			}
+
+			if (!line.find("[ Link") || !line.find("[Link"))
+			{
+				// Link header
+				int linkNum = getObjectNumber(line);
+
+				string modifiedLine = replaceFirstOccurrence(line, to_string(linkNum), to_string(newLinkNumber));
+
+				mergeLinks.push_back(modifiedLine);
+
+
+				if (std::getline(file, line))
+				{
+					vector<string> words = splitBySpaces(line);
+					string modifiedLine = "";
+					for (auto word : words)
+					{
+						string modWord = replaceFirstOccurrence(word, to_string(linkNum), to_string(newLinkNumber));
+						modifiedLine += modWord + " ";
+					}
+
+					newLinkNumber++;
+
+					mergeLinks.push_back(modifiedLine);
+
+					if (std::getline(file, line))
+					{
+						vector<int> indexList = convertToIntVector(splitBySpaces(line)); //Repeats State LgType TgCount TgInd0 AcCount AcInd0
+
+						//triggers
+						for (int i = 4; i < 4 + indexList[3]; i++)
+						{
+							indexList[i] = mapTriggerIndex[indexList[i]];
+						}
+
+						//actions
+						for (int i = 4 + indexList[3] + 1; i < indexList.size(); i++)
+						{
+							indexList[i] = mapActionIndex[indexList[i]];
+						}
+
+						string modLine = "";
+						for (auto i : indexList)
+							modLine += to_string(i) + " ";
+
+						mergeLinks.push_back(modLine);
+
+						lineCounter++;
+					}
+					lineCounter++;
+				}
+			}
+
+			lineCounter++;
+		}
+
+		cout << "After total triggers: " << newTriggerNumber << '\n';
+		cout << "After total actions: " << newActionNumber << '\n';
+		cout << "After total links: " << newLinkNumber << '\n';
+		static ImGuiTextBuffer log1;
+
+		if (mergeActions.size() >= 3)
+		{
+			insertText(fileToEdit, globalsActionsPositions[globalsActionsPositions.size() - 1] + 3, mergeActions);
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size()) + " " + to_string(newActionNumber) + " " + to_string(globalsLinks.size()) };
+			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
+			reloadFile(log1);
+		}
+
+		if (mergeTriggers.size() >= 3)
+		{
+			insertText(fileToEdit, globalsTriggersPositions[globalsTriggersPositions.size() - 1] + 3, mergeTriggers);
+			vector<string> aiManagerProp = { to_string(newTriggerNumber) + " " + to_string(globalsActions.size()) + " " + to_string(globalsLinks.size()) };
+			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
+			reloadFile(log1);
+		}
+
+		if (mergeLinks.size() >= 3)
+		{
+			insertText(fileToEdit, globalsLinksPositions[globalsLinksPositions.size() - 1] + 3, mergeLinks);
+			vector<string> aiManagerProp = { to_string(globalsTriggers.size()) + " " + to_string(globalsActions.size()) + " " + to_string(newLinkNumber) };
+			replaceText(fileToEdit, aiManagerPropRowIndex, aiManagerProp);
+			reloadFile(log1);
+		}
+
+		successMerge = true;
+	}
+}
+
+
+
 void gui::Render() noexcept
 {
 	ImGui::SetNextWindowPos({ 0, 0 });
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
-		"The Globals Editor v1.1 by Mr_Kliff and king174rus",
+		"The Globals Editor v1.2 by Mr_Kliff and king174rus",
 		&isRunning,
 		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoSavedSettings |
@@ -823,6 +1054,7 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_MenuBar |
 		ImGuiWindowFlags_NoBringToFrontOnFocus
 	);
+	static ImGuiTextBuffer log;
 
 	bool open = false, save = false, help = false;
 	if (ImGui::BeginMenuBar())
@@ -831,13 +1063,13 @@ void gui::Render() noexcept
 		{
 			if (ImGui::MenuItem(lang ? "Open File" : (const char*)u8"Открыть Файл", NULL))
 				open = true;
-			if (ImGui::MenuItem(lang ? "Save File" : (const char*)u8"Сохранить Файл", NULL))
-				save = true;
+			//if (ImGui::MenuItem(lang ? "Save File" : (const char*)u8"Сохранить Файл", NULL))
+			//	  save = true;
 			if (ImGui::MenuItem(lang ? "Create Default Globals File" : (const char*)u8"Создать дефолтный файл глобалс", NULL))
 			{
-				std::string sourceFile = "Template/EMPTY_LEVEL_DREAMWORLD.TXT";
-				std::string destinationFolder = "./";
-				std::string newFileName = "GLOBALS.TXT";
+				string sourceFile = "Template/EMPTY_LEVEL_DREAMWORLD.TXT";
+				string destinationFolder = "./";
+				string newFileName = "GLOBALS.TXT";
 
 				try {
 
@@ -876,7 +1108,10 @@ void gui::Render() noexcept
 
 			ImGui::Indent();
 
-			ImGui::Text(lang ? "File has been created from DreamWorld Template.\nClick on Load Globals and also don't forget to\nchange level name and skybox.\nYou have to do this manually." : (const char*)u8"Файл был создан с использованием шаблона DreamWorld.\nНажмите «Загрузить глобальные настройки»,\nи не забудьте также изменить название уровня\n и небесный фон(skybox).\nЭто надо делать вручную.");
+			ImGui::Text(lang ? "File has been created from DreamWorld Template." : (const char*)u8"Файл был создан с использованием шаблона DreamWorld.");
+			ImGui::Text(lang ? "Click on Load Globals and also don't forget to" : (const char*)u8"Нажмите «Загрузить глобальные настройки», и не забудьте");
+			ImGui::Text(lang ? "change level name and skybox." : (const char*)u8"изменить название уровня и небесный фон(skybox).");
+			ImGui::Text(lang ? "You have to do this manually." : (const char*)u8"Это надо cделать вручную.");
 
 			if (ImGui::Button("OK"))
 			{
@@ -894,6 +1129,26 @@ void gui::Render() noexcept
 		ImGui::OpenPopup("Help");
 	if (errorOpen)
 		ImGui::OpenPopup("Error");
+	if (successMerge)
+		ImGui::OpenPopup("Success Merge!");
+
+	if (ImGui::BeginPopupModal("Success Merge!"))
+	{
+		ImGui::Text(lang ? "Success! Files have been merged!" : (const char*)u8"Успех! Файлы были объединены!");
+		ImGui::Text(lang ? "Link/Action/Trigger numbers inside" : (const char*)u8"Номера ссылок/действий/триггеров внутри");
+		ImGui::Text(lang ? "Actions and Triggers value rows were not modified!!" : (const char*)u8"Значения строк действий и триггеров не были изменены!!");
+		ImGui::Text(lang ? "Please remap them manually" : (const char*)u8"Пожалуйста, переназначьте их вручную");
+		ImGui::Text(lang ? "Only links remapping inside links was automatic" : (const char*)u8"Только переназначение ссылок внутри ссылок было автоматическим");
+
+
+		if (ImGui::Button("OK"))
+		{
+			reloadFile(log);
+			ImGui::CloseCurrentPopup();
+			successMerge = false;
+		}
+		ImGui::EndPopup();
+	}
 
 	if (ImGui::BeginPopupModal("Error"))
 	{
@@ -929,9 +1184,9 @@ void gui::Render() noexcept
 
 	if (file_dialog.showFileDialog(lang ? "Open File" : (const char*)u8"Открыть Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
 	{
-
 		fileToEdit = file_dialog.selected_path;
 	}
+	/*
 	if (file_dialog.showFileDialog(lang ? "Save File" : (const char*)u8"Сохранить Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
 	{
 		saveFilePath = file_dialog.selected_path;
@@ -951,6 +1206,7 @@ void gui::Render() noexcept
 			fileStream.close(); // Закрываем файл
 		}
 	}
+	*/
 	ImGui::SetCursorPosX((ImGui::GetWindowWidth() - ImGui::CalcTextSize("THE GLOBALS EDITOR").x) / 2.f);
 	ImGui::Text("THE GLOBALS EDITOR");
 	ImGui::Text("");
@@ -1046,6 +1302,8 @@ void gui::Render() noexcept
 		ImGui::Text("");
 		ImGui::Text("");
 
+		bool fileMerge = false;
+
 		if (actions)
 		{
 			vibor = "Actions";
@@ -1075,6 +1333,34 @@ void gui::Render() noexcept
 				triggersAdd = false;
 				linksAdd = false;
 			}
+
+			ImGui::Text("");
+			ImGui::Text("");
+			ImGui::Text("");
+			ImGui::Text("");
+
+			if (ImGui::Button(lang ? "Merge Files" : (const char*)u8"Слияние Файлов"))
+			{
+				fileMerge = true;
+
+				actionsEdit = false;
+				triggersEdit = false;
+				linksEdit = false;
+
+				actionsAdd = false;
+				triggersAdd = false;
+				linksAdd = false;
+			}
+
+			if (fileMerge)
+				ImGui::OpenPopup(lang ? "Select Merge File" : (const char*)u8"Выбрать Файл Слияния");
+
+			if (file_dialog.showFileDialog(lang ? "Select Merge File" : (const char*)u8"Выбрать Файл Слияния", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
+				fileToMerge = file_dialog.selected_path;
+
+			if (ImGui::Button(lang ? "Merge it!" : (const char*)u8"Ахалай махалай!"))
+				mergeActionsAndTriggersFromFile();
+
 		}
 
 		if (triggers)
@@ -1155,7 +1441,7 @@ void gui::Render() noexcept
 	ImGui::SameLine();
 
 	ImGui::BeginChild("left pane", ImVec2(500, 450), true);
-	static ImGuiTextBuffer log;
+
 	if (linksEdit)
 	{
 		ImGui::Text("Link");
@@ -1240,7 +1526,7 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Add link " : (const char*)u8"Добавить ссылку "))
 		{
-			for (const std::string& value : inputFields) {
+			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
 			}
 
@@ -1329,7 +1615,7 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Save trigger" : (const char*)u8"Сохранить триггер"))
 		{
-			for (const std::string& value : inputFields) {
+			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
 			}
 
@@ -1489,7 +1775,7 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
 		{
-			for (const std::string& value : inputFields) {
+			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
 			}
 
@@ -1566,7 +1852,7 @@ void gui::Render() noexcept
 
 		if (ImGui::Button(lang ? "Add action " : (const char*)u8"Добавить активность "))
 		{
-			for (const std::string& value : inputFields) {
+			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
 			}
 

@@ -12,7 +12,7 @@
 #include "ActivityTypeArray.h"
 using namespace gui;
 
-int wWinMain(  //__stdcall wWinMain wWinMain
+int __stdcall wWinMain(  //__stdcall wWinMain 
 	HINSTANCE instance,
 	HINSTANCE previousInstance,
 	PWSTR arguments,

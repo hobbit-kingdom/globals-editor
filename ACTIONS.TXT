@@ -1,0 +1,72 @@
+[ Trigger153 : 1 ]
+{ TriggerType153:d TriggerName153:s Character153:g AnimationName153:s StaysTrue153:d TriggeredOnTrue153:d }
+15 "Jump_weapon" ABCABCAB_CABCABC0 "jump_end_weapon" 0 1 
+[ Trigger154 : 1 ]
+{ TriggerType154:d TriggerName154:s Character154:g AnimationName154:s StaysTrue154:d TriggeredOnTrue154:d }
+15 "Jump_noweapon" ABCABCAB_CABCABC0 "jump_end_no_weapon" 0 1 
+[ Trigger155 : 1 ]
+{ TriggerType155:d TriggerName155:s Character155:g AnimationName155:s StaysTrue155:d TriggeredOnTrue155:d }
+15 "Longe_jumpe" ABCABCAB_CABCABC0 "pole_ready" 0 1 
+[ Trigger156 : 1 ]
+{ TriggerType156:d TriggerName156:s Character156:g AnimationName156:s StaysTrue156:d TriggeredOnTrue156:d }
+15 "CKOLSKO" ABCABCAB_CABCABC0 "slide_flat" 0 1 
+[ Trigger157 : 1 ]
+{ TriggerType157:d TriggerName157:s Character157:g AnimationName157:s StaysTrue157:d TriggeredOnTrue157:d }
+15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
+[ Trigger158 : 1 ]
+{ TriggerType158:d TriggerName158:s Character158:g AnimationName158:s StaysTrue158:d TriggeredOnTrue158:d }
+15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
+[ Action273 : 1 ]
+ { ActionType273:d ActionName273:s Action273ExecuteDelay:f Action273ExecuteImmediately:d Action273SpawnCount:d Action273NPCGuid0:g Action273LocationGuid0:g Action273FacingGuid0:g Action273Animation0:s }
+   11              "Spawn mob"     0.100000                0                             1                     CD588DD2_52069001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action274 : 1 ]
+ { ActionType274:d ActionName274:s Action274ExecuteDelay:f Action274ExecuteImmediately:d Action274SpawnCount:d Action274NPCGuid0:g Action274LocationGuid0:g Action274FacingGuid0:g Action274Animation0:s }
+   11              "Spawn mob 2"   0.800000                0                             1                     CD588DD2_52076801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action275 : 1 ]
+ { ActionType275:d ActionName275:s Action275ExecuteDelay:f Action275ExecuteImmediately:d Action275SpawnCount:d Action275NPCGuid0:g Action275LocationGuid0:g Action275FacingGuid0:g Action275Animation0:s }
+   11              "Spawn mob 3"   1.400000                0                             1                     CD588DD2_5207C801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action276 : 1 ]
+ { ActionType276:d ActionName276:s Action276ExecuteDelay:f Action276ExecuteImmediately:d Action276SpawnCount:d Action276NPCGuid0:g Action276LocationGuid0:g Action276FacingGuid0:g Action276Animation0:s }
+   11              "Spawn mob 4"   2.500000                0                             1                     0D8ADFCC_05B32401   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action277 : 1 ]
+ { ActionType277:d ActionName277:s Action277ExecuteDelay:f Action277ExecuteImmediately:d Action277SpawnCount:d Action277NPCGuid0:g Action277LocationGuid0:g Action277FacingGuid0:g Action277Animation0:s }
+   11              "Spawn mob 5"   3.600000                0                             1                     0D8ADFCC_05B25801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action278 : 1 ]
+ { ActionType278:d ActionName278:s Action278ExecuteDelay:f Action278ExecuteImmediately:d Action278SpawnCount:d Action278NPCGuid0:g Action278LocationGuid0:g Action278FacingGuid0:g Action278Animation0:s }
+   11              "Spawn mob 6"   4.700000                0                             1                     0D8ADFCC_05B21C01   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action279 : 1 ]
+ { ActionType279:d ActionName279:s Action279ExecuteDelay:f Action279ExecuteImmediately:d Action279SpawnCount:d Action279NPCGuid0:g Action279LocationGuid0:g Action279FacingGuid0:g Action279Animation0:s }
+   11              "Spawn mob 7"   5.800000                0                             1                     0D8ADFCC_05B1B001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action280 : 1 ]
+ { ActionType280:d ActionName280:s Action280ExecuteDelay:f Action280ExecuteImmediately:d Action280SpawnCount:d Action280NPCGuid0:g Action280LocationGuid0:g Action280FacingGuid0:g Action280Animation0:s }
+   11              "Spawn mob 8"   6.900000                0                             1                     0D8ADFCC_05B1E801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action281 : 1 ]
+ { ActionType281:d ActionName281:s Action281ExecuteDelay:f Action281ExecuteImmediately:d Action281SpawnCount:d Action281NPCGuid0:g Action281LocationGuid0:g Action281FacingGuid0:g Action281Animation0:s }
+   11              "Spawn mob 9"   7.000000                0                             1                     0D8ADFCC_05B1F806   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""   
+[ Action282 : 1 ]
+{ ActionType282:d ActionName282:s Action282ExecuteDelay:f Action282ExecuteImmediately:d Action282NPCCount:d Action282NPCGuid0:g Action282Health:d }
+16 "HP_MENAIET" 0.000000 0 1 ABCABCAB_CABCABC0 1 
+[ Action283 : 1 ]
+{ ActionType283:d ActionName283:s Action283ExecuteDelay:f Action283ExecuteImmediately:d }
+44 "YBIVAET" 0.000000 0 
+[ Action284 : 1 ]
+{ ActionType284:d ActionName284:s Action284ExecuteDelay:f Action284ExecuteImmediately:d Action284StringID:s Action284Scroll:d Action284DelayTime:f }
+18 "okno" 0.000000 0 "Lox, Ymer" 0 5.000000 
+[ Action285 : 1 ]
+{ ActionType285:d ActionName285:s Action285ExecuteDelay:f Action285ExecuteImmediately:d Action285StringID:s Action285Scroll:d Action285DelayTime:f }
+18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
+[ Link127 : 1 ]
+{ LinkRepeats127:d LinkState127:d LogicType127:d LinkTriggerCount127:d LinkTriggerIndex127-0:d LinkTriggerIndex127-1:d LinkActionCount127:d LinkActionIndex127-0:d LinkActionIndex127-1:d LinkActionIndex127-2:d LinkActionIndex127-3:d LinkActionIndex127-4:d LinkActionIndex127-5:d LinkActionIndex127-6:d LinkActionIndex127-7:d LinkActionIndex127-8:d }
+1                0              1              2                     153                   154  9                    273                    274                    275                    276                    277                    278                    279                    280                    281                    
+[ Link128 : 1 ]
+{ LinkRepeats128:d LinkState128:d LogicType128:d LinkTriggerCount128:d LinkTriggerIndex128-0:d LinkActionCount128:d LinkActionIndex128-0:d }
+0 0 0 1 155 1 282 
+[ Link129 : 1 ]
+{ LinkRepeats129:d LinkState129:d LogicType129:d LinkTriggerCount129:d LinkTriggerIndex129-0:d LinkActionCount129:d LinkActionIndex129-0:d }
+0 0 0 1 156 1 283 
+[ Link130 : 1 ]
+{ LinkRepeats130:d LinkState130:d LogicType130:d LinkTriggerCount130:d LinkTriggerIndex130-0:d LinkActionCount130:d LinkActionIndex130-0:d }
+0 0 0 1 157 1 284 
+[ Link131 : 1 ]
+{ LinkRepeats131:d LinkState131:d LogicType131:d LinkTriggerCount131:d LinkTriggerIndex131-0:d LinkActionCount131:d LinkActionIndex131-0:d }
+0 0 0 1 158 1 285 
