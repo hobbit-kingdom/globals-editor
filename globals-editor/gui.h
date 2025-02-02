@@ -5,6 +5,10 @@
 
 namespace gui
 {
+	inline std::string fileToEditGlobal = "GLOBALS.TXT";
+	inline std::string fileToMergeGlobal = "ACTIONS.TXT";
+	inline std::string saveFilePathGlobal = "GLOBALS.TXT";
+
 	// constant window size
 	constexpr int WIDTH = 1230;
 	constexpr int HEIGHT = 630;
@@ -28,6 +32,7 @@ namespace gui
 	// handle window creation & destruction
 	void CreateHWindow(const char* windowName) noexcept;
 	void DestroyHWindow() noexcept;
+	void SetPaths() noexcept;
 
 	// handle device creation & destruction
 	bool CreateDevice() noexcept;

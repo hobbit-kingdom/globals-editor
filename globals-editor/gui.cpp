@@ -4,6 +4,8 @@
 #include "../imgui/imgui_impl_win32.h"
 
 #include <iostream>
+#include <windows.h>
+#include <commdlg.h>
 
 #include <string>
 #include <chrono>
@@ -556,9 +558,9 @@ int getObjectNumber(string s)
 }
 
 imgui_addons::ImGuiFileBrowser file_dialog;
-string fileToEdit = "GLOBALS.TXT";
-string fileToMerge = "ACTIONS.TXT";
-string saveFilePath = "GLOBALS.TXT";
+string fileToEdit = "";
+string fileToMerge = "";
+string saveFilePath = "";
 
 map<int, vector<string>> globalsActions;
 map<int, int> globalsActionsPositions;
@@ -588,6 +590,13 @@ static const char* TriggerTypes[] = { "0", "3", "5", "6", "7", "8", "9", "11", "
 
 static int TriggerType = 0;
 string vibor = " ";
+
+void gui::SetPaths() noexcept
+{
+	fileToEdit = gui::fileToEditGlobal;
+	fileToMerge = gui::fileToMergeGlobal;
+	saveFilePath = gui::saveFilePathGlobal;
+}
 
 void matchInputFieldsSize(string type, string vibor)
 {
@@ -718,7 +727,6 @@ void reloadFile(ImGuiTextBuffer& log)
 	globalsLinks.clear();
 	globalsLinksPositions.clear();
 	LinksNames.clear();
-
 
 	fileToEdit = fileToEdit.c_str();
 
@@ -1038,7 +1046,30 @@ void mergeActionsAndTriggersFromFile()
 	}
 }
 
+std::string OpenFileDialog() {
+	OPENFILENAME ofn;
+	char szFile[MAX_PATH] = { 0 };
+	ZeroMemory(&ofn, sizeof(ofn));
 
+	ofn.lStructSize = sizeof(ofn);
+	ofn.hwndOwner = NULL;  // Set this to your window handle if needed
+	ofn.lpstrFilter = "All Files\0*.*\0Text Files\0*.txt\0";
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = MAX_PATH;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+	ofn.lpstrTitle = "Select a File";
+
+	if (GetOpenFileName(&ofn)) {
+		std::string filePath(szFile);
+
+		// Convert backslashes to forward slashes
+		std::replace(filePath.begin(), filePath.end(), '\\', '/');
+
+		return filePath;
+	}
+
+	return "";  // Return empty string if no file was selected
+}
 
 void gui::Render() noexcept
 {
@@ -1062,7 +1093,9 @@ void gui::Render() noexcept
 		if (ImGui::BeginMenu(lang ? "Menu" : (const char*)u8"Меню"))
 		{
 			if (ImGui::MenuItem(lang ? "Open File" : (const char*)u8"Открыть Файл", NULL))
-				open = true;
+			{
+				fileToEdit = OpenFileDialog();
+			}
 			//if (ImGui::MenuItem(lang ? "Save File" : (const char*)u8"Сохранить Файл", NULL))
 			//	  save = true;
 			if (ImGui::MenuItem(lang ? "Create Default Globals File" : (const char*)u8"Создать дефолтный файл глобалс", NULL))
@@ -1123,8 +1156,6 @@ void gui::Render() noexcept
 		}
 	}
 
-	if (open)
-		ImGui::OpenPopup(lang ? "Open File" : (const char*)u8"Открыть Файл");
 	if (help)
 		ImGui::OpenPopup("Help");
 	if (errorOpen)
@@ -1182,10 +1213,6 @@ void gui::Render() noexcept
 		ImGui::EndPopup();
 	}
 
-	if (file_dialog.showFileDialog(lang ? "Open File" : (const char*)u8"Открыть Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
-	{
-		fileToEdit = file_dialog.selected_path;
-	}
 	/*
 	if (file_dialog.showFileDialog(lang ? "Save File" : (const char*)u8"Сохранить Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
 	{
@@ -1341,7 +1368,7 @@ void gui::Render() noexcept
 
 			if (ImGui::Button(lang ? "Merge Files" : (const char*)u8"Слияние Файлов"))
 			{
-				fileMerge = true;
+				fileToMerge = OpenFileDialog();
 
 				actionsEdit = false;
 				triggersEdit = false;
@@ -1352,11 +1379,7 @@ void gui::Render() noexcept
 				linksAdd = false;
 			}
 
-			if (fileMerge)
-				ImGui::OpenPopup(lang ? "Select Merge File" : (const char*)u8"Выбрать Файл Слияния");
 
-			if (file_dialog.showFileDialog(lang ? "Select Merge File" : (const char*)u8"Выбрать Файл Слияния", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
-				fileToMerge = file_dialog.selected_path;
 
 			if (ImGui::Button(lang ? "Merge it!" : (const char*)u8"Ахалай махалай!"))
 				mergeActionsAndTriggersFromFile();

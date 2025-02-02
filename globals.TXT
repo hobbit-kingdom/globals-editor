@@ -3,7 +3,7 @@
    "0D811AD0_1176E406" 0.00            0.000000 30.000000 0.000000 90 90 170 255 2000.000000 130000.000000 1            "Ch00_DreamWorld" 0                    00000000_00000000 20 20 32 255  0 0 0 255     0 0 0 255     0 0 0 255     0 0 0 255     0 0 0 255     0 0 0 255     0 0 0 255     
 [ AIManager : 1 ]
  { TriggerCount:d ActionCount:d LinkCount:d }
-7 14 6
+44 92 37
 [ Trigger0 : 1 ]
 { TriggerType0:d TriggerName0:s }
 0 "Empty trigger"    
@@ -24,6 +24,117 @@
 15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
 [ Trigger6 : 1 ]
 { TriggerType6:d TriggerName6:s Character6:g AnimationName6:s StaysTrue6:d TriggeredOnTrue6:d } 
+15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
+[ Trigger7 : 1 ]
+{ TriggerType7:d TriggerName7:s Character7:g AnimationName7:s StaysTrue7:d TriggeredOnTrue7:d } 
+15 "Jump_weapon" ABCABCAB_CABCABC0 "jump_end_weapon" 0 1 
+[ Trigger8 : 1 ]
+{ TriggerType8:d TriggerName8:s Character8:g AnimationName8:s StaysTrue8:d TriggeredOnTrue8:d } 
+15 "Jump_noweapon" ABCABCAB_CABCABC0 "jump_end_no_weapon" 0 1 
+[ Trigger9 : 1 ]
+{ TriggerType9:d TriggerName9:s Character9:g AnimationName9:s StaysTrue9:d TriggeredOnTrue9:d } 
+15 "Longe_jumpe" ABCABCAB_CABCABC0 "pole_ready" 0 1 
+[ Trigger10 : 1 ]
+{ TriggerType10:d TriggerName10:s Character10:g AnimationName10:s StaysTrue10:d TriggeredOnTrue10:d } 
+15 "CKOLSKO" ABCABCAB_CABCABC0 "slide_flat" 0 1 
+[ Trigger11 : 1 ]
+{ TriggerType11:d TriggerName11:s Character11:g AnimationName11:s StaysTrue11:d TriggeredOnTrue11:d } 
+15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
+[ Trigger12 : 1 ]
+{ TriggerType12:d TriggerName12:s Character12:g AnimationName12:s StaysTrue12:d TriggeredOnTrue12:d } 
+15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
+[ Trigger13 : 1 ]
+{ TriggerType13:d TriggerName13:s Character13:g AnimationName13:s StaysTrue13:d TriggeredOnTrue13:d } 
+15 "Jump_weapon" ABCABCAB_CABCABC0 "jump_end_weapon" 0 1 
+[ Trigger14 : 1 ]
+{ TriggerType14:d TriggerName14:s Character14:g AnimationName14:s StaysTrue14:d TriggeredOnTrue14:d } 
+15 "Jump_noweapon" ABCABCAB_CABCABC0 "jump_end_no_weapon" 0 1 
+[ Trigger15 : 1 ]
+{ TriggerType15:d TriggerName15:s Character15:g AnimationName15:s StaysTrue15:d TriggeredOnTrue15:d } 
+15 "Longe_jumpe" ABCABCAB_CABCABC0 "pole_ready" 0 1 
+[ Trigger16 : 1 ]
+{ TriggerType16:d TriggerName16:s Character16:g AnimationName16:s StaysTrue16:d TriggeredOnTrue16:d } 
+15 "CKOLSKO" ABCABCAB_CABCABC0 "slide_flat" 0 1 
+[ Trigger17 : 1 ]
+{ TriggerType17:d TriggerName17:s Character17:g AnimationName17:s StaysTrue17:d TriggeredOnTrue17:d } 
+15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
+[ Trigger18 : 1 ]
+{ TriggerType18:d TriggerName18:s Character18:g AnimationName18:s StaysTrue18:d TriggeredOnTrue18:d } 
+15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
+[ Trigger19 : 1 ]
+{ TriggerType19:d TriggerName19:s Character19:g AnimationName19:s StaysTrue19:d TriggeredOnTrue19:d } 
+15 "Jump_weapon" ABCABCAB_CABCABC0 "jump_end_weapon" 0 1 
+[ Trigger20 : 1 ]
+{ TriggerType20:d TriggerName20:s Character20:g AnimationName20:s StaysTrue20:d TriggeredOnTrue20:d } 
+15 "Jump_noweapon" ABCABCAB_CABCABC0 "jump_end_no_weapon" 0 1 
+[ Trigger21 : 1 ]
+{ TriggerType21:d TriggerName21:s Character21:g AnimationName21:s StaysTrue21:d TriggeredOnTrue21:d } 
+15 "Longe_jumpe" ABCABCAB_CABCABC0 "pole_ready" 0 1 
+[ Trigger22 : 1 ]
+{ TriggerType22:d TriggerName22:s Character22:g AnimationName22:s StaysTrue22:d TriggeredOnTrue22:d } 
+15 "CKOLSKO" ABCABCAB_CABCABC0 "slide_flat" 0 1 
+[ Trigger23 : 1 ]
+{ TriggerType23:d TriggerName23:s Character23:g AnimationName23:s StaysTrue23:d TriggeredOnTrue23:d } 
+15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
+[ Trigger24 : 1 ]
+{ TriggerType24:d TriggerName24:s Character24:g AnimationName24:s StaysTrue24:d TriggeredOnTrue24:d } 
+15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
+[ Trigger25 : 1 ]
+{ TriggerType25:d TriggerName25:s Character25:g AnimationName25:s StaysTrue25:d TriggeredOnTrue25:d } 
+15 "Jump_weapon" ABCABCAB_CABCABC0 "jump_end_weapon" 0 1 
+[ Trigger26 : 1 ]
+{ TriggerType26:d TriggerName26:s Character26:g AnimationName26:s StaysTrue26:d TriggeredOnTrue26:d } 
+15 "Jump_noweapon" ABCABCAB_CABCABC0 "jump_end_no_weapon" 0 1 
+[ Trigger27 : 1 ]
+{ TriggerType27:d TriggerName27:s Character27:g AnimationName27:s StaysTrue27:d TriggeredOnTrue27:d } 
+15 "Longe_jumpe" ABCABCAB_CABCABC0 "pole_ready" 0 1 
+[ Trigger28 : 1 ]
+{ TriggerType28:d TriggerName28:s Character28:g AnimationName28:s StaysTrue28:d TriggeredOnTrue28:d } 
+15 "CKOLSKO" ABCABCAB_CABCABC0 "slide_flat" 0 1 
+[ Trigger29 : 1 ]
+{ TriggerType29:d TriggerName29:s Character29:g AnimationName29:s StaysTrue29:d TriggeredOnTrue29:d } 
+15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
+[ Trigger30 : 1 ]
+{ TriggerType30:d TriggerName30:s Character30:g AnimationName30:s StaysTrue30:d TriggeredOnTrue30:d } 
+15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
+[ Trigger31 : 1 ]
+{ TriggerType31:d TriggerName31:s NPC31:g AttackType31:d StaysTrue31:d TriggeredOnTrue31:d }
+6 "DefaultName" 00000000_00000000 0 0 1 
+[ Trigger32 : 1 ]
+{ TriggerType32:d TriggerName32:s Character32:g AnimationName32:s StaysTrue32:d TriggeredOnTrue32:d } 
+15 "Jump_weapon" ABCABCAB_CABCABC0 "jump_end_weapon" 0 1 
+[ Trigger33 : 1 ]
+{ TriggerType33:d TriggerName33:s Character33:g AnimationName33:s StaysTrue33:d TriggeredOnTrue33:d } 
+15 "Jump_noweapon" ABCABCAB_CABCABC0 "jump_end_no_weapon" 0 1 
+[ Trigger34 : 1 ]
+{ TriggerType34:d TriggerName34:s Character34:g AnimationName34:s StaysTrue34:d TriggeredOnTrue34:d } 
+15 "Longe_jumpe" ABCABCAB_CABCABC0 "pole_ready" 0 1 
+[ Trigger35 : 1 ]
+{ TriggerType35:d TriggerName35:s Character35:g AnimationName35:s StaysTrue35:d TriggeredOnTrue35:d } 
+15 "CKOLSKO" ABCABCAB_CABCABC0 "slide_flat" 0 1 
+[ Trigger36 : 1 ]
+{ TriggerType36:d TriggerName36:s Character36:g AnimationName36:s StaysTrue36:d TriggeredOnTrue36:d } 
+15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
+[ Trigger37 : 1 ]
+{ TriggerType37:d TriggerName37:s Character37:g AnimationName37:s StaysTrue37:d TriggeredOnTrue37:d } 
+15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
+[ Trigger38 : 1 ]
+{ TriggerType38:d TriggerName38:s Character38:g AnimationName38:s StaysTrue38:d TriggeredOnTrue38:d } 
+15 "Jump_weapon" ABCABCAB_CABCABC0 "jump_end_weapon" 0 1 
+[ Trigger39 : 1 ]
+{ TriggerType39:d TriggerName39:s Character39:g AnimationName39:s StaysTrue39:d TriggeredOnTrue39:d } 
+15 "Jump_noweapon" ABCABCAB_CABCABC0 "jump_end_no_weapon" 0 1 
+[ Trigger40 : 1 ]
+{ TriggerType40:d TriggerName40:s Character40:g AnimationName40:s StaysTrue40:d TriggeredOnTrue40:d } 
+15 "Longe_jumpe" ABCABCAB_CABCABC0 "pole_ready" 0 1 
+[ Trigger41 : 1 ]
+{ TriggerType41:d TriggerName41:s Character41:g AnimationName41:s StaysTrue41:d TriggeredOnTrue41:d } 
+15 "CKOLSKO" ABCABCAB_CABCABC0 "slide_flat" 0 1 
+[ Trigger42 : 1 ]
+{ TriggerType42:d TriggerName42:s Character42:g AnimationName42:s StaysTrue42:d TriggeredOnTrue42:d } 
+15 "Cmert" ABCABCAB_CABCABC0 "death" 0 1 
+[ Trigger43 : 1 ]
+{ TriggerType43:d TriggerName43:s Character43:g AnimationName43:s StaysTrue43:d TriggeredOnTrue43:d } 
 15 "Ytonul" ABCABCAB_CABCABC0 "death_water" 0 1 
 [ Action0 : 1 ]
 { ActionType0:d ActionName0:s }
@@ -67,6 +178,240 @@
 [ Action13 : 1 ]
 { ActionType13:d ActionName13:s Action13ExecuteDelay:f Action13ExecuteImmediately:d Action13StringID:s Action13Scroll:d Action13DelayTime:f } 
 18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
+[ Action14 : 1 ]
+{ ActionType14:d ActionName14:s Action14ExecuteDelay:f Action14ExecuteImmediately:d Action14SpawnCount:d Action14NPCGuid0:g Action14LocationGuid0:g Action14FacingGuid0:g Action14Animation0:s } 
+   11              "Spawn mob"     0.100000                0                             1                     CD588DD2_52069001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action15 : 1 ]
+{ ActionType15:d ActionName15:s Action15ExecuteDelay:f Action15ExecuteImmediately:d Action15SpawnCount:d Action15NPCGuid0:g Action15LocationGuid0:g Action15FacingGuid0:g Action15Animation0:s } 
+   11              "Spawn mob 2"   0.800000                0                             1                     CD588DD2_52076801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action16 : 1 ]
+{ ActionType16:d ActionName16:s Action16ExecuteDelay:f Action16ExecuteImmediately:d Action16SpawnCount:d Action16NPCGuid0:g Action16LocationGuid0:g Action16FacingGuid0:g Action16Animation0:s } 
+   11              "Spawn mob 3"   1.400000                0                             1                     CD588DD2_5207C801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action17 : 1 ]
+{ ActionType17:d ActionName17:s Action17ExecuteDelay:f Action17ExecuteImmediately:d Action17SpawnCount:d Action17NPCGuid0:g Action17LocationGuid0:g Action17FacingGuid0:g Action17Animation0:s } 
+   11              "Spawn mob 4"   2.500000                0                             1                     0D8ADFCC_05B32401   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action18 : 1 ]
+{ ActionType18:d ActionName18:s Action18ExecuteDelay:f Action18ExecuteImmediately:d Action18SpawnCount:d Action18NPCGuid0:g Action18LocationGuid0:g Action18FacingGuid0:g Action18Animation0:s } 
+   11              "Spawn mob 5"   3.600000                0                             1                     0D8ADFCC_05B25801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action19 : 1 ]
+{ ActionType19:d ActionName19:s Action19ExecuteDelay:f Action19ExecuteImmediately:d Action19SpawnCount:d Action19NPCGuid0:g Action19LocationGuid0:g Action19FacingGuid0:g Action19Animation0:s } 
+   11              "Spawn mob 6"   4.700000                0                             1                     0D8ADFCC_05B21C01   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action20 : 1 ]
+{ ActionType20:d ActionName20:s Action20ExecuteDelay:f Action20ExecuteImmediately:d Action20SpawnCount:d Action20NPCGuid0:g Action20LocationGuid0:g Action20FacingGuid0:g Action20Animation0:s } 
+   11              "Spawn mob 7"   5.800000                0                             1                     0D8ADFCC_05B1B001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action21 : 1 ]
+{ ActionType21:d ActionName21:s Action21ExecuteDelay:f Action21ExecuteImmediately:d Action21SpawnCount:d Action21NPCGuid0:g Action21LocationGuid0:g Action21FacingGuid0:g Action21Animation0:s } 
+   11              "Spawn mob 8"   6.900000                0                             1                     0D8ADFCC_05B1E801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action22 : 1 ]
+{ ActionType22:d ActionName22:s Action22ExecuteDelay:f Action22ExecuteImmediately:d Action22SpawnCount:d Action22NPCGuid0:g Action22LocationGuid0:g Action22FacingGuid0:g Action22Animation0:s } 
+   11              "Spawn mob 9"   7.000000                0                             1                     0D8ADFCC_05B1F806   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""   
+[ Action23 : 1 ]
+{ ActionType23:d ActionName23:s Action23ExecuteDelay:f Action23ExecuteImmediately:d Action23NPCCount:d Action23NPCGuid0:g Action23Health:d } 
+16 "HP_MENAIET" 0.000000 0 1 ABCABCAB_CABCABC0 1 
+[ Action24 : 1 ]
+{ ActionType24:d ActionName24:s Action24ExecuteDelay:f Action24ExecuteImmediately:d } 
+44 "YBIVAET" 0.000000 0 
+[ Action25 : 1 ]
+{ ActionType25:d ActionName25:s Action25ExecuteDelay:f Action25ExecuteImmediately:d Action25StringID:s Action25Scroll:d Action25DelayTime:f } 
+18 "okno" 0.000000 0 "Lox, Ymer" 0 5.000000 
+[ Action26 : 1 ]
+{ ActionType26:d ActionName26:s Action26ExecuteDelay:f Action26ExecuteImmediately:d Action26StringID:s Action26Scroll:d Action26DelayTime:f } 
+18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
+[ Action27 : 1 ]
+{ ActionType27:d ActionName27:s Action27ExecuteDelay:f Action27ExecuteImmediately:d Action27SpawnCount:d Action27NPCGuid0:g Action27LocationGuid0:g Action27FacingGuid0:g Action27Animation0:s } 
+   11              "Spawn mob"     0.100000                0                             1                     CD588DD2_52069001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action28 : 1 ]
+{ ActionType28:d ActionName28:s Action28ExecuteDelay:f Action28ExecuteImmediately:d Action28SpawnCount:d Action28NPCGuid0:g Action28LocationGuid0:g Action28FacingGuid0:g Action28Animation0:s } 
+   11              "Spawn mob 2"   0.800000                0                             1                     CD588DD2_52076801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action29 : 1 ]
+{ ActionType29:d ActionName29:s Action29ExecuteDelay:f Action29ExecuteImmediately:d Action29SpawnCount:d Action29NPCGuid0:g Action29LocationGuid0:g Action29FacingGuid0:g Action29Animation0:s } 
+   11              "Spawn mob 3"   1.400000                0                             1                     CD588DD2_5207C801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action30 : 1 ]
+{ ActionType30:d ActionName30:s Action30ExecuteDelay:f Action30ExecuteImmediately:d Action30SpawnCount:d Action30NPCGuid0:g Action30LocationGuid0:g Action30FacingGuid0:g Action30Animation0:s } 
+   11              "Spawn mob 4"   2.500000                0                             1                     0D8ADFCC_05B32401   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action31 : 1 ]
+{ ActionType31:d ActionName31:s Action31ExecuteDelay:f Action31ExecuteImmediately:d Action31SpawnCount:d Action31NPCGuid0:g Action31LocationGuid0:g Action31FacingGuid0:g Action31Animation0:s } 
+   11              "Spawn mob 5"   3.600000                0                             1                     0D8ADFCC_05B25801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action32 : 1 ]
+{ ActionType32:d ActionName32:s Action32ExecuteDelay:f Action32ExecuteImmediately:d Action32SpawnCount:d Action32NPCGuid0:g Action32LocationGuid0:g Action32FacingGuid0:g Action32Animation0:s } 
+   11              "Spawn mob 6"   4.700000                0                             1                     0D8ADFCC_05B21C01   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action33 : 1 ]
+{ ActionType33:d ActionName33:s Action33ExecuteDelay:f Action33ExecuteImmediately:d Action33SpawnCount:d Action33NPCGuid0:g Action33LocationGuid0:g Action33FacingGuid0:g Action33Animation0:s } 
+   11              "Spawn mob 7"   5.800000                0                             1                     0D8ADFCC_05B1B001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action34 : 1 ]
+{ ActionType34:d ActionName34:s Action34ExecuteDelay:f Action34ExecuteImmediately:d Action34SpawnCount:d Action34NPCGuid0:g Action34LocationGuid0:g Action34FacingGuid0:g Action34Animation0:s } 
+   11              "Spawn mob 8"   6.900000                0                             1                     0D8ADFCC_05B1E801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action35 : 1 ]
+{ ActionType35:d ActionName35:s Action35ExecuteDelay:f Action35ExecuteImmediately:d Action35SpawnCount:d Action35NPCGuid0:g Action35LocationGuid0:g Action35FacingGuid0:g Action35Animation0:s } 
+   11              "Spawn mob 9"   7.000000                0                             1                     0D8ADFCC_05B1F806   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""   
+[ Action36 : 1 ]
+{ ActionType36:d ActionName36:s Action36ExecuteDelay:f Action36ExecuteImmediately:d Action36NPCCount:d Action36NPCGuid0:g Action36Health:d } 
+16 "HP_MENAIET" 0.000000 0 1 ABCABCAB_CABCABC0 1 
+[ Action37 : 1 ]
+{ ActionType37:d ActionName37:s Action37ExecuteDelay:f Action37ExecuteImmediately:d } 
+44 "YBIVAET" 0.000000 0 
+[ Action38 : 1 ]
+{ ActionType38:d ActionName38:s Action38ExecuteDelay:f Action38ExecuteImmediately:d Action38StringID:s Action38Scroll:d Action38DelayTime:f } 
+18 "okno" 0.000000 0 "Lox, Ymer" 0 5.000000 
+[ Action39 : 1 ]
+{ ActionType39:d ActionName39:s Action39ExecuteDelay:f Action39ExecuteImmediately:d Action39StringID:s Action39Scroll:d Action39DelayTime:f } 
+18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
+[ Action40 : 1 ]
+{ ActionType40:d ActionName40:s Action40ExecuteDelay:f Action40ExecuteImmediately:d Action40SpawnCount:d Action40NPCGuid0:g Action40LocationGuid0:g Action40FacingGuid0:g Action40Animation0:s } 
+   11              "Spawn mob"     0.100000                0                             1                     CD588DD2_52069001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action41 : 1 ]
+{ ActionType41:d ActionName41:s Action41ExecuteDelay:f Action41ExecuteImmediately:d Action41SpawnCount:d Action41NPCGuid0:g Action41LocationGuid0:g Action41FacingGuid0:g Action41Animation0:s } 
+   11              "Spawn mob 2"   0.800000                0                             1                     CD588DD2_52076801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action42 : 1 ]
+{ ActionType42:d ActionName42:s Action42ExecuteDelay:f Action42ExecuteImmediately:d Action42SpawnCount:d Action42NPCGuid0:g Action42LocationGuid0:g Action42FacingGuid0:g Action42Animation0:s } 
+   11              "Spawn mob 3"   1.400000                0                             1                     CD588DD2_5207C801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action43 : 1 ]
+{ ActionType43:d ActionName43:s Action43ExecuteDelay:f Action43ExecuteImmediately:d Action43SpawnCount:d Action43NPCGuid0:g Action43LocationGuid0:g Action43FacingGuid0:g Action43Animation0:s } 
+   11              "Spawn mob 4"   2.500000                0                             1                     0D8ADFCC_05B32401   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action44 : 1 ]
+{ ActionType44:d ActionName44:s Action44ExecuteDelay:f Action44ExecuteImmediately:d Action44SpawnCount:d Action44NPCGuid0:g Action44LocationGuid0:g Action44FacingGuid0:g Action44Animation0:s } 
+   11              "Spawn mob 5"   3.600000                0                             1                     0D8ADFCC_05B25801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action45 : 1 ]
+{ ActionType45:d ActionName45:s Action45ExecuteDelay:f Action45ExecuteImmediately:d Action45SpawnCount:d Action45NPCGuid0:g Action45LocationGuid0:g Action45FacingGuid0:g Action45Animation0:s } 
+   11              "Spawn mob 6"   4.700000                0                             1                     0D8ADFCC_05B21C01   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action46 : 1 ]
+{ ActionType46:d ActionName46:s Action46ExecuteDelay:f Action46ExecuteImmediately:d Action46SpawnCount:d Action46NPCGuid0:g Action46LocationGuid0:g Action46FacingGuid0:g Action46Animation0:s } 
+   11              "Spawn mob 7"   5.800000                0                             1                     0D8ADFCC_05B1B001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action47 : 1 ]
+{ ActionType47:d ActionName47:s Action47ExecuteDelay:f Action47ExecuteImmediately:d Action47SpawnCount:d Action47NPCGuid0:g Action47LocationGuid0:g Action47FacingGuid0:g Action47Animation0:s } 
+   11              "Spawn mob 8"   6.900000                0                             1                     0D8ADFCC_05B1E801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action48 : 1 ]
+{ ActionType48:d ActionName48:s Action48ExecuteDelay:f Action48ExecuteImmediately:d Action48SpawnCount:d Action48NPCGuid0:g Action48LocationGuid0:g Action48FacingGuid0:g Action48Animation0:s } 
+   11              "Spawn mob 9"   7.000000                0                             1                     0D8ADFCC_05B1F806   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""   
+[ Action49 : 1 ]
+{ ActionType49:d ActionName49:s Action49ExecuteDelay:f Action49ExecuteImmediately:d Action49NPCCount:d Action49NPCGuid0:g Action49Health:d } 
+16 "HP_MENAIET" 0.000000 0 1 ABCABCAB_CABCABC0 1 
+[ Action50 : 1 ]
+{ ActionType50:d ActionName50:s Action50ExecuteDelay:f Action50ExecuteImmediately:d } 
+44 "YBIVAET" 0.000000 0 
+[ Action51 : 1 ]
+{ ActionType51:d ActionName51:s Action51ExecuteDelay:f Action51ExecuteImmediately:d Action51StringID:s Action51Scroll:d Action51DelayTime:f } 
+18 "okno" 0.000000 0 "Lox, Ymer" 0 5.000000 
+[ Action52 : 1 ]
+{ ActionType52:d ActionName52:s Action52ExecuteDelay:f Action52ExecuteImmediately:d Action52StringID:s Action52Scroll:d Action52DelayTime:f } 
+18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
+[ Action53 : 1 ]
+{ ActionType53:d ActionName53:s Action53ExecuteDelay:f Action53ExecuteImmediately:d Action53SpawnCount:d Action53NPCGuid0:g Action53LocationGuid0:g Action53FacingGuid0:g Action53Animation0:s } 
+   11              "Spawn mob"     0.100000                0                             1                     CD588DD2_52069001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action54 : 1 ]
+{ ActionType54:d ActionName54:s Action54ExecuteDelay:f Action54ExecuteImmediately:d Action54SpawnCount:d Action54NPCGuid0:g Action54LocationGuid0:g Action54FacingGuid0:g Action54Animation0:s } 
+   11              "Spawn mob 2"   0.800000                0                             1                     CD588DD2_52076801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action55 : 1 ]
+{ ActionType55:d ActionName55:s Action55ExecuteDelay:f Action55ExecuteImmediately:d Action55SpawnCount:d Action55NPCGuid0:g Action55LocationGuid0:g Action55FacingGuid0:g Action55Animation0:s } 
+   11              "Spawn mob 3"   1.400000                0                             1                     CD588DD2_5207C801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action56 : 1 ]
+{ ActionType56:d ActionName56:s Action56ExecuteDelay:f Action56ExecuteImmediately:d Action56SpawnCount:d Action56NPCGuid0:g Action56LocationGuid0:g Action56FacingGuid0:g Action56Animation0:s } 
+   11              "Spawn mob 4"   2.500000                0                             1                     0D8ADFCC_05B32401   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action57 : 1 ]
+{ ActionType57:d ActionName57:s Action57ExecuteDelay:f Action57ExecuteImmediately:d Action57SpawnCount:d Action57NPCGuid0:g Action57LocationGuid0:g Action57FacingGuid0:g Action57Animation0:s } 
+   11              "Spawn mob 5"   3.600000                0                             1                     0D8ADFCC_05B25801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action58 : 1 ]
+{ ActionType58:d ActionName58:s Action58ExecuteDelay:f Action58ExecuteImmediately:d Action58SpawnCount:d Action58NPCGuid0:g Action58LocationGuid0:g Action58FacingGuid0:g Action58Animation0:s } 
+   11              "Spawn mob 6"   4.700000                0                             1                     0D8ADFCC_05B21C01   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action59 : 1 ]
+{ ActionType59:d ActionName59:s Action59ExecuteDelay:f Action59ExecuteImmediately:d Action59SpawnCount:d Action59NPCGuid0:g Action59LocationGuid0:g Action59FacingGuid0:g Action59Animation0:s } 
+   11              "Spawn mob 7"   5.800000                0                             1                     0D8ADFCC_05B1B001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action60 : 1 ]
+{ ActionType60:d ActionName60:s Action60ExecuteDelay:f Action60ExecuteImmediately:d Action60SpawnCount:d Action60NPCGuid0:g Action60LocationGuid0:g Action60FacingGuid0:g Action60Animation0:s } 
+   11              "Spawn mob 8"   6.900000                0                             1                     0D8ADFCC_05B1E801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action61 : 1 ]
+{ ActionType61:d ActionName61:s Action61ExecuteDelay:f Action61ExecuteImmediately:d Action61SpawnCount:d Action61NPCGuid0:g Action61LocationGuid0:g Action61FacingGuid0:g Action61Animation0:s } 
+   11              "Spawn mob 9"   7.000000                0                             1                     0D8ADFCC_05B1F806   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""   
+[ Action62 : 1 ]
+{ ActionType62:d ActionName62:s Action62ExecuteDelay:f Action62ExecuteImmediately:d Action62NPCCount:d Action62NPCGuid0:g Action62Health:d } 
+16 "HP_MENAIET" 0.000000 0 1 ABCABCAB_CABCABC0 1 
+[ Action63 : 1 ]
+{ ActionType63:d ActionName63:s Action63ExecuteDelay:f Action63ExecuteImmediately:d } 
+44 "YBIVAET" 0.000000 0 
+[ Action64 : 1 ]
+{ ActionType64:d ActionName64:s Action64ExecuteDelay:f Action64ExecuteImmediately:d Action64StringID:s Action64Scroll:d Action64DelayTime:f } 
+18 "okno" 0.000000 0 "Lox, Ymer" 0 5.000000 
+[ Action65 : 1 ]
+{ ActionType65:d ActionName65:s Action65ExecuteDelay:f Action65ExecuteImmediately:d Action65StringID:s Action65Scroll:d Action65DelayTime:f } 
+18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
+[ Action66 : 1 ]
+{ ActionType66:d ActionName66:s Action66ExecuteDelay:f Action66ExecuteImmediately:d Action66SpawnCount:d Action66NPCGuid0:g Action66LocationGuid0:g Action66FacingGuid0:g Action66Animation0:s } 
+   11              "Spawn mob"     0.100000                0                             1                     CD588DD2_52069001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action67 : 1 ]
+{ ActionType67:d ActionName67:s Action67ExecuteDelay:f Action67ExecuteImmediately:d Action67SpawnCount:d Action67NPCGuid0:g Action67LocationGuid0:g Action67FacingGuid0:g Action67Animation0:s } 
+   11              "Spawn mob 2"   0.800000                0                             1                     CD588DD2_52076801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action68 : 1 ]
+{ ActionType68:d ActionName68:s Action68ExecuteDelay:f Action68ExecuteImmediately:d Action68SpawnCount:d Action68NPCGuid0:g Action68LocationGuid0:g Action68FacingGuid0:g Action68Animation0:s } 
+   11              "Spawn mob 3"   1.400000                0                             1                     CD588DD2_5207C801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action69 : 1 ]
+{ ActionType69:d ActionName69:s Action69ExecuteDelay:f Action69ExecuteImmediately:d Action69SpawnCount:d Action69NPCGuid0:g Action69LocationGuid0:g Action69FacingGuid0:g Action69Animation0:s } 
+   11              "Spawn mob 4"   2.500000                0                             1                     0D8ADFCC_05B32401   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action70 : 1 ]
+{ ActionType70:d ActionName70:s Action70ExecuteDelay:f Action70ExecuteImmediately:d Action70SpawnCount:d Action70NPCGuid0:g Action70LocationGuid0:g Action70FacingGuid0:g Action70Animation0:s } 
+   11              "Spawn mob 5"   3.600000                0                             1                     0D8ADFCC_05B25801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action71 : 1 ]
+{ ActionType71:d ActionName71:s Action71ExecuteDelay:f Action71ExecuteImmediately:d Action71SpawnCount:d Action71NPCGuid0:g Action71LocationGuid0:g Action71FacingGuid0:g Action71Animation0:s } 
+   11              "Spawn mob 6"   4.700000                0                             1                     0D8ADFCC_05B21C01   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action72 : 1 ]
+{ ActionType72:d ActionName72:s Action72ExecuteDelay:f Action72ExecuteImmediately:d Action72SpawnCount:d Action72NPCGuid0:g Action72LocationGuid0:g Action72FacingGuid0:g Action72Animation0:s } 
+   11              "Spawn mob 7"   5.800000                0                             1                     0D8ADFCC_05B1B001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action73 : 1 ]
+{ ActionType73:d ActionName73:s Action73ExecuteDelay:f Action73ExecuteImmediately:d Action73SpawnCount:d Action73NPCGuid0:g Action73LocationGuid0:g Action73FacingGuid0:g Action73Animation0:s } 
+   11              "Spawn mob 8"   6.900000                0                             1                     0D8ADFCC_05B1E801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action74 : 1 ]
+{ ActionType74:d ActionName74:s Action74ExecuteDelay:f Action74ExecuteImmediately:d Action74SpawnCount:d Action74NPCGuid0:g Action74LocationGuid0:g Action74FacingGuid0:g Action74Animation0:s } 
+   11              "Spawn mob 9"   7.000000                0                             1                     0D8ADFCC_05B1F806   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""   
+[ Action75 : 1 ]
+{ ActionType75:d ActionName75:s Action75ExecuteDelay:f Action75ExecuteImmediately:d Action75NPCCount:d Action75NPCGuid0:g Action75Health:d } 
+16 "HP_MENAIET" 0.000000 0 1 ABCABCAB_CABCABC0 1 
+[ Action76 : 1 ]
+{ ActionType76:d ActionName76:s Action76ExecuteDelay:f Action76ExecuteImmediately:d } 
+44 "YBIVAET" 0.000000 0 
+[ Action77 : 1 ]
+{ ActionType77:d ActionName77:s Action77ExecuteDelay:f Action77ExecuteImmediately:d Action77StringID:s Action77Scroll:d Action77DelayTime:f } 
+18 "okno" 0.000000 0 "Lox, Ymer" 0 5.000000 
+[ Action78 : 1 ]
+{ ActionType78:d ActionName78:s Action78ExecuteDelay:f Action78ExecuteImmediately:d Action78StringID:s Action78Scroll:d Action78DelayTime:f } 
+18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
+[ Action79 : 1 ]
+{ ActionType79:d ActionName79:s Action79ExecuteDelay:f Action79ExecuteImmediately:d Action79SpawnCount:d Action79NPCGuid0:g Action79LocationGuid0:g Action79FacingGuid0:g Action79Animation0:s } 
+   11              "Spawn mob"     0.100000                0                             1                     CD588DD2_52069001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action80 : 1 ]
+{ ActionType80:d ActionName80:s Action80ExecuteDelay:f Action80ExecuteImmediately:d Action80SpawnCount:d Action80NPCGuid0:g Action80LocationGuid0:g Action80FacingGuid0:g Action80Animation0:s } 
+   11              "Spawn mob 2"   0.800000                0                             1                     CD588DD2_52076801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action81 : 1 ]
+{ ActionType81:d ActionName81:s Action81ExecuteDelay:f Action81ExecuteImmediately:d Action81SpawnCount:d Action81NPCGuid0:g Action81LocationGuid0:g Action81FacingGuid0:g Action81Animation0:s } 
+   11              "Spawn mob 3"   1.400000                0                             1                     CD588DD2_5207C801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action82 : 1 ]
+{ ActionType82:d ActionName82:s Action82ExecuteDelay:f Action82ExecuteImmediately:d Action82SpawnCount:d Action82NPCGuid0:g Action82LocationGuid0:g Action82FacingGuid0:g Action82Animation0:s } 
+   11              "Spawn mob 4"   2.500000                0                             1                     0D8ADFCC_05B32401   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action83 : 1 ]
+{ ActionType83:d ActionName83:s Action83ExecuteDelay:f Action83ExecuteImmediately:d Action83SpawnCount:d Action83NPCGuid0:g Action83LocationGuid0:g Action83FacingGuid0:g Action83Animation0:s } 
+   11              "Spawn mob 5"   3.600000                0                             1                     0D8ADFCC_05B25801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action84 : 1 ]
+{ ActionType84:d ActionName84:s Action84ExecuteDelay:f Action84ExecuteImmediately:d Action84SpawnCount:d Action84NPCGuid0:g Action84LocationGuid0:g Action84FacingGuid0:g Action84Animation0:s } 
+   11              "Spawn mob 6"   4.700000                0                             1                     0D8ADFCC_05B21C01   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action85 : 1 ]
+{ ActionType85:d ActionName85:s Action85ExecuteDelay:f Action85ExecuteImmediately:d Action85SpawnCount:d Action85NPCGuid0:g Action85LocationGuid0:g Action85FacingGuid0:g Action85Animation0:s } 
+   11              "Spawn mob 7"   5.800000                0                             1                     0D8ADFCC_05B1B001   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action86 : 1 ]
+{ ActionType86:d ActionName86:s Action86ExecuteDelay:f Action86ExecuteImmediately:d Action86SpawnCount:d Action86NPCGuid0:g Action86LocationGuid0:g Action86FacingGuid0:g Action86Animation0:s } 
+   11              "Spawn mob 8"   6.900000                0                             1                     0D8ADFCC_05B1E801   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""                    
+[ Action87 : 1 ]
+{ ActionType87:d ActionName87:s Action87ExecuteDelay:f Action87ExecuteImmediately:d Action87SpawnCount:d Action87NPCGuid0:g Action87LocationGuid0:g Action87FacingGuid0:g Action87Animation0:s } 
+   11              "Spawn mob 9"   7.000000                0                             1                     0D8ADFCC_05B1F806   ABCABCAB_CABCABC0        ABCABCAB_CABCABC0      ""   
+[ Action88 : 1 ]
+{ ActionType88:d ActionName88:s Action88ExecuteDelay:f Action88ExecuteImmediately:d Action88NPCCount:d Action88NPCGuid0:g Action88Health:d } 
+16 "HP_MENAIET" 0.000000 0 1 ABCABCAB_CABCABC0 1 
+[ Action89 : 1 ]
+{ ActionType89:d ActionName89:s Action89ExecuteDelay:f Action89ExecuteImmediately:d } 
+44 "YBIVAET" 0.000000 0 
+[ Action90 : 1 ]
+{ ActionType90:d ActionName90:s Action90ExecuteDelay:f Action90ExecuteImmediately:d Action90StringID:s Action90Scroll:d Action90DelayTime:f } 
+18 "okno" 0.000000 0 "Lox, Ymer" 0 5.000000 
+[ Action91 : 1 ]
+{ ActionType91:d ActionName91:s Action91ExecuteDelay:f Action91ExecuteImmediately:d Action91StringID:s Action91Scroll:d Action91DelayTime:f } 
+18 "Ytonul" 0.000000 0 "Lox, Ytonul" 0 5.000000 
 [ Link0 : 1 ]
 { LinkRepeats0:d LinkState0:d LogicType0:d LinkTriggerCount0:d LinkActionCount0:d }
 0 0 0 0 0 
@@ -85,6 +430,99 @@
 [ Link5 : 1 ]
 { LinkRepeats5:d LinkState5:d LogicType5:d LinkTriggerCount5:d LinkTriggerIndex5-0:d LinkActionCount5:d LinkActionIndex5-0:d } 
 0 0 0 1 6 1 13 
+[ Link6 : 1 ]
+{ LinkRepeats6:d LinkState6:d LogicType6:d LinkTriggerCount6:d LinkTriggerIndex6-0:d LinkTriggerIndex6-1:d LinkActionCount6:d LinkActionIndex6-0:d LinkActionIndex6-1:d LinkActionIndex6-2:d LinkActionIndex6-3:d LinkActionIndex6-4:d LinkActionIndex6-5:d LinkActionIndex6-6:d LinkActionIndex6-7:d LinkActionIndex6-8:d } 
+1 0 1 2 7 8 9 14 15 16 17 18 19 20 21 22 
+[ Link7 : 1 ]
+{ LinkRepeats7:d LinkState7:d LogicType7:d LinkTriggerCount7:d LinkTriggerIndex7-0:d LinkActionCount7:d LinkActionIndex7-0:d } 
+0 0 0 1 9 1 23 
+[ Link8 : 1 ]
+{ LinkRepeats8:d LinkState8:d LogicType8:d LinkTriggerCount8:d LinkTriggerIndex8-0:d LinkActionCount8:d LinkActionIndex8-0:d } 
+0 0 0 1 10 1 24 
+[ Link9 : 1 ]
+{ LinkRepeats9:d LinkState9:d LogicType9:d LinkTriggerCount9:d LinkTriggerIndex9-0:d LinkActionCount9:d LinkActionIndex9-0:d } 
+0 0 0 1 11 1 25 
+[ Link10 : 1 ]
+{ LinkRepeats10:d LinkState10:d LogicType10:d LinkTriggerCount10:d LinkTriggerIndex10-0:d LinkActionCount10:d LinkActionIndex10-0:d } 
+0 0 0 1 12 1 26 
+[ Link11 : 1 ]
+{ LinkRepeats11:d LinkState11:d LogicType11:d LinkTriggerCount11:d LinkTriggerIndex11-0:d LinkTriggerIndex11-1:d LinkActionCount11:d LinkActionIndex11-0:d LinkActionIndex11-1:d LinkActionIndex11-2:d LinkActionIndex11-3:d LinkActionIndex11-4:d LinkActionIndex11-5:d LinkActionIndex11-6:d LinkActionIndex11-7:d LinkActionIndex11-8:d } 
+1 0 1 2 13 14 9 27 28 29 30 31 32 33 34 35 
+[ Link12 : 1 ]
+{ LinkRepeats12:d LinkState12:d LogicType12:d LinkTriggerCount12:d LinkTriggerIndex12-0:d LinkActionCount12:d LinkActionIndex12-0:d } 
+0 0 0 1 15 1 36 
+[ Link13 : 1 ]
+{ LinkRepeats13:d LinkState13:d LogicType13:d LinkTriggerCount13:d LinkTriggerIndex13-0:d LinkActionCount13:d LinkActionIndex13-0:d } 
+0 0 0 1 16 1 37 
+[ Link14 : 1 ]
+{ LinkRepeats14:d LinkState14:d LogicType14:d LinkTriggerCount14:d LinkTriggerIndex14-0:d LinkActionCount14:d LinkActionIndex14-0:d } 
+0 0 0 1 17 1 38 
+[ Link15 : 1 ]
+{ LinkRepeats15:d LinkState15:d LogicType15:d LinkTriggerCount15:d LinkTriggerIndex15-0:d LinkActionCount15:d LinkActionIndex15-0:d } 
+0 0 0 1 18 1 39 
+[ Link16 : 1 ]
+{ LinkRepeats16:d LinkState16:d LogicType16:d LinkTriggerCount16:d LinkTriggerIndex16-0:d LinkTriggerIndex16-1:d LinkActionCount16:d LinkActionIndex16-0:d LinkActionIndex16-1:d LinkActionIndex16-2:d LinkActionIndex16-3:d LinkActionIndex16-4:d LinkActionIndex16-5:d LinkActionIndex16-6:d LinkActionIndex16-7:d LinkActionIndex16-8:d } 
+1 0 1 2 19 20 9 40 41 42 43 44 45 46 47 48 
+[ Link17 : 1 ]
+{ LinkRepeats17:d LinkState17:d LogicType17:d LinkTriggerCount17:d LinkTriggerIndex17-0:d LinkActionCount17:d LinkActionIndex17-0:d } 
+0 0 0 1 21 1 49 
+[ Link18 : 1 ]
+{ LinkRepeats18:d LinkState18:d LogicType18:d LinkTriggerCount18:d LinkTriggerIndex18-0:d LinkActionCount18:d LinkActionIndex18-0:d } 
+0 0 0 1 22 1 50 
+[ Link19 : 1 ]
+{ LinkRepeats19:d LinkState19:d LogicType19:d LinkTriggerCount19:d LinkTriggerIndex19-0:d LinkActionCount19:d LinkActionIndex19-0:d } 
+0 0 0 1 23 1 51 
+[ Link20 : 1 ]
+{ LinkRepeats20:d LinkState20:d LogicType20:d LinkTriggerCount20:d LinkTriggerIndex20-0:d LinkActionCount20:d LinkActionIndex20-0:d } 
+0 0 0 1 24 1 52 
+[ Link21 : 1 ]
+{ LinkRepeats21:d LinkState21:d LogicType21:d LinkTriggerCount21:d LinkTriggerIndex21-0:d LinkTriggerIndex21-1:d LinkActionCount21:d LinkActionIndex21-0:d LinkActionIndex21-1:d LinkActionIndex21-2:d LinkActionIndex21-3:d LinkActionIndex21-4:d LinkActionIndex21-5:d LinkActionIndex21-6:d LinkActionIndex21-7:d LinkActionIndex21-8:d } 
+1 0 1 2 25 26 9 53 54 55 56 57 58 59 60 61 
+[ Link22 : 1 ]
+{ LinkRepeats22:d LinkState22:d LogicType22:d LinkTriggerCount22:d LinkTriggerIndex22-0:d LinkActionCount22:d LinkActionIndex22-0:d } 
+0 0 0 1 27 1 62 
+[ Link23 : 1 ]
+{ LinkRepeats23:d LinkState23:d LogicType23:d LinkTriggerCount23:d LinkTriggerIndex23-0:d LinkActionCount23:d LinkActionIndex23-0:d } 
+0 0 0 1 28 1 63 
+[ Link24 : 1 ]
+{ LinkRepeats24:d LinkState24:d LogicType24:d LinkTriggerCount24:d LinkTriggerIndex24-0:d LinkActionCount24:d LinkActionIndex24-0:d } 
+0 0 0 1 29 1 64 
+[ Link25 : 1 ]
+{ LinkRepeats25:d LinkState25:d LogicType25:d LinkTriggerCount25:d LinkTriggerIndex25-0:d LinkActionCount25:d LinkActionIndex25-0:d } 
+0 0 0 1 30 1 65 
+[ Link26 : 1 ]
+{ LinkRepeats26:d LinkState26:d LogicType26:d LinkTriggerCount26:d LinkActionCount26:d }
+0 0 0 0 0 
+[ Link27 : 1 ]
+{ LinkRepeats27:d LinkState27:d LogicType27:d LinkTriggerCount27:d LinkTriggerIndex27-0:d LinkTriggerIndex27-1:d LinkActionCount27:d LinkActionIndex27-0:d LinkActionIndex27-1:d LinkActionIndex27-2:d LinkActionIndex27-3:d LinkActionIndex27-4:d LinkActionIndex27-5:d LinkActionIndex27-6:d LinkActionIndex27-7:d LinkActionIndex27-8:d } 
+1 0 1 2 32 33 9 66 67 68 69 70 71 72 73 74 
+[ Link28 : 1 ]
+{ LinkRepeats28:d LinkState28:d LogicType28:d LinkTriggerCount28:d LinkTriggerIndex28-0:d LinkActionCount28:d LinkActionIndex28-0:d } 
+0 0 0 1 34 1 75 
+[ Link29 : 1 ]
+{ LinkRepeats29:d LinkState29:d LogicType29:d LinkTriggerCount29:d LinkTriggerIndex29-0:d LinkActionCount29:d LinkActionIndex29-0:d } 
+0 0 0 1 35 1 76 
+[ Link30 : 1 ]
+{ LinkRepeats30:d LinkState30:d LogicType30:d LinkTriggerCount30:d LinkTriggerIndex30-0:d LinkActionCount30:d LinkActionIndex30-0:d } 
+0 0 0 1 36 1 77 
+[ Link31 : 1 ]
+{ LinkRepeats31:d LinkState31:d LogicType31:d LinkTriggerCount31:d LinkTriggerIndex31-0:d LinkActionCount31:d LinkActionIndex31-0:d } 
+0 0 0 1 37 1 78 
+[ Link32 : 1 ]
+{ LinkRepeats32:d LinkState32:d LogicType32:d LinkTriggerCount32:d LinkTriggerIndex32-0:d LinkTriggerIndex32-1:d LinkActionCount32:d LinkActionIndex32-0:d LinkActionIndex32-1:d LinkActionIndex32-2:d LinkActionIndex32-3:d LinkActionIndex32-4:d LinkActionIndex32-5:d LinkActionIndex32-6:d LinkActionIndex32-7:d LinkActionIndex32-8:d } 
+1 0 1 2 38 39 9 79 80 81 82 83 84 85 86 87 
+[ Link33 : 1 ]
+{ LinkRepeats33:d LinkState33:d LogicType33:d LinkTriggerCount33:d LinkTriggerIndex33-0:d LinkActionCount33:d LinkActionIndex33-0:d } 
+0 0 0 1 40 1 88 
+[ Link34 : 1 ]
+{ LinkRepeats34:d LinkState34:d LogicType34:d LinkTriggerCount34:d LinkTriggerIndex34-0:d LinkActionCount34:d LinkActionIndex34-0:d } 
+0 0 0 1 41 1 89 
+[ Link35 : 1 ]
+{ LinkRepeats35:d LinkState35:d LogicType35:d LinkTriggerCount35:d LinkTriggerIndex35-0:d LinkActionCount35:d LinkActionIndex35-0:d } 
+0 0 0 1 42 1 90 
+[ Link36 : 1 ]
+{ LinkRepeats36:d LinkState36:d LogicType36:d LinkTriggerCount36:d LinkTriggerIndex36-0:d LinkActionCount36:d LinkActionIndex36-0:d } 
+0 0 0 1 43 1 91 
 [ ConversationMgr : 1 ]
  { ConversationCount:d ConversationListCount:d DialogListCount:d }
    0                   0                       0                 
