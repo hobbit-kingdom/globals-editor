@@ -1,4 +1,4 @@
-#include "gui.h"
+﻿#include "gui.h"
 #include<iostream>
 #include<fstream>
 #include <thread>

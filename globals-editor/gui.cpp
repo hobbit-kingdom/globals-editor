@@ -1,4 +1,4 @@
-#include "gui.h"
+п»ї#include "gui.h"
 #include "../imgui/imgui.h"
 #include "../imgui/imgui_impl_dx9.h"
 #include "../imgui/imgui_impl_win32.h"
@@ -95,12 +95,12 @@ long __stdcall WindowProcess(
 	return DefWindowProc(window, message, wideParameter, longParameter);
 }
 void FileSelectionCallback(const char* result) {
-	// Получить выбранный файл
+	// РџРѕР»СѓС‡РёС‚СЊ РІС‹Р±СЂР°РЅРЅС‹Р№ С„Р°Р№Р»
 	string selectedFile = result;
 
-	// Выполнить необходимые действия с выбранным файлом
-	// Например, вывести путь до файла на консоль
-	std::cout << "Выбранный файл: " << selectedFile << std::endl;
+	// Р’С‹РїРѕР»РЅРёС‚СЊ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РґРµР№СЃС‚РІРёСЏ СЃ РІС‹Р±СЂР°РЅРЅС‹Рј С„Р°Р№Р»РѕРј
+	// РќР°РїСЂРёРјРµСЂ, РІС‹РІРµСЃС‚Рё РїСѓС‚СЊ РґРѕ С„Р°Р№Р»Р° РЅР° РєРѕРЅСЃРѕР»СЊ
+	std::cout << "Р’С‹Р±СЂР°РЅРЅС‹Р№ С„Р°Р№Р»: " << selectedFile << std::endl;
 }
 
 void gui::CreateHWindow(const char* windowName) noexcept
@@ -483,7 +483,7 @@ void drawInputFields(string type, string vibor) {
 					ImGui::SameLine(); HelpMarker(lang ?
 						"0 - all triggers must be activated\n\n1 - one of the triggers has to be activated"
 						:
-						(const char*)u8"0 - все триггеры должны сработать\n\n1 - один из триггеров должен сработать"
+						(const char*)u8"0 - РІСЃРµ С‚СЂРёРіРіРµСЂС‹ РґРѕР»Р¶РЅС‹ СЃСЂР°Р±РѕС‚Р°С‚СЊ\n\n1 - РѕРґРёРЅ РёР· С‚СЂРёРіРіРµСЂРѕРІ РґРѕР»Р¶РµРЅ СЃСЂР°Р±РѕС‚Р°С‚СЊ"
 					);
 				}
 
@@ -1090,15 +1090,15 @@ void gui::Render() noexcept
 	bool open = false, save = false, help = false;
 	if (ImGui::BeginMenuBar())
 	{
-		if (ImGui::BeginMenu(lang ? "Menu" : (const char*)u8"Меню"))
+		if (ImGui::BeginMenu(lang ? "Menu" : (const char*)u8"РњРµРЅСЋ"))
 		{
-			if (ImGui::MenuItem(lang ? "Open File" : (const char*)u8"Открыть Файл", NULL))
+			if (ImGui::MenuItem(lang ? "Open File" : (const char*)u8"РћС‚РєСЂС‹С‚СЊ Р¤Р°Р№Р»", NULL))
 			{
 				fileToEdit = OpenFileDialog();
 			}
-			//if (ImGui::MenuItem(lang ? "Save File" : (const char*)u8"Сохранить Файл", NULL))
+			//if (ImGui::MenuItem(lang ? "Save File" : (const char*)u8"РЎРѕС…СЂР°РЅРёС‚СЊ Р¤Р°Р№Р»", NULL))
 			//	  save = true;
-			if (ImGui::MenuItem(lang ? "Create Default Globals File" : (const char*)u8"Создать дефолтный файл глобалс", NULL))
+			if (ImGui::MenuItem(lang ? "Create Default Globals File" : (const char*)u8"РЎРѕР·РґР°С‚СЊ РґРµС„РѕР»С‚РЅС‹Р№ С„Р°Р№Р» РіР»РѕР±Р°Р»СЃ", NULL))
 			{
 				string sourceFile = "Template/EMPTY_LEVEL_DREAMWORLD.TXT";
 				string destinationFolder = "./";
@@ -1126,7 +1126,7 @@ void gui::Render() noexcept
 
 			ImGui::EndMenu();
 		}
-		if (ImGui::Button(lang ? "Help" : (const char*)u8"Помощь"))
+		if (ImGui::Button(lang ? "Help" : (const char*)u8"РџРѕРјРѕС‰СЊ"))
 		{
 			help = true;
 		}
@@ -1141,10 +1141,10 @@ void gui::Render() noexcept
 
 			ImGui::Indent();
 
-			ImGui::Text(lang ? "File has been created from DreamWorld Template." : (const char*)u8"Файл был создан с использованием шаблона DreamWorld.");
-			ImGui::Text(lang ? "Click on Load Globals and also don't forget to" : (const char*)u8"Нажмите «Загрузить глобальные настройки», и не забудьте");
-			ImGui::Text(lang ? "change level name and skybox." : (const char*)u8"изменить название уровня и небесный фон(skybox).");
-			ImGui::Text(lang ? "You have to do this manually." : (const char*)u8"Это надо cделать вручную.");
+			ImGui::Text(lang ? "File has been created from DreamWorld Template." : (const char*)u8"Р¤Р°Р№Р» Р±С‹Р» СЃРѕР·РґР°РЅ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј С€Р°Р±Р»РѕРЅР° DreamWorld.");
+			ImGui::Text(lang ? "Click on Load Globals and also don't forget to" : (const char*)u8"РќР°Р¶РјРёС‚Рµ В«Р—Р°РіСЂСѓР·РёС‚СЊ РіР»РѕР±Р°Р»СЊРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРёВ», Рё РЅРµ Р·Р°Р±СѓРґСЊС‚Рµ");
+			ImGui::Text(lang ? "change level name and skybox." : (const char*)u8"РёР·РјРµРЅРёС‚СЊ РЅР°Р·РІР°РЅРёРµ СѓСЂРѕРІРЅСЏ Рё РЅРµР±РµСЃРЅС‹Р№ С„РѕРЅ(skybox).");
+			ImGui::Text(lang ? "You have to do this manually." : (const char*)u8"Р­С‚Рѕ РЅР°РґРѕ cРґРµР»Р°С‚СЊ РІСЂСѓС‡РЅСѓСЋ.");
 
 			if (ImGui::Button("OK"))
 			{
@@ -1165,11 +1165,11 @@ void gui::Render() noexcept
 
 	if (ImGui::BeginPopupModal("Success Merge!"))
 	{
-		ImGui::Text(lang ? "Success! Files have been merged!" : (const char*)u8"Успех! Файлы были объединены!");
-		ImGui::Text(lang ? "Link/Action/Trigger numbers inside" : (const char*)u8"Номера ссылок/действий/триггеров внутри");
-		ImGui::Text(lang ? "Actions and Triggers value rows were not modified!!" : (const char*)u8"Значения строк действий и триггеров не были изменены!!");
-		ImGui::Text(lang ? "Please remap them manually" : (const char*)u8"Пожалуйста, переназначьте их вручную");
-		ImGui::Text(lang ? "Only links remapping inside links was automatic" : (const char*)u8"Только переназначение ссылок внутри ссылок было автоматическим");
+		ImGui::Text(lang ? "Success! Files have been merged!" : (const char*)u8"РЈСЃРїРµС…! Р¤Р°Р№Р»С‹ Р±С‹Р»Рё РѕР±СЉРµРґРёРЅРµРЅС‹!");
+		ImGui::Text(lang ? "Link/Action/Trigger numbers inside" : (const char*)u8"РќРѕРјРµСЂР° СЃСЃС‹Р»РѕРє/РґРµР№СЃС‚РІРёР№/С‚СЂРёРіРіРµСЂРѕРІ РІРЅСѓС‚СЂРё");
+		ImGui::Text(lang ? "Actions and Triggers value rows were not modified!!" : (const char*)u8"Р—РЅР°С‡РµРЅРёСЏ СЃС‚СЂРѕРє РґРµР№СЃС‚РІРёР№ Рё С‚СЂРёРіРіРµСЂРѕРІ РЅРµ Р±С‹Р»Рё РёР·РјРµРЅРµРЅС‹!!");
+		ImGui::Text(lang ? "Please remap them manually" : (const char*)u8"РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРµСЂРµРЅР°Р·РЅР°С‡СЊС‚Рµ РёС… РІСЂСѓС‡РЅСѓСЋ");
+		ImGui::Text(lang ? "Only links remapping inside links was automatic" : (const char*)u8"РўРѕР»СЊРєРѕ РїРµСЂРµРЅР°Р·РЅР°С‡РµРЅРёРµ СЃСЃС‹Р»РѕРє РІРЅСѓС‚СЂРё СЃСЃС‹Р»РѕРє Р±С‹Р»Рѕ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРёРј");
 
 
 		if (ImGui::Button("OK"))
@@ -1183,7 +1183,7 @@ void gui::Render() noexcept
 
 	if (ImGui::BeginPopupModal("Error"))
 	{
-		ImGui::Text(lang ? "File path is invalid/file can't be opened" : (const char*)u8"Путь к файлу не верен/нельзя открыть файл");
+		ImGui::Text(lang ? "File path is invalid/file can't be opened" : (const char*)u8"РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ РЅРµ РІРµСЂРµРЅ/РЅРµР»СЊР·СЏ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р»");
 
 		if (ImGui::Button("OK"))
 		{
@@ -1199,7 +1199,7 @@ void gui::Render() noexcept
 
 		ImGui::Indent();
 
-		ImGui::Text(lang ? "StringID: if you write text directly in a field\n\nand it will be displayed in the game.\n\nFor example subtitles." : (const char*)u8"StringID: впишите в поле текст\n\nи он будетв игре,\n\nнапример субтитры для катсцен.");
+		ImGui::Text(lang ? "StringID: if you write text directly in a field\n\nand it will be displayed in the game.\n\nFor example subtitles." : (const char*)u8"StringID: РІРїРёС€РёС‚Рµ РІ РїРѕР»Рµ С‚РµРєСЃС‚\n\nРё РѕРЅ Р±СѓРґРµС‚РІ РёРіСЂРµ,\n\nРЅР°РїСЂРёРјРµСЂ СЃСѓР±С‚РёС‚СЂС‹ РґР»СЏ РєР°С‚СЃС†РµРЅ.");
 
 		ImGui::Unindent();
 
@@ -1214,7 +1214,7 @@ void gui::Render() noexcept
 	}
 
 	/*
-	if (file_dialog.showFileDialog(lang ? "Save File" : (const char*)u8"Сохранить Файл", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
+	if (file_dialog.showFileDialog(lang ? "Save File" : (const char*)u8"РЎРѕС…СЂР°РЅРёС‚СЊ Р¤Р°Р№Р»", imgui_addons::ImGuiFileBrowser::DialogMode::OPEN, ImVec2(700, 310), ".txt"))
 	{
 		saveFilePath = file_dialog.selected_path;
 		std::ofstream fileStream(saveFilePath);
@@ -1230,7 +1230,7 @@ void gui::Render() noexcept
 					fileStream << line << endl;
 				}
 			}
-			fileStream.close(); // Закрываем файл
+			fileStream.close(); // Р—Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
 		}
 	}
 	*/
@@ -1239,7 +1239,7 @@ void gui::Render() noexcept
 	ImGui::Text("");
 
 	ImGui::SameLine();
-	ImGui::Checkbox(lang ? "Show Trigger Types" : (const char*)u8"Показать типы триггеров", &typeMenuTriggers);
+	ImGui::Checkbox(lang ? "Show Trigger Types" : (const char*)u8"РџРѕРєР°Р·Р°С‚СЊ С‚РёРїС‹ С‚СЂРёРіРіРµСЂРѕРІ", &typeMenuTriggers);
 
 	if (typeMenuTriggers)
 	{
@@ -1258,7 +1258,7 @@ void gui::Render() noexcept
 	}
 
 	ImGui::SameLine();
-	ImGui::Checkbox(lang ? "Show Action Types" : (const char*)u8"Показать типы активностей", &typeMenuActions);
+	ImGui::Checkbox(lang ? "Show Action Types" : (const char*)u8"РџРѕРєР°Р·Р°С‚СЊ С‚РёРїС‹ Р°РєС‚РёРІРЅРѕСЃС‚РµР№", &typeMenuActions);
 
 	if (typeMenuActions)
 	{
@@ -1280,7 +1280,7 @@ void gui::Render() noexcept
 	ImGui::BeginChild("left2 pane", ImVec2(170, 450), true);
 	if (loaded)
 	{
-		if (ImGui::Button(lang ? "Actions" : (const char*)u8"Активности"))
+		if (ImGui::Button(lang ? "Actions" : (const char*)u8"РђРєС‚РёРІРЅРѕСЃС‚Рё"))
 		{
 			actions = true;
 			triggers = false;
@@ -1295,7 +1295,7 @@ void gui::Render() noexcept
 			linksAdd = false;
 		}
 
-		if (ImGui::Button(lang ? "Triggers" : (const char*)u8"Триггеры"))
+		if (ImGui::Button(lang ? "Triggers" : (const char*)u8"РўСЂРёРіРіРµСЂС‹"))
 		{
 			actions = false;
 			triggers = true;
@@ -1310,7 +1310,7 @@ void gui::Render() noexcept
 			linksAdd = false;
 		}
 
-		if (ImGui::Button(lang ? "Links" : (const char*)u8"Ссылки"))
+		if (ImGui::Button(lang ? "Links" : (const char*)u8"РЎСЃС‹Р»РєРё"))
 		{
 			actions = false;
 			triggers = false;
@@ -1334,7 +1334,7 @@ void gui::Render() noexcept
 		if (actions)
 		{
 			vibor = "Actions";
-			if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Добавить активность"))
+			if (ImGui::Button(lang ? "Add Action" : (const char*)u8"Р”РѕР±Р°РІРёС‚СЊ Р°РєС‚РёРІРЅРѕСЃС‚СЊ"))
 			{
 				changeTypeInputFields(actionsTypes[currentActionTypeIndex], vibor);
 				actionsEdit = false;
@@ -1348,7 +1348,7 @@ void gui::Render() noexcept
 
 			ImGui::Text("");
 
-			if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"Изменить активность"))
+			if (ImGui::Button(lang ? "Edit Action" : (const char*)u8"РР·РјРµРЅРёС‚СЊ Р°РєС‚РёРІРЅРѕСЃС‚СЊ"))
 			{
 				editAction();
 				matchInputFieldsSize(to_string(getObjectNumber(globalsActions[item_current_idx][0])), vibor);
@@ -1366,7 +1366,7 @@ void gui::Render() noexcept
 			ImGui::Text("");
 			ImGui::Text("");
 
-			if (ImGui::Button(lang ? "Merge Files" : (const char*)u8"Слияние Файлов"))
+			if (ImGui::Button(lang ? "Merge Files" : (const char*)u8"РЎР»РёСЏРЅРёРµ Р¤Р°Р№Р»РѕРІ"))
 			{
 				fileToMerge = OpenFileDialog();
 
@@ -1381,7 +1381,7 @@ void gui::Render() noexcept
 
 
 
-			if (ImGui::Button(lang ? "Merge it!" : (const char*)u8"Ахалай махалай!"))
+			if (ImGui::Button(lang ? "Merge it!" : (const char*)u8"РђС…Р°Р»Р°Р№ РјР°С…Р°Р»Р°Р№!"))
 				mergeActionsAndTriggersFromFile();
 
 		}
@@ -1391,7 +1391,7 @@ void gui::Render() noexcept
 			vibor = "Triggers";
 			ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
-			if (ImGui::Button(lang ? "Add Trigger" : (const char*)u8"Добавить триггер"))
+			if (ImGui::Button(lang ? "Add Trigger" : (const char*)u8"Р”РѕР±Р°РІРёС‚СЊ С‚СЂРёРіРіРµСЂ"))
 			{
 				changeTypeInputFields(TriggerTypes[TriggerType], vibor);
 				actionsEdit = false;
@@ -1405,7 +1405,7 @@ void gui::Render() noexcept
 			ImGui::Text("");
 
 			ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
-			if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"Изменить триггер"))
+			if (ImGui::Button(lang ? "Edit Trigger" : (const char*)u8"РР·РјРµРЅРёС‚СЊ С‚СЂРёРіРіРµСЂ"))
 			{
 				editTrigger();
 				matchInputFieldsSize(to_string(getObjectNumber(globalsTriggers[item_current_idx_trigger][0])), vibor);
@@ -1423,7 +1423,7 @@ void gui::Render() noexcept
 		if (links)
 		{
 			vibor = "Links";
-			if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Добавить ссылку"))
+			if (ImGui::Button(lang ? "Add Link" : (const char*)u8"Р”РѕР±Р°РІРёС‚СЊ СЃСЃС‹Р»РєСѓ"))
 			{
 				inputTriggerFields.clear();
 				inputActionFields.clear();
@@ -1439,7 +1439,7 @@ void gui::Render() noexcept
 			}
 			ImGui::Text("");
 
-			if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"Изменить ссылку"))
+			if (ImGui::Button(lang ? "Edit Link" : (const char*)u8"РР·РјРµРЅРёС‚СЊ СЃСЃС‹Р»РєСѓ"))
 			{
 				inputTriggerFields.clear();
 				inputActionFields.clear();
@@ -1457,7 +1457,7 @@ void gui::Render() noexcept
 		}
 	}
 	else {
-		ImGui::Text(lang ? "Load globals file at first" : (const char*)u8"Сначало загрузите\n\nфайл глобалс");
+		ImGui::Text(lang ? "Load globals file at first" : (const char*)u8"РЎРЅР°С‡Р°Р»Рѕ Р·Р°РіСЂСѓР·РёС‚Рµ\n\nС„Р°Р№Р» РіР»РѕР±Р°Р»СЃ");
 	}
 	ImGui::EndChild();
 
@@ -1494,18 +1494,18 @@ void gui::Render() noexcept
 			"With a link you can like triggers and actions together.\n\n"
 			"When a trigger will be triggered, an action will de executed.\n\n"
 			"Multiple triggers can be linked to multiple actions, etc." :
-			(const char*)u8"Ссылка соединяет триггер с активностью.\n\nКогда сработает триггер, будет запущена активность.\n\nНесколько триггеров может быть соединено с несколькими активностями."
+			(const char*)u8"РЎСЃС‹Р»РєР° СЃРѕРµРґРёРЅСЏРµС‚ С‚СЂРёРіРіРµСЂ СЃ Р°РєС‚РёРІРЅРѕСЃС‚СЊСЋ.\n\nРљРѕРіРґР° СЃСЂР°Р±РѕС‚Р°РµС‚ С‚СЂРёРіРіРµСЂ, Р±СѓРґРµС‚ Р·Р°РїСѓС‰РµРЅР° Р°РєС‚РёРІРЅРѕСЃС‚СЊ.\n\nРќРµСЃРєРѕР»СЊРєРѕ С‚СЂРёРіРіРµСЂРѕРІ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃРѕРµРґРёРЅРµРЅРѕ СЃ РЅРµСЃРєРѕР»СЊРєРёРјРё Р°РєС‚РёРІРЅРѕСЃС‚СЏРјРё."
 		);
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Save link " : (const char*)u8"Сохранить ссылку "))
+		if (ImGui::Button(lang ? "Save link " : (const char*)u8"РЎРѕС…СЂР°РЅРёС‚СЊ СЃСЃС‹Р»РєСѓ "))
 		{
 			replaceText(fileToEdit, globalsLinksPositions[item_current_idx_link], compileLink(inputFields, inputTriggerFields, inputActionFields, item_current_idx_link, item_current_idx_link));
 			reloadFile(log);
 		}
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Delete Link" : (const char*)u8"Удалить ссылку"))
+		if (ImGui::Button(lang ? "Delete Link" : (const char*)u8"РЈРґР°Р»РёС‚СЊ СЃСЃС‹Р»РєСѓ"))
 		{
 			inputTriggerFields.clear();
 			inputActionFields.clear();
@@ -1518,12 +1518,12 @@ void gui::Render() noexcept
 		{
 			ImGui::BeginTooltip();
 			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces link with an empty one" : (const char*)u8"Заменяет ссылку на пустую");
+			ImGui::TextUnformatted(lang ? "Replaces link with an empty one" : (const char*)u8"Р—Р°РјРµРЅСЏРµС‚ СЃСЃС‹Р»РєСѓ РЅР° РїСѓСЃС‚СѓСЋ");
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Revert" : (const char*)u8"Вернуть исходное"))
+		if (ImGui::Button(lang ? "Revert" : (const char*)u8"Р’РµСЂРЅСѓС‚СЊ РёСЃС…РѕРґРЅРѕРµ"))
 		{
 			matchInputFieldsSize("1", vibor);
 		}
@@ -1542,12 +1542,12 @@ void gui::Render() noexcept
 			"With a link you can like triggers and actions together.\n\n"
 			"When a trigger will be triggered, an action will de executed.\n\n"
 			"Multiple triggers can be linked to multiple actions, etc." :
-			(const char*)u8"Ссылка соединяет триггер с активностью.\n\nКогда сработает триггер, будет запущена активность.\n\nНесколько триггеров может быть соединено с несколькими активностями."
+			(const char*)u8"РЎСЃС‹Р»РєР° СЃРѕРµРґРёРЅСЏРµС‚ С‚СЂРёРіРіРµСЂ СЃ Р°РєС‚РёРІРЅРѕСЃС‚СЊСЋ.\n\nРљРѕРіРґР° СЃСЂР°Р±РѕС‚Р°РµС‚ С‚СЂРёРіРіРµСЂ, Р±СѓРґРµС‚ Р·Р°РїСѓС‰РµРЅР° Р°РєС‚РёРІРЅРѕСЃС‚СЊ.\n\nРќРµСЃРєРѕР»СЊРєРѕ С‚СЂРёРіРіРµСЂРѕРІ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃРѕРµРґРёРЅРµРЅРѕ СЃ РЅРµСЃРєРѕР»СЊРєРёРјРё Р°РєС‚РёРІРЅРѕСЃС‚СЏРјРё."
 		);
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Add link " : (const char*)u8"Добавить ссылку "))
+		if (ImGui::Button(lang ? "Add link " : (const char*)u8"Р”РѕР±Р°РІРёС‚СЊ СЃСЃС‹Р»РєСѓ "))
 		{
 			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
@@ -1593,7 +1593,7 @@ void gui::Render() noexcept
 			"A trigger is something that can happen in The Hobbit.\n\n"
 			"For example it can be when a stone hits an NPC,\n\n"
 			"when Bilbo enters volume, a cutscene finishes, etc." :
-			(const char*)u8"Триггер это что-то, что происходит в игре.\n\nНапример Бильбо заходит в волум, катсцена закончилась,\n\nпо НПС попал камень и тд."
+			(const char*)u8"РўСЂРёРіРіРµСЂ СЌС‚Рѕ С‡С‚Рѕ-С‚Рѕ, С‡С‚Рѕ РїСЂРѕРёСЃС…РѕРґРёС‚ РІ РёРіСЂРµ.\n\nРќР°РїСЂРёРјРµСЂ Р‘РёР»СЊР±Рѕ Р·Р°С…РѕРґРёС‚ РІ РІРѕР»СѓРј, РєР°С‚СЃС†РµРЅР° Р·Р°РєРѕРЅС‡РёР»Р°СЃСЊ,\n\nРїРѕ РќРџРЎ РїРѕРїР°Р» РєР°РјРµРЅСЊ Рё С‚Рґ."
 		);
 
 		ImGui::Text("");
@@ -1601,7 +1601,7 @@ void gui::Render() noexcept
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
 		const char* combo_preview_value2 = TriggerTypes[TriggerType];
-		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"Изменить Тип Триггера", combo_preview_value2))
+		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"РР·РјРµРЅРёС‚СЊ РўРёРї РўСЂРёРіРіРµСЂР°", combo_preview_value2))
 		{
 			for (int n = 0; n < IM_ARRAYSIZE(TriggerTypes); n++)
 			{
@@ -1628,7 +1628,7 @@ void gui::Render() noexcept
 		}
 
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Р’РµСЂРЅСѓС‚СЊ РёСЃС…РѕРґРЅРѕРµ"))
 		{
 			editTrigger();
 			matchInputFieldsSize(TriggerTypes[TriggerType], vibor);
@@ -1636,7 +1636,7 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Save trigger" : (const char*)u8"Сохранить триггер"))
+		if (ImGui::Button(lang ? "Save trigger" : (const char*)u8"РЎРѕС…СЂР°РЅРёС‚СЊ С‚СЂРёРіРіРµСЂ"))
 		{
 			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
@@ -1646,7 +1646,7 @@ void gui::Render() noexcept
 			reloadFile(log);
 		}
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Delete trigger" : (const char*)u8"Удалить триггер"))
+		if (ImGui::Button(lang ? "Delete trigger" : (const char*)u8"РЈРґР°Р»РёС‚СЊ С‚СЂРёРіРіРµСЂ"))
 		{
 			for (int i = 2; i < inputFields.size(); i++)
 				inputFields[i] = "";
@@ -1660,7 +1660,7 @@ void gui::Render() noexcept
 		{
 			ImGui::BeginTooltip();
 			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces trigger with an empty one" : (const char*)u8"Заменяет триггер на пустой");
+			ImGui::TextUnformatted(lang ? "Replaces trigger with an empty one" : (const char*)u8"Р—Р°РјРµРЅСЏРµС‚ С‚СЂРёРіРіРµСЂ РЅР° РїСѓСЃС‚РѕР№");
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
@@ -1678,14 +1678,14 @@ void gui::Render() noexcept
 			"A trigger is something that can happen in The Hobbit.\n\n"
 			"For example it can be when a stone hits an NPC,\n\n"
 			"when Bilbo enters volume, a cutscene finishes, etc." :
-			(const char*)u8"Триггер это что-то, что происходит в игре.\n\nНапример Бильбо заходит в волум, катсцена закончилась,\n\nпо НПС попал камень и тд."
+			(const char*)u8"РўСЂРёРіРіРµСЂ СЌС‚Рѕ С‡С‚Рѕ-С‚Рѕ, С‡С‚Рѕ РїСЂРѕРёСЃС…РѕРґРёС‚ РІ РёРіСЂРµ.\n\nРќР°РїСЂРёРјРµСЂ Р‘РёР»СЊР±Рѕ Р·Р°С…РѕРґРёС‚ РІ РІРѕР»СѓРј, РєР°С‚СЃС†РµРЅР° Р·Р°РєРѕРЅС‡РёР»Р°СЃСЊ,\n\nРїРѕ РќРџРЎ РїРѕРїР°Р» РєР°РјРµРЅСЊ Рё С‚Рґ."
 		);
 		ImGui::Text("");
 
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
 		const char* combo_preview_value2 = TriggerTypes[TriggerType];
-		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"Изменить Тип Триггера", combo_preview_value2))
+		if (ImGui::BeginCombo(lang ? "Change Trigger Type" : (const char*)u8"РР·РјРµРЅРёС‚СЊ РўРёРї РўСЂРёРіРіРµСЂР°", combo_preview_value2))
 		{
 			for (int n = 0; n < IM_ARRAYSIZE(TriggerTypes); n++)
 			{
@@ -1713,7 +1713,7 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Add trigger " : (const char*)u8"Добавить триггер "))
+		if (ImGui::Button(lang ? "Add trigger " : (const char*)u8"Р”РѕР±Р°РІРёС‚СЊ С‚СЂРёРіРіРµСЂ "))
 		{
 			insertText(fileToEdit, globalsTriggersPositions[globalsTriggersPositions.size() - 1] + 3, compileAction(inputFields, stoi(inputFields[0]), globalsTriggersPositions.size(), vibor));
 			vector<string> aiManagerProp = { to_string(globalsTriggers.size() + 1) + " " + to_string(globalsActions.size()) + " " + to_string(globalsLinks.size()) };
@@ -1754,7 +1754,7 @@ void gui::Render() noexcept
 		ImGui::SameLine(); HelpMarker(lang ?
 			"Action is something that will be executed.\n\n"
 			"This can be telport Bilbo, start a cutscene, spawn NPC, etc." :
-			(const char*)u8"Активность это действие что произойдет в игре.\n\nНапример телепортировать Бильбо, заспавнить НПС, начать катсцену и тд."
+			(const char*)u8"РђРєС‚РёРІРЅРѕСЃС‚СЊ СЌС‚Рѕ РґРµР№СЃС‚РІРёРµ С‡С‚Рѕ РїСЂРѕРёР·РѕР№РґРµС‚ РІ РёРіСЂРµ.\n\nРќР°РїСЂРёРјРµСЂ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ Р‘РёР»СЊР±Рѕ, Р·Р°СЃРїР°РІРЅРёС‚СЊ РќРџРЎ, РЅР°С‡Р°С‚СЊ РєР°С‚СЃС†РµРЅСѓ Рё С‚Рґ."
 		);
 
 		ImGui::Text("");
@@ -1762,7 +1762,7 @@ void gui::Render() noexcept
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
 		const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
-		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
+		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"РР·РјРµРЅРёС‚СЊ РўРёРї РђРєС‚РёРІРЅРѕСЃС‚Рё", combo_preview_value2))
 		{
 			for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
 			{
@@ -1788,7 +1788,7 @@ void gui::Render() noexcept
 		}
 
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Вернуть исходное"))
+		if (ImGui::Button(lang ? "Revert type" : (const char*)u8"Р’РµСЂРЅСѓС‚СЊ РёСЃС…РѕРґРЅРѕРµ"))
 		{
 			editAction();
 			matchInputFieldsSize(actionsTypes[currentActionTypeIndex], vibor);
@@ -1796,7 +1796,7 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Save action" : (const char*)u8"Сохранить активность"))
+		if (ImGui::Button(lang ? "Save action" : (const char*)u8"РЎРѕС…СЂР°РЅРёС‚СЊ Р°РєС‚РёРІРЅРѕСЃС‚СЊ"))
 		{
 			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
@@ -1806,7 +1806,7 @@ void gui::Render() noexcept
 			reloadFile(log);
 		}
 		ImGui::SameLine();
-		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"Удалить активность"))
+		if (ImGui::Button(lang ? "Delete action" : (const char*)u8"РЈРґР°Р»РёС‚СЊ Р°РєС‚РёРІРЅРѕСЃС‚СЊ"))
 		{
 			for (int i = 2; i < inputFields.size(); i++)
 				inputFields[i] = "";
@@ -1820,7 +1820,7 @@ void gui::Render() noexcept
 		{
 			ImGui::BeginTooltip();
 			ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-			ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Заменяет активность на пустую");
+			ImGui::TextUnformatted(lang ? "Replaces activity with an empty one" : (const char*)u8"Р—Р°РјРµРЅСЏРµС‚ Р°РєС‚РёРІРЅРѕСЃС‚СЊ РЅР° РїСѓСЃС‚СѓСЋ");
 			ImGui::PopTextWrapPos();
 			ImGui::EndTooltip();
 		}
@@ -1838,7 +1838,7 @@ void gui::Render() noexcept
 		ImGui::SameLine(); HelpMarker(lang ?
 			"Action is something that will be executed.\n\n"
 			"This can be telport Bilbo, start a cutscene, spawn NPC, etc." :
-			(const char*)u8"Активность это действие что произойдет в игре.\n\nНапример телепортировать Бильбо, заспавнить НПС, начать катсцену и тд."
+			(const char*)u8"РђРєС‚РёРІРЅРѕСЃС‚СЊ СЌС‚Рѕ РґРµР№СЃС‚РІРёРµ С‡С‚Рѕ РїСЂРѕРёР·РѕР№РґРµС‚ РІ РёРіСЂРµ.\n\nРќР°РїСЂРёРјРµСЂ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ Р‘РёР»СЊР±Рѕ, Р·Р°СЃРїР°РІРЅРёС‚СЊ РќРџРЎ, РЅР°С‡Р°С‚СЊ РєР°С‚СЃС†РµРЅСѓ Рё С‚Рґ."
 		);
 
 		ImGui::Text("");
@@ -1846,7 +1846,7 @@ void gui::Render() noexcept
 		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() * 0.24f);
 
 		const char* combo_preview_value2 = actionsTypes[currentActionTypeIndex];
-		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"Изменить Тип Активности", combo_preview_value2))
+		if (ImGui::BeginCombo(lang ? "Change Action Type" : (const char*)u8"РР·РјРµРЅРёС‚СЊ РўРёРї РђРєС‚РёРІРЅРѕСЃС‚Рё", combo_preview_value2))
 		{
 			for (int n = 0; n < IM_ARRAYSIZE(actionsTypes); n++)
 			{
@@ -1873,7 +1873,7 @@ void gui::Render() noexcept
 
 		ImGui::Text("");
 
-		if (ImGui::Button(lang ? "Add action " : (const char*)u8"Добавить активность "))
+		if (ImGui::Button(lang ? "Add action " : (const char*)u8"Р”РѕР±Р°РІРёС‚СЊ Р°РєС‚РёРІРЅРѕСЃС‚СЊ "))
 		{
 			for (const string& value : inputFields) {
 				std::cout << "Input Value: " << value << std::endl;
@@ -1897,12 +1897,12 @@ void gui::Render() noexcept
 	ImGui::BeginChild("text pane", ImVec2(525, 450), true, ImGuiWindowFlags_HorizontalScrollbar);
 
 	ImGui::Text(fileToEdit.c_str());
-	if (ImGui::Button(lang ? "Load Globals" : (const char*)u8"Загрузить Глобалс")) reloadFile(log);
+	if (ImGui::Button(lang ? "Load Globals" : (const char*)u8"Р—Р°РіСЂСѓР·РёС‚СЊ Р“Р»РѕР±Р°Р»СЃ")) reloadFile(log);
 	if (ImGui::IsItemHovered())
 	{
 		ImGui::BeginTooltip();
 		ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-		ImGui::TextUnformatted(lang ? "Make sure you selected globals file in the Menu" : (const char*)u8"Убедитесь что вы выбрали глобалс файл в меню");
+		ImGui::TextUnformatted(lang ? "Make sure you selected globals file in the Menu" : (const char*)u8"РЈР±РµРґРёС‚РµСЃСЊ С‡С‚Рѕ РІС‹ РІС‹Р±СЂР°Р»Рё РіР»РѕР±Р°Р»СЃ С„Р°Р№Р» РІ РјРµРЅСЋ");
 		ImGui::PopTextWrapPos();
 		ImGui::EndTooltip();
 	}
@@ -1911,9 +1911,9 @@ void gui::Render() noexcept
 
 	ImGui::EndChild();
 
-	if (ImGui::Button(!lang ? "Change Language" : (const char*)u8"Поменять язык")) lang = !lang;
+	if (ImGui::Button(!lang ? "Change Language" : (const char*)u8"РџРѕРјРµРЅСЏС‚СЊ СЏР·С‹Рє")) lang = !lang;
 
-	ImGui::Text(lang ? "Our links" : (const char*)u8"Наши ссылки");
+	ImGui::Text(lang ? "Our links" : (const char*)u8"РќР°С€Рё СЃСЃС‹Р»РєРё");
 	ImGui::Separator();
 
 	if (ImGui::Button("king174rus")) {
@@ -1924,7 +1924,7 @@ void gui::Render() noexcept
 		ShellExecute(NULL, "open", "https://youtube.com/c/@YKliffa", 0, 0, SW_SHOWNORMAL);
 	}
 	ImGui::SameLine(); ImGui::Text(" "); ImGui::SameLine();
-	if (ImGui::Button(lang ? "Hobbit Technical Discord" : (const char*)u8"Технический канал Хоббита в Дискорде")) {
+	if (ImGui::Button(lang ? "Hobbit Technical Discord" : (const char*)u8"РўРµС…РЅРёС‡РµСЃРєРёР№ РєР°РЅР°Р» РҐРѕР±Р±РёС‚Р° РІ Р”РёСЃРєРѕСЂРґРµ")) {
 		ShellExecute(NULL, "open", "https://discord.gg/hvzB3maxQ3", 0, 0, SW_SHOWNORMAL);
 	}
 
