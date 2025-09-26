@@ -1243,7 +1243,11 @@ void gui::Render() noexcept
 
 	if (typeMenuTriggers)
 	{
-		ImGui::SetNextWindowSize({ 500, 300 });
+		static bool firstOpen = true;
+		if (firstOpen) {
+			ImGui::SetNextWindowSize({ 500, 300 });
+			firstOpen = false;
+		}
 
 		ImGui::Begin("Trigger Types");
 
@@ -1262,7 +1266,11 @@ void gui::Render() noexcept
 
 	if (typeMenuActions)
 	{
-		ImGui::SetNextWindowSize({ 500, 300 });
+		static bool firstOpen = true;
+		if (firstOpen) {
+			ImGui::SetNextWindowSize({ 500, 300 });
+			firstOpen = false;
+		}
 
 		ImGui::Begin("Action Types");
 
