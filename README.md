@@ -20,7 +20,7 @@ Get the decompiled Globals File using exporttool.exe and open it in the Globals 
 
 # Tutorials
 
-[<img width="33%" alt="banner 3" src="https://github.com/user-attachments/assets/d317a515-1d83-46e5-a940-a1015fe125a6" />](https://www.youtube.com/watch?v=Zm-Rj4C-dp8) [<img width="33%" alt="banner 3" src="https://github.com/user-attachments/assets/dcee10a9-d4cb-42e2-881f-6c06d4ddeef7" />](https://www.youtube.com/watch?v=86nDbG8jujQ) [<img width="33%" alt="banner 3" src="https://github.com/user-attachments/assets/afa2cc63-c8e0-4d99-a259-e68f237280f0" />](https://www.youtube.com/watch?v=oJtqKup52A4) 
+[<img width="32%" alt="banner 3" src="https://github.com/user-attachments/assets/d317a515-1d83-46e5-a940-a1015fe125a6" />](https://www.youtube.com/watch?v=Zm-Rj4C-dp8) [<img width="32%" alt="banner 3" src="https://github.com/user-attachments/assets/dcee10a9-d4cb-42e2-881f-6c06d4ddeef7" />](https://www.youtube.com/watch?v=86nDbG8jujQ) [<img width="32%" alt="banner 3" src="https://github.com/user-attachments/assets/afa2cc63-c8e0-4d99-a259-e68f237280f0" />](https://www.youtube.com/watch?v=oJtqKup52A4) 
 
 
 
@@ -32,5 +32,6 @@ Run .sln to open the project in Visual Studio 2022.
 ## How to contribute
 
 Please contact us via the [Hobbit Technical Discord](https://discord.gg/uuMsVFX397) chat.
+
 
 
