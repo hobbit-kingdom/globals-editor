@@ -6,11 +6,6 @@ Globals Editor is a program that helps you work with the Globals file for The Ho
 
 You need to get the decompiled globals file (in TXT format) and upload it to the globals editor. All the changes you made in the file while working in the globals editor will already be in the file.
 
-## Installation
-
-Go to the [releases](https://github.com/hobbit-kingdom/globals-editor/releases) section and download the .zip. Copy the contents of the .zip to the root of your Game folder. Use The Hobbit - Kingjoyer Edition.bat to run the game.
-
-
 ## Join our Discord
 [<img width="2048" height="512" alt="banner 3" src="https://github.com/user-attachments/assets/e346271c-95f9-4f28-982a-3b98206df26f" />](https://discord.gg/uuMsVFX397)
 
@@ -30,3 +25,4 @@ Run .sln to open the project in Visual Studio 2022.
 ## How to contribute
 
 Please contact us via the [Hobbit Technical Discord](https://discord.gg/uuMsVFX397) chat.
+
