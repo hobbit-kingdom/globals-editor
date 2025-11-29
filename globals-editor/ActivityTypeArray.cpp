@@ -305,7 +305,7 @@ std::map<std::string, std::string>  DefaultValues = {
 	{"TriggerName0:s", "\"DefaultName\""},
 	{"Volume0:g", "00000000_00000000"},
 	{"Character0:g", "00000000_00000000"},
-	{"TriggersOnce0:d", "0"},
+	{"TriggersOnce0:d", "1"},
 	{"AllNPCs0:d", "0"},
 	{"StaysTrue0:d", "0"},
 	{"TriggeredOnTrue0:d", "1"},
