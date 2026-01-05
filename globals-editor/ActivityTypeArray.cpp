@@ -72,7 +72,9 @@ std::map<std::string, std::vector<std::string>> ActivityTypeArray = {
 	{"40",{ "ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d", "Action0MusicTrigger:g" }},
 
 	{"41",{ "ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d", "Action0DoRootToPosition:d", "Action0ResetRootPosition:d", "Action0NPC:g" }},
-
+	
+	{"42",{ "ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d", "Action0Do180Flip:d", "Action0NPC1:g", "Action0NPC2:g" }},
+	
 	{"43",{ "ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d", "Action0Enable:d", "Action0MaterialName:s" }},
 
 	{"44",{ "ActionType0:d", "ActionName0:s", "Action0ExecuteDelay:f", "Action0ExecuteImmediately:d" }},
@@ -241,6 +243,7 @@ std::map <std::string, std::string> tipsActionsENG = {
 	{ "37", "Set/remove invul from npc"},
 	{ "40", "Activate a music trigger"},
 	{ "41", "Change the npc position binding"},
+	{ "42", "Swap positons of 2 npcs"},
 	{ "43", "Something about the name of the material"},
 	{ "44", "Kill Bilbo"},
 	{ "45", "Turns the audio trigger on/off"},
@@ -284,6 +287,7 @@ std::map <std::string, std::string> tipsActionsRUS = {
 	{ "37", (const char*)u8"Устанавливает/убирает бессмертие у нпс"},
 	{ "40", (const char*)u8"Активирует музыкальный триггер"},
 	{ "41", (const char*)u8"Меняет привязку к месту у нпс"},
+	{ "42", (const char*)u8"Меняет местами 2 нпс"},
 	{ "43", (const char*)u8"Что-то о имени материала"},
 	{ "44", (const char*)u8"Убивает Бильбо"},
 	{ "45", (const char*)u8"Включает/выключает аудио триггер"},
@@ -423,4 +427,7 @@ std::map<std::string, std::string>  DefaultValues = {
 	{"Action0DoRunAI:d", "0"},
 	{"Action0DoRenderProp:d", "0"},
 	{"Action0Hoistable:d", "0"},
+	{"Action0Do180Flip:d", "1"},
+	{"Action0NPC1:d", "00000000_00000000"},
+	{"Action0NPC2:d", "00000000_00000000"},
 };
