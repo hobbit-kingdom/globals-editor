@@ -2,6 +2,8 @@
 
 Globals Editor is a program that helps you work with the Globals file for The Hobbit (2003) game. It is written in C++ using ImGui. Makes it easy to work with the Globals File and modify per level logic.
 
+Download link: https://github.com/hobbit-kingdom/globals-editor/releases
+
 ## Usage
 
 Get the decompiled Globals File using exporttool.exe and open it in the Globals Editor. instant preview of changes is available inside.
@@ -32,6 +34,7 @@ Run .sln to open the project in Visual Studio 2022.
 ## How to contribute
 
 Please contact us via the [Hobbit Technical Discord](https://discord.gg/uuMsVFX397) chat.
+
 
 
 
